@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function SupportingBetterOperations() {
   return (
     <section className="w-full bg-white py-12 md:py-16">
@@ -14,24 +16,16 @@ export default function SupportingBetterOperations() {
             </p>
           </div>
 
-          {/* Right Image Slot (Image will be added later) */}
+          {/* Right Image Side */}
           <div className="w-full md:w-[55%] flex items-center justify-center">
-            <div className="w-full h-[260px] sm:h-[320px] md:h-[360px] rounded-[20px] md:rounded-[24px] bg-[#f1f5f9] border-2 border-dashed border-slate-300 flex flex-col items-center justify-center p-6 text-center hover:border-slate-400 transition-colors">
-              <svg 
-                className="w-12 h-12 text-slate-400 mb-3" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth="1.5" 
-                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" 
-                />
-              </svg>
-              <span className="text-slate-600 text-sm font-medium">Image Card</span>
-              <span className="text-slate-400 text-xs mt-1">Image will be added here</span>
+            <div className="relative w-full h-[260px] sm:h-[320px] md:h-[360px] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-md">
+              <Image
+                src="/sub pages/Industries/Finance and Accounting/supporting-operations.png"
+                alt="Supporting Better Financial Operations"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 700px"
+              />
             </div>
           </div>
 

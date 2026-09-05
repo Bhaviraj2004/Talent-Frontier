@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function HowWeSupportYou() {
   const leftColumn = [
     { num: '01', title: 'Bookkeeping Assistance', subtitle: 'Approved systems' },
@@ -22,24 +24,16 @@ export default function HowWeSupportYou() {
 
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-14">
           
-          {/* Left Side: Image Slot (Image will be added later) */}
+          {/* Left Side: Image */}
           <div className="w-full lg:w-[48%] flex items-center justify-center">
-            <div className="w-full h-[280px] sm:h-[340px] md:h-[400px] rounded-[20px] md:rounded-[24px] bg-[#f1f5f9] border-2 border-dashed border-slate-300 flex flex-col items-center justify-center p-6 text-center hover:border-slate-400 transition-colors">
-              <svg 
-                className="w-12 h-12 text-slate-400 mb-3" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth="1.5" 
-                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" 
-                />
-              </svg>
-              <span className="text-slate-600 text-sm font-medium">Image Card</span>
-              <span className="text-slate-400 text-xs mt-1">Image will be added here</span>
+            <div className="relative w-full h-[280px] sm:h-[340px] md:h-[400px] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-md">
+              <Image
+                src="/sub pages/Industries/Finance and Accounting/how-we-support.png"
+                alt="How We Can Support You"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 650px"
+              />
             </div>
           </div>
 
