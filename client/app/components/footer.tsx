@@ -86,7 +86,7 @@ export default function Footer() {
               <li><Link href="/industries/finance-and-accounting" className="text-slate-300 hover:text-white transition-colors text-sm">Financial & Accounting</Link></li>
               <li><Link href="/industries/technology-and-digital" className="text-slate-300 hover:text-white transition-colors text-sm">Technology & Digital</Link></li>
               <li><Link href="/industries/property-and-real-estate" className="text-slate-300 hover:text-white transition-colors text-sm">Property & Real Estate</Link></li>
-              <li><Link href="/industries/e-commerce-and-retail" className="text-slate-300 hover:text-white transition-colors text-sm">E-Commerce & Retails</Link></li>
+              <li><Link href="/industries/ecommerce-and-retail" className="text-slate-300 hover:text-white transition-colors text-sm">E-Commerce & Retails</Link></li>
               <li><Link href="/industries/smes-and-growing-businesses" className="text-slate-300 hover:text-white transition-colors text-sm">SMEs & Growing Business</Link></li>
             </ul>
           </div>
