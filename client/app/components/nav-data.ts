@@ -149,7 +149,28 @@ export const navData = [
         subtitle: "AGILE RESOURCE AUGMENTATION",
         description: "Support for tech companies looking to scale their digital operations.",
         icon: Code,
-        href: "/industries/technology-digital"
+        href: "/industries/technology-and-digital"
+      },
+      {
+        title: "Property and Real Estate",
+        subtitle: "PROPERTY MANAGEMENT SUPPORT",
+        description: "Streamline operations for property developers and real estate agencies.",
+        icon: Building2,
+        href: "/industries/property-and-real-estate"
+      },
+      {
+        title: "E-Commerce and Retail",
+        subtitle: "DIGITAL RETAIL OPERATIONS",
+        description: "Optimize retail operations, customer support, and digital commerce workflows.",
+        icon: Target,
+        href: "/industries/ecommerce-and-retail"
+      },
+      {
+        title: "SMEs & Growing Businesses",
+        subtitle: "FLEXIBLE SUPPORT",
+        description: "Practical support that helps your team manage workload and scale efficiently.",
+        icon: Users,
+        href: "/industries/smes-and-growing-businesses"
       }
     ],
     bottomBar: {

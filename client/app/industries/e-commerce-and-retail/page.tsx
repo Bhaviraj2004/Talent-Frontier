@@ -1,5 +1,3 @@
-﻿import Header from "../../components/header";
-import Footer from "../../components/footer";
 import HeroSection from "../../components/sub pages/Industries sub/Ecommerce and Retail/HeroSection";
 import PracticalSupportSection from "../../components/sub pages/Industries sub/Ecommerce and Retail/PracticalSupportSection";
 import KeepCommerceMovingSection from "../../components/sub pages/Industries sub/Ecommerce and Retail/KeepCommerceMovingSection";
@@ -13,9 +11,7 @@ import StrengthenCommerceCTA from "../../components/sub pages/Industries sub/Eco
 
 export default function EcommerceAndRetailPage() {
   return (
-    <>
-      <Header />
-      <main className="min-h-screen bg-white font-sans text-[#1a2332]">
+    <>      <main className="min-h-screen bg-white font-sans text-[#1a2332]">
         <HeroSection />
         <PracticalSupportSection />
         <KeepCommerceMovingSection />
@@ -26,8 +22,6 @@ export default function EcommerceAndRetailPage() {
         <BuiltAroundCommerceSection />
         <BenefitsSection />
         <StrengthenCommerceCTA />
-      </main>
-      <Footer />
-    </>
+      </main>    </>
   );
 }
