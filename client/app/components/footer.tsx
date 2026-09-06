@@ -83,11 +83,11 @@ export default function Footer() {
             <h3 className="text-white text-xl font-normal mb-6">Industries</h3>
             <ul className="flex flex-col gap-4">
               <li><Link href="/industries/professional-services" className="text-slate-300 hover:text-white transition-colors text-sm">Professional Services</Link></li>
-              <li><Link href="/industries/finance-accounting" className="text-slate-300 hover:text-white transition-colors text-sm">Financial & Accounting</Link></li>
-              <li><Link href="/industries/technology" className="text-slate-300 hover:text-white transition-colors text-sm">Technology & Digital</Link></li>
-              <li><Link href="/industries/property" className="text-slate-300 hover:text-white transition-colors text-sm">Property & Real Estate</Link></li>
-              <li><Link href="/industries/retail" className="text-slate-300 hover:text-white transition-colors text-sm">E-Commerce & Retails</Link></li>
-              <li><Link href="/industries/sme" className="text-slate-300 hover:text-white transition-colors text-sm">SMEs & Growing Business</Link></li>
+              <li><Link href="/industries/finance-and-accounting" className="text-slate-300 hover:text-white transition-colors text-sm">Financial & Accounting</Link></li>
+              <li><Link href="/industries/technology-and-digital" className="text-slate-300 hover:text-white transition-colors text-sm">Technology & Digital</Link></li>
+              <li><Link href="/industries/property-and-real-estate" className="text-slate-300 hover:text-white transition-colors text-sm">Property & Real Estate</Link></li>
+              <li><Link href="/industries/e-commerce-and-retail" className="text-slate-300 hover:text-white transition-colors text-sm">E-Commerce & Retails</Link></li>
+              <li><Link href="/industries/smes-and-growing-businesses" className="text-slate-300 hover:text-white transition-colors text-sm">SMEs & Growing Business</Link></li>
             </ul>
           </div>
           

@@ -25,7 +25,7 @@ export default function HaveYouWorked() {
           {/* Using Rectangle 99.png as it seems to match the style of the "Have you worked with..." image from the screenshot */}
           <div className="absolute inset-4 md:inset-8 rounded-3xl overflow-hidden">
              <Image
-              src="/sub pages/Testimonials/Rectangle 97.png" // Falling back to 97 as 99 is already used above. In a real app we might have a specific image. Let's use 99 since the screenshot shows a similar one, or 97. Actually, let's use 97 for variety or 99. Wait, the screenshot shows the same woman and a guy. Let's use Rectangle 97 or maybe there is another image. Oh, wait, the design shows a woman and a guy, different from others. Let's use Rectangle 97 as placeholder.
+              src="/sub pages/Testimonials/Client Testimonials/Rectangle 97.png" // Falling back to 97 as 99 is already used above. In a real app we might have a specific image. Let's use 99 since the screenshot shows a similar one, or 97. Actually, let's use 97 for variety or 99. Wait, the screenshot shows the same woman and a guy. Let's use Rectangle 97 or maybe there is another image. Oh, wait, the design shows a woman and a guy, different from others. Let's use Rectangle 97 as placeholder.
               alt="Client Feedback"
               fill
               className="object-cover"

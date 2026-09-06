@@ -20,7 +20,7 @@ export default function StructuredSupport() {
       <div className="w-full md:w-1/2 relative min-h-[300px] md:min-h-[auto] p-4 md:p-8 flex items-center justify-center">
          <div className="relative w-full max-w-lg h-full min-h-[300px] rounded-3xl overflow-hidden">
             <Image
-              src="/sub pages/Testimonials/Rectangle 100.png"
+              src="/sub pages/Testimonials/Client Testimonials/Rectangle 100.png"
               alt="Business professionals talking"
               fill
               className="object-cover"

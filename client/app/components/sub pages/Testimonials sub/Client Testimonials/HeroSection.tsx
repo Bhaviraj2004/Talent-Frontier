@@ -6,7 +6,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/sub pages/Testimonials/Hero Photo.png"
+          src="/sub pages/Testimonials/Client Testimonials/Hero Photo.png"
           alt="Office Background"
           fill
           className="object-cover"

@@ -15,28 +15,28 @@ const tabs = [
 const gridTestimonials = [
   {
     id: 1,
-    image: "/sub pages/Testimonials/Rectangle 101.png",
+    image: "/sub pages/Testimonials/Client Testimonials/Rectangle 101.png",
     category: "Business Support — Melbourne",
     quote: "\"Clear communication made a real difference.\"",
     footer: "Client feedback",
   },
   {
     id: 2,
-    image: "/sub pages/Testimonials/Rectangle 102.png",
+    image: "/sub pages/Testimonials/Client Testimonials/Rectangle 102.png",
     category: "Finance & Accounting — Sydney",
     quote: "\"Reliable delivery and practical support.\"",
     footer: "Client feedback",
   },
   {
     id: 3,
-    image: "/sub pages/Testimonials/Rectangle 103.png",
+    image: "/sub pages/Testimonials/Client Testimonials/Rectangle 103.png",
     category: "Technology & Digital — Brisbane",
     quote: "\"Flexible support that fits our needs.\"",
     footer: "Client feedback",
   },
   {
     id: 4,
-    image: "/sub pages/Testimonials/Rectangle 104.png",
+    image: "/sub pages/Testimonials/Client Testimonials/Rectangle 104.png",
     category: "Marketing & Creative — Perth",
     quote: "\"An organised process from start to finish.\"",
     footer: "Client feedback",
@@ -69,7 +69,7 @@ export default function FeedbackSection() {
       <div className="bg-[#f4f7fb] rounded-3xl overflow-hidden flex flex-col md:flex-row mb-12">
         <div className="w-full md:w-1/2 relative h-[300px] md:h-[400px]">
           <Image
-            src="/sub pages/Testimonials/Rectangle 99.png"
+            src="/sub pages/Testimonials/Client Testimonials/Rectangle 99.png"
             alt="Client smiling"
             fill
             className="object-cover"

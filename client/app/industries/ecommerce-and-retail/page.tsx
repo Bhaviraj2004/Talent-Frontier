@@ -5,9 +5,6 @@ import WhoWeSupportBar from "../../components/sub pages/Industries sub/Ecommerce
 import SupportAcrossWorkflowSection from "../../components/sub pages/Industries sub/Ecommerce and Retail/SupportAcrossWorkflowSection";
 import FromProductToCustomerSection from "../../components/sub pages/Industries sub/Ecommerce and Retail/FromProductToCustomerSection";
 import GrowthCreatesMovingPartsBanner from "../../components/sub pages/Industries sub/Ecommerce and Retail/GrowthCreatesMovingPartsBanner";
-import BuiltAroundCommerceSection from "../../components/sub pages/Industries sub/Ecommerce and Retail/BuiltAroundCommerceSection";
-import BenefitsSection from "../../components/sub pages/Industries sub/Ecommerce and Retail/BenefitsSection";
-import StrengthenCommerceCTA from "../../components/sub pages/Industries sub/Ecommerce and Retail/StrengthenCommerceCTA";
 
 export default function EcommerceAndRetailPage() {
   return (
@@ -19,9 +16,6 @@ export default function EcommerceAndRetailPage() {
         <SupportAcrossWorkflowSection />
         <FromProductToCustomerSection />
         <GrowthCreatesMovingPartsBanner />
-        <BuiltAroundCommerceSection />
-        <BenefitsSection />
-        <StrengthenCommerceCTA />
       </main>    </>
   );
 }

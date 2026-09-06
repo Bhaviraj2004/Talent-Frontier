@@ -28,7 +28,7 @@ export default function WhatOurClientsSay() {
         <div className="absolute -inset-1 bg-blue-500 rounded-2xl z-0 hidden md:block" style={{ top: '-4px', bottom: '-4px', right: '-4px', left: '-50px' }}></div>
         <div className="relative h-full w-full rounded-r-2xl md:rounded-none md:rounded-r-2xl md:rounded-bl-3xl md:rounded-tl-[4rem] overflow-hidden z-10">
            <Image
-            src="/sub pages/Testimonials/Rectangle 97.png"
+            src="/sub pages/Testimonials/Client Testimonials/Rectangle 97.png"
             alt="Colleagues discussing"
             fill
             className="object-cover object-center"

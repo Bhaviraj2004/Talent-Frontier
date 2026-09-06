@@ -1,13 +1,14 @@
 export default function HeroSection() {
   return (
     <section className="relative w-full h-[400px] sm:h-[480px] md:h-[540px] lg:h-[600px] flex items-center justify-center bg-[#071124] overflow-hidden">
-      {/* Background Image / Placeholder Container - Image will be added later */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <div className="w-full h-full bg-gradient-to-b from-[#071124]/90 via-[#0a1835]/80 to-[#071124] flex items-center justify-center">
-          <div 
-            className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"
-          />
-        </div>
+        <img 
+          src="/sub pages/Industries/Technology and Digital/Rectangle 138.png" 
+          alt="Technology and Digital" 
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-[#071124]/60"></div>
       </div>
 
       {/* Hero Title */}
