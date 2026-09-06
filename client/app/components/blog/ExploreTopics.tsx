@@ -1,32 +1,49 @@
+"use client";
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const topics = [
-  { title: 'Business Insights', desc: 'Practical perspectives on business strategy, leadership, operational priorities and informed decision-making.', img: '/Blog page/Rectangle 49.png' },
-  { title: 'Technology & Automation', desc: 'Insights into artificial intelligence, workflow automation, CRM systems and the practical use of digital tools.', img: '/Blog page/Rectangle 52.png' },
-  { title: 'Finance & Operations', desc: 'Guidance on financial administration, operational efficiency, reporting and building consistent business processes.', img: '/Blog page/Rectangle 55.png' },
-  { title: 'Workforce & Business Growth', desc: 'Perspectives on workforce planning, business capacity, team development and sustainable organisational growth.', img: '/Blog page/Rectangle 56.png' }
+  { title: 'Business Insights', desc: 'Practical perspectives on business strategy, leadership, operational priorities and informed decision-making.', img: '/Blog page/Rectangle 49.png', category: 'Business Insights' },
+  { title: 'Technology & Automation', desc: 'Insights into artificial intelligence, workflow automation, CRM systems and the practical use of digital tools.', img: '/Blog page/Rectangle 52.png', category: 'Technology & Automation' },
+  { title: 'Finance & Operations', desc: 'Guidance on financial administration, operational efficiency, reporting and building consistent business processes.', img: '/Blog page/Rectangle 55.png', category: 'Finance & Operations' },
+  { title: 'Workforce & Business Growth', desc: 'Perspectives on workforce planning, business capacity, team development and sustainable organisational growth.', img: '/Blog page/Rectangle 56.png', category: 'Workforce & Business Growth' }
 ];
 
 const categories = [
+  "All",
   "Technology & Automation",
   "Finance & Operations",
   "Workforce & Business Growth"
 ];
 
 export default function ExploreTopics() {
+  const [selectedCat, setSelectedCat] = useState("All");
+
+  const filteredTopics = selectedCat === "All" 
+    ? topics 
+    : topics.filter(t => t.category === selectedCat);
+
   return (
-    <section className="w-full bg-white pb-20 font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+    <section id="explore-topics" className="w-full bg-white pb-16 sm:pb-20 font-sans">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
-          <h2 className="text-[28px] md:text-[32px] font-bold text-[#0f172a] tracking-tight">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8 sm:mb-12">
+          <h2 className="text-[24px] sm:text-[28px] md:text-[32px] font-bold text-[#0f172a] tracking-tight">
             Explore Our Topics
           </h2>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2 sm:gap-3">
             {categories.map((cat, idx) => (
-              <button key={idx} className="bg-[#1d4ed8] hover:bg-blue-600 text-white px-5 py-2.5 rounded-md text-[13px] font-semibold transition-colors shadow-sm">
+              <button 
+                key={idx} 
+                onClick={() => setSelectedCat(cat)}
+                className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-md text-[12px] sm:text-[13px] font-semibold transition-colors shadow-sm ${
+                  selectedCat === cat 
+                    ? 'bg-[#1d4ed8] text-white' 
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
                 {cat}
               </button>
             ))}
@@ -34,8 +51,8 @@ export default function ExploreTopics() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-          {topics.map((topic, idx) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          {filteredTopics.map((topic, idx) => (
             <div key={idx} className="bg-[#f8fafc] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col h-full border border-gray-100">
               <div className="relative w-full h-[180px]">
                 <Image src={topic.img} alt={topic.title} fill className="object-cover" />

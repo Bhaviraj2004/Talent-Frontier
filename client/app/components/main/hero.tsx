@@ -1,8 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <div className="relative min-h-[90vh] bg-[#020617] overflow-hidden flex flex-col font-sans">
+    <div className="relative min-h-[85vh] sm:min-h-[90vh] md:min-h-screen bg-[#020617] overflow-hidden flex flex-col font-sans">
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0">
         <Image 
@@ -13,38 +14,43 @@ export default function Hero() {
           priority
         />
         {/* Dark gradient overlay to ensure text readability on the left side */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 to-transparent w-full md:w-3/4"></div>
+        <div className="absolute inset-0 bg-[#020617]/60 md:bg-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/95 md:via-[#020617]/80 to-transparent w-full md:w-3/4"></div>
       </div>
 
       {/* Hero Main Content */}
-      <main className="relative z-10 flex-grow flex items-center px-6 md:px-12 max-w-[1400px] mx-auto w-full pt-12 pb-20">
-        <div className="max-w-3xl mt-8">
-          <p className="text-[#3b82f6] text-sm md:text-base font-bold tracking-wide mb-6">
+      <main className="relative z-10 flex-grow flex items-center px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto w-full py-16 md:py-20">
+        <div className="max-w-2xl mt-4 md:mt-8">
+          <p className="text-[#3b82f6] text-xs md:text-sm font-bold tracking-widest uppercase mb-4 md:mb-6">
             Business First Priority
           </p>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.15] mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.15] md:leading-[1.1] mb-6 tracking-tight">
             The <span className="italic font-serif font-light text-gray-100">Right Talent</span><br />
             for Your Growing<br />
             Business.
           </h1>
           
-          <p className="text-gray-300 text-base md:text-lg max-w-lg mb-12 leading-relaxed font-light">
-            We Help Businesses to identify, screen and connect<br />
-            with skilled professionals through a streamlined<br />
-            recruitment process.
+          <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-lg mb-8 md:mb-10 leading-relaxed font-light">
+            We Help Businesses to identify, screen and connect with skilled professionals through a streamlined recruitment process.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 mb-20">
-            <button className="bg-[#1d4ed8] hover:bg-blue-700 text-white px-8 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-all shadow-lg shadow-blue-900/50">
+          <div className="flex flex-col sm:flex-row gap-4 mb-10 md:mb-16">
+            <Link 
+              href="/services"
+              className="bg-[#1d4ed8] hover:bg-blue-700 text-white px-8 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-all shadow-lg shadow-blue-900/50 text-center w-full sm:w-auto"
+            >
               Explore Our Services
-            </button>
-            <button className="bg-white hover:bg-gray-100 text-[#1d4ed8] px-8 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-all shadow-lg">
+            </Link>
+            <Link 
+              href="/contact"
+              className="bg-white hover:bg-gray-100 text-[#1d4ed8] px-8 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-all shadow-lg text-center w-full sm:w-auto"
+            >
               Book a Consultation
-            </button>
+            </Link>
           </div>
           
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs md:text-sm text-gray-400 font-medium">
+          <div className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-xs md:text-sm text-gray-400 font-medium">
             <span>Business-Focused Support</span>
             <span className="text-gray-500 text-lg">&bull;</span>
             <span>Coordinated Expertise</span>

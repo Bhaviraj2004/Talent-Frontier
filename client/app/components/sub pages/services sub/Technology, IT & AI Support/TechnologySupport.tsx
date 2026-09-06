@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function TechnologySupport() {
   return (
@@ -14,9 +15,12 @@ export default function TechnologySupport() {
           Practical support for smarter, safer and more<br />
           consistent ways of working.
         </p>
-        <button className="bg-[#1150fb] hover:bg-blue-700 text-white px-8 py-3 text-sm font-semibold transition-colors w-fit rounded-sm">
+        <Link 
+          href="/contact"
+          className="inline-block bg-[#1150fb] hover:bg-blue-700 text-white px-8 py-3 text-sm font-semibold transition-colors w-fit rounded-sm text-center"
+        >
           Discuss Your Technology Needs
-        </button>
+        </Link>
       </div>
       <div className="w-full md:w-[55%] relative h-[400px] md:h-[450px]">
         <Image

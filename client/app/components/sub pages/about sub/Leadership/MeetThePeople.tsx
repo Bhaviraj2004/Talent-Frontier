@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function MeetThePeople() {
   return (
@@ -11,9 +12,12 @@ export default function MeetThePeople() {
           <p className="text-gray-600 text-base md:text-lg max-w-md">
             Our leadership team brings deep industry expertise, commercial insight and a people-first mindset to every partnership. We are committed to delivering exceptional outcomes with integrity and care.
           </p>
-          <button className="bg-[#0047FF] hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-colors text-sm">
+          <Link 
+            href="/contact"
+            className="inline-block bg-[#0047FF] hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-colors text-sm text-center"
+          >
             Tell Us What You Need
-          </button>
+          </Link>
         </div>
         <div className="w-full md:w-1/2 relative h-[350px] md:h-[450px]">
           <div className="absolute inset-0 rounded-[32px] overflow-hidden">

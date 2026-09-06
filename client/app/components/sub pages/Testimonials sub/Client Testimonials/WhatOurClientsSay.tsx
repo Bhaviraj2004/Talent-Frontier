@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function WhatOurClientsSay() {
   return (
@@ -16,9 +17,12 @@ export default function WhatOurClientsSay() {
           <p className="text-gray-300 mb-10 text-sm md:text-base leading-relaxed">
             Genuine perspectives on working with Talent Frontier.
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-3 px-8 rounded-sm transition duration-300">
+          <Link 
+            href="/testimonials"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-3 px-8 rounded-sm transition duration-300 text-center"
+          >
             Explore Client Feedback
-          </button>
+          </Link>
         </div>
       </div>
 

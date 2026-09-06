@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CTASection() {
   return (
@@ -11,12 +12,18 @@ export default function CTASection() {
           Tell us about your finance-process requirements.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <button className="bg-white text-[#1150fb] hover:bg-gray-100 px-8 py-3 rounded-sm text-sm font-semibold transition-colors">
+          <Link 
+            href="/contact"
+            className="inline-block bg-white text-[#1150fb] hover:bg-gray-100 px-8 py-3 rounded-sm text-sm font-semibold transition-colors text-center"
+          >
             Discuss Your Finance Support Needs
-          </button>
-          <button className="border border-white hover:bg-white/10 text-white px-8 py-3 rounded-sm text-sm font-semibold transition-colors">
+          </Link>
+          <Link 
+            href="/contact"
+            className="inline-block border border-white hover:bg-white/10 text-white px-8 py-3 rounded-sm text-sm font-semibold transition-colors text-center"
+          >
             Talk to Our Team
-          </button>
+          </Link>
         </div>
       </div>
       <div className="w-full md:w-1/2 relative min-h-[350px] md:min-h-0 rounded-sm overflow-hidden">

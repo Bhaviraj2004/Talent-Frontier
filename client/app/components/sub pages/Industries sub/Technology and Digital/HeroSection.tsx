@@ -11,9 +11,8 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[#071124]/60"></div>
       </div>
 
-      {/* Hero Title */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold text-white tracking-tight leading-[1.1]">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold text-white tracking-tight leading-[1.15] sm:leading-[1.1]">
           Technology &amp;<br />Digital
         </h1>
       </div>

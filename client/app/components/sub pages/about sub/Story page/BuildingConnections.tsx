@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BuildingConnections() {
   return (
@@ -16,9 +17,12 @@ export default function BuildingConnections() {
           performing teams and achieve lasting success.
         </p>
         <div>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-sm transition duration-300 text-sm">
+          <Link 
+            href="/contact"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-sm transition duration-300 text-sm text-center"
+          >
             Talk to Our Team
-          </button>
+          </Link>
         </div>
       </div>
 

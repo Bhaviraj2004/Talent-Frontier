@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function StructuredSupport() {
   return (
@@ -10,9 +11,12 @@ export default function StructuredSupport() {
             Could your business benefit from structured support?
           </h2>
           <div className="w-12 h-0.5 bg-white mb-10"></div>
-          <button className="bg-white text-blue-600 font-bold py-3 px-8 rounded-sm text-sm hover:bg-gray-100 transition duration-300">
+          <Link 
+            href="/contact"
+            className="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-sm text-sm hover:bg-gray-100 transition duration-300 text-center"
+          >
             Discuss Your Business Needs
-          </button>
+          </Link>
         </div>
       </div>
 

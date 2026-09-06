@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HaveYouWorked() {
   return (
@@ -12,9 +13,12 @@ export default function HaveYouWorked() {
           <p className="text-gray-600 mb-8 max-w-sm text-sm md:text-base leading-relaxed">
             Your feedback helps us improve the way we support your businesses.
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-sm transition duration-300 mb-3 text-sm">
+          <Link 
+            href="/contact"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-sm transition duration-300 mb-3 text-sm text-center"
+          >
             Submit Your Feedback
-          </button>
+          </Link>
           <p className="text-xs text-gray-500">
             Feedback is published only with written approval.
           </p>

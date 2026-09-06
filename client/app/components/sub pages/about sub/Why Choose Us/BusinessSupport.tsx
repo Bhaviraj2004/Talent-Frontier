@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function BusinessSupport() {
   return (
@@ -11,9 +12,12 @@ export default function BusinessSupport() {
           <p className="text-gray-600 text-sm md:text-base max-w-md leading-relaxed">
             We take the time to understand your business, current challenges and objectives before recommending the right combination of services and support.
           </p>
-          <button className="bg-[#0047FF] hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-colors text-sm">
+          <Link 
+            href="/contact"
+            className="inline-block bg-[#0047FF] hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-colors text-sm text-center"
+          >
             Tell Us What You Need
-          </button>
+          </Link>
         </div>
         <div className="w-full md:w-1/2 relative h-[300px] md:h-[450px]">
           <div className="absolute inset-0 rounded-[32px] overflow-hidden">

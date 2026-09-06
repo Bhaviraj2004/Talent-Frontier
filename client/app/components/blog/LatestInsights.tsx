@@ -16,11 +16,11 @@ const recommended = [
 
 export default function LatestInsights() {
   return (
-    <section className="w-full bg-white pb-24 font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+    <section id="latest-insights" className="w-full bg-white pb-16 sm:pb-24 font-sans">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
         
         {/* Latest Insights Header */}
-        <h2 className="text-[24px] md:text-[28px] font-bold text-[#0f172a] mb-8 tracking-tight border-t border-gray-200 pt-16">
+        <h2 className="text-[22px] sm:text-[24px] md:text-[28px] font-bold text-[#0f172a] mb-6 sm:mb-8 tracking-tight border-t border-gray-200 pt-10 sm:pt-16">
           Latest Insights
         </h2>
 

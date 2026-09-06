@@ -15,22 +15,15 @@ export default function ShortlistProcess() {
           <h2 className="text-2xl md:text-3xl font-bold text-[#0f172a] mb-4 tracking-tight leading-tight">Every Shortlist Starts With Understanding Your Requirement.</h2>
           <p className="text-gray-500 text-sm md:text-base">Our quality-focused approach ensures you receive the right candidates who match your role and your culture.</p>
         </div>
-        <div className="lg:col-span-3 flex flex-wrap lg:flex-nowrap items-center justify-between gap-4">
+        <div className="lg:col-span-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-start">
           {steps.map((step, idx) => (
-            <div key={idx} className="flex items-center w-full sm:w-auto flex-1">
-              <div className="flex flex-col items-center text-center w-full">
-                <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-[#2563eb] mb-4 shadow-sm border border-gray-100">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={step.icon}></path>
-                  </svg>
-                </div>
-                <span className="text-[11px] font-bold text-gray-700 leading-tight uppercase tracking-wide">{step.title}</span>
+            <div key={idx} className="flex flex-col items-center text-center w-full">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white flex items-center justify-center text-[#2563eb] mb-3 sm:mb-4 shadow-sm border border-gray-100 transition-transform hover:scale-105">
+                <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={step.icon}></path>
+                </svg>
               </div>
-              {idx < steps.length - 1 && (
-                <div className="mx-2 lg:mx-4 text-gray-300 hidden sm:block">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </div>
-              )}
+              <span className="text-[11px] sm:text-[12px] font-bold text-gray-700 leading-tight uppercase tracking-wide">{step.title}</span>
             </div>
           ))}
         </div>

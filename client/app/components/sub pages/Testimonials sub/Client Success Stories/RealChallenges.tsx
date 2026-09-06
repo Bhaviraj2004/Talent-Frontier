@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function RealChallenges() {
   return (
@@ -28,9 +29,12 @@ export default function RealChallenges() {
           processes, strengthen capacity and move forward.
         </p>
         <div>
-           <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-sm transition duration-300 text-sm">
+           <Link 
+             href="/contact"
+             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-sm transition duration-300 text-sm text-center"
+           >
              Explore Success Stories
-           </button>
+           </Link>
         </div>
       </div>
     </section>

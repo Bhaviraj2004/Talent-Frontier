@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CreativeAndMarketing() {
   return (
@@ -12,9 +13,12 @@ export default function CreativeAndMarketing() {
           marketing and creative production aligned with your<br />
           business objectives.
         </p>
-        <button className="bg-[#1150fb] hover:bg-blue-700 text-white px-8 py-3 text-sm font-semibold transition-colors w-fit rounded-sm">
+        <Link 
+          href="/contact"
+          className="inline-block bg-[#1150fb] hover:bg-blue-700 text-white px-8 py-3 text-sm font-semibold transition-colors w-fit rounded-sm text-center"
+        >
           Discuss Your Marketing Needs
-        </button>
+        </Link>
       </div>
       <div className="w-full md:w-[55%] relative h-[400px] md:h-[480px]">
         <Image

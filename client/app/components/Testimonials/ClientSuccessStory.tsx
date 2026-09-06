@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const steps = [
   { num: '01', title: 'Challenge', text: '[Client Challenge and context will appear here.]' },
@@ -8,12 +9,12 @@ const steps = [
 
 export default function ClientSuccessStory() {
   return (
-    <section className="w-full bg-white py-24 md:py-32 font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row gap-12 lg:gap-16 items-center lg:items-stretch">
+    <section id="success-stories" className="w-full bg-white py-16 sm:py-24 md:py-32 font-sans">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row gap-12 lg:gap-16 items-center lg:items-stretch">
         
         {/* Left Column - Intro */}
         <div className="w-full lg:w-[25%] flex flex-col justify-center">
-          <h2 className="text-[28px] md:text-[32px] font-bold text-[#1e293b] mb-6 leading-[1.2] tracking-tight">
+          <h2 className="text-[24px] sm:text-[28px] md:text-[32px] font-bold text-[#1e293b] mb-4 sm:mb-6 leading-[1.2] tracking-tight">
             From Business Challenges to Better Outcomes
           </h2>
           <p className="text-[#64748b] text-[14px] leading-relaxed font-medium">
@@ -23,7 +24,7 @@ export default function ClientSuccessStory() {
 
         {/* Middle Column - Featured Card */}
         <div className="w-full md:w-[70%] lg:w-[40%] bg-[#08153b] rounded-3xl overflow-hidden shadow-xl flex flex-col">
-          <div className="relative w-full h-[260px]">
+          <div className="relative w-full h-[220px] sm:h-[260px]">
             <Image 
               src="/Testimonials page/Rectangle 46.png" 
               alt="Success Story" 
@@ -31,18 +32,21 @@ export default function ClientSuccessStory() {
               className="object-cover"
             />
           </div>
-          <div className="p-8 md:p-10 flex flex-col flex-grow justify-between bg-gradient-to-b from-[#08153b] to-[#040b21]">
+          <div className="p-6 sm:p-8 md:p-10 flex flex-col flex-grow justify-between bg-gradient-to-b from-[#08153b] to-[#040b21]">
             <div>
-              <p className="text-[#60a5fa] text-[10px] md:text-[11px] font-bold tracking-[0.15em] uppercase mb-5 flex items-center">
+              <p className="text-[#60a5fa] text-[10px] md:text-[11px] font-bold tracking-[0.15em] uppercase mb-4 sm:mb-5 flex items-center">
                 Professional Services <span className="mx-2 text-white/30">|</span> Client Success Story
               </p>
-              <h3 className="text-[20px] md:text-[22px] font-bold text-white mb-8 leading-snug tracking-tight">
+              <h3 className="text-[18px] sm:text-[20px] md:text-[22px] font-bold text-white mb-6 sm:mb-8 leading-snug tracking-tight">
                 Supporting a Growing Business Through Structured Support
               </h3>
             </div>
-            <button className="self-start bg-transparent border border-white/20 hover:bg-white/10 text-white px-6 py-3 rounded-md text-[13px] font-semibold transition-colors mt-4">
+            <Link 
+              href="/contact"
+              className="self-start bg-transparent border border-white/20 hover:bg-white/10 text-white px-6 py-3 rounded-md text-[13px] font-semibold transition-colors mt-4 text-center"
+            >
               View Client Success Stories
-            </button>
+            </Link>
           </div>
         </div>
 

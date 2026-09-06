@@ -2,15 +2,15 @@ import Image from 'next/image';
 
 export default function ClientFeedback() {
   return (
-    <section className="w-full bg-white pb-24 font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+    <section id="client-feedback" className="w-full bg-white pb-16 sm:pb-24 font-sans">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
         
         {/* Header */}
-        <div className="mb-12">
-          <h2 className="text-[32px] md:text-[36px] font-bold text-[#1e293b] mb-4 tracking-tight">
+        <div className="mb-8 sm:mb-12">
+          <h2 className="text-[26px] sm:text-[32px] md:text-[36px] font-bold text-[#1e293b] mb-3 sm:mb-4 tracking-tight">
             Client Feedback
           </h2>
-          <p className="text-[#475569] font-medium text-[15px]">
+          <p className="text-[#475569] font-medium text-[14px] sm:text-[15px]">
             Experience shared by businesses we're proud to support.
           </p>
         </div>

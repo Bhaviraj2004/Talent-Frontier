@@ -14,22 +14,22 @@ const skills = [
 
 export default function SkillsTalent() {
   return (
-    <section className="py-24 px-6 max-w-[1400px] mx-auto w-full font-sans">
-      <h2 className="text-3xl md:text-4xl font-bold text-center text-[#0f172a] mb-16 tracking-tight">Talent Across the Skills Your Business Needs</h2>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+    <section className="py-16 md:py-24 px-6 max-w-[1400px] mx-auto w-full font-sans">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#0f172a] mb-10 md:mb-16 tracking-tight">Talent Across the Skills Your Business Needs</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-stretch">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
           {skills.map((skill, i) => (
-            <div key={i} className="flex flex-col items-center justify-center p-6 border border-gray-200 rounded-2xl hover:border-blue-500 hover:shadow-lg transition-all text-center cursor-pointer group bg-white">
-              <div className="mb-4 text-blue-600 group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <div key={i} className="flex flex-col items-center justify-center p-4 sm:p-6 border border-gray-200 rounded-2xl hover:border-blue-500 hover:shadow-lg transition-all text-center cursor-pointer group bg-white">
+              <div className="mb-3 sm:mb-4 text-blue-600 group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={skill.icon}></path>
                 </svg>
               </div>
-              <span className="text-xs font-bold text-gray-700 uppercase tracking-wide">{skill.name}</span>
+              <span className="text-[11px] sm:text-xs font-bold text-gray-700 uppercase tracking-wide">{skill.name}</span>
             </div>
           ))}
         </div>
-        <div className="relative w-full h-full min-h-[400px] lg:min-h-[auto] rounded-2xl overflow-hidden shadow-xl">
+        <div className="relative w-full h-full min-h-[260px] sm:min-h-[340px] lg:min-h-[auto] rounded-2xl overflow-hidden shadow-xl">
           <Image src="/main%20page/technologyprofession.png" alt="Professionals" fill className="object-cover" />
         </div>
       </div>

@@ -1,8 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function ServicesHero() {
   return (
-    <section className="relative w-full h-[500px] md:h-[600px] lg:h-[650px] bg-[#020617] overflow-hidden flex items-center font-sans">
+    <section className="relative w-full min-h-[460px] md:h-[600px] lg:h-[650px] bg-[#020617] overflow-hidden flex items-center font-sans py-12 md:py-0">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image 
@@ -13,28 +14,35 @@ export default function ServicesHero() {
           priority
         />
         {/* Gradient Overlay for text readability on mobile and left side */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#010921] via-[#010921]/90 md:via-[#010921]/70 to-transparent w-full md:w-3/4 lg:w-[60%]"></div>
+        <div className="absolute inset-0 bg-[#010921]/60 md:bg-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#010921] via-[#010921]/95 md:via-[#010921]/70 to-transparent w-full md:w-3/4 lg:w-[60%]"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col">
-        <div className="max-w-[600px] mt-8">
-          <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.1] mb-6 tracking-tight">
+        <div className="max-w-[600px] mt-4 md:mt-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.15] md:leading-[1.1] mb-6 tracking-tight">
             Business Support<br />
             Build Around<br />
             <span className="italic font-serif font-light text-gray-100">Your Growth</span>
           </h1>
           
-          <p className="text-gray-300 text-sm md:text-[15px] lg:text-base max-w-[500px] mb-10 leading-relaxed font-light">
-            From daily operations and people support to finance, technology, marketing and automation, we provide structured business support designed around your organisation's requirements.
+          <p className="text-gray-300 text-sm md:text-[15px] lg:text-base max-w-[500px] mb-8 md:mb-10 leading-relaxed font-light">
+            From daily operations and people support to finance, technology, marketing and automation, we provide structured business support designed around your organisation&apos;s requirements.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-4">
-            <button className="bg-[#2563eb] hover:bg-blue-600 text-white px-8 py-3.5 rounded-md font-semibold text-sm transition-colors shadow-lg shadow-blue-500/20 text-center">
+            <Link 
+              href="/contact"
+              className="bg-[#2563eb] hover:bg-blue-600 text-white px-8 py-3.5 rounded-md font-semibold text-sm transition-colors shadow-lg shadow-blue-500/20 text-center w-full sm:w-auto"
+            >
               Discuss Your Business Needs
-            </button>
-            <button className="bg-white hover:bg-gray-100 text-[#2563eb] px-8 py-3.5 rounded-md font-semibold text-sm transition-colors text-center shadow-md">
+            </Link>
+            <Link 
+              href="/services"
+              className="bg-white hover:bg-gray-100 text-[#2563eb] px-8 py-3.5 rounded-md font-semibold text-sm transition-colors text-center shadow-md w-full sm:w-auto"
+            >
               Explore Our Services
-            </button>
+            </Link>
           </div>
         </div>
       </div>

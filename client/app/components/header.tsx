@@ -3,12 +3,14 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { navData, simpleLinks } from './nav-data';
-import { ChevronDown, ArrowRight } from 'lucide-react';
+import { navData } from './nav-data';
+import { ChevronDown, ArrowRight, Menu, X } from 'lucide-react';
 
 export default function Header() {
   const pathname = usePathname();
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = (title: string) => {
@@ -19,31 +21,51 @@ export default function Header() {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setActiveMenu(null);
-    }, 150); // slight delay to make moving to dropdown easier
+    }, 150);
   };
 
   const toggleMenu = (title: string) => {
-    if (activeMenu === title) {
-      setActiveMenu(null);
-    } else {
-      setActiveMenu(title);
-    }
+    setActiveMenu(activeMenu === title ? null : title);
   };
 
-  // Close menu on route change
+  const toggleMobileSubmenu = (title: string) => {
+    setMobileExpanded(mobileExpanded === title ? null : title);
+  };
+
+  // Close menus on route change
   useEffect(() => {
     setActiveMenu(null);
+    setMobileMenuOpen(false);
   }, [pathname]);
 
+  // Close on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setActiveMenu(null);
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
-    <header className="w-full bg-white relative z-50 shadow-sm">
-      <div className="flex items-center justify-between px-6 py-5 md:px-12 max-w-[1400px] mx-auto w-full font-sans">
-        <Link href="/" className="flex items-center z-10">
-          <img src="/logo.png" alt="Talent Frontier" className="h-16 w-auto object-contain" />
+    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all">
+      <div className="flex items-center justify-between px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto w-full font-sans py-3 md:py-4">
+        {/* Logo */}
+        <Link href="/" className="flex items-center z-10 shrink-0" onClick={() => setMobileMenuOpen(false)}>
+          <img src="/logo.png" alt="Talent Frontier" className="h-10 sm:h-12 md:h-14 w-auto object-contain" />
         </Link>
         
-        <nav className="hidden lg:flex items-center gap-8 text-[15px] font-bold text-[#1e293b]">
-          <Link href="/" className={`${pathname === '/' ? 'text-[#2563eb]' : ''} hover:text-[#2563eb] transition-colors`}>Home</Link>
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-7 text-[15px] font-bold text-[#1e293b]">
+          <Link 
+            href="/" 
+            className={`${pathname === '/' ? 'text-[#2563eb]' : 'text-[#1e293b]'} hover:text-[#2563eb] transition-colors`}
+          >
+            Home
+          </Link>
           
           {navData.map((navItem) => {
             const isActivePage = pathname.startsWith(navItem.href);
@@ -57,33 +79,67 @@ export default function Header() {
                 onMouseLeave={handleMouseLeave}
               >
                 <button
+                  type="button"
                   onClick={() => toggleMenu(navItem.title)}
-                  className={`flex items-center gap-1 ${isActivePage ? 'text-[#2563eb]' : ''} hover:text-[#2563eb] transition-colors outline-none`}
+                  className={`flex items-center gap-1.5 ${isActivePage ? 'text-[#2563eb]' : 'text-[#1e293b]'} hover:text-[#2563eb] transition-colors outline-none py-2`}
+                  aria-expanded={isMenuOpen}
                 >
-                  <Link href={navItem.href}>{navItem.title}</Link>
+                  <Link href={navItem.href} className="hover:text-[#2563eb]">
+                    {navItem.title}
+                  </Link>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isMenuOpen ? 'rotate-180' : ''}`} />
                 </button>
               </div>
             );
           })}
           
-          <Link href="/blog" className={`${pathname === '/blog' ? 'text-[#2563eb]' : ''} hover:text-[#2563eb] transition-colors`}>Blog</Link>
-          <Link href="/contact" className={`${pathname === '/contact' ? 'text-[#2563eb]' : ''} hover:text-[#2563eb] transition-colors`}>Contact Us</Link>
+          <Link 
+            href="/blog" 
+            className={`${pathname.startsWith('/blog') ? 'text-[#2563eb]' : 'text-[#1e293b]'} hover:text-[#2563eb] transition-colors`}
+          >
+            Blog
+          </Link>
+          <Link 
+            href="/contact" 
+            className={`${pathname === '/contact' ? 'text-[#2563eb]' : 'text-[#1e293b]'} hover:text-[#2563eb] transition-colors`}
+          >
+            Contact Us
+          </Link>
         </nav>
+
+        {/* Desktop CTA */}
+        <div className="hidden lg:flex items-center">
+          <Link
+            href="/contact"
+            className="bg-[#2563eb] hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-full text-[13px] transition-colors shadow-sm"
+          >
+            Get in Touch
+          </Link>
+        </div>
+
+        {/* Mobile / Tablet Hamburger Button */}
+        <button
+          type="button"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="lg:hidden p-2 rounded-lg text-gray-700 hover:text-[#2563eb] hover:bg-gray-100 focus:outline-none transition-colors"
+          aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
+          aria-expanded={mobileMenuOpen}
+        >
+          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
 
-      {/* Mega Menu Overlay */}
+      {/* Desktop Mega Menu Dropdown */}
       {navData.map((navItem) => (
         <div
           key={`mega-${navItem.title}`}
-          className={`absolute top-full left-0 w-full flex justify-center transition-all duration-300 ease-out origin-top pointer-events-none
+          className={`hidden lg:flex absolute top-full left-0 w-full justify-center transition-all duration-300 ease-out origin-top pointer-events-none
             ${activeMenu === navItem.title ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
           `}
           onMouseEnter={() => handleMouseEnter(navItem.title)}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="w-[95%] max-w-[950px] bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden mt-2 p-5 pointer-events-auto">
-            
+          <div className="w-[95%] max-w-[980px] bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden mt-1 p-6 pointer-events-auto">
             {/* Top Bar */}
             <div className="flex justify-between items-center pb-3 border-b border-gray-100">
               <div className="flex items-center gap-3">
@@ -102,19 +158,23 @@ export default function Header() {
             </div>
 
             {/* Grid Content */}
-            <div className={`py-3 grid gap-2.5 ${navItem.items.length > 4 ? 'grid-cols-3' : 'grid-cols-2'}`}>
+            <div className={`py-4 grid gap-3 ${navItem.items.length > 4 ? 'grid-cols-3' : 'grid-cols-2'}`}>
               {navItem.items.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <Link href={item.href} key={item.title} className="group p-3 rounded-xl border border-gray-100 hover:border-[#2563eb] hover:shadow-md transition-all flex flex-col h-full bg-white">
-                    <div className="w-7 h-7 bg-[#f0f5ff] text-[#2563eb] rounded-lg flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                      <Icon className="w-3.5 h-3.5" />
+                  <Link 
+                    href={item.href} 
+                    key={item.title} 
+                    className="group p-3.5 rounded-xl border border-gray-100 hover:border-[#2563eb] hover:shadow-md transition-all flex flex-col h-full bg-white"
+                  >
+                    <div className="w-8 h-8 bg-[#f0f5ff] text-[#2563eb] rounded-lg flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                      <Icon className="w-4 h-4" />
                     </div>
                     <h3 className="text-[13px] font-bold text-gray-900 mb-0.5">{item.title}</h3>
-                    <p className="text-[#2563eb] text-[9px] font-bold tracking-wider uppercase mb-1">{item.subtitle}</p>
-                    <p className="text-gray-500 text-[10px] leading-snug mb-2 flex-grow">{item.description}</p>
+                    <p className="text-[#2563eb] text-[9.5px] font-bold tracking-wider uppercase mb-1">{item.subtitle}</p>
+                    <p className="text-gray-500 text-[11px] leading-snug mb-3 flex-grow">{item.description}</p>
                     
-                    <div className="flex items-center justify-between text-[10px] mt-auto">
+                    <div className="flex items-center justify-between text-[11px] mt-auto pt-1">
                       <span className="text-gray-400 font-medium">{item.title.split(',')[0]}</span>
                       <span className="flex items-center text-[#2563eb] font-bold gap-1 group-hover:translate-x-1 transition-transform">
                         Explore <ArrowRight className="w-3 h-3" />
@@ -140,11 +200,109 @@ export default function Header() {
                 </Link>
               </div>
             </div>
-
           </div>
         </div>
       ))}
 
+      {/* Mobile / Tablet Drawer */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden fixed inset-x-0 top-[61px] sm:top-[69px] md:top-[77px] bg-white border-b border-gray-200 shadow-2xl z-50 animate-in slide-in-from-top-2 duration-200">
+          <nav className="flex flex-col px-4 sm:px-6 py-6 space-y-1 max-h-[calc(100vh-80px)] overflow-y-auto">
+            {/* Home */}
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`py-3 px-3 rounded-lg text-[15px] font-bold transition-colors ${
+                pathname === '/' ? 'text-[#2563eb] bg-blue-50/70' : 'text-[#1e293b] hover:bg-gray-50'
+              }`}
+            >
+              Home
+            </Link>
+
+            {/* NavData sections with mobile accordions */}
+            {navData.map((navItem) => {
+              const isExpanded = mobileExpanded === navItem.title;
+              const isActive = pathname.startsWith(navItem.href);
+
+              return (
+                <div key={`mob-${navItem.title}`} className="border-b border-gray-50 pb-1">
+                  <div className="flex items-center justify-between">
+                    <Link
+                      href={navItem.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`py-3 px-3 rounded-lg text-[15px] font-bold transition-colors flex-1 ${
+                        isActive ? 'text-[#2563eb] font-bold' : 'text-[#1e293b] hover:bg-gray-50'
+                      }`}
+                    >
+                      {navItem.title}
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => toggleMobileSubmenu(navItem.title)}
+                      className="p-3 text-gray-500 hover:text-[#2563eb]"
+                      aria-label={`Expand ${navItem.title} subpages`}
+                    >
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
+                    </button>
+                  </div>
+
+                  {/* Subpages list */}
+                  {isExpanded && (
+                    <div className="pl-4 pr-2 py-2 space-y-1 bg-gray-50/70 rounded-xl mb-2">
+                      {navItem.items.map((subItem) => (
+                        <Link
+                          key={subItem.href}
+                          href={subItem.href}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className={`flex items-center justify-between py-2 px-3 rounded-md text-[13px] font-medium transition-colors ${
+                            pathname === subItem.href ? 'text-[#2563eb] font-bold bg-blue-50' : 'text-gray-700 hover:text-[#2563eb]'
+                          }`}
+                        >
+                          <span>{subItem.title}</span>
+                          <ArrowRight className="w-3 h-3 text-gray-400" />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+            {/* Blog */}
+            <Link
+              href="/blog"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`py-3 px-3 rounded-lg text-[15px] font-bold transition-colors ${
+                pathname.startsWith('/blog') ? 'text-[#2563eb] bg-blue-50/70' : 'text-[#1e293b] hover:bg-gray-50'
+              }`}
+            >
+              Blog
+            </Link>
+
+            {/* Contact Us */}
+            <Link
+              href="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`py-3 px-3 rounded-lg text-[15px] font-bold transition-colors ${
+                pathname === '/contact' ? 'text-[#2563eb] bg-blue-50/70' : 'text-[#1e293b] hover:bg-gray-50'
+              }`}
+            >
+              Contact Us
+            </Link>
+
+            {/* Mobile CTA */}
+            <div className="pt-4 mt-2">
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center bg-[#2563eb] hover:bg-blue-600 text-white font-bold py-3.5 px-4 rounded-xl shadow-md text-sm transition-all"
+              >
+                Get in Touch
+              </Link>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

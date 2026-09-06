@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function StructuredSupport() {
   return (
@@ -12,9 +13,12 @@ export default function StructuredSupport() {
             Reliable assistance for routine finance activities,
             organised records and consistent workflows.
           </p>
-          <button className="bg-[#1150fb] hover:bg-blue-700 text-white px-8 py-3 text-sm font-semibold transition-colors w-fit rounded-sm">
+          <Link 
+            href="/contact"
+            className="inline-block bg-[#1150fb] hover:bg-blue-700 text-white px-8 py-3 text-sm font-semibold transition-colors w-fit rounded-sm text-center"
+          >
             Discuss Your Finance Support Needs
-          </button>
+          </Link>
         </div>
       </div>
       <div className="w-full md:w-1/2 relative min-h-[400px] md:min-h-0">

@@ -2,9 +2,9 @@ import Image from 'next/image';
 
 export default function HorizontalTestimonial() {
   return (
-    <section className="w-full bg-white pb-24 font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="bg-[#f2f6fc] rounded-[32px] p-8 md:p-12 lg:p-16 flex flex-col md:flex-row items-center md:items-start lg:items-center gap-10 lg:gap-16 shadow-sm">
+    <section className="w-full bg-white pb-16 sm:pb-24 font-sans">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
+        <div className="bg-[#f2f6fc] rounded-2xl sm:rounded-[32px] p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col md:flex-row items-center md:items-start lg:items-center gap-6 sm:gap-10 lg:gap-16 shadow-sm">
           
           {/* Profile Image */}
           <div className="relative w-40 h-40 md:w-48 md:h-48 shrink-0 rounded-full overflow-hidden shadow-md mx-auto md:mx-0">

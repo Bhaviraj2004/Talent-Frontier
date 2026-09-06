@@ -15,8 +15,8 @@ const ArrowRightIcon = () => (
 
 export default function Hiring() {
   return (
-    <section className="bg-[#f3f7fb] py-20 px-6 md:px-12 w-full font-sans">
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section className="bg-[#f3f7fb] py-16 md:py-20 px-6 md:px-12 w-full font-sans">
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
         {/* Left Image Section */}
         <div className="relative w-full aspect-[4/3] md:aspect-[16/10] lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
           <Image 
@@ -29,12 +29,12 @@ export default function Hiring() {
 
         {/* Right Content Section */}
         <div className="flex flex-col justify-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] leading-[1.2] mb-10 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] leading-[1.2] mb-6 md:mb-10 tracking-tight">
             Hiring Shouldn’t Slow<br className="hidden md:block" />
             Your Business Down.
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-6 sm:gap-y-8 mb-8 md:mb-12">
             <div className="flex items-start gap-3">
               <CheckIcon />
               <p className="text-sm md:text-base text-gray-600 font-medium leading-tight">Finding the right people takes time</p>

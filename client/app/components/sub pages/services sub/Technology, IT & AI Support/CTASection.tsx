@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CTASection() {
   return (
@@ -8,9 +9,12 @@ export default function CTASection() {
           <h2 className="text-3xl md:text-[36px] lg:text-[42px] font-bold mb-10 leading-tight pr-4">
             Make technology work more<br />effectively for your business.
           </h2>
-          <button className="border border-white hover:bg-white/10 text-white px-8 py-3 rounded-sm text-[15px] font-semibold transition-colors w-fit">
+          <Link 
+            href="/contact"
+            className="inline-block border border-white hover:bg-white/10 text-white px-8 py-3 rounded-sm text-[15px] font-semibold transition-colors w-fit text-center"
+          >
             Discuss Your Technology Needs
-          </button>
+          </Link>
         </div>
         {/* Right side triangle detail based on image */}
         <div className="hidden md:block absolute -right-16 top-0 h-full w-32 bg-[#1150fb] transform -skew-x-[20deg] z-10"></div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SmarterProcesses() {
   return (
@@ -14,9 +15,12 @@ export default function SmarterProcesses() {
           Practical workflow improvement that reduces<br />
           repetition and strengthens consistency.
         </p>
-        <button className="bg-[#1150fb] hover:bg-blue-700 text-white px-8 py-3 text-[13px] font-bold transition-colors w-fit rounded-sm">
+        <Link 
+          href="/contact"
+          className="inline-block bg-[#1150fb] hover:bg-blue-700 text-white px-8 py-3 text-[13px] font-bold transition-colors w-fit rounded-sm text-center"
+        >
           Discuss Your Process Requirements
-        </button>
+        </Link>
       </div>
       <div className="w-full md:w-[55%] relative min-h-[400px] md:min-h-0">
         <Image

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function FacingChallenge() {
   return (
@@ -10,11 +11,14 @@ export default function FacingChallenge() {
             Facing a Similar Business Challenge?
           </h2>
           <p className="text-sm md:text-base leading-relaxed mb-10">
-            <a href="#" className="underline font-bold hover:text-gray-200 transition">Tell us</a> what is creating pressure, delays or unnecessary workload.
+            <Link href="/contact" className="underline font-bold hover:text-gray-200 transition">Tell us</Link> what is creating pressure, delays or unnecessary workload.
           </p>
-          <button className="bg-white text-[#0055ff] font-bold py-3 px-8 rounded-sm text-sm hover:bg-gray-100 transition duration-300 self-start">
+          <Link 
+            href="/contact"
+            className="inline-block bg-white text-[#0055ff] font-bold py-3 px-8 rounded-sm text-sm hover:bg-gray-100 transition duration-300 self-start text-center"
+          >
             Discuss Your Business Needs
-          </button>
+          </Link>
         </div>
       </div>
 

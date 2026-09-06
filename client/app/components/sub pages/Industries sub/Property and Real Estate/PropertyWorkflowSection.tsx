@@ -22,7 +22,7 @@ export default function PropertyWorkflowSection() {
                   {step}
                 </span>
                 {idx < steps.length - 1 && (
-                  <div className="w-8 sm:w-12 md:w-16 h-[1.5px] bg-[#2563eb]" />
+                  <div className="w-4 sm:w-8 md:w-16 h-[1.5px] bg-[#2563eb]" />
                 )}
               </div>
             ))}

@@ -10,7 +10,7 @@ const values = [
 
 export default function WhatClientValue() {
   return (
-    <section className="relative w-full py-24 md:py-28 font-sans overflow-hidden">
+    <section className="relative w-full py-16 sm:py-24 md:py-28 font-sans overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0 bg-[#041133]">
         <Image 
@@ -23,8 +23,8 @@ export default function WhatClientValue() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#041133] via-[#041133]/90 to-transparent"></div>
       </div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <h2 className="text-[32px] md:text-[36px] font-bold text-white mb-16 tracking-tight">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
+        <h2 className="text-[26px] sm:text-[32px] md:text-[36px] font-bold text-white mb-10 sm:mb-16 tracking-tight">
           What Client Value
         </h2>
         

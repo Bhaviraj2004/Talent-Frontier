@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function ReliableSupport() {
   return (
@@ -11,9 +12,12 @@ export default function ReliableSupport() {
           Practical administrative and operational support designed to help your team stay organised, responsive and focused on core business priorities.
         </p>
         <div>
-          <button className="bg-[#0047FF] hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-colors text-sm">
+          <Link 
+            href="/contact"
+            className="inline-block bg-[#0047FF] hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-colors text-sm text-center"
+          >
             Discuss Your Support Needs
-          </button>
+          </Link>
         </div>
       </div>
       <div className="w-full md:w-7/12 relative min-h-[400px] md:min-h-[600px]">

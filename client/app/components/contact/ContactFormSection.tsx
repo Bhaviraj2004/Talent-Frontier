@@ -1,56 +1,59 @@
+"use client";
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function ContactFormSection() {
   return (
-    <section className="w-full bg-[#f8fafc] py-24 font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row gap-16 lg:gap-24">
+    <section id="contact-form" className="w-full bg-[#f8fafc] py-16 sm:py-24 font-sans">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row gap-12 lg:gap-24">
         
         {/* Left Form Side */}
-        <div className="w-full lg:w-[60%] bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100">
+        <div className="w-full lg:w-[60%] bg-white rounded-3xl p-6 sm:p-8 md:p-12 shadow-sm border border-gray-100">
           <h4 className="text-[#3b82f6] font-bold text-[12px] uppercase tracking-wider mb-4">
             Business Enquiry
           </h4>
-          <h2 className="text-[28px] md:text-[32px] font-bold text-[#0f172a] mb-6 tracking-tight">
+          <h2 className="text-[24px] sm:text-[28px] md:text-[32px] font-bold text-[#0f172a] mb-4 sm:mb-6 tracking-tight">
             How Can We Help?
           </h2>
-          <p className="text-[#64748b] text-[13px] leading-relaxed mb-10 font-medium">
+          <p className="text-[#64748b] text-[13px] leading-relaxed mb-8 sm:mb-10 font-medium">
             Tell us about your business, current priorities and the support you require.<br className="hidden md:block" />
             Our team help you identify the right next step.
           </p>
 
-          <form className="flex flex-col gap-6">
+          <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">First Name*</label>
-                <input type="text" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+                <input type="text" required placeholder="John" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-[12px] font-bold text-[#1e293b] text-transparent select-none hidden md:block">Last Name*</label>
-                <input type="text" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px] mt-0 md:-mt-[22px]" />
+                <label className="text-[12px] font-bold text-[#1e293b]">Last Name*</label>
+                <input type="text" required placeholder="Doe" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Business Email Address*</label>
-                <input type="email" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+                <input type="email" required placeholder="john@example.com" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Phone Number</label>
-                <input type="tel" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+                <input type="tel" placeholder="+61 ..." className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Company Name*</label>
-                <input type="text" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+                <input type="text" required placeholder="Company Ltd" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Industry</label>
                 <select className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px] text-gray-500 appearance-none">
                   <option value="">Select Industry</option>
+                  <option value="property">Property & Real Estate</option>
+                  <option value="ecommerce">Ecommerce & Retail</option>
                   <option value="tech">Technology & Digital</option>
                   <option value="finance">Finance & Accounting</option>
                   <option value="services">Professional Services</option>
@@ -60,69 +63,69 @@ export default function ContactFormSection() {
 
             <div className="flex flex-col gap-2">
               <label className="text-[12px] font-bold text-[#1e293b]">Subject*</label>
-              <input type="text" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+              <input type="text" required placeholder="How can we help you?" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
             </div>
 
             <div className="flex flex-col gap-2 mb-2">
               <label className="text-[12px] font-bold text-[#1e293b]">Tell Us About Your Requirements*</label>
-              <textarea rows={5} className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px] resize-none"></textarea>
+              <textarea rows={5} required placeholder="Describe your staffing or support needs..." className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px] resize-none"></textarea>
             </div>
 
             <div className="flex items-center gap-3 mb-6">
-              <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer" />
-              <p className="text-[12px] font-medium text-[#64748b]">
-                I have read and agree to Talent frontier's <Link href="#" className="text-[#3b82f6] hover:underline font-bold">Privacy Policy.</Link>
-              </p>
+              <input type="checkbox" required id="privacy-agree" className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer" />
+              <label htmlFor="privacy-agree" className="text-[12px] font-medium text-[#64748b] cursor-pointer">
+                I have read and agree to Talent frontier's <Link href="/contact" className="text-[#3b82f6] hover:underline font-bold">Privacy Policy.</Link>
+              </label>
             </div>
 
-            <div className="flex flex-wrap items-center gap-6">
-              <button type="submit" className="bg-[#1d4ed8] hover:bg-blue-600 text-white px-8 py-3.5 rounded-md font-bold text-[13px] transition-colors shadow-md">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
+              <button type="submit" className="bg-[#1d4ed8] hover:bg-blue-600 text-white px-8 py-3.5 rounded-md font-bold text-[13px] transition-colors shadow-md text-center">
                 Send Enquiry
               </button>
-              <Link href="#" className="text-[#3b82f6] font-bold text-[13px] hover:text-blue-700 transition-colors inline-flex items-center group">
+              <a href="mailto:admin@talentfrontier.com.au?subject=Consultation%20Request" className="text-[#3b82f6] font-bold text-[13px] hover:text-blue-700 transition-colors inline-flex items-center justify-center group py-2">
                 Book a Consultation 
                 <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </Link>
+              </a>
             </div>
 
           </form>
         </div>
 
         {/* Right Info Side */}
-        <div className="w-full lg:w-[40%] flex flex-col pt-8">
-          <h2 className="text-[24px] md:text-[28px] font-bold text-[#0f172a] mb-6 tracking-tight">
+        <div className="w-full lg:w-[40%] flex flex-col pt-4 lg:pt-8">
+          <h2 className="text-[22px] sm:text-[24px] md:text-[28px] font-bold text-[#0f172a] mb-4 sm:mb-6 tracking-tight">
             Talk to Our Team
           </h2>
-          <p className="text-[#64748b] text-[13px] leading-relaxed mb-12 font-medium max-w-xs">
+          <p className="text-[#64748b] text-[13px] leading-relaxed mb-8 sm:mb-12 font-medium max-w-xs">
             Prefer to speak with someone directly? connect with our team using the details below
           </p>
 
-          <div className="flex flex-col gap-10 mb-12">
-            <div className="flex items-start gap-5">
-              <div className="w-10 h-10 rounded-full bg-[#3b82f6] flex items-center justify-center shrink-0 shadow-md shadow-blue-500/20">
+          <div className="flex flex-col gap-8 sm:gap-10 mb-8 sm:mb-12">
+            <a href="tel:+61423728511" className="flex items-start gap-5 group">
+              <div className="w-10 h-10 rounded-full bg-[#3b82f6] group-hover:bg-blue-600 transition-colors flex items-center justify-center shrink-0 shadow-md shadow-blue-500/20">
                 <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                 </svg>
               </div>
               <div className="flex flex-col border-l-2 border-gray-300 pl-4 py-1">
                 <span className="text-[11px] font-bold text-[#0f172a] uppercase tracking-wider mb-1">Phone</span>
-                <span className="text-[13px] font-medium text-[#475569]">+61 423 728 511</span>
+                <span className="text-[13px] font-medium text-[#475569] group-hover:text-blue-600 transition-colors">+61 423 728 511</span>
               </div>
-            </div>
+            </a>
 
-            <div className="flex items-start gap-5">
-              <div className="w-10 h-10 rounded-full bg-[#3b82f6] flex items-center justify-center shrink-0 shadow-md shadow-blue-500/20">
+            <a href="mailto:admin@talentfrontier.com.au" className="flex items-start gap-5 group">
+              <div className="w-10 h-10 rounded-full bg-[#3b82f6] group-hover:bg-blue-600 transition-colors flex items-center justify-center shrink-0 shadow-md shadow-blue-500/20">
                 <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                 </svg>
               </div>
               <div className="flex flex-col border-l-2 border-gray-300 pl-4 py-1">
                 <span className="text-[11px] font-bold text-[#0f172a] uppercase tracking-wider mb-1">Email</span>
-                <span className="text-[13px] font-medium text-[#475569]">admin@talentfrontier.com.au</span>
+                <span className="text-[13px] font-medium text-[#475569] group-hover:text-blue-600 transition-colors break-all">admin@talentfrontier.com.au</span>
               </div>
-            </div>
+            </a>
 
             <div className="flex items-start gap-5">
               <div className="w-10 h-10 rounded-full bg-[#3b82f6] flex items-center justify-center shrink-0 shadow-md shadow-blue-500/20">
@@ -139,12 +142,12 @@ export default function ContactFormSection() {
             </div>
           </div>
 
-          <button className="bg-[#f8fafc] border border-gray-300 hover:bg-gray-100 text-[#0f172a] px-6 py-3 rounded-md font-bold text-[12px] transition-colors shadow-sm w-fit flex items-center gap-3 mb-12">
+          <a href="mailto:admin@talentfrontier.com.au?subject=Consultation%20Booking" className="bg-[#f8fafc] border border-gray-300 hover:bg-gray-100 text-[#0f172a] px-6 py-3 rounded-md font-bold text-[12px] transition-colors shadow-sm w-full sm:w-fit flex items-center justify-center gap-3 mb-8 sm:mb-12">
             <svg className="w-4 h-4 text-[#3b82f6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
             Book a Consultation
-          </button>
+          </a>
 
           <div className="flex items-center gap-3">
             <Link href="#" className="w-8 h-8 flex items-center justify-center rounded-full bg-[#0077b5] text-white hover:opacity-90 transition-opacity">

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CTASection() {
   return (
@@ -12,12 +13,18 @@ export default function CTASection() {
             Tell us where delays or repetition are holding your team back.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-white text-[#1150fb] hover:bg-gray-100 px-6 py-3 rounded-sm text-[13px] font-bold transition-colors">
+            <Link 
+              href="/contact"
+              className="inline-block bg-white text-[#1150fb] hover:bg-gray-100 px-6 py-3 rounded-sm text-[13px] font-bold transition-colors text-center"
+            >
               Discuss Your Process Requirements
-            </button>
-            <button className="border border-white hover:bg-white/10 text-white px-8 py-3 rounded-sm text-[13px] font-bold transition-colors">
+            </Link>
+            <Link 
+              href="/contact"
+              className="inline-block border border-white hover:bg-white/10 text-white px-8 py-3 rounded-sm text-[13px] font-bold transition-colors text-center"
+            >
               Talk to Our Team
-            </button>
+            </Link>
           </div>
         </div>
         <div className="w-full md:w-[45%] relative min-h-[300px] md:min-h-0 z-0 bg-black">
