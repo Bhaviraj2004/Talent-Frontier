@@ -68,7 +68,7 @@ export default function Header() {
           })}
           
           <Link href="/blog" className={`${pathname === '/blog' ? 'text-[#2563eb]' : ''} hover:text-[#2563eb] transition-colors`}>Blog</Link>
-          <Link href="/contact" className={`${pathname === '/contact' ? 'text-[#2563eb]' : ''} hover:text-[#2563eb] transition-colors`}>Contact</Link>
+          <Link href="/contact" className={`${pathname === '/contact' ? 'text-[#2563eb]' : ''} hover:text-[#2563eb] transition-colors`}>Contact Us</Link>
         </nav>
       </div>
 
@@ -76,48 +76,48 @@ export default function Header() {
       {navData.map((navItem) => (
         <div
           key={`mega-${navItem.title}`}
-          className={`absolute top-full left-0 w-full flex justify-center transition-all duration-300 origin-top
-            ${activeMenu === navItem.title ? 'opacity-100 visible scale-y-100' : 'opacity-0 invisible scale-y-95 pointer-events-none'}
+          className={`absolute top-full left-0 w-full flex justify-center transition-all duration-300 ease-out origin-top pointer-events-none
+            ${activeMenu === navItem.title ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
           `}
           onMouseEnter={() => handleMouseEnter(navItem.title)}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="w-[95%] max-w-[1400px] bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden mt-2 p-8">
+          <div className="w-[95%] max-w-[950px] bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden mt-2 p-5 pointer-events-auto">
             
             {/* Top Bar */}
-            <div className="flex justify-between items-center pb-6 border-b border-gray-100">
-              <div className="flex items-center gap-4">
-                <span className="bg-[#e6f0ff] text-[#2563eb] text-sm font-semibold px-4 py-1.5 rounded-full">Active Category</span>
-                <h2 className="text-xl font-bold text-gray-900">{navItem.categoryTitle}</h2>
+            <div className="flex justify-between items-center pb-3 border-b border-gray-100">
+              <div className="flex items-center gap-3">
+                <span className="bg-[#e6f0ff] text-[#2563eb] text-[11px] font-semibold px-2.5 py-1 rounded-full">Active Category</span>
+                <h2 className="text-base font-bold text-gray-900">{navItem.categoryTitle}</h2>
               </div>
-              <div className="flex items-center gap-4 text-sm text-gray-500 font-medium">
+              <div className="flex items-center gap-3 text-[11px] text-gray-500 font-medium">
                 <span>Also explore:</span>
                 {navItem.exploreLinks.map((link, idx) => (
-                  <div key={link.label} className="flex items-center gap-4">
+                  <div key={link.label} className="flex items-center gap-3">
                     <Link href={link.href} className="hover:text-[#2563eb] transition-colors">{link.label}</Link>
-                    {idx < navItem.exploreLinks.length - 1 && <span className="w-px h-4 bg-gray-300"></span>}
+                    {idx < navItem.exploreLinks.length - 1 && <span className="w-px h-3 bg-gray-300"></span>}
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Grid Content */}
-            <div className={`py-8 grid gap-6 ${navItem.items.length > 4 ? 'grid-cols-3' : 'grid-cols-2'}`}>
+            <div className={`py-3 grid gap-2.5 ${navItem.items.length > 4 ? 'grid-cols-3' : 'grid-cols-2'}`}>
               {navItem.items.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <Link href={item.href} key={item.title} className="group p-6 rounded-2xl border border-gray-100 hover:border-[#2563eb] hover:shadow-lg transition-all flex flex-col h-full bg-white">
-                    <div className="w-12 h-12 bg-[#f0f5ff] text-[#2563eb] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                      <Icon className="w-6 h-6" />
+                  <Link href={item.href} key={item.title} className="group p-3 rounded-xl border border-gray-100 hover:border-[#2563eb] hover:shadow-md transition-all flex flex-col h-full bg-white">
+                    <div className="w-7 h-7 bg-[#f0f5ff] text-[#2563eb] rounded-lg flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                      <Icon className="w-3.5 h-3.5" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h3>
-                    <p className="text-[#2563eb] text-xs font-bold tracking-wider uppercase mb-4">{item.subtitle}</p>
-                    <p className="text-gray-500 text-sm leading-relaxed mb-8 flex-grow">{item.description}</p>
+                    <h3 className="text-[13px] font-bold text-gray-900 mb-0.5">{item.title}</h3>
+                    <p className="text-[#2563eb] text-[9px] font-bold tracking-wider uppercase mb-1">{item.subtitle}</p>
+                    <p className="text-gray-500 text-[10px] leading-snug mb-2 flex-grow">{item.description}</p>
                     
-                    <div className="flex items-center justify-between text-sm mt-auto">
+                    <div className="flex items-center justify-between text-[10px] mt-auto">
                       <span className="text-gray-400 font-medium">{item.title.split(',')[0]}</span>
                       <span className="flex items-center text-[#2563eb] font-bold gap-1 group-hover:translate-x-1 transition-transform">
-                        Explore <ArrowRight className="w-4 h-4" />
+                        Explore <ArrowRight className="w-3 h-3" />
                       </span>
                     </div>
                   </Link>
@@ -126,16 +126,16 @@ export default function Header() {
             </div>
 
             {/* Bottom Bar */}
-            <div className="pt-6 border-t border-gray-100 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#2563eb]"></div>
-                <p className="text-gray-600 text-sm font-medium">{navItem.bottomBar.text}</p>
+            <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#2563eb]"></div>
+                <p className="text-gray-600 text-[11px] font-medium">{navItem.bottomBar.text}</p>
               </div>
-              <div className="flex items-center gap-6">
-                <Link href={navItem.bottomBar.linkHref} className="text-gray-800 font-bold hover:text-[#2563eb] transition-colors flex items-center gap-1">
-                  {navItem.bottomBar.linkText} <ArrowRight className="w-4 h-4" />
+              <div className="flex items-center gap-4">
+                <Link href={navItem.bottomBar.linkHref} className="text-gray-800 text-[11px] font-bold hover:text-[#2563eb] transition-colors flex items-center gap-1">
+                  {navItem.bottomBar.linkText} <ArrowRight className="w-3 h-3" />
                 </Link>
-                <Link href={navItem.bottomBar.buttonHref} className="bg-[#0f172a] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#2563eb] transition-colors">
+                <Link href={navItem.bottomBar.buttonHref} className="bg-[#0f172a] text-white px-4 py-1.5 rounded-full text-[11px] font-bold hover:bg-[#2563eb] transition-colors">
                   {navItem.bottomBar.buttonText}
                 </Link>
               </div>

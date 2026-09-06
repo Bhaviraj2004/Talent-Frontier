@@ -61,7 +61,7 @@ export default function Footer() {
               <li><Link href="/about/our-approach" className="text-slate-300 hover:text-white transition-colors text-sm">Our Approach</Link></li>
               <li><Link href="/about/leadership" className="text-slate-300 hover:text-white transition-colors text-sm">Leadership</Link></li>
               <li><Link href="/about/why-choose-us" className="text-slate-300 hover:text-white transition-colors text-sm">Why Choose Us</Link></li>
-              <li><Link href="/contact" className="text-slate-300 hover:text-white transition-colors text-sm">Contact</Link></li>
+              <li><Link href="/contact" className="text-slate-300 hover:text-white transition-colors text-sm">Contact Us</Link></li>
             </ul>
           </div>
           

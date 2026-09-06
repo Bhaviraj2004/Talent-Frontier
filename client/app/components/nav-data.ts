@@ -28,28 +28,28 @@ export const navData = [
       {
         title: "Leadership",
         subtitle: "GUIDING OUR VISION",
-        description: "Meet the experienced professionals who steer our company's strategic direction and growth.",
+        description: "Meet the experienced professionals guiding our strategy and growth.",
         icon: Users,
         href: "/about/leadership"
       },
       {
         title: "Our Approach",
         subtitle: "HOW WE WORK",
-        description: "Discover our unique methodology for delivering consistent and reliable support.",
+        description: "Discover our methodology for delivering reliable support.",
         icon: Target,
         href: "/about/our-approach"
       },
       {
         title: "Story page",
         subtitle: "OUR JOURNEY",
-        description: "Read about our founding, our milestones, and the values that define us today.",
+        description: "Read about our founding and the core values that define us.",
         icon: BookOpen,
         href: "/about/story"
       },
       {
         title: "Why Choose Us",
         subtitle: "THE TALENT FRONTIER DIFFERENCE",
-        description: "Learn why industry leaders trust us with their most critical operations.",
+        description: "Learn why leaders trust us with their critical operations.",
         icon: Award,
         href: "/about/why-choose-us"
       }
@@ -73,43 +73,43 @@ export const navData = [
     items: [
       {
         title: "Business Support Services",
-        subtitle: "RELIABLE SUPPORT FOR EVERYDAY BUSINESS",
-        description: "Practical administration and sustained support tailored to keep your everyday operations...",
+        subtitle: "RELIABLE SUPPORT",
+        description: "Practical administration tailored to keep operations smooth.",
         icon: Building2,
         href: "/services/business-support"
       },
       {
         title: "People & Operations Support",
-        subtitle: "PRACTICAL SUPPORT FOR YOUR PEOPLE",
-        description: "Dedicated operational assistance for HR coordination, onboarding, talent pipelines, and...",
+        subtitle: "PRACTICAL SUPPORT",
+        description: "Dedicated operational assistance for HR and talent pipelines.",
         icon: Users,
         href: "/services/people-operations"
       },
       {
         title: "Finance & Accounting Support",
-        subtitle: "STRUCTURED SUPPORT FOR FINANCE",
-        description: "Structured support for finance processes, general bookkeeping, invoicing pipelines, and thorough...",
+        subtitle: "STRUCTURED SUPPORT",
+        description: "Structured support for finance processes and bookkeeping.",
         icon: Briefcase,
         href: "/services/finance-accounting"
       },
       {
         title: "Technology, IT & AI Support",
-        subtitle: "TECHNOLOGY DESIGNED FOR GROWTH",
-        description: "Technology support designed around your business. Reliable tech support for modern digital systems, AI...",
+        subtitle: "TECH FOR GROWTH",
+        description: "Reliable tech support for modern digital systems and AI.",
         icon: Monitor,
         href: "/services/technology-it-ai"
       },
       {
         title: "Brand, Marketing & Creative",
-        subtitle: "STRENGTHENS YOUR MARKET BRAND",
-        description: "Creative and marketing support that strengthens your identity. Consistent visual communication,...",
+        subtitle: "STRENGTHENS BRAND",
+        description: "Creative support that strengthens your brand identity.",
         icon: Megaphone,
         href: "/services/brand-marketing-creative"
       },
       {
         title: "Process & Automation Support",
-        subtitle: "SMARTER, EFFICIENT WORKFLOWS",
-        description: "Smarter processes and more efficient ways of working. Practical workflow optimization,...",
+        subtitle: "SMARTER WORKFLOWS",
+        description: "Smarter processes and practical workflow optimization.",
         icon: Zap,
         href: "/services/process-automation"
       }
@@ -132,43 +132,43 @@ export const navData = [
     items: [
       {
         title: "Finance and Accounting",
-        subtitle: "SPECIALIZED INDUSTRY SUPPORT",
-        description: "Tailored solutions for financial institutions and accounting firms.",
+        subtitle: "SPECIALIZED SUPPORT",
+        description: "Tailored solutions for financial and accounting firms.",
         icon: LineChart,
         href: "/industries/finance-accounting"
       },
       {
         title: "Professional Services",
         subtitle: "SCALABLE OPERATIONS",
-        description: "Enhance your firm's capabilities with dedicated operational teams.",
+        description: "Enhance capabilities with dedicated operational teams.",
         icon: Shield,
         href: "/industries/professional-services"
       },
       {
         title: "Technology and Digital",
-        subtitle: "AGILE RESOURCE AUGMENTATION",
-        description: "Support for tech companies looking to scale their digital operations.",
+        subtitle: "RESOURCE AUGMENTATION",
+        description: "Support for tech companies scaling their operations.",
         icon: Code,
         href: "/industries/technology-and-digital"
       },
       {
         title: "Property and Real Estate",
-        subtitle: "PROPERTY MANAGEMENT SUPPORT",
-        description: "Streamline operations for property developers and real estate agencies.",
+        subtitle: "PROPERTY MANAGEMENT",
+        description: "Streamline operations for real estate agencies.",
         icon: Building2,
         href: "/industries/property-and-real-estate"
       },
       {
         title: "E-Commerce and Retail",
-        subtitle: "DIGITAL RETAIL OPERATIONS",
-        description: "Optimize retail operations, customer support, and digital commerce workflows.",
+        subtitle: "DIGITAL RETAIL",
+        description: "Optimize retail operations and digital commerce workflows.",
         icon: Target,
         href: "/industries/ecommerce-and-retail"
       },
       {
         title: "SMEs & Growing Businesses",
         subtitle: "FLEXIBLE SUPPORT",
-        description: "Practical support that helps your team manage workload and scale efficiently.",
+        description: "Practical support to manage workload and scale efficiently.",
         icon: Users,
         href: "/industries/smes-and-growing-businesses"
       }
@@ -191,15 +191,15 @@ export const navData = [
     items: [
       {
         title: "Client Success Stories",
-        subtitle: "REAL WORLD RESULTS",
-        description: "Read detailed case studies on how we've helped businesses achieve their operational goals.",
+        subtitle: "REAL RESULTS",
+        description: "Read case studies on achieving operational goals.",
         icon: Target,
         href: "/testimonials/success-stories"
       },
       {
         title: "Client Testimonials",
-        subtitle: "WHAT OUR CLIENTS SAY",
-        description: "Hear directly from our partners about their experience working with Talent Frontier.",
+        subtitle: "CLIENT FEEDBACK",
+        description: "Hear directly from our partners about their experience.",
         icon: MessageSquare,
         href: "/testimonials/client-testimonials"
       }
