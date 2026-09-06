@@ -123,11 +123,11 @@ export default function Footer() {
         
         {/* Bottom Links */}
         <div className="flex flex-wrap items-center justify-start lg:justify-end gap-x-6 gap-y-4 pt-8">
-          <Link href="/privacy" className="text-slate-300 hover:text-white transition-colors text-sm">Privacy Policy</Link>
+          <Link href="/privacy-policy" className="text-slate-300 hover:text-white transition-colors text-sm">Privacy Policy</Link>
           <span className="w-px h-4 bg-slate-500"></span>
-          <Link href="/terms" className="text-slate-300 hover:text-white transition-colors text-sm">Terms & Conditions</Link>
+          <Link href="/terms-conditions" className="text-slate-300 hover:text-white transition-colors text-sm">Terms & Conditions</Link>
           <span className="w-px h-4 bg-slate-500"></span>
-          <Link href="/cookies" className="text-slate-300 hover:text-white transition-colors text-sm">Cookie Policy</Link>
+          <Link href="/cookie-policy" className="text-slate-300 hover:text-white transition-colors text-sm">Cookie Policy</Link>
         </div>
         
       </div>
