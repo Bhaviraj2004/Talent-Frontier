@@ -1,5 +1,3 @@
-import Header from "../../components/header";
-import Footer from "../../components/footer";
 import HeroSection from "../../components/sub pages/Industries sub/Finance and Accounting/HeroSection";
 import StructuredSupportSection from "../../components/sub pages/Industries sub/Finance and Accounting/StructuredSupportSection";
 import SupportingBetterOperations from "../../components/sub pages/Industries sub/Finance and Accounting/SupportingBetterOperations";
@@ -15,8 +13,7 @@ import BringStructureCTA from "../../components/sub pages/Industries sub/Finance
 export default function FinanceAndAccountingPage() {
   return (
     <>
-      <Header />
-      <main className="min-h-screen bg-white font-sans text-[#1a2332]">
+            <main className="min-h-screen bg-white font-sans text-[#1a2332]">
         <HeroSection />
         <StructuredSupportSection />
         <SupportingBetterOperations />
@@ -29,7 +26,6 @@ export default function FinanceAndAccountingPage() {
         <WhyWorkWithTalentFrontier />
         <BringStructureCTA />
       </main>
-      <Footer />
-    </>
+          </>
   );
 }

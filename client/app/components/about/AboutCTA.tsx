@@ -1,16 +1,18 @@
 export default function AboutCTA() {
   return (
-    <section className="bg-[#08154a] py-16 px-6 font-sans flex flex-col items-center justify-center text-center mt-12 border-t border-blue-900/30">
-      <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 tracking-tight">
-        Let's Talk About Your Hiring Needs
-      </h2>
-      <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-        <button className="bg-white text-[#08154a] px-10 py-3.5 rounded-md font-bold text-sm hover:bg-gray-100 transition-colors shadow-lg">
-          Start a Conversation
-        </button>
-        <button className="bg-[#2563eb] text-white px-10 py-3.5 rounded-md font-bold text-sm hover:bg-blue-600 transition-colors shadow-lg">
-          Hire Talent
-        </button>
+    <section className="bg-[#08154a] py-20 px-6 font-sans border-b border-gray-800">
+      <div className="max-w-[1400px] mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">
+          Let's Create the Right Support Structure for Your Business
+        </h2>
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <button className="bg-white hover:bg-gray-100 text-[#0f172a] px-8 py-3 rounded-md font-semibold text-sm transition-colors w-full sm:w-auto">
+            Start a Conversation
+          </button>
+          <button className="bg-[#1c55d4] hover:bg-blue-700 text-white px-8 py-3 rounded-md font-semibold text-sm transition-colors w-full sm:w-auto">
+            Explore Our Services
+          </button>
+        </div>
       </div>
     </section>
   );

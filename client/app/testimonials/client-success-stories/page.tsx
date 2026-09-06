@@ -1,5 +1,3 @@
-import Header from "../../components/header";
-import Footer from "../../components/footer";
 import HeroSection from "../../components/sub pages/Testimonials sub/Client Success Stories/HeroSection";
 import RealChallenges from "../../components/sub pages/Testimonials sub/Client Success Stories/RealChallenges";
 import SupportShaped from "../../components/sub pages/Testimonials sub/Client Success Stories/SupportShaped";
@@ -12,8 +10,7 @@ import FacingChallenge from "../../components/sub pages/Testimonials sub/Client 
 export default function ClientSuccessStoriesPage() {
   return (
     <>
-      <Header />
-      <main className="min-h-screen bg-white font-sans text-[#1a2332]">
+            <main className="min-h-screen bg-white font-sans text-[#1a2332]">
         <HeroSection />
         <RealChallenges />
         <SupportShaped />
@@ -23,7 +20,6 @@ export default function ClientSuccessStoriesPage() {
         <HowWeSupport />
         <FacingChallenge />
       </main>
-      <Footer />
-    </>
+          </>
   );
 }

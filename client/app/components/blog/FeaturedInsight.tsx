@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function FeaturedInsight() {
   return (
@@ -49,12 +50,12 @@ export default function FeaturedInsight() {
             <p className="text-[#64748b] text-[14px] leading-relaxed mb-10 max-w-lg font-medium">
               Not every business process should be automated. Learn how to identify repetitive, rule-based activities where automation may improve efficiency and consistency.
             </p>
-            <button className="bg-[#1d4ed8] hover:bg-blue-600 text-white px-8 py-3.5 rounded-md font-semibold text-[13px] transition-colors w-fit flex items-center gap-3 shadow-md">
+            <Link href="/blog/hardblog" className="bg-[#1d4ed8] hover:bg-blue-600 text-white px-8 py-3.5 rounded-md font-semibold text-[13px] transition-colors w-fit flex items-center gap-3 shadow-md">
               Read the Article 
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
-            </button>
+            </Link>
           </div>
           
         </div>

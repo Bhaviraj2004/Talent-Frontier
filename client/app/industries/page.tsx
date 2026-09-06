@@ -1,5 +1,3 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
 import IndustriesHero from "../components/Industries/IndustriesHero";
 import IndustryFocused from "../components/Industries/IndustryFocused";
 import IndustriesGrid from "../components/Industries/IndustriesGrid";
@@ -10,8 +8,7 @@ import IndustriesCTA from "../components/Industries/IndustriesCTA";
 export default function IndustriesPage() {
   return (
     <>
-      <Header />
-      <main className="min-h-screen bg-white">
+            <main className="min-h-screen bg-white">
         <IndustriesHero />
         <IndustryFocused />
         <IndustriesGrid />
@@ -19,7 +16,6 @@ export default function IndustriesPage() {
         <OurApproach />
         <IndustriesCTA />
       </main>
-      <Footer />
-    </>
+          </>
   );
 }

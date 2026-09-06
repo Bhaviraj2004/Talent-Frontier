@@ -37,7 +37,7 @@ export default function LatestInsights() {
               </p>
               <div className="flex justify-between items-center mt-auto border-t border-gray-100 pt-4">
                 <span className="text-gray-500 text-[11px] font-bold uppercase tracking-wider">5 min read</span>
-                <Link href="#" className="inline-flex items-center text-[#3b82f6] text-[12px] font-bold hover:text-blue-700 transition-colors">
+                <Link href="/blog/hardblog" className="inline-flex items-center text-[#3b82f6] text-[12px] font-bold hover:text-blue-700 transition-colors">
                   Read Article 
                   <svg className="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -68,12 +68,12 @@ export default function LatestInsights() {
                     {item.desc}
                   </p>
                   <div className="flex justify-end w-full mt-auto">
-                    <span className="text-gray-500 text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 group cursor-pointer hover:text-[#3b82f6] transition-colors">
+                    <Link href="/blog/hardblog" className="text-gray-500 text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 group cursor-pointer hover:text-[#3b82f6] transition-colors">
                       7 min read
                       <svg className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
-                    </span>
+                    </Link>
                   </div>
                 </div>
               </div>

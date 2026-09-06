@@ -1,5 +1,3 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
 import ServicesHero from "../components/Services/ServicesHero";
 import SupportSection from "../components/Services/SupportSection";
 import ServicesGrid from "../components/Services/ServicesGrid";
@@ -10,8 +8,7 @@ import ServicesCTA from "../components/Services/ServicesCTA";
 export default function ServicesPage() {
   return (
     <>
-      <Header />
-      <main className="min-h-screen bg-white">
+            <main className="min-h-screen bg-white">
         <ServicesHero />
         <SupportSection />
         <ServicesGrid />
@@ -19,7 +16,6 @@ export default function ServicesPage() {
         <WhyWorkWithUs />
         <ServicesCTA />
       </main>
-      <Footer />
-    </>
+          </>
   );
 }

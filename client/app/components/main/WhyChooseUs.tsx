@@ -1,39 +1,69 @@
-import Image from 'next/image';
-
-const points = [
-  { title: "Built Around Your Requirements", desc: "We take the time to understand your business and hiring needs." },
-  { title: "Quality Over Quantity", desc: "We focus on quality candidates who match your role and culture." },
-  { title: "Transparent Process", desc: "You're kept informed at every stage of the recruitment journey." },
-  { title: "Dedicated Support", desc: "Our team is here to support you before, during and after the hire." },
-];
-
-const CheckIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-blue-500 mt-0.5 flex-shrink-0">
-    <circle cx="12" cy="12" r="10" fill="currentColor"/>
-    <path d="M8 12l3 3 5-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
+import { ShieldCheck, Lightbulb, PieChart, Users } from 'lucide-react';
 
 export default function WhyChooseUs() {
+  const values = [
+    {
+      title: "Reliable Expertise",
+      description: "The right experience and specialist support for every challenge.",
+      icon: ShieldCheck,
+    },
+    {
+      title: "Practical Solutions",
+      description: "Clear, tailored solutions built around real business needs.",
+      icon: Lightbulb,
+    },
+    {
+      title: "Flexible Support",
+      description: "Capabilities that adapt as your organisation evolves.",
+      icon: PieChart,
+    },
+    {
+      title: "Measurable Impact",
+      description: "Focused delivery that improves performance and growth.",
+      icon: Users,
+    }
+  ];
+
   return (
-    <section className="bg-[#0b1121] py-24 px-6 w-full font-sans text-white">
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="relative w-full aspect-[16/9] lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-          <Image src="/main%20page/teamdiscussion.png" alt="Team Discussion" fill className="object-cover" />
-        </div>
-        <div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 tracking-tight">Why Businesses Choose Us</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
-            {points.map((p, i) => (
-              <div key={i} className="flex items-start gap-4">
-                <CheckIcon />
-                <div>
-                  <h3 className="font-semibold text-lg mb-2 text-gray-50">{p.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{p.desc}</p>
-                </div>
-              </div>
-            ))}
+    <section className="w-full bg-[#f8fafc] pb-24 font-sans">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="bg-[#0b1a78] rounded-3xl overflow-hidden flex flex-col lg:flex-row">
+          
+          {/* Left Title Area */}
+          <div className="lg:w-1/4 p-12 lg:border-r border-[#1e329c] flex flex-col justify-center">
+            <p className="text-blue-300 text-xs font-bold tracking-widest uppercase mb-4">
+              VALUE PROPOSITION
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+              Why Businesses<br />Choose Us
+            </h2>
           </div>
+          
+          {/* Right Grid Area */}
+          <div className="lg:w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            {values.map((val, idx) => {
+              const Icon = val.icon;
+              return (
+                <div 
+                  key={idx} 
+                  className={`p-10 flex flex-col 
+                    ${idx !== values.length - 1 ? 'lg:border-r border-[#1e329c]' : ''} 
+                    ${idx < 2 ? 'border-b lg:border-b-0 border-[#1e329c]' : ''}
+                    ${idx === 2 ? 'border-b md:border-b-0 border-[#1e329c]' : ''}
+                  `}
+                >
+                  <div className="w-14 h-14 bg-[#1d4ed8] text-white rounded-2xl flex items-center justify-center mb-8">
+                    <Icon className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-4">{val.title}</h3>
+                  <p className="text-blue-100 text-sm leading-relaxed opacity-90">
+                    {val.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+          
         </div>
       </div>
     </section>

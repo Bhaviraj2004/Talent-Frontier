@@ -45,7 +45,7 @@ export default function ExploreTopics() {
                 <p className="text-[#64748b] text-[12px] leading-relaxed mb-6 flex-1 font-medium">
                   {topic.desc}
                 </p>
-                <Link href="#" className="inline-flex items-center text-[#3b82f6] text-[12px] font-bold group mt-auto w-fit">
+                <Link href="/blog/hardblog" className="inline-flex items-center text-[#3b82f6] text-[12px] font-bold group mt-auto w-fit">
                   Read Article 
                   <svg className="w-3.5 h-3.5 ml-1.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />

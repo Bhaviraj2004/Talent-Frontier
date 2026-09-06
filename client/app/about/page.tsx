@@ -1,33 +1,21 @@
-import Header from "@/app/components/header";
-import Footer from "@/app/components/footer";
 import AboutHero from "@/app/components/about/AboutHero";
-import WhyWeExist from "@/app/components/about/WhyWeExist";
-import OurApproach from "@/app/components/about/OurApproach";
-import WhatMakesUsDifferent from "@/app/components/about/WhatMakesUsDifferent";
-import OurTalentNetwork from "@/app/components/about/OurTalentNetwork";
-import Leadership from "@/app/components/about/Leadership";
-import OurValues from "@/app/components/about/OurValues";
-import OurCommitment from "@/app/components/about/OurCommitment";
+import AboutCards from "@/app/components/about/AboutCards";
+import AboutWhatWeDo from "@/app/components/about/AboutWhatWeDo";
+import HowWeWork from "@/app/components/about/HowWeWork";
+import SupportingBusiness from "@/app/components/about/SupportingBusiness";
+import OurPrinciples from "@/app/components/about/OurPrinciples";
 import AboutCTA from "@/app/components/about/AboutCTA";
 
 export default function AboutPage() {
   return (
     <main className="bg-white min-h-screen">
-      <div className="bg-[#08154a]">
-        <Header />
-      </div>
-      
       <AboutHero />
-      <WhyWeExist />
-      <OurApproach />
-      <WhatMakesUsDifferent />
-      <OurTalentNetwork />
-      <Leadership />
-      <OurValues />
-      <OurCommitment />
+      <AboutCards />
+      <AboutWhatWeDo />
+      <HowWeWork />
+      <SupportingBusiness />
+      <OurPrinciples />
       <AboutCTA />
-      
-      <Footer />
     </main>
   );
 }

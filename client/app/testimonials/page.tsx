@@ -1,5 +1,3 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
 import TestimonialsHero from "../components/Testimonials/TestimonialsHero";
 import BuiltOnTrust from "../components/Testimonials/BuiltOnTrust";
 import ClientFeedback from "../components/Testimonials/ClientFeedback";
@@ -10,8 +8,7 @@ import ClientSuccessStory from "../components/Testimonials/ClientSuccessStory";
 export default function TestimonialsPage() {
   return (
     <>
-      <Header />
-      <main className="min-h-screen bg-white">
+            <main className="min-h-screen bg-white">
         <TestimonialsHero />
         <BuiltOnTrust />
         <ClientFeedback />
@@ -19,7 +16,6 @@ export default function TestimonialsPage() {
         <WhatClientValue />
         <ClientSuccessStory />
       </main>
-      <Footer />
-    </>
+          </>
   );
 }

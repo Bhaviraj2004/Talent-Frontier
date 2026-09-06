@@ -1,5 +1,3 @@
-import Header from "../../components/header";
-import Footer from "../../components/footer";
 import HeroSection from "../../components/sub pages/Industries sub/Technology and Digital/HeroSection";
 import FlexibleSupportSection from "../../components/sub pages/Industries sub/Technology and Digital/FlexibleSupportSection";
 import FastMovingTeamsSection from "../../components/sub pages/Industries sub/Technology and Digital/FastMovingTeamsSection";
@@ -13,8 +11,7 @@ import BuildBetterSupportCTA from "../../components/sub pages/Industries sub/Tec
 export default function TechnologyAndDigitalPage() {
   return (
     <>
-      <Header />
-      <main className="min-h-screen bg-white font-sans text-[#1a2332]">
+            <main className="min-h-screen bg-white font-sans text-[#1a2332]">
         <HeroSection />
         <FlexibleSupportSection />
         <FastMovingTeamsSection />
@@ -25,7 +22,6 @@ export default function TechnologyAndDigitalPage() {
         <OutcomeSection />
         <BuildBetterSupportCTA />
       </main>
-      <Footer />
-    </>
+          </>
   );
 }

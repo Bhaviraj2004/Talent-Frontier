@@ -1,5 +1,3 @@
-import Header from "../../components/header";
-import Footer from "../../components/footer";
 import HeroSection from "../../components/sub pages/Testimonials sub/Client Testimonials/HeroSection";
 import WhatOurClientsSay from "../../components/sub pages/Testimonials sub/Client Testimonials/WhatOurClientsSay";
 import DifferentNeeds from "../../components/sub pages/Testimonials sub/Client Testimonials/DifferentNeeds";
@@ -11,8 +9,7 @@ import StructuredSupport from "../../components/sub pages/Testimonials sub/Clien
 export default function TestimonialsSubPage() {
   return (
     <>
-      <Header />
-      <main className="min-h-screen bg-white font-sans text-[#1a2332]">
+            <main className="min-h-screen bg-white font-sans text-[#1a2332]">
         <HeroSection />
         <WhatOurClientsSay />
         <DifferentNeeds />
@@ -21,7 +18,6 @@ export default function TestimonialsSubPage() {
         <HaveYouWorked />
         <StructuredSupport />
       </main>
-      <Footer />
-    </>
+          </>
   );
 }

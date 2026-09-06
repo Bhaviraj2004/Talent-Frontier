@@ -1,5 +1,3 @@
-import Header from "../../components/header";
-import Footer from "../../components/footer";
 import HeroSection from "../../components/sub pages/Industries sub/Professional Services/HeroSection";
 import BusinessSupportCard from "../../components/sub pages/Industries sub/Professional Services/BusinessSupportCard";
 import SupportingFirmsWork from "../../components/sub pages/Industries sub/Professional Services/SupportingFirmsWork";
@@ -14,8 +12,7 @@ import FocusOnClientValueCTA from "../../components/sub pages/Industries sub/Pro
 export default function ProfessionalServicesPage() {
   return (
     <>
-      <Header />
-      <main className="min-h-screen bg-white font-sans text-[#1a2332]">
+            <main className="min-h-screen bg-white font-sans text-[#1a2332]">
         <HeroSection />
         <BusinessSupportCard />
         <SupportingFirmsWork />
@@ -27,7 +24,6 @@ export default function ProfessionalServicesPage() {
         <WhyWorkWithTalentFrontier />
         <FocusOnClientValueCTA />
       </main>
-      <Footer />
-    </>
+          </>
   );
 }

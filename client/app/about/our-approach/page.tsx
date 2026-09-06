@@ -1,5 +1,3 @@
-import Header from "../../components/header";
-import Footer from "../../components/footer";
 import HeroSection from "../../components/sub pages/about sub/Our Approach/HeroSection";
 import BusinessSupportStarts from "../../components/sub pages/about sub/Our Approach/BusinessSupportStarts";
 import UnderstandingBusinessCards from "../../components/sub pages/about sub/Our Approach/UnderstandingBusinessCards";
@@ -10,8 +8,7 @@ import TechnologyEnabled from "../../components/sub pages/about sub/Our Approach
 export default function OurApproachPage() {
   return (
     <>
-      <Header />
-      <main className="min-h-screen bg-white font-sans text-[#1a2332]">
+            <main className="min-h-screen bg-white font-sans text-[#1a2332]">
         <HeroSection />
         <BusinessSupportStarts />
         <UnderstandingBusinessCards />
@@ -19,7 +16,6 @@ export default function OurApproachPage() {
         <ApproachSteps />
         <TechnologyEnabled />
       </main>
-      <Footer />
-    </>
+          </>
   );
 }
