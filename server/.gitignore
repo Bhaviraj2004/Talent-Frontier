@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Environment / Secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Build / Output
+dist/
+build/
+out/
+
+# Cache
+.cache/
+.npm/
+.eslintcache
+
+# IDE / Editors
+.vscode/
+.idea/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Coverage
+coverage/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Next.js
+.next/
+
+# React
+build/
+
+# Vite
+dist/
