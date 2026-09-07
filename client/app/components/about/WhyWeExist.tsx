@@ -7,7 +7,7 @@ export default function WhyWeExist() {
         
         <div className="flex-1 relative w-full max-w-2xl mx-auto">
           <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl z-0">
-             <Image src="/about%20page/recriument.png" alt="Discussion" fill className="object-cover" />
+             <Image src="/about%20page/recriument.png" alt="Discussion" fill className="object-cover object-top sm:object-center" />
           </div>
           {/* Floating Blue Box */}
           <div className="absolute -bottom-8 lg:-bottom-12 right-4 lg:-right-8 bg-[#2563eb] text-white p-8 rounded-2xl shadow-2xl max-w-[280px] z-10">

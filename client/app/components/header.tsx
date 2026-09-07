@@ -111,7 +111,7 @@ export default function Header() {
         <div className="hidden lg:flex items-center">
           <Link
             href="/contact"
-            className="bg-[#2563eb] hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-full text-[13px] transition-colors shadow-sm"
+            className="bg-[#2563eb] hover:bg-blue-700 active:bg-blue-500 active:scale-95 text-white font-bold py-2.5 px-6 rounded-full text-[13px] transition-all shadow-sm"
           >
             Get in Touch
           </Link>
@@ -121,7 +121,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 rounded-lg text-gray-700 hover:text-[#2563eb] hover:bg-gray-100 focus:outline-none transition-colors"
+          className="lg:hidden p-2 rounded-lg text-gray-700 hover:text-[#2563eb] hover:bg-gray-100 active:bg-gray-200 focus:outline-none transition-colors"
           aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
           aria-expanded={mobileMenuOpen}
         >
@@ -150,7 +150,7 @@ export default function Header() {
                 <span>Also explore:</span>
                 {navItem.exploreLinks.map((link, idx) => (
                   <div key={link.label} className="flex items-center gap-3">
-                    <Link href={link.href} className="hover:text-[#2563eb] transition-colors">{link.label}</Link>
+                    <Link href={link.href} className="hover:text-[#2563eb] active:text-blue-700 transition-colors">{link.label}</Link>
                     {idx < navItem.exploreLinks.length - 1 && <span className="w-px h-3 bg-gray-300"></span>}
                   </div>
                 ))}
@@ -165,7 +165,7 @@ export default function Header() {
                   <Link 
                     href={item.href} 
                     key={item.title} 
-                    className="group p-3.5 rounded-xl border border-gray-100 hover:border-[#2563eb] hover:shadow-md transition-all flex flex-col h-full bg-white"
+                    className="group p-3.5 rounded-xl border border-gray-100 hover:border-[#2563eb] hover:shadow-md active:bg-blue-50/60 active:scale-[0.99] transition-all flex flex-col h-full bg-white"
                   >
                     <div className="w-8 h-8 bg-[#f0f5ff] text-[#2563eb] rounded-lg flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                       <Icon className="w-4 h-4" />

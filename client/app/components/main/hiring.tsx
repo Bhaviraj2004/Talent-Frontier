@@ -23,7 +23,7 @@ export default function Hiring() {
             src="/main%20page/hiringmetting.png" 
             alt="Team meeting discussing hiring" 
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+            className="object-cover object-top sm:object-center group-hover:scale-105 transition-transform duration-500 ease-out"
           />
         </div>
 

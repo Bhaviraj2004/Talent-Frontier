@@ -6,7 +6,7 @@ export default function AboutCards() {
       <div className="flex flex-col lg:flex-row gap-6">
         
         {/* Card 1 */}
-        <div className="flex-1 bg-[#f8fafc] border border-gray-100 rounded-xl overflow-hidden flex flex-col sm:flex-row">
+        <div className="flex-1 bg-[#f8fafc] border border-gray-100 rounded-2xl overflow-hidden flex flex-col sm:flex-row hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 active:bg-blue-50/40 transition-all duration-300">
           <div className="flex-1 p-8 md:p-10 flex flex-col justify-center">
             <h4 className="text-blue-600 text-sm font-bold mb-4">Who We Are</h4>
             <h3 className="text-2xl font-bold text-[#0f172a] mb-4 leading-tight">
@@ -19,13 +19,13 @@ export default function AboutCards() {
               From administration and people support to finance, technology, marketing and process improvement, we help businesses create clearer and more consistent ways of working.
             </p>
           </div>
-          <div className="w-full sm:w-[40%] relative min-h-[300px] sm:min-h-full">
-            <Image src="/about page/Rectangle 1.png" alt="Who We Are" fill className="object-cover" />
+          <div className="w-full sm:w-[40%] relative min-h-[260px] sm:min-h-full">
+            <Image src="/about page/Rectangle 1.png" alt="Who We Are" fill className="object-cover object-top sm:object-center" />
           </div>
         </div>
 
         {/* Card 2 */}
-        <div className="flex-1 bg-[#f8fafc] border border-gray-100 rounded-xl overflow-hidden flex flex-col sm:flex-row">
+        <div className="flex-1 bg-[#f8fafc] border border-gray-100 rounded-2xl overflow-hidden flex flex-col sm:flex-row hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 active:bg-blue-50/40 transition-all duration-300">
           <div className="flex-1 p-8 md:p-10 flex flex-col justify-center">
             <h4 className="text-blue-600 text-sm font-bold mb-4">Why We Exist</h4>
             <h3 className="text-2xl font-bold text-[#0f172a] mb-4 leading-tight">
@@ -38,8 +38,8 @@ export default function AboutCards() {
               Managing operations, people, finance, technology and communication can place pressure on internal teams. We provide the support and structure businesses need to stay organised, responsive and focused on what matters most.
             </p>
           </div>
-          <div className="w-full sm:w-[40%] relative min-h-[300px] sm:min-h-full">
-            <Image src="/about page/Screenshot 2026-09-06 004146.png" alt="Why We Exist" fill className="object-cover" />
+          <div className="w-full sm:w-[40%] relative min-h-[260px] sm:min-h-full">
+            <Image src="/about page/Screenshot 2026-09-06 004146.png" alt="Why We Exist" fill className="object-cover object-top sm:object-center" />
           </div>
         </div>
 

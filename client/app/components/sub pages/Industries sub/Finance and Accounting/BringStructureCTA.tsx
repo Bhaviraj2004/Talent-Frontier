@@ -5,7 +5,7 @@ export default function BringStructureCTA() {
   return (
     <section className="w-full bg-white pt-8 pb-16 md:pb-24">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#1b68f8] rounded-[24px] md:rounded-[32px] overflow-hidden flex flex-col lg:flex-row items-center justify-between shadow-xl">
+        <div className="bg-[#08154a] rounded-[24px] md:rounded-[32px] overflow-hidden flex flex-col lg:flex-row items-center justify-between shadow-xl">
           
           {/* Left Text Content */}
           <div className="w-full lg:w-[50%] p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
@@ -14,14 +14,14 @@ export default function BringStructureCTA() {
               Your Finance Operations
             </h2>
             
-            <p className="text-white/90 text-[15px] sm:text-[16px] mb-8 font-normal">
+            <p className="text-slate-300 text-[15px] sm:text-[16px] mb-8 font-normal">
               Tell us about your current workload and support requirements.
             </p>
             
             <div className="flex flex-wrap gap-4 items-center">
               <Link
                 href="/contact"
-                className="bg-white text-[#1b68f8] hover:bg-gray-100 px-6 py-3.5 rounded-md font-semibold text-[13px] sm:text-[14px] transition-colors shadow-md text-center"
+                className="bg-white text-[#08154a] hover:bg-slate-100 active:bg-blue-50 hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 px-6 py-3.5 rounded-md font-semibold text-[13px] sm:text-[14px] shadow-md text-center"
               >
                 Discuss Your Finance Needs
               </Link>

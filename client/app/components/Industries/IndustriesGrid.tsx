@@ -26,7 +26,7 @@ export default function IndustriesGrid() {
         {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {industries.map((ind, idx) => (
-            <div key={idx} className={`rounded-2xl sm:rounded-[24px] overflow-hidden flex flex-col sm:flex-row h-full border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-300 ${ind.dark ? 'bg-[#0a1532] text-white' : 'bg-[#eaf0f8] text-[#0f172a]'}`}>
+            <div key={idx} className={`rounded-2xl sm:rounded-[24px] overflow-hidden flex flex-col sm:flex-row h-full border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 active:brightness-105 active:scale-[0.99] transition-all duration-300 ${ind.dark ? 'bg-[#0a1532] text-white' : 'bg-[#eaf0f8] text-[#0f172a]'}`}>
               
               {/* Text Side */}
               <div className="w-full sm:w-[55%] p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
@@ -45,7 +45,7 @@ export default function IndustriesGrid() {
 
               {/* Image Side */}
               <div className="w-full sm:w-[45%] relative h-[250px] sm:h-auto min-h-[300px]">
-                <Image src={ind.img} alt={ind.title} fill className="object-cover" />
+                <Image src={ind.img} alt={ind.title} fill className="object-cover object-center" />
               </div>
               
             </div>

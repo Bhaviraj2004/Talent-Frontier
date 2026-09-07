@@ -78,35 +78,35 @@ export default function IndustriesPreview() {
         </div>
         
         {/* Beautiful Box Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-7">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-7">
           {industries.map((industry, idx) => {
             const Icon = industry.icon;
             return (
               <Link
                 key={idx}
                 href={industry.href}
-                className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200/90 hover:border-blue-500 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                className="bg-white rounded-xl sm:rounded-2xl p-3.5 sm:p-7 border border-gray-200/90 hover:border-blue-500 shadow-sm hover:shadow-xl hover:-translate-y-1.5 active:bg-blue-50/70 active:scale-[0.98] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
               >
                 {/* Top Glowing Accent Line on Hover */}
                 <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-600 to-indigo-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
 
                 <div>
-                  <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm">
-                    <Icon className="w-7 h-7" strokeWidth={1.8} />
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3 sm:mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                    <Icon className="w-5 h-5 sm:w-7 sm:h-7" strokeWidth={1.8} />
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#0f172a] group-hover:text-blue-600 transition-colors duration-200 mb-2.5 leading-snug">
+                  <h3 className="text-sm sm:text-lg font-bold text-[#0f172a] group-hover:text-blue-600 transition-colors duration-200 mb-1.5 sm:mb-2.5 leading-snug">
                     {industry.title}
                   </h3>
 
-                  <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-6">
+                  <p className="text-gray-500 text-[11px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
                     {industry.description}
                   </p>
                 </div>
 
-                <div className="flex items-center text-xs font-bold text-blue-600 group-hover:text-blue-700 transition-colors gap-1.5 pt-3 border-t border-gray-100">
+                <div className="flex items-center text-[11px] sm:text-xs font-bold text-blue-600 group-hover:text-blue-700 transition-colors gap-1 sm:gap-1.5 pt-2 sm:pt-3 border-t border-gray-100">
                   <span>Learn More</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
+                  <ArrowRight className="w-3 sm:w-3.5 h-3 sm:h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
                 </div>
               </Link>
             );

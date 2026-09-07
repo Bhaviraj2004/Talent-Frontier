@@ -58,18 +58,18 @@ export default function WhatWeDo() {
           </Link>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-6">
           {services.map((service, idx) => {
             const Icon = service.icon;
             return (
-              <div key={idx} className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-gray-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative overflow-hidden group cursor-default">
-                <div className="text-blue-600 mb-5 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-8 h-8" strokeWidth={2} />
+              <div key={idx} className="bg-white rounded-xl sm:rounded-2xl p-3.5 sm:p-6 shadow-sm border border-gray-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1.5 active:bg-blue-50/50 active:scale-[0.98] transition-all duration-300 flex flex-col relative overflow-hidden group cursor-default">
+                <div className="text-blue-600 mb-3 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Icon className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={2} />
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-[#0f172a] group-hover:text-blue-600 transition-colors duration-200 mb-2 sm:mb-3 whitespace-pre-line leading-tight">
+                <h3 className="text-xs sm:text-base md:text-lg font-bold text-[#0f172a] group-hover:text-blue-600 transition-colors duration-200 mb-1 sm:mb-3 whitespace-pre-line leading-tight">
                   {service.title}
                 </h3>
-                <p className="text-gray-500 text-xs leading-relaxed mb-6 flex-grow">
+                <p className="text-gray-500 text-[11px] sm:text-xs leading-relaxed mb-4 sm:mb-6 flex-grow">
                   {service.description}
                 </p>
                 

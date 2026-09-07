@@ -6,7 +6,7 @@ export default function OurTalentNetwork() {
       <div className="flex flex-col lg:flex-row shadow-2xl rounded-3xl overflow-hidden">
         {/* Left: Image Grid */}
         <div className="lg:w-[55%] relative min-h-[400px] lg:min-h-[500px]">
-          <Image src="/about%20page/talentpotraits.png" alt="Talent Network Portraits" fill className="object-cover" />
+          <Image src="/about%20page/talentpotraits.png" alt="Talent Network Portraits" fill className="object-cover object-center" />
         </div>
         {/* Right: Dark Navy Box */}
         <div className="lg:w-[45%] bg-[#08154a] p-12 md:p-16 flex flex-col justify-center">

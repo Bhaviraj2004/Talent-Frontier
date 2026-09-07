@@ -38,13 +38,13 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 mb-10 md:mb-16">
             <Link 
               href="/services"
-              className="bg-[#1d4ed8] hover:bg-blue-600 hover:shadow-blue-600/40 hover:-translate-y-0.5 active:translate-y-0 text-white px-8 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 shadow-lg shadow-blue-900/50 text-center w-full sm:w-auto"
+              className="bg-[#1d4ed8] hover:bg-blue-600 active:bg-blue-400 active:scale-[0.98] active:brightness-110 hover:shadow-blue-600/40 hover:-translate-y-0.5 text-white px-8 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 shadow-lg shadow-blue-900/50 text-center w-full sm:w-auto"
             >
               Explore Our Services
             </Link>
             <Link 
               href="/contact"
-              className="bg-white hover:bg-slate-100 hover:shadow-white/20 hover:-translate-y-0.5 active:translate-y-0 text-[#1d4ed8] px-8 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 shadow-lg text-center w-full sm:w-auto"
+              className="bg-white hover:bg-slate-100 active:bg-blue-50 active:scale-[0.98] hover:shadow-white/20 hover:-translate-y-0.5 text-[#1d4ed8] px-8 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 shadow-lg text-center w-full sm:w-auto"
             >
               Book a Consultation
             </Link>

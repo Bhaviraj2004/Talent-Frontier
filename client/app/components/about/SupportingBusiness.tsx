@@ -11,7 +11,7 @@ export default function SupportingBusiness() {
             src="/about page/talentpotraits.png" 
             alt="Talent Portraits" 
             fill 
-            className="object-cover" 
+            className="object-cover object-center" 
           />
         </div>
 

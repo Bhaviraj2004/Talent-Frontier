@@ -19,7 +19,7 @@ export default function SkillsTalent() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-stretch">
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
           {skills.map((skill, i) => (
-            <div key={i} className="flex flex-col items-center justify-center p-4 sm:p-6 border border-gray-200 rounded-2xl hover:border-blue-500 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center cursor-pointer group bg-white">
+            <div key={i} className="flex flex-col items-center justify-center p-3.5 sm:p-6 border border-gray-200 rounded-2xl hover:border-blue-500 hover:shadow-xl hover:-translate-y-1 active:bg-blue-50/70 active:scale-[0.98] transition-all duration-300 text-center cursor-pointer group bg-white">
               <div className="mb-3 sm:mb-4 text-blue-600 group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={skill.icon}></path>
@@ -29,8 +29,8 @@ export default function SkillsTalent() {
             </div>
           ))}
         </div>
-        <div className="relative w-full h-full min-h-[260px] sm:min-h-[340px] lg:min-h-[auto] rounded-2xl overflow-hidden shadow-xl group">
-          <Image src="/main%20page/technologyprofession.png" alt="Professionals" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
+        <div className="relative w-full h-full min-h-[280px] sm:min-h-[340px] lg:min-h-[auto] rounded-2xl overflow-hidden shadow-xl group">
+          <Image src="/main%20page/technologyprofession.png" alt="Professionals" fill className="object-cover object-top sm:object-center group-hover:scale-105 transition-transform duration-500 ease-out" />
         </div>
       </div>
     </section>

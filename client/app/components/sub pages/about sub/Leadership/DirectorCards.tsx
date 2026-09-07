@@ -32,7 +32,7 @@ export default function DirectorCards() {
                   src={director.image}
                   alt={director.name}
                   fill
-                  className="object-cover rounded-[24px]"
+                  className="object-cover object-top sm:object-center rounded-[24px]"
                 />
               </div>
               <div className="w-full sm:w-3/5 flex flex-col justify-center">

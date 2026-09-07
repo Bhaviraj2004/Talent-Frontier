@@ -37,19 +37,19 @@ export default function BusinessOverview() {
           We partner with organisations to solve challenges, optimise operations and unlock new growth opportunities.
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {cards.map((card, idx) => {
             const Icon = card.icon;
             return (
               <div 
                 key={idx} 
-                className="bg-white rounded-3xl p-8 text-left shadow-sm border border-gray-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group cursor-default"
+                className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-left shadow-sm border border-gray-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1.5 active:bg-blue-50/50 active:scale-[0.98] transition-all duration-300 group cursor-default"
               >
-                <div className="w-14 h-14 bg-[#eff6ff] text-[#2563eb] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#2563eb] group-hover:text-white transition-all duration-300 shadow-sm">
-                  <Icon className="w-7 h-7 group-hover:scale-110 transition-transform duration-300" />
+                <div className="w-10 h-10 sm:w-14 sm:h-14 bg-[#eff6ff] text-[#2563eb] rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-8 group-hover:bg-[#2563eb] group-hover:text-white transition-all duration-300 shadow-sm">
+                  <Icon className="w-5 h-5 sm:w-7 sm:h-7 group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0f172a] group-hover:text-[#2563eb] transition-colors duration-200 mb-4">{card.title}</h3>
-                <p className="text-gray-500 leading-relaxed text-sm">
+                <h3 className="text-base sm:text-xl font-bold text-[#0f172a] group-hover:text-[#2563eb] transition-colors duration-200 mb-2 sm:mb-4">{card.title}</h3>
+                <p className="text-gray-500 leading-relaxed text-xs sm:text-sm">
                   {card.description}
                 </p>
               </div>
