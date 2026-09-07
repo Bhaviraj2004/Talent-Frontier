@@ -91,17 +91,20 @@ export default function TrustedClients() {
           Trusted by Businesses Worldwide
         </h2>
         
-        <div className="max-w-[340px] sm:max-w-xl md:max-w-4xl lg:max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-5 sm:gap-x-10 md:gap-x-12 gap-y-7 sm:gap-y-9">
+        <div className="w-full max-w-[1200px] mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {clients.map((client, idx) => (
-            <div key={idx} className="flex items-center gap-2.5 sm:gap-3.5 group justify-start transition-transform duration-300 hover:translate-y-[-2px]">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-blue-500 bg-blue-50/60 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 text-blue-600 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300">
+            <div 
+              key={idx} 
+              className="flex items-center gap-2.5 sm:gap-3.5 bg-slate-50/80 hover:bg-white border border-slate-200/70 hover:border-blue-400 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group min-w-0"
+            >
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl border-2 border-blue-500 bg-blue-50/70 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 text-blue-600 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300">
                 {client.icon}
               </div>
-              <div className="text-left leading-tight">
-                <span className="block text-[13px] sm:text-sm md:text-[15px] font-black tracking-tight text-[#0f172a] group-hover:text-blue-600 transition-colors">
+              <div className="text-left min-w-0 flex-1 overflow-hidden">
+                <span className="block text-[11px] sm:text-sm font-black tracking-tight text-[#0f172a] group-hover:text-blue-600 transition-colors truncate">
                   {client.name}
                 </span>
-                <span className="block text-[8px] sm:text-[9px] tracking-[0.18em] font-bold text-blue-500 mt-0.5">
+                <span className="block text-[7.5px] sm:text-[9px] tracking-[0.16em] font-bold text-blue-500 mt-0.5 truncate">
                   {client.subtitle}
                 </span>
               </div>

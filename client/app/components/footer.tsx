@@ -20,10 +20,10 @@ export default function Footer() {
           </p>
           
           <div className="flex items-center gap-4 mb-8 lg:mb-0">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-[#0a66c2] hover:opacity-80 transition-opacity">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-[#0a66c2] hover:scale-110 active:scale-95 transition-transform duration-300 inline-block">
               <FaLinkedin className="w-8 h-8 sm:w-9 sm:h-9" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:scale-110 active:scale-95 transition-transform duration-300 inline-block">
               <svg className="w-8 h-8 sm:w-9 sm:h-9" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="36" height="36" rx="8" fill="url(#paint0_linear)"/>
                 <path d="M24 13H25.5V14.5H24V13ZM18 24C14.686 24 12 21.314 12 18C12 14.686 14.686 12 18 12C21.314 12 24 14.686 24 18C24 21.314 21.314 24 18 24ZM18 14C15.791 14 14 15.791 14 18C14 20.209 15.791 22 18 22C20.209 22 22 20.209 22 18C22 15.791 20.209 14 18 14ZM26 13.5C26 10.462 23.538 8 20.5 8H15.5C12.462 8 10 10.462 10 13.5V22.5C10 25.538 12.462 28 15.5 28H20.5C23.538 28 26 25.538 26 22.5V13.5ZM24.5 22.5C24.5 24.433 22.933 26 21 26H15C13.067 26 11.5 24.433 11.5 22.5V13.5C11.5 11.567 13.067 10 15 10H21C22.933 10 24.5 11.567 24.5 13.5V22.5Z" fill="white"/>
@@ -36,7 +36,7 @@ export default function Footer() {
                 </defs>
               </svg>
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-[#1877f2] hover:opacity-80 transition-opacity">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-[#1877f2] hover:scale-110 active:scale-95 transition-transform duration-300 inline-block">
               <FaFacebook className="w-8 h-8 sm:w-9 sm:h-9" />
             </a>
           </div>
@@ -122,12 +122,25 @@ export default function Footer() {
         </div>
         
         {/* Bottom Links */}
-        <div className="flex flex-wrap items-center justify-start lg:justify-end gap-x-6 gap-y-4 pt-6 sm:pt-8 border-t border-slate-700/50">
-          <Link href="/privacy-policy" className="text-slate-300 hover:text-white transition-colors text-sm">Privacy Policy</Link>
-          <span className="w-px h-4 bg-slate-500"></span>
-          <Link href="/terms-conditions" className="text-slate-300 hover:text-white transition-colors text-sm">Terms & Conditions</Link>
-          <span className="w-px h-4 bg-slate-500"></span>
-          <Link href="/cookie-policy" className="text-slate-300 hover:text-white transition-colors text-sm">Cookie Policy</Link>
+        <div className="flex flex-wrap items-center justify-start lg:justify-end gap-2.5 sm:gap-3 pt-6 sm:pt-8 border-t border-slate-700/60">
+          <Link 
+            href="/privacy-policy" 
+            className="px-4 py-2 rounded-full bg-slate-800/80 hover:bg-[#1c55d4] border border-slate-700/80 hover:border-[#1c55d4] text-slate-300 hover:text-white transition-all duration-300 text-xs sm:text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
+          >
+            Privacy Policy
+          </Link>
+          <Link 
+            href="/terms-conditions" 
+            className="px-4 py-2 rounded-full bg-slate-800/80 hover:bg-[#1c55d4] border border-slate-700/80 hover:border-[#1c55d4] text-slate-300 hover:text-white transition-all duration-300 text-xs sm:text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
+          >
+            Terms & Conditions
+          </Link>
+          <Link 
+            href="/cookie-policy" 
+            className="px-4 py-2 rounded-full bg-slate-800/80 hover:bg-[#1c55d4] border border-slate-700/80 hover:border-[#1c55d4] text-slate-300 hover:text-white transition-all duration-300 text-xs sm:text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
+          >
+            Cookie Policy
+          </Link>
         </div>
         
       </div>

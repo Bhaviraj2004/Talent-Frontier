@@ -20,9 +20,10 @@ export default function CTA() {
           <div>
             <Link 
               href="/contact" 
-              className="inline-flex items-center justify-center gap-3 bg-white text-[#0f172a] px-8 py-4 rounded-xl font-bold text-sm hover:bg-gray-50 transition-colors shadow-lg w-full sm:w-auto text-center"
+              className="inline-flex items-center justify-center gap-3 bg-white text-[#0f172a] px-8 py-4 rounded-xl font-bold text-sm hover:bg-slate-100 hover:shadow-2xl hover:scale-105 active:scale-100 transition-all duration-300 shadow-lg w-full sm:w-auto text-center group"
             >
-              Start a Conversation <ArrowRight className="w-4 h-4" />
+              <span>Start a Conversation</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </div>
         </div>

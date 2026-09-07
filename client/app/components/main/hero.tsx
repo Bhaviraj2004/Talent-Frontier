@@ -38,24 +38,31 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 mb-10 md:mb-16">
             <Link 
               href="/services"
-              className="bg-[#1d4ed8] hover:bg-blue-700 text-white px-8 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-all shadow-lg shadow-blue-900/50 text-center w-full sm:w-auto"
+              className="bg-[#1d4ed8] hover:bg-blue-600 hover:shadow-blue-600/40 hover:-translate-y-0.5 active:translate-y-0 text-white px-8 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 shadow-lg shadow-blue-900/50 text-center w-full sm:w-auto"
             >
               Explore Our Services
             </Link>
             <Link 
               href="/contact"
-              className="bg-white hover:bg-gray-100 text-[#1d4ed8] px-8 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-all shadow-lg text-center w-full sm:w-auto"
+              className="bg-white hover:bg-slate-100 hover:shadow-white/20 hover:-translate-y-0.5 active:translate-y-0 text-[#1d4ed8] px-8 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 shadow-lg text-center w-full sm:w-auto"
             >
               Book a Consultation
             </Link>
           </div>
           
-          <div className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-xs md:text-sm text-gray-400 font-medium">
-            <span>Business-Focused Support</span>
-            <span className="text-gray-500 text-lg">&bull;</span>
-            <span>Coordinated Expertise</span>
-            <span className="text-gray-500 text-lg">&bull;</span>
-            <span>Transparent Communication</span>
+          <div className="flex flex-col gap-2.5 text-xs sm:text-sm md:text-base text-gray-300 font-medium">
+            <div className="flex items-center gap-2.5 group">
+              <span className="w-2 h-2 rounded-full bg-blue-500 shrink-0 group-hover:scale-125 transition-transform duration-300"></span>
+              <span className="group-hover:text-white transition-colors duration-200">Business-Focused Support</span>
+            </div>
+            <div className="flex items-center gap-2.5 group">
+              <span className="w-2 h-2 rounded-full bg-blue-500 shrink-0 group-hover:scale-125 transition-transform duration-300"></span>
+              <span className="group-hover:text-white transition-colors duration-200">Coordinated Expertise</span>
+            </div>
+            <div className="flex items-center gap-2.5 group">
+              <span className="w-2 h-2 rounded-full bg-blue-500 shrink-0 group-hover:scale-125 transition-transform duration-300"></span>
+              <span className="group-hover:text-white transition-colors duration-200">Transparent Communication</span>
+            </div>
           </div>
         </div>
       </main>

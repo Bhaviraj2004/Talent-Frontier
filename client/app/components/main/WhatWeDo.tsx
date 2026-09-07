@@ -62,11 +62,11 @@ export default function WhatWeDo() {
           {services.map((service, idx) => {
             const Icon = service.icon;
             return (
-              <div key={idx} className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col relative overflow-hidden group">
-                <div className="text-blue-600 mb-5 sm:mb-6">
+              <div key={idx} className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-gray-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative overflow-hidden group cursor-default">
+                <div className="text-blue-600 mb-5 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Icon className="w-8 h-8" strokeWidth={2} />
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-[#0f172a] mb-2 sm:mb-3 whitespace-pre-line leading-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0f172a] group-hover:text-blue-600 transition-colors duration-200 mb-2 sm:mb-3 whitespace-pre-line leading-tight">
                   {service.title}
                 </h3>
                 <p className="text-gray-500 text-xs leading-relaxed mb-6 flex-grow">
@@ -74,7 +74,7 @@ export default function WhatWeDo() {
                 </p>
                 
                 {/* Bottom colored bar */}
-                <div className="h-1 w-full bg-blue-600 absolute bottom-0 left-0 scale-x-75 origin-left group-hover:scale-x-100 transition-transform"></div>
+                <div className="h-1 w-full bg-blue-600 absolute bottom-0 left-0 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></div>
               </div>
             );
           })}

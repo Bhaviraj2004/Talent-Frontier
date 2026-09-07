@@ -18,12 +18,12 @@ export default function Hiring() {
     <section className="bg-[#f3f7fb] py-16 md:py-20 px-6 md:px-12 w-full font-sans">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
         {/* Left Image Section */}
-        <div className="relative w-full aspect-[4/3] md:aspect-[16/10] lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
+        <div className="relative w-full aspect-[4/3] md:aspect-[16/10] lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-sm group">
           <Image 
             src="/main%20page/hiringmetting.png" 
             alt="Team meeting discussing hiring" 
             fill
-            className="object-cover"
+            className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
           />
         </div>
 

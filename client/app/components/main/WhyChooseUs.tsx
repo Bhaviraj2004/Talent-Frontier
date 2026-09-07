@@ -46,16 +46,16 @@ export default function WhyChooseUs() {
               return (
                 <div 
                   key={idx} 
-                  className={`p-6 sm:p-8 lg:p-10 flex flex-col 
+                  className={`p-6 sm:p-8 lg:p-10 flex flex-col group hover:bg-[#112285] transition-all duration-300 cursor-default
                     ${idx !== values.length - 1 ? 'lg:border-r border-[#1e329c]' : ''} 
                     ${idx < 2 ? 'border-b lg:border-b-0 border-[#1e329c]' : ''}
                     ${idx === 2 ? 'border-b sm:border-b-0 border-[#1e329c]' : ''}
                   `}
                 >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#1d4ed8] text-white rounded-2xl flex items-center justify-center mb-6 sm:mb-8 shrink-0">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#1d4ed8] text-white rounded-2xl flex items-center justify-center mb-6 sm:mb-8 shrink-0 group-hover:scale-110 group-hover:bg-blue-500 transition-all duration-300 shadow-md">
                     <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-4">{val.title}</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-blue-200 transition-colors duration-200 mb-2 sm:mb-4">{val.title}</h3>
                   <p className="text-blue-100 text-xs sm:text-sm leading-relaxed opacity-90">
                     {val.description}
                   </p>

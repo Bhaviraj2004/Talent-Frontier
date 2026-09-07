@@ -17,13 +17,13 @@ export default function ShortlistProcess() {
         </div>
         <div className="lg:col-span-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-start">
           {steps.map((step, idx) => (
-            <div key={idx} className="flex flex-col items-center text-center w-full">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white flex items-center justify-center text-[#2563eb] mb-3 sm:mb-4 shadow-sm border border-gray-100 transition-transform hover:scale-105">
-                <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div key={idx} className="flex flex-col items-center text-center w-full group cursor-default">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white flex items-center justify-center text-[#2563eb] mb-3 sm:mb-4 shadow-sm border border-gray-100 group-hover:border-blue-300 group-hover:scale-110 group-hover:bg-blue-50 group-hover:shadow-md transition-all duration-300">
+                <svg className="w-6 h-6 sm:w-7 sm:h-7 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={step.icon}></path>
                 </svg>
               </div>
-              <span className="text-[11px] sm:text-[12px] font-bold text-gray-700 leading-tight uppercase tracking-wide">{step.title}</span>
+              <span className="text-[11px] sm:text-[12px] font-bold text-gray-700 group-hover:text-blue-600 transition-colors duration-200 leading-tight uppercase tracking-wide">{step.title}</span>
             </div>
           ))}
         </div>

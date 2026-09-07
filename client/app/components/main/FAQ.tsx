@@ -48,7 +48,7 @@ export default function FAQ() {
             <div 
               key={i} 
               onClick={() => toggleFAQ(i)}
-              className="bg-[#f0f5fc] rounded-xl p-5 flex flex-col cursor-pointer hover:bg-[#e1ecf9] transition-all border border-blue-50/80 shadow-sm"
+              className="bg-[#f0f5fc] rounded-xl p-5 flex flex-col cursor-pointer hover:bg-[#e4effb] hover:border-blue-300 hover:shadow-md transition-all duration-300 border border-blue-100/60 shadow-sm"
             >
               <div className="flex justify-between items-center gap-3">
                 <span className="font-semibold text-gray-800 text-sm sm:text-[15px] leading-snug">{faq.q}</span>
