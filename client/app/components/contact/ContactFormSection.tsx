@@ -1,8 +1,65 @@
 "use client";
 import Link from 'next/link';
-import Image from 'next/image';
+import { useState, FormEvent } from 'react';
 
 export default function ContactFormSection() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    company: '',
+    industry: '',
+    subject: '',
+    requirements: '',
+    privacyAgree: false,
+  });
+
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target as HTMLInputElement;
+    const checked = type === 'checkbox' ? (e.target as HTMLInputElement).checked : undefined;
+    
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    setErrorMessage('');
+
+    try {
+      const res = await fetch('http://localhost:5000/api/enquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus('success');
+        setFormData({
+          firstName: '', lastName: '', email: '', phone: '', company: '',
+          industry: '', subject: '', requirements: '', privacyAgree: false
+        });
+      } else {
+        setStatus('error');
+        setErrorMessage(data.error || 'Something went wrong.');
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('error');
+      setErrorMessage('Failed to connect to the server. Please try again later.');
+    }
+  };
   return (
     <section id="contact-form" className="w-full bg-[#f8fafc] py-16 sm:py-24 font-sans">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row gap-12 lg:gap-24">
@@ -20,37 +77,49 @@ export default function ContactFormSection() {
             Our team help you identify the right next step.
           </p>
 
-          <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+          {status === 'success' && (
+            <div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-md text-[13px] font-medium">
+              Thank you! Your enquiry has been submitted successfully. A confirmation email has been sent to you.
+            </div>
+          )}
+
+          {status === 'error' && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-md text-[13px] font-medium">
+              {errorMessage}
+            </div>
+          )}
+
+          <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">First Name*</label>
-                <input type="text" required placeholder="John" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+                <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required placeholder="John" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Last Name*</label>
-                <input type="text" required placeholder="Doe" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+                <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required placeholder="Doe" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Business Email Address*</label>
-                <input type="email" required placeholder="john@example.com" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+                <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@example.com" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Phone Number</label>
-                <input type="tel" placeholder="+61 ..." className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="+61 ..." className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Company Name*</label>
-                <input type="text" required placeholder="Company Ltd" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+                <input type="text" name="company" value={formData.company} onChange={handleChange} required placeholder="Company Ltd" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Industry</label>
-                <select className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px] text-gray-500 appearance-none">
+                <select name="industry" value={formData.industry} onChange={handleChange} className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px] text-gray-500 appearance-none">
                   <option value="">Select Industry</option>
                   <option value="property">Property & Real Estate</option>
                   <option value="ecommerce">Ecommerce & Retail</option>
@@ -63,24 +132,24 @@ export default function ContactFormSection() {
 
             <div className="flex flex-col gap-2">
               <label className="text-[12px] font-bold text-[#1e293b]">Subject*</label>
-              <input type="text" required placeholder="How can we help you?" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+              <input type="text" name="subject" value={formData.subject} onChange={handleChange} required placeholder="How can we help you?" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
             </div>
 
             <div className="flex flex-col gap-2 mb-2">
               <label className="text-[12px] font-bold text-[#1e293b]">Tell Us About Your Requirements*</label>
-              <textarea rows={5} required placeholder="Describe your staffing or support needs..." className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px] resize-none"></textarea>
+              <textarea name="requirements" value={formData.requirements} onChange={handleChange} rows={5} required placeholder="Describe your staffing or support needs..." className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px] resize-none"></textarea>
             </div>
 
             <div className="flex items-center gap-3 mb-6">
-              <input type="checkbox" required id="privacy-agree" className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer" />
+              <input type="checkbox" name="privacyAgree" checked={formData.privacyAgree} onChange={handleChange} required id="privacy-agree" className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer" />
               <label htmlFor="privacy-agree" className="text-[12px] font-medium text-[#64748b] cursor-pointer">
                 I have read and agree to Talent frontier's <Link href="/contact" className="text-[#3b82f6] hover:underline font-bold">Privacy Policy.</Link>
               </label>
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
-              <button type="submit" className="bg-[#1d4ed8] hover:bg-blue-600 text-white px-8 py-3.5 rounded-md font-bold text-[13px] transition-colors shadow-md text-center">
-                Send Enquiry
+              <button type="submit" disabled={status === 'loading'} className="bg-[#1d4ed8] hover:bg-blue-600 disabled:opacity-70 text-white px-8 py-3.5 rounded-md font-bold text-[13px] transition-colors shadow-md text-center">
+                {status === 'loading' ? 'Sending...' : 'Send Enquiry'}
               </button>
               <a href="mailto:admin@talentfrontier.com.au?subject=Consultation%20Request" className="text-[#3b82f6] font-bold text-[13px] hover:text-blue-700 transition-colors inline-flex items-center justify-center group py-2">
                 Book a Consultation 

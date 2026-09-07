@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>New Enquiry - Admin Notification</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica', 'Arial', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      color: #1e293b;
+      line-height: 1.5;
+    }
+    .wrapper {
+      padding: 24px 16px;
+    }
+    .container {
+      max-width: 620px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    .header-top {
+      background-color: #0f172a;
+      border-bottom: 1px solid #1e293b;
+      color: #cbd5e1;
+      padding: 10px 20px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .brand-section {
+      padding: 24px;
+      border-bottom: 1px solid #f1f5f9;
+      background-color: #ffffff;
+    }
+    .brand-flex {
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      width: 44px;
+      height: 44px;
+      background-color: #020617;
+      color: #ffffff;
+      font-family: Georgia, serif;
+      font-weight: bold;
+      font-size: 18px;
+      display: inline-block;
+      text-align: center;
+      line-height: 44px;
+      border-radius: 4px;
+      border: 1px solid #1e293b;
+      margin-right: 14px;
+    }
+    .brand-text {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .brand-name {
+      font-weight: bold;
+      color: #020617;
+      font-size: 16px;
+      letter-spacing: 0.05em;
+    }
+    .brand-name span {
+      color: #0284c7;
+    }
+    .brand-tagline {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #64748b;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .hero-section {
+      padding: 24px;
+      background-color: #ffffff;
+    }
+    .badge {
+      display: inline-block;
+      background-color: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 10.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.025em;
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-size: 24px;
+      font-family: Georgia, serif;
+      color: #020617;
+      margin: 0 0 8px 0;
+      font-weight: normal;
+    }
+    .hero-title span {
+      font-weight: bold;
+      color: #0f172a;
+    }
+    .hero-subtitle {
+      color: #475569;
+      font-size: 14px;
+      margin: 0 0 16px 0;
+    }
+    .hero-subtitle a {
+      color: #0284c7;
+      text-decoration: none;
+    }
+    .section-card {
+      padding: 12px 24px;
+    }
+    .card-inner {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      overflow: hidden;
+      background-color: #f8fafc;
+    }
+    .card-header {
+      background-color: #f1f5f9;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 10px 16px;
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #334155;
+    }
+    .card-body {
+      padding: 16px;
+    }
+    .data-grid {
+      display: block;
+      width: 100%;
+    }
+    .data-item {
+      display: inline-block;
+      width: 48%;
+      vertical-align: top;
+      margin-bottom: 14px;
+    }
+    @media only screen and (max-width: 480px) {
+      .data-item {
+        width: 100%;
+        display: block;
+      }
+    }
+    .data-label {
+      color: #94a3b8;
+      font-size: 10px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+    .data-value {
+      color: #0f172a;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .data-value a {
+      color: #0284c7;
+      text-decoration: none;
+    }
+    .data-value.mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    .card-white {
+      background-color: #ffffff;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+    .requirements-box {
+      background-color: #f8fafc;
+      border-left: 4px solid #0284c7;
+      padding: 14px;
+      color: #334155;
+      font-size: 13px;
+      white-space: pre-line;
+      border-radius: 0 4px 4px 0;
+      margin-top: 4px;
+    }
+    .footer {
+      background-color: #0f172a;
+      color: #94a3b8;
+      padding: 24px;
+      text-align: center;
+      font-size: 12px;
+      border-top: 1px solid #1e293b;
+    }
+    .footer-brand {
+      margin-bottom: 12px;
+    }
+    .footer-brand span.tf {
+      display: inline-block;
+      background-color: #1e293b;
+      color: #38bdf8;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      font-family: Georgia, serif;
+      font-weight: bold;
+      border-radius: 4px;
+      margin-right: 8px;
+    }
+    .footer-brand span.name {
+      font-weight: bold;
+      color: #ffffff;
+      letter-spacing: 0.1em;
+      margin-right: 8px;
+    }
+    .footer-brand span.internal {
+      color: #64748b;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+    }
+    .footer p {
+      margin: 0 0 12px 0;
+    }
+    .footer-legal {
+      font-size: 10px;
+      color: #64748b;
+      border-top: 1px solid #1e293b;
+      padding-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="header-top">
+        CONFIDENTIAL & PROPRIETARY
+      </div>
+      <div class="brand-section">
+        <div class="brand-flex">
+          <div class="logo">TF</div>
+          <div class="brand-text">
+            <div class="brand-name">TALENT<span>FRONTIER</span></div>
+            <div class="brand-tagline">EXECUTIVE SEARCH • LEADERSHIP ADVISORY</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-section">
+        <div class="badge">NEW INBOUND CLIENT MANDATE REGISTERED</div>
+        <h1 class="hero-title">New Client Enquiry Logged: <span>{{companyName}}</span></h1>
+        <p class="hero-subtitle">Submitted by <strong>{{fullName}}</strong> (<a href="mailto:{{email}}">{{email}}</a>) • <a href="tel:{{phone}}">{{phone}}</a> on {{timestamp}}.</p>
+      </div>
+
+      <div class="section-card">
+        <div class="card-inner">
+          <div class="card-header">PROSPECT DOSSIER & CONTACT DETAILS</div>
+          <div class="card-body">
+            <div class="data-grid">
+              <div class="data-item">
+                <div class="data-label">Primary Contact Name</div>
+                <div class="data-value">{{fullName}}</div>
+              </div>
+              <div class="data-item">
+                <div class="data-label">Corporate Role / Title</div>
+                <div class="data-value">{{jobTitle}}</div>
+              </div>
+              <div class="data-item">
+                <div class="data-label">Organization Name</div>
+                <div class="data-value">{{companyName}}</div>
+              </div>
+              <div class="data-item">
+                <div class="data-label">Industry / Practice Sector</div>
+                <div class="data-value">{{industry}}</div>
+              </div>
+              <div class="data-item">
+                <div class="data-label">Direct Work Email</div>
+                <div class="data-value"><a href="mailto:{{email}}">{{email}}</a></div>
+              </div>
+              <div class="data-item">
+                <div class="data-label">Contact Number</div>
+                <div class="data-value mono"><a href="tel:{{phone}}">{{phone}}</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card" style="padding-bottom: 24px;">
+        <div class="card-inner card-white">
+          <div class="card-header">EXECUTIVE BRIEFING & MANDATE SPECIFICATIONS</div>
+          <div class="card-body">
+            <div style="margin-bottom: 16px;">
+              <div class="data-label">Mandate Subject / Search Objective</div>
+              <div class="data-value" style="background-color: #f8fafc; padding: 8px; border: 1px solid #f1f5f9; border-radius: 4px;">{{subject}}</div>
+            </div>
+            <div>
+              <div class="data-label">Recorded Scope & Client Requirements</div>
+              <div class="requirements-box">{{requirements}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-brand">
+          <span class="tf">TF</span>
+          <span class="name">TALENT FRONTIER</span>
+          <span class="internal">| INTERNAL DISPATCH</span>
+        </div>
+        <p>This automated transmission was dispatched via Talent Frontier Enterprise Inbound Gateway.</p>
+        <div class="footer-legal">
+          CONFIDENTIALITY NOTICE: This email and any attachments contain strictly confidential and proprietary talent intelligence intended solely for the eyes of authorized Talent Frontier partners and directors. Unauthorized distribution or copying is strictly prohibited. © {{year}} Talent Frontier Pty Ltd.
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
