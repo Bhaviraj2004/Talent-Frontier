@@ -103,7 +103,7 @@ export default function ContactFormSection() {
           </p>
 
           <div className="flex flex-col gap-8 sm:gap-10 mb-8 sm:mb-12">
-            <a href="tel:+61423728511" className="flex items-start gap-5 group">
+            <a href="tel:+61XXXXXXXXX" className="flex items-start gap-5 group">
               <div className="w-10 h-10 rounded-full bg-[#3b82f6] group-hover:bg-blue-600 transition-colors flex items-center justify-center shrink-0 shadow-md shadow-blue-500/20">
                 <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
@@ -111,7 +111,7 @@ export default function ContactFormSection() {
               </div>
               <div className="flex flex-col border-l-2 border-gray-300 pl-4 py-1">
                 <span className="text-[11px] font-bold text-[#0f172a] uppercase tracking-wider mb-1">Phone</span>
-                <span className="text-[13px] font-medium text-[#475569] group-hover:text-blue-600 transition-colors">+61 423 728 511</span>
+                <span className="text-[13px] font-medium text-[#475569] group-hover:text-blue-600 transition-colors">+61 XXX XXX XXX</span>
               </div>
             </a>
 

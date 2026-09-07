@@ -139,7 +139,7 @@ export default function PrivacyPolicyPage() {
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 mb-1">Phone</p>
-                    <a href="tel:+61123456789" className="font-semibold text-slate-900 dark:text-white group-hover/card:text-blue-600 dark:group-hover/card:text-blue-400 transition-colors text-sm sm:text-base">+61 (0) 123 456 789</a>
+                    <a href="tel:+61XXXXXXXXX" className="font-semibold text-slate-900 dark:text-white group-hover/card:text-blue-600 dark:group-hover/card:text-blue-400 transition-colors text-sm sm:text-base">+61 XXX XXX XXX</a>
                   </div>
                 </div>
 
