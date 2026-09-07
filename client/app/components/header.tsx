@@ -55,7 +55,7 @@ export default function Header() {
       <div className="flex items-center justify-between px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto w-full font-sans py-3 md:py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center z-10 shrink-0" onClick={() => setMobileMenuOpen(false)}>
-          <img src="/logo.png" alt="Talent Frontier" className="h-10 sm:h-12 md:h-14 w-auto object-contain" />
+          <img src="/logo.png" alt="Talent Frontier" className="h-14 sm:h-16 md:h-[72px] lg:h-20 w-auto object-contain transition-all" />
         </Link>
         
         {/* Desktop Navigation */}
@@ -206,7 +206,7 @@ export default function Header() {
 
       {/* Mobile / Tablet Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[61px] sm:top-[69px] md:top-[77px] bg-white border-b border-gray-200 shadow-2xl z-50 animate-in slide-in-from-top-2 duration-200">
+        <div className="lg:hidden absolute top-full inset-x-0 bg-white border-b border-gray-200 shadow-2xl z-50 animate-in slide-in-from-top-2 duration-200">
           <nav className="flex flex-col px-4 sm:px-6 py-6 space-y-1 max-h-[calc(100vh-80px)] overflow-y-auto">
             {/* Home */}
             <Link

@@ -1,35 +1,109 @@
 export default function TrustedClients() {
   const clients = [
-    { name: "NORTHRIDGE", subtitle: "SOLUTIONS" },
-    { name: "VERIDIAN", subtitle: "PARTNERS" },
-    { name: "LUMENIX", subtitle: "TECHNOLOGIES" },
-    { name: "ALTURA", subtitle: "ADVISORS" },
-    { name: "NOVENTIS", subtitle: "HEALTH" },
-    { name: "VERITAS", subtitle: "FINANCIAL" },
-    { name: "COVALENT", subtitle: "GLOBAL" },
-    { name: "PEREGRINE", subtitle: "CAPITAL" }
+    {
+      name: "NORTHRIDGE",
+      subtitle: "SOLUTIONS",
+      icon: (
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+        </svg>
+      )
+    },
+    {
+      name: "VERIDIAN",
+      subtitle: "PARTNERS",
+      icon: (
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="9" cy="12" r="5" />
+          <circle cx="15" cy="12" r="5" />
+        </svg>
+      )
+    },
+    {
+      name: "LUMENIX",
+      subtitle: "TECHNOLOGIES",
+      icon: (
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z" />
+          <circle cx="12" cy="11" r="2.5" fill="currentColor" />
+        </svg>
+      )
+    },
+    {
+      name: "ALTURA",
+      subtitle: "ADVISORS",
+      icon: (
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="18 15 12 9 6 15" />
+          <polyline points="18 9 12 3 6 9" />
+        </svg>
+      )
+    },
+    {
+      name: "NOVENTIS",
+      subtitle: "HEALTH",
+      icon: (
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 5v14M5 12h14" />
+          <circle cx="12" cy="12" r="9" />
+        </svg>
+      )
+    },
+    {
+      name: "VERITAS",
+      subtitle: "FINANCIAL",
+      icon: (
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" />
+        </svg>
+      )
+    },
+    {
+      name: "COVALENT",
+      subtitle: "GLOBAL",
+      icon: (
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="9" />
+          <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(35 12 12)" />
+          <circle cx="12" cy="12" r="2" fill="currentColor" />
+        </svg>
+      )
+    },
+    {
+      name: "PEREGRINE",
+      subtitle: "CAPITAL",
+      icon: (
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <polygon points="12 2 21 8.5 17 21 7 21 3 8.5 12 2" />
+          <line x1="12" y1="2" x2="12" y2="21" />
+        </svg>
+      )
+    }
   ];
 
   return (
-    <section className="w-full bg-white py-20 border-t border-gray-100 font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
-        <p className="text-blue-600 text-xs font-bold tracking-widest uppercase mb-3">
+    <section className="w-full bg-white py-14 sm:py-18 md:py-20 border-t border-gray-100 font-sans">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 text-center">
+        <p className="text-blue-600 text-xs font-bold tracking-widest uppercase mb-2 sm:mb-3">
           OUR TRUSTED CLIENTS
         </p>
-        <h2 className="text-3xl font-bold text-[#0f172a] mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0f172a] mb-8 sm:mb-12">
           Trusted by Businesses Worldwide
         </h2>
         
-        <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+        <div className="max-w-[340px] sm:max-w-xl md:max-w-4xl lg:max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-5 sm:gap-x-10 md:gap-x-12 gap-y-7 sm:gap-y-9">
           {clients.map((client, idx) => (
-            <div key={idx} className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full border-[3px] flex items-center justify-center
-                border-blue-500 relative">
-                  <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+            <div key={idx} className="flex items-center gap-2.5 sm:gap-3.5 group justify-start transition-transform duration-300 hover:translate-y-[-2px]">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-blue-500 bg-blue-50/60 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 text-blue-600 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300">
+                {client.icon}
               </div>
-              <div className="text-left leading-none">
-                <span className="block text-sm font-black tracking-tight text-[#0f172a]">{client.name}</span>
-                <span className="block text-[8px] tracking-[0.2em] text-blue-500 mt-1">{client.subtitle}</span>
+              <div className="text-left leading-tight">
+                <span className="block text-[13px] sm:text-sm md:text-[15px] font-black tracking-tight text-[#0f172a] group-hover:text-blue-600 transition-colors">
+                  {client.name}
+                </span>
+                <span className="block text-[8px] sm:text-[9px] tracking-[0.18em] font-bold text-blue-500 mt-0.5">
+                  {client.subtitle}
+                </span>
               </div>
             </div>
           ))}
