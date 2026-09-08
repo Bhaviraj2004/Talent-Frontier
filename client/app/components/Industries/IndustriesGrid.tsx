@@ -29,10 +29,10 @@ export default function IndustriesGrid() {
             <div key={idx} className={`rounded-2xl sm:rounded-[24px] overflow-hidden flex flex-col sm:flex-row h-full border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 active:brightness-105 active:scale-[0.99] transition-all duration-300 ${ind.dark ? 'bg-[#0a1532] text-white' : 'bg-[#eaf0f8] text-[#0f172a]'}`}>
               
               {/* Text Side */}
-              <div className="w-full sm:w-[55%] p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
-                <span className="font-bold text-[18px] mb-4 opacity-90">{ind.num}</span>
-                <h3 className="text-[18px] sm:text-[20px] font-bold mb-4 sm:mb-6 tracking-tight leading-tight">{ind.title}</h3>
-                <p className={`text-[12.5px] leading-relaxed mb-8 sm:mb-10 font-medium sm:pr-4 ${ind.dark ? 'text-gray-300' : 'text-[#475569]'}`}>
+              <div className="w-full sm:w-[55%] p-5 sm:p-8 lg:p-10 flex flex-col justify-center">
+                <span className="font-bold text-[16px] sm:text-[18px] mb-3 sm:mb-4 opacity-90">{ind.num}</span>
+                <h3 className="text-[17px] sm:text-[20px] font-bold mb-3 sm:mb-6 tracking-tight leading-tight">{ind.title}</h3>
+                <p className={`text-[12px] sm:text-[12.5px] leading-relaxed mb-5 sm:mb-10 font-medium sm:pr-4 ${ind.dark ? 'text-gray-300' : 'text-[#475569]'}`}>
                   {ind.desc}
                 </p>
                 <Link href={ind.link} className="flex items-center gap-3 text-[13px] font-bold tracking-wide group mt-auto w-fit">
@@ -44,7 +44,7 @@ export default function IndustriesGrid() {
               </div>
 
               {/* Image Side */}
-              <div className="w-full sm:w-[45%] relative h-[250px] sm:h-auto min-h-[300px]">
+              <div className="w-full sm:w-[45%] relative h-[200px] sm:h-auto min-h-[200px] sm:min-h-[300px]">
                 <Image src={ind.img} alt={ind.title} fill className="object-cover object-center" />
               </div>
               

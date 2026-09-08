@@ -39,11 +39,11 @@ export default function TheChallenges() {
           The Challenges We Saw
         </h2>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-6">
           {challenges.map((challenge, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-center text-center h-full">
+            <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 sm:p-8 flex flex-col items-center justify-center text-center h-full last:col-span-2 md:last:col-span-1 lg:last:col-span-1">
               {challenge.icon}
-              <h3 className="text-sm font-bold text-[#1a2332] leading-snug">
+              <h3 className="text-xs sm:text-sm font-bold text-[#1a2332] leading-snug">
                 {challenge.title}
               </h3>
             </div>

@@ -51,9 +51,9 @@ export default function UnderstandingBusinessCards() {
           We Start by Understanding Your Business
         </h2>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4">
           {cards.map((card, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 p-6 flex flex-col items-center justify-center text-center transition hover:-translate-y-1">
+            <div key={index} className="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 p-4 sm:p-6 flex flex-col items-center justify-center text-center transition hover:-translate-y-1 last:col-span-2 md:last:col-span-1 lg:last:col-span-1">
               {card.icon}
               <h3 className="text-xs font-bold text-[#1a2332] leading-snug">
                 {card.title}

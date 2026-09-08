@@ -2,10 +2,10 @@ import Image from "next/image";
 
 export default function HowWeCanSupport() {
   return (
-    <section className="w-full bg-[#f8f9fc] py-24">
-      <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-16">
+    <section className="w-full bg-[#f8f9fc] py-12 sm:py-24">
+      <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-8 md:gap-16">
         <div className="w-full md:w-[55%] flex flex-col">
-          <h2 className="text-3xl md:text-[36px] font-bold mb-10 text-[#091535]">
+          <h2 className="text-3xl md:text-[36px] font-bold mb-8 md:mb-10 text-[#091535]">
             How We Can Support You
           </h2>
           <div className="flex flex-col gap-5">
@@ -67,13 +67,13 @@ export default function HowWeCanSupport() {
             </div>
           </div>
         </div>
-        <div className="w-full md:w-[45%] mt-12 md:mt-24">
-          <div className="relative w-full h-[600px] md:h-full min-h-[600px]">
+        <div className="w-full md:w-[45%] mt-8 md:mt-24">
+          <div className="relative w-full h-[280px] sm:h-[400px] md:h-full min-h-[260px] sm:min-h-[380px] md:min-h-[500px]">
             <Image
               src="/sub pages/Services/Brand, Marketing & Creative Support/Hero Image (1).png"
               alt="Support Image"
               fill
-              className="object-cover rounded-[32px]"
+              className="object-cover rounded-[24px] sm:rounded-[32px]"
             />
           </div>
         </div>

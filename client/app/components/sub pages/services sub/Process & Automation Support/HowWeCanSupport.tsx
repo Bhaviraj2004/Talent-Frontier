@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function HowWeCanSupport() {
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 py-24 flex flex-col md:flex-row gap-16 items-center border-b border-gray-200 pb-24">
+    <section className="w-full max-w-7xl mx-auto px-4 py-12 sm:py-24 flex flex-col md:flex-row gap-8 sm:gap-12 md:gap-16 items-center border-b border-gray-200 pb-12 sm:pb-24">
       <div className="w-full md:w-[45%] flex flex-col">
-        <h2 className="text-2xl md:text-[28px] font-bold mb-10 text-[#091535]">
+        <h2 className="text-2xl md:text-[28px] font-bold mb-6 sm:mb-10 text-[#091535]">
           How We Can Support You
         </h2>
         <div className="flex flex-col">
@@ -27,12 +27,12 @@ export default function HowWeCanSupport() {
           ))}
         </div>
       </div>
-      <div className="w-full md:w-[55%] relative h-[400px] md:h-auto min-h-[500px]">
+      <div className="w-full md:w-[55%] relative h-[250px] sm:h-[350px] md:h-auto min-h-[250px] sm:min-h-[350px] md:min-h-[500px] self-stretch">
         <Image
           src="/sub pages/Services/Process & Automation Support/Editable Shape (2).png"
           alt="How We Can Support You"
           fill
-          className="object-cover rounded-[32px]"
+          className="object-cover rounded-[24px] sm:rounded-[32px]"
         />
       </div>
     </section>

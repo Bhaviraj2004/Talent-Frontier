@@ -51,11 +51,11 @@ export default function MissionVisionValues() {
       </div>
 
       {/* 5 Value Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4">
         {valuesList.map((val, idx) => (
-          <div key={idx} className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 flex items-center justify-center">
+          <div key={idx} className="bg-white rounded-lg shadow-sm border border-gray-100 p-3.5 sm:p-4 flex items-center justify-center last:col-span-2 md:last:col-span-1 lg:last:col-span-1">
             {val.icon}
-            <span className="text-sm font-bold text-[#1a2332]">{val.name}</span>
+            <span className="text-xs sm:text-sm font-bold text-[#1a2332]">{val.name}</span>
           </div>
         ))}
       </div>

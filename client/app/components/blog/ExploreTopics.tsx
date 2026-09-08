@@ -51,18 +51,18 @@ export default function ExploreTopics() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 xl:grid-cols-4 gap-3.5 sm:gap-6">
           {filteredTopics.map((topic, idx) => (
             <div key={idx} className="bg-[#f8fafc] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col h-full border border-gray-100">
-              <div className="relative w-full h-[180px]">
+              <div className="relative w-full h-[120px] sm:h-[180px]">
                 <Image src={topic.img} alt={topic.title} fill className="object-cover" />
               </div>
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-[16px] font-bold text-[#0f172a] mb-3">{topic.title}</h3>
-                <p className="text-[#64748b] text-[12px] leading-relaxed mb-6 flex-1 font-medium">
+              <div className="p-3.5 sm:p-6 flex flex-col flex-1">
+                <h3 className="text-[13px] sm:text-[16px] font-bold text-[#0f172a] mb-2 sm:mb-3 leading-snug">{topic.title}</h3>
+                <p className="text-[#64748b] text-[11px] sm:text-[12px] leading-relaxed mb-3 sm:mb-6 flex-1 font-medium">
                   {topic.desc}
                 </p>
-                <Link href="/blog/hardblog" className="inline-flex items-center text-[#3b82f6] text-[12px] font-bold group mt-auto w-fit">
+                <Link href="/blog/hardblog" className="inline-flex items-center text-[#3b82f6] text-[11px] sm:text-[12px] font-bold group mt-auto w-fit">
                   Read Article 
                   <svg className="w-3.5 h-3.5 ml-1.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />

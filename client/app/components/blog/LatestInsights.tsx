@@ -25,19 +25,19 @@ export default function LatestInsights() {
         </h2>
 
         {/* Latest Insights Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6 lg:gap-8 mb-12 sm:mb-20">
           {latest.map((item, idx) => (
             <div key={idx} className="flex flex-col group">
-              <div className="relative w-full h-[180px] rounded-xl overflow-hidden mb-5">
+              <div className="relative w-full h-[120px] sm:h-[180px] rounded-xl overflow-hidden mb-3 sm:mb-5">
                 <Image src={item.img} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
-              <h3 className="text-[16px] font-bold text-[#0f172a] mb-3 leading-snug">{item.title}</h3>
-              <p className="text-[#64748b] text-[12.5px] leading-relaxed mb-6 font-medium flex-1">
+              <h3 className="text-[13px] sm:text-[16px] font-bold text-[#0f172a] mb-2 sm:mb-3 leading-snug">{item.title}</h3>
+              <p className="text-[#64748b] text-[11px] sm:text-[12.5px] leading-relaxed mb-3 sm:mb-6 font-medium flex-1">
                 {item.desc}
               </p>
-              <div className="flex justify-between items-center mt-auto border-t border-gray-100 pt-4">
-                <span className="text-gray-500 text-[11px] font-bold uppercase tracking-wider">5 min read</span>
-                <Link href="/blog/hardblog" className="inline-flex items-center text-[#3b82f6] text-[12px] font-bold hover:text-blue-700 transition-colors">
+              <div className="flex justify-between items-center mt-auto border-t border-gray-100 pt-3 sm:pt-4">
+                <span className="text-gray-500 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider">5 min</span>
+                <Link href="/blog/hardblog" className="inline-flex items-center text-[#3b82f6] text-[11px] sm:text-[12px] font-bold hover:text-blue-700 transition-colors">
                   Read Article 
                   <svg className="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />

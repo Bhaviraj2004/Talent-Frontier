@@ -19,19 +19,19 @@ export default function ClientFeedback() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-6 md:gap-8">
           
           {/* Large Left Card */}
-          <div className="bg-[#0b1736] rounded-[32px] p-10 md:p-14 flex flex-col shadow-xl min-h-[500px]">
+          <div className="bg-[#0b1736] rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 md:p-14 flex flex-col shadow-xl min-h-[340px] sm:min-h-[420px] lg:min-h-[500px]">
             <div className="mb-auto">
-              <div className="text-white mb-8">
+              <div className="text-white mb-4 sm:mb-8">
                 <svg width="48" height="38" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
               </div>
-              <h3 className="text-[28px] md:text-[36px] text-white font-serif italic font-light leading-snug mb-16 max-w-sm">
+              <h3 className="text-[24px] sm:text-[28px] md:text-[36px] text-white font-serif italic font-light leading-snug mb-8 sm:mb-16 max-w-sm">
                 "[Genuine client feedback will appear here.]"
               </h3>
             </div>
             
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-t border-white/20 pt-8">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 border-t border-white/20 pt-6 sm:pt-8">
               <div className="flex items-center gap-5">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0">
                   <Image src="/Testimonials page/Ellipse 18.png" alt="Client" fill className="object-cover" />
@@ -51,17 +51,17 @@ export default function ClientFeedback() {
           <div className="flex flex-col gap-6 md:gap-8">
             
             {/* Top Right Card */}
-            <div className="bg-white border-2 border-blue-100 rounded-[32px] p-8 md:p-10 shadow-sm flex flex-col md:flex-row gap-6 md:gap-8 flex-1">
+            <div className="bg-white border-2 border-blue-100 rounded-[24px] sm:rounded-[32px] p-6 sm:p-8 md:p-10 shadow-sm flex flex-col sm:flex-row gap-6 md:gap-8 flex-1">
               <div className="relative w-20 h-20 shrink-0 rounded-full overflow-hidden">
                 <Image src="/Testimonials page/Ellipse 15.png" alt="Client" fill className="object-cover" />
               </div>
               <div className="flex flex-col flex-1">
-                <div className="text-[#3b82f6] mb-5">
+                <div className="text-[#3b82f6] mb-3 sm:mb-5">
                   <svg width="28" height="24" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
                 </div>
-                <h3 className="text-[22px] md:text-[24px] text-[#1e293b] font-serif italic mb-10 leading-snug">
+                <h3 className="text-[20px] sm:text-[22px] md:text-[24px] text-[#1e293b] font-serif italic mb-6 sm:mb-10 leading-snug">
                   "[Genuine client feedback will appear here.]"
                 </h3>
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mt-auto">
@@ -77,17 +77,17 @@ export default function ClientFeedback() {
             </div>
 
             {/* Bottom Right Card */}
-            <div className="bg-white border-2 border-blue-100 rounded-[32px] p-8 md:p-10 shadow-sm flex flex-col md:flex-row gap-6 md:gap-8 flex-1">
+            <div className="bg-white border-2 border-blue-100 rounded-[24px] sm:rounded-[32px] p-6 sm:p-8 md:p-10 shadow-sm flex flex-col sm:flex-row gap-6 md:gap-8 flex-1">
               <div className="relative w-20 h-20 shrink-0 rounded-full overflow-hidden">
                 <Image src="/Testimonials page/Ellipse 16.png" alt="Client" fill className="object-cover" />
               </div>
               <div className="flex flex-col flex-1">
-                <div className="text-[#3b82f6] mb-5">
+                <div className="text-[#3b82f6] mb-3 sm:mb-5">
                   <svg width="28" height="24" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
                 </div>
-                <h3 className="text-[22px] md:text-[24px] text-[#1e293b] font-serif italic mb-10 leading-snug">
+                <h3 className="text-[20px] sm:text-[22px] md:text-[24px] text-[#1e293b] font-serif italic mb-6 sm:mb-10 leading-snug">
                   "[Genuine client feedback will appear here.]"
                 </h3>
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mt-auto">

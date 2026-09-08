@@ -20,17 +20,16 @@ export default function ReliableSupport() {
           </Link>
         </div>
       </div>
-      <div className="w-full md:w-7/12 relative min-h-[400px] md:min-h-[600px]">
-        {/* Diagonal cut effect for the image container */}
+      <div className="w-full md:w-7/12 relative min-h-[260px] sm:min-h-[360px] md:min-h-[600px]">
+        {/* Diagonal cut effect for the image container only on desktop */}
         <div 
-          className="absolute inset-0 w-full h-full overflow-hidden" 
-          style={{ clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0 100%)' }}
+          className="absolute inset-0 w-full h-full overflow-hidden [clip-path:none] md:[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)]" 
         >
           <Image
             src="/sub pages/Services/Business Support Services/Group 5.png"
             alt="Reliable Support"
             fill
-            className="object-cover object-left"
+            className="object-cover object-center md:object-left"
           />
         </div>
       </div>

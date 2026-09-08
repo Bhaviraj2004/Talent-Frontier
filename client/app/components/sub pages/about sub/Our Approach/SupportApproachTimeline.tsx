@@ -45,33 +45,27 @@ export default function SupportApproachTimeline() {
   ];
 
   return (
-    <section className="w-full bg-[#f4f7fb] py-16 px-4 md:px-8 mt-4 rounded-t-3xl max-w-[95%] mx-auto">
+    <section className="w-full bg-[#f4f7fb] py-10 sm:py-16 px-4 md:px-8 mt-4 rounded-2xl sm:rounded-t-3xl max-w-[95%] mx-auto">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#1a2332] mb-16">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#1a2332] mb-8 sm:mb-16">
           Our Client Support Approach
         </h2>
         
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-2">
+        <div className="grid grid-cols-3 md:flex md:flex-row items-center justify-between gap-y-8 gap-x-2 md:gap-2">
           {timelineSteps.map((step, index) => (
             <div key={step.id} className="flex items-center flex-col md:flex-row w-full justify-center">
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 bg-[#a1b5d6] rounded-full flex items-center justify-center mb-3">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#a1b5d6] rounded-full flex items-center justify-center mb-2.5 sm:mb-3 shadow-sm">
                   {step.icon}
                 </div>
                 <span className="text-xs font-bold text-[#1a2332]">{step.label}</span>
               </div>
               
-              {/* Arrow separator (don't show after last item) */}
+              {/* Arrow separator (desktop only) */}
               {index < timelineSteps.length - 1 && (
                 <div className="hidden md:flex items-center justify-center flex-grow mx-2">
                   <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </div>
-              )}
-              {/* Mobile down arrow */}
-              {index < timelineSteps.length - 1 && (
-                 <div className="md:hidden my-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-                 </div>
               )}
             </div>
           ))}
