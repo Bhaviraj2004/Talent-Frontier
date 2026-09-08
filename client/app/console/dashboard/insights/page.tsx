@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { Plus, Image as ImageIcon, Loader2, Search, Trash2, Edit2, CheckCircle2, CircleDashed, X, UploadCloud, FileText, Calendar, Clock, ArrowLeft, Star, Flame } from 'lucide-react';
+import { Plus, Image as ImageIcon, Loader2, Search, Trash2, Edit2, CheckCircle2, CircleDashed, X, UploadCloud, FileText, Calendar, Clock, ArrowLeft, Star, Flame, Tag } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
@@ -35,6 +35,7 @@ const quillFormats = [
 
 export default function InsightsPage() {
   const [insights, setInsights] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -47,11 +48,48 @@ export default function InsightsPage() {
   const [published, setPublished] = useState(false);
   const [isFeatured, setIsFeatured] = useState(false);
   const [isRecommended, setIsRecommended] = useState(false);
+  const [categoryId, setCategoryId] = useState('');
+  const [isCreatingCategory, setIsCreatingCategory] = useState(false);
+  const [newCategoryName, setNewCategoryName] = useState('');
   const [imageFile, setImageFile] = useState<File | null>(null);
 
   useEffect(() => {
     fetchInsights();
+    fetchCategories();
   }, []);
+
+  const fetchCategories = async () => {
+    try {
+      const token = Cookies.get('admin_token');
+      const res = await axios.get('http://localhost:5000/api/categories', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      if (res.data.success) {
+        setCategories(res.data.categories);
+      }
+    } catch (error) {
+      console.error("Failed to fetch categories", error);
+    }
+  };
+
+  const handleCreateCategory = async () => {
+    if (!newCategoryName.trim()) return;
+    try {
+      const token = Cookies.get('admin_token');
+      const res = await axios.post('http://localhost:5000/api/categories', { name: newCategoryName }, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      if (res.data.success) {
+        setCategories([...categories, res.data.category].sort((a: any, b: any) => a.name.localeCompare(b.name)));
+        setCategoryId(res.data.category.id);
+        setIsCreatingCategory(false);
+        setNewCategoryName('');
+      }
+    } catch (error) {
+      console.error("Failed to create category", error);
+      alert("Failed to create category");
+    }
+  };
 
   const fetchInsights = async () => {
     try {
@@ -106,6 +144,7 @@ export default function InsightsPage() {
         published: String(published),
         isFeatured: String(isFeatured),
         isRecommended: String(isRecommended),
+        categoryId,
         imageUrl: finalImageUrl
       };
 
@@ -147,6 +186,9 @@ export default function InsightsPage() {
     setPublished(false);
     setIsFeatured(false);
     setIsRecommended(false);
+    setCategoryId('');
+    setIsCreatingCategory(false);
+    setNewCategoryName('');
     setImageFile(null);
   };
 
@@ -236,6 +278,12 @@ export default function InsightsPage() {
                           <span className="font-bold text-slate-900 group-hover:text-[#005B82] transition-colors line-clamp-1">{insight.title}</span>
                           {insight.description && (
                             <p className="text-[11px] text-slate-500 mt-1 line-clamp-2 max-w-md leading-relaxed">{insight.description}</p>
+                          )}
+                          {insight.category && (
+                            <div className="mt-2 inline-flex items-center space-x-1 text-[10px] font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
+                              <Tag className="w-3 h-3" />
+                              <span>{insight.category.name}</span>
+                            </div>
                           )}
                         </div>
                       </div>
@@ -499,6 +547,55 @@ export default function InsightsPage() {
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 resize-none transition-all placeholder:text-gray-400"
                       placeholder="This text appears on the main blog listing page and in SEO meta tags..."
                     />
+
+                    {/* Category Selection */}
+                    <div className="mt-6">
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Category</label>
+                      {!isCreatingCategory ? (
+                        <div className="flex space-x-2">
+                          <select 
+                            value={categoryId} 
+                            onChange={(e) => setCategoryId(e.target.value)}
+                            className="flex-1 px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                          >
+                            <option value="">Select a category...</option>
+                            {categories.map((cat: any) => (
+                              <option key={cat.id} value={cat.id}>{cat.name}</option>
+                            ))}
+                          </select>
+                          <button 
+                            onClick={() => setIsCreatingCategory(true)}
+                            className="px-3 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-xl transition-colors flex items-center justify-center border border-gray-200"
+                            title="Add new category"
+                          >
+                            <Plus className="w-5 h-5" />
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="flex space-x-2">
+                          <input 
+                            type="text"
+                            value={newCategoryName}
+                            onChange={(e) => setNewCategoryName(e.target.value)}
+                            placeholder="New category name"
+                            className="flex-1 px-4 py-3 bg-gray-50 border border-blue-300 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                            autoFocus
+                          />
+                          <button 
+                            onClick={handleCreateCategory}
+                            className="px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors shadow-sm text-sm"
+                          >
+                            Add
+                          </button>
+                          <button 
+                            onClick={() => { setIsCreatingCategory(false); setNewCategoryName(''); }}
+                            className="px-3 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-xl transition-colors border border-gray-200"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   {/* Publishing Status Card */}

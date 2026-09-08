@@ -5,7 +5,10 @@ const getInsights = async (req, res) => {
   try {
     const insights = await prisma.insight.findMany({
       orderBy: { createdAt: 'desc' },
-      include: { author: { select: { email: true } } }
+      include: { 
+        author: { select: { email: true } },
+        category: true 
+      }
     });
     res.status(200).json({ success: true, insights });
   } catch (error) {
@@ -17,7 +20,10 @@ const getInsightById = async (req, res) => {
   try {
     const insight = await prisma.insight.findUnique({
       where: { id: req.params.id },
-      include: { author: { select: { email: true } } }
+      include: { 
+        author: { select: { email: true } },
+        category: true
+      }
     });
     if (!insight) return res.status(404).json({ error: 'Insight not found' });
     res.status(200).json({ success: true, insight });
@@ -28,7 +34,7 @@ const getInsightById = async (req, res) => {
 
 const createInsight = async (req, res) => {
   try {
-    const { title, description, content, published, isFeatured, isRecommended, imageUrl } = req.body;
+    const { title, description, content, published, isFeatured, isRecommended, imageUrl, categoryId } = req.body;
 
     const insight = await prisma.insight.create({
       data: {
@@ -39,6 +45,7 @@ const createInsight = async (req, res) => {
         published: published === 'true' || published === true,
         isFeatured: isFeatured === 'true' || isFeatured === true,
         isRecommended: isRecommended === 'true' || isRecommended === true,
+        categoryId: categoryId || null,
         authorId: req.user.id
       }
     });
@@ -52,14 +59,15 @@ const createInsight = async (req, res) => {
 
 const updateInsight = async (req, res) => {
   try {
-    const { title, description, content, published, isFeatured, isRecommended, imageUrl } = req.body;
+    const { title, description, content, published, isFeatured, isRecommended, imageUrl, categoryId } = req.body;
     const updateData = { 
       title, 
       description, 
       content, 
       published: published === 'true' || published === true,
       isFeatured: isFeatured === 'true' || isFeatured === true,
-      isRecommended: isRecommended === 'true' || isRecommended === true
+      isRecommended: isRecommended === 'true' || isRecommended === true,
+      categoryId: categoryId || null
     };
 
     if (imageUrl !== undefined) {
