@@ -26,26 +26,36 @@ export default function IndustriesGrid() {
         {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {industries.map((ind, idx) => (
-            <div key={idx} className={`rounded-2xl sm:rounded-[24px] overflow-hidden flex flex-col sm:flex-row h-full border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 active:brightness-105 active:scale-[0.99] transition-all duration-300 ${ind.dark ? 'bg-[#0a1532] text-white' : 'bg-[#eaf0f8] text-[#0f172a]'}`}>
-              
+            <div 
+              key={idx} 
+              className={`rounded-2xl sm:rounded-[24px] overflow-hidden flex flex-col sm:flex-row items-stretch h-full border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 active:brightness-105 active:scale-[0.99] transition-all duration-300 group ${ind.dark ? 'bg-[#0a1532] text-white' : 'bg-[#eaf0f8] text-[#0f172a]'}`}
+            >
               {/* Text Side */}
-              <div className="w-full sm:w-[55%] p-5 sm:p-8 lg:p-10 flex flex-col justify-center">
-                <span className="font-bold text-[16px] sm:text-[18px] mb-3 sm:mb-4 opacity-90">{ind.num}</span>
-                <h3 className="text-[17px] sm:text-[20px] font-bold mb-3 sm:mb-6 tracking-tight leading-tight">{ind.title}</h3>
-                <p className={`text-[12px] sm:text-[12.5px] leading-relaxed mb-5 sm:mb-10 font-medium sm:pr-4 ${ind.dark ? 'text-gray-300' : 'text-[#475569]'}`}>
-                  {ind.desc}
-                </p>
-                <Link href={ind.link} className="flex items-center gap-3 text-[13px] font-bold tracking-wide group mt-auto w-fit">
+              <div className="w-full sm:w-[55%] p-5 sm:p-7 md:p-8 lg:p-9 flex flex-col justify-between">
+                <div>
+                  <span className="font-bold text-[16px] sm:text-[18px] mb-2.5 sm:mb-3.5 block opacity-90">{ind.num}</span>
+                  <h3 className="text-[17px] sm:text-[20px] font-bold mb-3 sm:mb-5 tracking-tight leading-tight">{ind.title}</h3>
+                  <p className={`text-[12px] sm:text-[12.5px] leading-relaxed mb-6 font-medium sm:pr-2 ${ind.dark ? 'text-gray-300' : 'text-[#475569]'}`}>
+                    {ind.desc}
+                  </p>
+                </div>
+                <Link href={ind.link} className="flex items-center gap-3 text-[13px] font-bold tracking-wide group/link mt-auto w-fit">
                   Explore 
-                  <svg className={`w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300 ${ind.dark ? 'text-white' : 'text-[#0f172a]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className={`w-4 h-4 transform group-hover/link:translate-x-2 transition-transform duration-300 ${ind.dark ? 'text-white' : 'text-[#0f172a]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </Link>
               </div>
 
               {/* Image Side */}
-              <div className="w-full sm:w-[45%] relative h-[200px] sm:h-auto min-h-[200px] sm:min-h-[300px]">
-                <Image src={ind.img} alt={ind.title} fill className="object-cover object-center" />
+              <div className="w-full sm:w-[45%] relative h-[210px] sm:h-auto min-h-[210px] sm:min-h-[240px] self-stretch overflow-hidden">
+                <Image 
+                  src={ind.img} 
+                  alt={ind.title} 
+                  fill 
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 25vw"
+                />
               </div>
               
             </div>
