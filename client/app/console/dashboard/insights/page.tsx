@@ -34,8 +34,8 @@ const quillFormats = [
 ];
 
 export default function InsightsPage() {
-  const [insights, setInsights] = useState([]);
-  const [categories, setCategories] = useState([]);
+  const [insights, setInsights] = useState<any[]>([]);
+  const [categories, setCategories] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
