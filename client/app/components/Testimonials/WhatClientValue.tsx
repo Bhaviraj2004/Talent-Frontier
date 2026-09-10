@@ -10,7 +10,7 @@ const values = [
 
 export default function WhatClientValue() {
   return (
-    <section className="relative w-full py-16 sm:py-24 md:py-28 font-sans overflow-hidden">
+    <section className="relative w-full py-10 sm:py-16 md:py-20 font-sans overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0 bg-[#041133]">
         <Image 
@@ -24,17 +24,22 @@ export default function WhatClientValue() {
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
-        <h2 className="text-[26px] sm:text-[32px] md:text-[36px] font-bold text-white mb-10 sm:mb-16 tracking-tight">
+        <h2 className="text-[24px] sm:text-[28px] md:text-[34px] font-bold text-white mb-6 sm:mb-8 md:mb-12 tracking-tight">
           What Client Value
         </h2>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-5 lg:gap-6">
           {values.map((val, idx) => (
-            <div key={idx} className="flex flex-col">
-              <span className="text-white text-[32px] md:text-[38px] font-medium leading-none mb-6">{val.num}</span>
-              <div className="w-full h-[1px] bg-white/20 mb-6"></div>
-              <h4 className="text-white font-bold text-[15px] mb-3">{val.title}</h4>
-              <p className="text-[#93c5fd] text-[13px] leading-relaxed font-medium pr-4">
+            <div 
+              key={idx} 
+              className="bg-white/[0.05] backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-5 hover:bg-white/[0.09] hover:border-blue-400/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between last:col-span-2 md:last:col-span-1 lg:last:col-span-1"
+            >
+              <div>
+                <span className="text-white text-[22px] sm:text-[26px] md:text-[30px] font-bold leading-none mb-2 sm:mb-3 block">{val.num}</span>
+                <div className="w-full h-px bg-white/20 mb-2.5 sm:mb-3.5"></div>
+                <h4 className="text-white font-bold text-[13.5px] sm:text-[15px] mb-1.5 sm:mb-2 leading-snug">{val.title}</h4>
+              </div>
+              <p className="text-[#93c5fd] text-[11.5px] sm:text-[12.5px] leading-relaxed font-medium">
                 {val.desc}
               </p>
             </div>
