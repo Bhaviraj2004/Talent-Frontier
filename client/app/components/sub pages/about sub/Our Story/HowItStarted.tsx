@@ -6,7 +6,7 @@ export default function HowItStarted() {
       {/* Left Image Area */}
       <div className="w-full md:w-1/2 relative h-[300px] md:h-[450px] rounded-3xl overflow-hidden">
         <Image
-          src="/sub pages/About/Story page/Rectangle (1).png"
+          src="/sub pages/About/Our Story/Rectangle (1).png"
           alt="Founders discussing"
           fill
           className="object-cover"

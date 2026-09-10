@@ -2,16 +2,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const latest = [
-  { title: 'When Does a Growing Business Need Additional Support?', desc: "Recognise the signs that increasing workloads may be affecting your team's capacity and business performance.", img: '/Blog page/Rectangle 61.png' },
-  { title: 'Building More Consistent Financial Administration Processes', desc: 'Practical steps to organise recurring financial activities, supporting documentation and internal responsibilities.', img: '/Blog page/Rectangle 62.png' },
-  { title: 'AI in Business: Where Should You Begin?', desc: 'Practical perspectives on business strategy, leadership, operational priorities and informed decision-making.', img: '/Blog page/Rectangle 63.png' },
-  { title: 'Why Process Documentation Matters for Growing Businesses', desc: 'Discover how documented workflows can improve consistency, accountability and internal knowledge.', img: '/Blog page/Rectangle 64.png' }
+  { title: 'When Does a Growing Business Need Additional Support?', desc: "Recognise the signs that increasing workloads may be affecting your team's capacity and business performance.", img: '/Insight page/Rectangle 61.png' },
+  { title: 'Building More Consistent Financial Administration Processes', desc: 'Practical steps to organise recurring financial activities, supporting documentation and internal responsibilities.', img: '/Insight page/Rectangle 62.png' },
+  { title: 'AI in Business: Where Should You Begin?', desc: 'Practical perspectives on business strategy, leadership, operational priorities and informed decision-making.', img: '/Insight page/Rectangle 63.png' },
+  { title: 'Why Process Documentation Matters for Growing Businesses', desc: 'Discover how documented workflows can improve consistency, accountability and internal knowledge.', img: '/Insight page/Rectangle 64.png' }
 ];
 
 const recommended = [
-  { title: 'Technology-Assisted. Human-Led.', desc: 'Why human context, judgement and oversight remain essential when introducing technology and automation.', img: '/Blog page/Rectangle 65.png' },
-  { title: 'Five Signs Your Business Processes Need More Structure', desc: 'Understand how inconsistent processes can affect communication, productivity and service quality.', img: '/Blog page/Rectangle 66.png' },
-  { title: 'Preparing Your Finance Processes for Business Growth', desc: 'Understand how inconsistent processes can affect communication, productivity and service quality.', img: '/Blog page/Rectangle 67.png' }
+  { title: 'Technology-Assisted. Human-Led.', desc: 'Why human context, judgement and oversight remain essential when introducing technology and automation.', img: '/Insight page/Rectangle 65.png' },
+  { title: 'Five Signs Your Business Processes Need More Structure', desc: 'Understand how inconsistent processes can affect communication, productivity and service quality.', img: '/Insight page/Rectangle 66.png' },
+  { title: 'Preparing Your Finance Processes for Business Growth', desc: 'Understand how inconsistent processes can affect communication, productivity and service quality.', img: '/Insight page/Rectangle 67.png' }
 ];
 
 export default function LatestInsights() {
@@ -37,7 +37,7 @@ export default function LatestInsights() {
               </p>
               <div className="flex justify-between items-center mt-auto border-t border-gray-100 pt-3 sm:pt-4">
                 <span className="text-gray-500 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider">5 min</span>
-                <Link href="/blog/hardblog" className="inline-flex items-center text-[#3b82f6] text-[11px] sm:text-[12px] font-bold hover:text-blue-700 transition-colors">
+                <Link href="/insight/hardinsight" className="inline-flex items-center text-[#3b82f6] text-[11px] sm:text-[12px] font-bold hover:text-blue-700 transition-colors">
                   Read Article 
                   <svg className="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -68,7 +68,7 @@ export default function LatestInsights() {
                     {item.desc}
                   </p>
                   <div className="flex justify-end w-full mt-auto">
-                    <Link href="/blog/hardblog" className="text-gray-500 text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 group cursor-pointer hover:text-[#3b82f6] transition-colors">
+                    <Link href="/insight/hardinsight" className="text-gray-500 text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 group cursor-pointer hover:text-[#3b82f6] transition-colors">
                       7 min read
                       <svg className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />

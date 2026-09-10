@@ -9,31 +9,37 @@ const steps = [
 
 export default function HowWeWork() {
   return (
-    <section className="w-full bg-white py-16 lg:py-20 font-sans">
+    <section className="w-full bg-white py-16 lg:py-24 font-sans">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="bg-[#f2f6fc] rounded-[32px] py-16 px-6 md:px-12 w-full">
-          <h2 className="text-3xl md:text-[34px] font-bold text-[#1e293b] text-center mb-20 tracking-tight">
-            How We Work
-          </h2>
+        <div className="bg-[#f8fafc] border border-slate-100 rounded-[32px] py-16 lg:py-20 px-6 md:px-10 lg:px-16 w-full shadow-sm">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1e293b] tracking-tight mb-4">
+              How We Work
+            </h2>
+            <p className="text-slate-500 text-base md:text-lg max-w-2xl mx-auto">
+              A structured and transparent approach to ensure we deliver exactly what your business needs.
+            </p>
+          </div>
           
-          <div className="flex flex-col md:flex-row relative">
-            {/* Connecting Line for Desktop */}
-            <div className="hidden md:block absolute top-[18px] left-[8%] right-[8%] h-[2px] bg-slate-300/80 z-0"></div>
-            
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {steps.map((step, index) => (
-              <div key={index} className="flex-1 relative z-10 flex flex-col items-center text-center px-1 lg:px-3 mb-12 md:mb-0">
-                {/* Connecting Line for Mobile (vertical) */}
-                {index !== steps.length - 1 && (
-                  <div className="md:hidden absolute top-[44px] bottom-[-24px] left-1/2 w-[2px] bg-slate-300/80 -translate-x-1/2 -z-10"></div>
-                )}
-                
-                <div className="bg-[#f2f6fc] px-4 lg:px-6 mb-5">
-                  <span className="text-[26px] lg:text-[28px] font-bold text-[#0f172a] inline-block tracking-tight">{step.num}</span>
+              <div 
+                key={index} 
+                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-slate-100 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+              >
+                {/* Big Number Background */}
+                <div className="absolute -right-2 -top-4 text-[100px] font-black text-slate-50 group-hover:text-[#f0f4f8] transition-colors duration-500 select-none pointer-events-none leading-none">
+                  {step.num}
                 </div>
                 
-                <h3 className="text-[16px] lg:text-[17px] font-bold text-[#1e293b] mb-4">{step.title}</h3>
+                {/* Small Number Badge */}
+                <div className="w-12 h-12 rounded-full bg-[#e0e7ff] text-[#2563eb] flex items-center justify-center text-lg font-bold mb-6 relative z-10 group-hover:scale-110 group-hover:bg-[#2563eb] group-hover:text-white transition-all duration-300">
+                  {step.num}
+                </div>
                 
-                <p className="text-[12.5px] lg:text-[13px] text-slate-500 leading-relaxed font-medium max-w-[200px]">
+                <h3 className="text-lg md:text-[19px] font-bold text-[#1e293b] mb-3 relative z-10">{step.title}</h3>
+                
+                <p className="text-[14px] md:text-[15px] text-slate-500 leading-relaxed font-medium relative z-10">
                   {step.desc}
                 </p>
               </div>

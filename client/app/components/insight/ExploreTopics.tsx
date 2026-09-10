@@ -4,10 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const topics = [
-  { title: 'Business Insights', desc: 'Practical perspectives on business strategy, leadership, operational priorities and informed decision-making.', img: '/Blog page/Rectangle 49.png', category: 'Business Insights' },
-  { title: 'Technology & Automation', desc: 'Insights into artificial intelligence, workflow automation, CRM systems and the practical use of digital tools.', img: '/Blog page/Rectangle 52.png', category: 'Technology & Automation' },
-  { title: 'Finance & Operations', desc: 'Guidance on financial administration, operational efficiency, reporting and building consistent business processes.', img: '/Blog page/Rectangle 55.png', category: 'Finance & Operations' },
-  { title: 'Workforce & Business Growth', desc: 'Perspectives on workforce planning, business capacity, team development and sustainable organisational growth.', img: '/Blog page/Rectangle 56.png', category: 'Workforce & Business Growth' }
+  { title: 'Business Insights', desc: 'Practical perspectives on business strategy, leadership, operational priorities and informed decision-making.', img: '/Insight page/Rectangle 49.png', category: 'Business Insights' },
+  { title: 'Technology & Automation', desc: 'Insights into artificial intelligence, workflow automation, CRM systems and the practical use of digital tools.', img: '/Insight page/Rectangle 52.png', category: 'Technology & Automation' },
+  { title: 'Finance & Operations', desc: 'Guidance on financial administration, operational efficiency, reporting and building consistent business processes.', img: '/Insight page/Rectangle 55.png', category: 'Finance & Operations' },
+  { title: 'Workforce & Business Growth', desc: 'Perspectives on workforce planning, business capacity, team development and sustainable organisational growth.', img: '/Insight page/Rectangle 56.png', category: 'Workforce & Business Growth' }
 ];
 
 const categories = [
@@ -62,7 +62,7 @@ export default function ExploreTopics() {
                 <p className="text-[#64748b] text-[11px] sm:text-[12px] leading-relaxed mb-3 sm:mb-6 flex-1 font-medium">
                   {topic.desc}
                 </p>
-                <Link href="/blog/hardblog" className="inline-flex items-center text-[#3b82f6] text-[11px] sm:text-[12px] font-bold group mt-auto w-fit">
+                <Link href="/insight/hardinsight" className="inline-flex items-center text-[#3b82f6] text-[11px] sm:text-[12px] font-bold group mt-auto w-fit">
                   Read Article 
                   <svg className="w-3.5 h-3.5 ml-1.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />

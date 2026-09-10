@@ -51,7 +51,7 @@ export default function Footer() {
       {/* Right Column (Dark) */}
       <div className="w-full lg:w-[70%] xl:w-[75%] bg-[#081a40] p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8 sm:mb-10">
           {/* Company */}
           <div>
             <h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-5">Company</h3>
@@ -122,22 +122,22 @@ export default function Footer() {
         </div>
         
         {/* Bottom Links */}
-        <div className="flex flex-wrap items-center justify-start lg:justify-end gap-2 sm:gap-3 pt-5 sm:pt-6 border-t border-slate-700/60">
+        <div className="flex flex-wrap items-center justify-center lg:justify-end gap-4 sm:gap-6 pt-5 sm:pt-6 border-t border-slate-700/60">
           <Link 
             href="/privacy-policy" 
-            className="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-slate-800/80 hover:bg-[#1c55d4] active:bg-blue-600 active:brightness-110 border border-slate-700/80 hover:border-[#1c55d4] text-slate-300 hover:text-white transition-all duration-300 text-xs sm:text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
+            className="text-slate-400 hover:text-white transition-colors duration-200 text-xs sm:text-sm font-medium"
           >
             Privacy Policy
           </Link>
           <Link 
             href="/terms-conditions" 
-            className="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-slate-800/80 hover:bg-[#1c55d4] active:bg-blue-600 active:brightness-110 border border-slate-700/80 hover:border-[#1c55d4] text-slate-300 hover:text-white transition-all duration-300 text-xs sm:text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
+            className="text-slate-400 hover:text-white transition-colors duration-200 text-xs sm:text-sm font-medium"
           >
             Terms & Conditions
           </Link>
           <Link 
             href="/cookie-policy" 
-            className="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-slate-800/80 hover:bg-[#1c55d4] active:bg-blue-600 active:brightness-110 border border-slate-700/80 hover:border-[#1c55d4] text-slate-300 hover:text-white transition-all duration-300 text-xs sm:text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
+            className="text-slate-400 hover:text-white transition-colors duration-200 text-xs sm:text-sm font-medium"
           >
             Cookie Policy
           </Link>

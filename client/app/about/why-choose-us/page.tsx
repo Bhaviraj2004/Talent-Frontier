@@ -1,4 +1,4 @@
-import HeroSection from "@/app/components/sub pages/about sub/Our Approach/HeroSection";
+import HeroSection from "@/app/components/sub pages/about sub/Why Choose Us/HeroSection";
 import BusinessRequirements from "@/app/components/sub pages/about sub/Why Choose Us/BusinessRequirements";
 import BusinessSupport from "@/app/components/sub pages/about sub/Why Choose Us/BusinessSupport";
 import ComparisonTable from "@/app/components/sub pages/about sub/Why Choose Us/ComparisonTable";

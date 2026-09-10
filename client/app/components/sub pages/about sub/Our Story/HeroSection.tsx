@@ -6,7 +6,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/sub pages/About/Story page/ChatGPT Image Sep 2, 2026, 09_49_54 AM 1.png"
+          src="/sub pages/About/Our Story/ChatGPT Image Sep 2, 2026, 09_49_54 AM 1.png"
           alt="Our Story Background"
           fill
           className="object-cover"

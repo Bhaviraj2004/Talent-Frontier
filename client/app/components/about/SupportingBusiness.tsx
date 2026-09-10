@@ -6,7 +6,7 @@ export default function SupportingBusiness() {
       <div className="flex flex-col lg:flex-row rounded-xl overflow-hidden shadow-sm">
         
         {/* Left Side: Images */}
-        <div className="w-full lg:w-1/2 relative min-h-[250px] sm:min-h-[350px] lg:min-h-[500px]">
+        <div className="w-full lg:w-3/5 relative min-h-[250px] sm:min-h-[350px] lg:min-h-[500px]">
           <Image 
             src="/about page/talentpotraits.png" 
             alt="Talent Portraits" 
@@ -16,7 +16,7 @@ export default function SupportingBusiness() {
         </div>
 
         {/* Right Side: Text */}
-        <div className="w-full lg:w-1/2 bg-[#08154a] p-6 sm:p-10 md:p-16 lg:p-24 flex flex-col justify-center">
+        <div className="w-full lg:w-2/5 bg-[#08154a] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col justify-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-8 leading-tight">
             Supporting<br />Growing Business
           </h2>

@@ -1,12 +1,12 @@
 import Image from 'next/image';
 
-export default function BlogHero() {
+export default function InsightHero() {
   return (
     <section className="relative w-full min-h-[500px] md:min-h-[600px] lg:min-h-[650px] bg-[#02091a] overflow-hidden flex items-center font-sans">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/Blog page/ChatGPT Image Sep 1, 2026, 11_59_41 PM 1.png"
+          src="/Insight page/ChatGPT Image Sep 1, 2026, 11_59_41 PM 1.png"
           alt="Business Insights" 
           fill
           className="object-cover opacity-90 object-right"

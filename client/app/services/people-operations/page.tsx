@@ -1,4 +1,4 @@
-import HeroSection from "@/app/components/sub pages/about sub/Our Approach/HeroSection";
+import HeroSection from "@/app/components/sub pages/services sub/People & Operations Support/HeroSection";
 import HowWeCanSupport from "@/app/components/sub pages/services sub/Business Support Services/HowWeCanSupport";
 import OrganisedWorkplace from "@/app/components/sub pages/services sub/People & Operations Support/OrganisedWorkplace";
 import PracticalSupport from "@/app/components/sub pages/services sub/People & Operations Support/PracticalSupport";

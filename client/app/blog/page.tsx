@@ -1,14 +1,14 @@
-import BlogHero from "../components/blog/BlogHero";
-import FeaturedInsight from "../components/blog/FeaturedInsight";
-import ExploreTopics from "../components/blog/ExploreTopics";
-import LatestInsights from "../components/blog/LatestInsights";
-import NewsletterCTA from "../components/blog/NewsletterCTA";
+import InsightHero from "../components/insight/InsightHero";
+import FeaturedInsight from "../components/insight/FeaturedInsight";
+import ExploreTopics from "../components/insight/ExploreTopics";
+import LatestInsights from "../components/insight/LatestInsights";
+import NewsletterCTA from "../components/insight/NewsletterCTA";
 
-export default function BlogPage() {
+export default function InsightPage() {
   return (
     <>
             <main className="min-h-screen bg-white">
-        <BlogHero />
+        <InsightHero />
         <FeaturedInsight />
         <ExploreTopics />
         <LatestInsights />

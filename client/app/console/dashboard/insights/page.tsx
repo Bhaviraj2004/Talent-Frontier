@@ -349,7 +349,7 @@ export default function InsightsPage() {
       {/* 
         ========================================================
         LIVE PREVIEW CREATOR MODAL 
-        Mirrors the layout of hardblog/page.tsx
+        Mirrors the layout of hardinsight/page.tsx
         ========================================================
       */}
       {isModalOpen && (
@@ -390,14 +390,14 @@ export default function InsightsPage() {
           </div>
 
           <div className="pt-16 pb-24">
-            {/* 1. Editor Hero Section (Mirrors Blog Hero) */}
+            {/* 1. Editor Hero Section (Mirrors Insight Hero) */}
             <section className="bg-[#0b162c] text-white pt-24 pb-32 px-6 lg:px-8 relative overflow-hidden">
               <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 
                 {/* Hero Text Content */}
                 <div>
                   <div className="flex items-center text-sm text-gray-400 mb-8 space-x-2">
-                    <span className="opacity-50">Home / Blog / </span>
+                    <span className="opacity-50">Home / Insight / </span>
                     <span className="text-gray-200 border-b border-dashed border-gray-600">Dynamic Title Preview</span>
                   </div>
 
@@ -414,7 +414,7 @@ export default function InsightsPage() {
                       e.target.style.height = 'auto';
                       e.target.style.height = e.target.scrollHeight + 'px';
                     }}
-                    placeholder="Enter Blog Title Here..."
+                    placeholder="Enter Insight Title Here..."
                     className="w-full bg-transparent text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight text-white placeholder-gray-600 outline-none resize-none border-none focus:ring-0 p-0"
                     rows={2}
                     style={{ overflow: 'hidden' }}
@@ -481,11 +481,11 @@ export default function InsightsPage() {
                       modules={quillModules}
                       formats={quillFormats}
                       className="flex-1 flex flex-col live-preview-editor"
-                      placeholder="Start writing your article... (Style matches the final blog exactly)"
+                      placeholder="Start writing your article... (Style matches the final insight exactly)"
                     />
                   </div>
                   
-                  {/* Global CSS injected specifically for this editor to match the blog */}
+                  {/* Global CSS injected specifically for this editor to match the insight */}
                   <style jsx global>{`
                     .live-preview-editor .ql-toolbar {
                       border: none !important;
@@ -545,7 +545,7 @@ export default function InsightsPage() {
                       onChange={(e) => setDescription(e.target.value)}
                       rows={4}
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 resize-none transition-all placeholder:text-gray-400"
-                      placeholder="This text appears on the main blog listing page and in SEO meta tags..."
+                      placeholder="This text appears on the main insight listing page and in SEO meta tags..."
                     />
 
                     {/* Category Selection */}
@@ -646,7 +646,7 @@ export default function InsightsPage() {
                               Mark as Featured <Star className="w-3 h-3 ml-1.5 text-amber-500" />
                             </label>
                             <p className="text-[11px] text-gray-400 leading-relaxed">
-                              Display prominently on the homepage and at the top of the blog list.
+                              Display prominently on the homepage and at the top of the insight list.
                             </p>
                           </div>
                         </div>

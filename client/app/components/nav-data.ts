@@ -40,7 +40,7 @@ export const navData = [
         href: "/about/our-approach"
       },
       {
-        title: "Story page",
+        title: "Our Story",
         subtitle: "OUR JOURNEY",
         description: "Read about our founding and the core values that define us.",
         icon: BookOpen,
@@ -97,14 +97,14 @@ export const navData = [
         subtitle: "TECH FOR GROWTH",
         description: "Reliable tech support for modern digital systems and AI.",
         icon: Monitor,
-        href: "/services/technology-it-ai"
+        href: "/services/technology"
       },
       {
         title: "Brand, Marketing & Creative",
         subtitle: "STRENGTHENS BRAND",
         description: "Creative support that strengthens your brand identity.",
         icon: Megaphone,
-        href: "/services/brand-marketing-creative"
+        href: "/services/brand-marketing"
       },
       {
         title: "Process & Automation Support",
@@ -194,7 +194,7 @@ export const navData = [
         subtitle: "REAL RESULTS",
         description: "Read case studies on achieving operational goals.",
         icon: Target,
-        href: "/testimonials/success-stories"
+        href: "/testimonials/client-success-stories"
       },
       {
         title: "Client Testimonials",
@@ -216,6 +216,6 @@ export const navData = [
 
 export const simpleLinks = [
   { title: "Home", href: "/" },
-  { title: "Blog", href: "/blog" },
+  { title: "Insight", href: "/insight" },
   { title: "Contact", href: "/contact" }
 ];

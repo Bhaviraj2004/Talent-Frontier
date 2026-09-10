@@ -1,11 +1,11 @@
-import HeroSection from "../../components/sub pages/about sub/Story page/HeroSection";
-import BuildingConnections from "../../components/sub pages/about sub/Story page/BuildingConnections";
-import HowItStarted from "../../components/sub pages/about sub/Story page/HowItStarted";
-import TheChallenges from "../../components/sub pages/about sub/Story page/TheChallenges";
-import WhatWeSetOut from "../../components/sub pages/about sub/Story page/WhatWeSetOut";
-import MissionVisionValues from "../../components/sub pages/about sub/Story page/MissionVisionValues";
-import WhereWeAreToday from "../../components/sub pages/about sub/Story page/WhereWeAreToday";
-import LetsBuildYourTeam from "../../components/sub pages/about sub/Story page/LetsBuildYourTeam";
+import HeroSection from "../../components/sub pages/about sub/Our Story/HeroSection";
+import BuildingConnections from "../../components/sub pages/about sub/Our Story/BuildingConnections";
+import HowItStarted from "../../components/sub pages/about sub/Our Story/HowItStarted";
+import TheChallenges from "../../components/sub pages/about sub/Our Story/TheChallenges";
+import WhatWeSetOut from "../../components/sub pages/about sub/Our Story/WhatWeSetOut";
+import MissionVisionValues from "../../components/sub pages/about sub/Our Story/MissionVisionValues";
+import WhereWeAreToday from "../../components/sub pages/about sub/Our Story/WhereWeAreToday";
+import LetsBuildYourTeam from "../../components/sub pages/about sub/Our Story/LetsBuildYourTeam";
 
 export default function OurStoryPage() {
   return (

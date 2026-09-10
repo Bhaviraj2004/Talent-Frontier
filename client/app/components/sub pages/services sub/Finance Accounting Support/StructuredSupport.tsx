@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function StructuredSupport() {
   return (
-    <section className="w-full flex flex-col md:flex-row">
+    <section className="w-full flex flex-col md:flex-row mt-6 md:mt-12">
       <div className="w-full md:w-1/2 bg-[#091535] text-white p-12 md:p-20 flex flex-col justify-center">
         <div className="max-w-xl">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">

@@ -38,7 +38,7 @@ export default function HowWeCanSupport() {
               <span className="text-[#1150fb] text-2xl font-semibold">04</span>
               <div>
                 <h3 className="font-bold text-[#091535] text-[16px] mb-2">Website Content Support</h3>
-                <p className="text-gray-600 text-[14px] leading-relaxed pr-4">Assistance with service-page content, blog formatting, landing pages and website updates.</p>
+                <p className="text-gray-600 text-[14px] leading-relaxed pr-4">Assistance with service-page content, insight formatting, landing pages and website updates.</p>
               </div>
             </div>
 

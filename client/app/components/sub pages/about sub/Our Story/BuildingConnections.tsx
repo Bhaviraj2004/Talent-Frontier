@@ -29,7 +29,7 @@ export default function BuildingConnections() {
       {/* Right Image */}
       <div className="w-full md:w-1/2 relative h-[350px] md:h-[500px] rounded-3xl overflow-hidden">
         <Image
-          src="/sub pages/About/Story page/Rectangle.png"
+          src="/sub pages/About/Our Story/Rectangle.png"
           alt="Team collaboration"
           fill
           className="object-cover"

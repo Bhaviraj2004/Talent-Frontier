@@ -12,7 +12,7 @@ export default function NewsletterCTA() {
           {/* Envelope Image */}
           <div className="relative w-36 h-24 sm:w-40 sm:h-28 md:w-48 md:h-32 lg:w-56 lg:h-40 shrink-0">
             <Image 
-              src="/Blog page/Untitled design (3) 1.png" 
+              src="/Insight page/Untitled design (3) 1.png" 
               alt="Newsletter Subscription" 
               fill
               className="object-contain"

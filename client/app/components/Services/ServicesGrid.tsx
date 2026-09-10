@@ -7,42 +7,42 @@ const servicesData = [
     title: "1. Business Support Services",
     description: "Routine administrative and operational support that keeps your business running smoothly.",
     image: "/Services page/Rectangle 6.png",
-    link: "#"
+    link: "/services/business-support"
   },
   {
     id: 2,
     title: "2. People & Operations Support",
     description: "Support for people-related coordination, documentation and day-to-day operational activities.",
     image: "/Services page/Rectangle 7.png",
-    link: "#"
+    link: "/services/people-operations"
   },
   {
     id: 3,
     title: "3. Finance & Accounting Support",
     description: "Structured assistance for routine finance, bookkeeping and accounting-related processes.",
     image: "/Services page/Rectangle 8.png",
-    link: "#"
+    link: "/services/finance-accounting"
   },
   {
     id: 4,
     title: "4. Technology, IT & AI Support",
     description: "Technology support and practical AI-enabled solutions designed to improve business efficiency.",
     image: "/Services page/Rectangle 12.png",
-    link: "#"
+    link: "/services/Technology"
   },
   {
     id: 5,
     title: "5. Brand, Marketing & Creative Support",
     description: "Integrated support for brand communication, digital marketing and creative requirements.",
     image: "/Services page/Rectangle 13.png",
-    link: "#"
+    link: "/services/Brand-Marketing"
   },
   {
     id: 6,
     title: "6. Process & Automation Support",
     description: "Workflow improvement and automation support that helps reduce repetitive manual activities.",
     image: "/Services page/Rectangle 14.png",
-    link: "#"
+    link: "/services/process-automation"
   }
 ];
 

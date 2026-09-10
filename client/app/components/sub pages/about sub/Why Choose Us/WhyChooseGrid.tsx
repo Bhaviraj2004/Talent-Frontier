@@ -49,7 +49,7 @@ export default function WhyChooseGrid() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           {reasons.map((reason, index) => (
-            <div key={index} className="bg-white flex flex-col sm:flex-row h-full">
+            <div key={index} className="bg-white flex flex-col sm:flex-row h-full border-2 border-transparent hover:border-white hover:shadow-xl transition-all duration-300 cursor-default">
               <div className="p-8 sm:w-1/2 flex flex-col items-start justify-center">
                 <span className="text-3xl md:text-4xl font-bold text-[#0047FF] mb-3">{reason.id}</span>
                 <h3 className="text-lg md:text-xl font-bold text-[#0a192f] mb-4 leading-tight">{reason.title}</h3>

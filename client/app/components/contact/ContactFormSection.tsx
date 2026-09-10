@@ -1,6 +1,7 @@
 "use client";
 import Link from 'next/link';
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useRef, useEffect } from 'react';
+import { ChevronDown, Check } from 'lucide-react';
 
 export default function ContactFormSection() {
   const [formData, setFormData] = useState({
@@ -17,6 +18,28 @@ export default function ContactFormSection() {
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const industries = [
+    { value: '', label: 'Select Industry' },
+    { value: 'property', label: 'Property & Real Estate' },
+    { value: 'ecommerce', label: 'Ecommerce & Retail' },
+    { value: 'tech', label: 'Technology & Digital' },
+    { value: 'finance', label: 'Finance & Accounting' },
+    { value: 'services', label: 'Professional Services' }
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target as HTMLInputElement;
@@ -93,72 +116,113 @@ export default function ContactFormSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">First Name*</label>
-                <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required placeholder="John" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+                <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required placeholder="John" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Last Name*</label>
-                <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required placeholder="Doe" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+                <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required placeholder="Doe" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Business Email Address*</label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@example.com" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+                <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@example.com" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Phone Number</label>
-                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="+61 ..." className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="+61 ..." className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Company Name*</label>
-                <input type="text" name="company" value={formData.company} onChange={handleChange} required placeholder="Company Ltd" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+                <input type="text" name="company" value={formData.company} onChange={handleChange} required placeholder="Company Ltd" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2" ref={dropdownRef}>
                 <label className="text-[12px] font-bold text-[#1e293b]">Industry</label>
-                <select name="industry" value={formData.industry} onChange={handleChange} className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px] text-gray-500 appearance-none">
-                  <option value="">Select Industry</option>
-                  <option value="property">Property & Real Estate</option>
-                  <option value="ecommerce">Ecommerce & Retail</option>
-                  <option value="tech">Technology & Digital</option>
-                  <option value="finance">Finance & Accounting</option>
-                  <option value="services">Professional Services</option>
-                </select>
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className={`w-full bg-[#f8fafc] border ${isDropdownOpen ? 'border-blue-500 bg-white ring-4 ring-blue-500/10' : 'border-gray-200 hover:border-gray-300'} rounded-lg px-4 py-3.5 text-left outline-none text-[13px] text-gray-700 flex items-center justify-between transition-all duration-200 shadow-sm`}
+                  >
+                    <span className={!formData.industry ? "text-gray-400" : "font-medium"}>
+                      {industries.find(i => i.value === formData.industry)?.label || 'Select Industry'}
+                    </span>
+                    <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180 text-blue-500' : ''}`} />
+                  </button>
+
+                  <div 
+                    className={`absolute z-20 w-full mt-2 bg-white border border-gray-100 rounded-xl py-2 overflow-y-auto overflow-x-hidden origin-top transition-all duration-200 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] 
+                    ${isDropdownOpen ? 'opacity-100 scale-y-100 max-h-60' : 'opacity-0 scale-y-95 max-h-0 pointer-events-none border-none py-0'}`}
+                  >
+                    {industries.map((industry) => (
+                      <button
+                        key={industry.value}
+                        type="button"
+                        onClick={() => {
+                          setFormData(prev => ({ ...prev, industry: industry.value }));
+                          setIsDropdownOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2.5 text-[13px] transition-all duration-150 flex items-center justify-between ${
+                          formData.industry === industry.value && industry.value !== ''
+                            ? 'bg-blue-50/80 text-blue-700 font-semibold pl-5'
+                            : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600 hover:pl-5'
+                        }`}
+                      >
+                        <span className={industry.value === '' ? 'text-gray-400 font-medium' : ''}>
+                          {industry.label}
+                        </span>
+                        {formData.industry === industry.value && industry.value !== '' && (
+                          <Check className="w-4 h-4 text-blue-600" />
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 
             <div className="flex flex-col gap-2">
               <label className="text-[12px] font-bold text-[#1e293b]">Subject*</label>
-              <input type="text" name="subject" value={formData.subject} onChange={handleChange} required placeholder="How can we help you?" className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px]" />
+              <input type="text" name="subject" value={formData.subject} onChange={handleChange} required placeholder="How can we help you?" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
             </div>
 
             <div className="flex flex-col gap-2 mb-2">
               <label className="text-[12px] font-bold text-[#1e293b]">Tell Us About Your Requirements*</label>
-              <textarea name="requirements" value={formData.requirements} onChange={handleChange} rows={5} required placeholder="Describe your staffing or support needs..." className="bg-[#f8fafc] border border-gray-200 rounded-md px-4 py-3 outline-none focus:border-blue-500 text-[13px] resize-none"></textarea>
+              <textarea name="requirements" value={formData.requirements} onChange={handleChange} rows={5} required placeholder="Describe your staffing or support needs..." className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400 resize-none"></textarea>
             </div>
 
             <div className="flex items-center gap-3 mb-6">
-              <input type="checkbox" name="privacyAgree" checked={formData.privacyAgree} onChange={handleChange} required id="privacy-agree" className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer" />
-              <label htmlFor="privacy-agree" className="text-[12px] font-medium text-[#64748b] cursor-pointer">
-                I have read and agree to Talent frontier's <Link href="/contact" className="text-[#3b82f6] hover:underline font-bold">Privacy Policy.</Link>
+              <div className="relative flex items-center justify-center">
+                <input type="checkbox" name="privacyAgree" checked={formData.privacyAgree} onChange={handleChange} required id="privacy-agree" className="peer w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer transition-all duration-200" />
+              </div>
+              <label htmlFor="privacy-agree" className="text-[12px] font-medium text-[#64748b] cursor-pointer hover:text-gray-700 transition-colors">
+                I have read and agree to Talent frontier's <Link href="/contact" className="text-[#3b82f6] hover:text-blue-700 hover:underline font-bold transition-colors">Privacy Policy.</Link>
               </label>
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
-              <button type="submit" disabled={status === 'loading'} className="bg-[#1d4ed8] hover:bg-blue-600 disabled:opacity-70 text-white px-8 py-3.5 rounded-md font-bold text-[13px] transition-colors shadow-md text-center">
-                {status === 'loading' ? 'Sending...' : 'Send Enquiry'}
+              <button type="submit" disabled={status === 'loading'} className="bg-[#1d4ed8] hover:bg-blue-700 active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100 disabled:cursor-not-allowed text-white px-8 py-3.5 rounded-lg font-bold text-[13px] transition-all duration-200 shadow-lg shadow-blue-500/25 text-center flex items-center justify-center">
+                {status === 'loading' ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <svg className="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending...
+                  </span>
+                ) : 'Send Enquiry'}
               </button>
-              <a href="mailto:admin@talentfrontier.com.au?subject=Consultation%20Request" className="text-[#3b82f6] font-bold text-[13px] hover:text-blue-700 transition-colors inline-flex items-center justify-center group py-2">
+              <a href="mailto:admin@talentfrontier.com.au?subject=Consultation%20Request" className="text-[#3b82f6] font-bold text-[13px] hover:text-blue-700 transition-all duration-200 inline-flex items-center justify-center group py-2">
                 Book a Consultation 
-                <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </a>
             </div>
-
           </form>
         </div>
 

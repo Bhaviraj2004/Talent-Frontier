@@ -19,7 +19,7 @@ export default function FeaturedInsight() {
         {/* Curved City Image */}
         <div className="w-full relative h-[100px] sm:h-[140px] md:h-[180px] lg:h-[220px] mb-10 sm:mb-16 overflow-hidden flex items-end">
           <Image 
-            src="/Blog page/Vector 3.png" 
+            src="/Insight page/Vector 3.png" 
             alt="City Skyline" 
             fill
             className="object-contain object-bottom md:object-cover"
@@ -32,7 +32,7 @@ export default function FeaturedInsight() {
           {/* Image */}
           <div className="w-full lg:w-1/2 relative h-[250px] sm:h-[350px] md:h-[450px] rounded-2xl sm:rounded-[24px] overflow-hidden shadow-md">
             <Image 
-              src="/Blog page/Rectangle 20.png" 
+              src="/Insight page/Rectangle 20.png" 
               alt="Feature Insight" 
               fill
               className="object-cover"
@@ -51,7 +51,7 @@ export default function FeaturedInsight() {
               Not every business process should be automated. Learn how to identify repetitive, rule-based activities where automation may improve efficiency and consistency.
             </p>
             <Link 
-              href="/blog/hardblog" 
+              href="/insight/hardinsight" 
               className="bg-[#1d4ed8] hover:bg-blue-600 text-white px-8 py-3.5 rounded-md font-semibold text-[13px] transition-colors w-full sm:w-fit flex items-center justify-center gap-3 shadow-md text-center"
             >
               Read the Article 

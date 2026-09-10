@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { FiLinkedin, FiFacebook } from "react-icons/fi";
 
-export default function HardBlogPage() {
+export default function HardInsightPage() {
   return (
     <div className="bg-[#f8fafd] min-h-screen font-sans">
       {/* Hero Section */}
@@ -22,7 +22,7 @@ export default function HardBlogPage() {
             <div className="flex items-center text-sm text-gray-400 mb-8 space-x-2">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
-              <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
+              <Link href="/insight" className="hover:text-white transition-colors">Insight</Link>
               <span>/</span>
               <span className="text-gray-200">Processes Ready for Automation</span>
             </div>
@@ -63,7 +63,7 @@ export default function HardBlogPage() {
           {/* Hero Image */}
           <div className="relative rounded-2xl overflow-hidden shadow-2xl h-[300px] sm:h-[400px] border border-gray-800/50">
             <Image 
-              src="/hardblog/Screenshot 2026-09-06 075051.png" 
+              src="/hardinsight/Screenshot 2026-09-06 075051.png" 
               alt="Team discussing workflow" 
               fill
               className="object-cover"
@@ -261,7 +261,7 @@ export default function HardBlogPage() {
             <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col h-full hover:-translate-y-1">
               <div className="h-52 relative overflow-hidden bg-gray-100">
                 <Image 
-                  src="/hardblog/Two executives discussing financial administration in an office meeting.png" 
+                  src="/hardinsight/Two executives discussing financial administration in an office meeting.png" 
                   alt="Finance & Operations" 
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
@@ -290,7 +290,7 @@ export default function HardBlogPage() {
             <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col h-full hover:-translate-y-1">
               <div className="h-52 relative overflow-hidden bg-gray-100">
                 <Image 
-                  src="/hardblog/Background.png" 
+                  src="/hardinsight/Background.png" 
                   alt="Business Insights" 
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
@@ -319,7 +319,7 @@ export default function HardBlogPage() {
             <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col h-full hover:-translate-y-1">
               <div className="h-52 relative overflow-hidden bg-gray-100">
                 <Image 
-                  src="/hardblog/Futuristic digital network sphere symbolizing business scaling and automation.png" 
+                  src="/hardinsight/Futuristic digital network sphere symbolizing business scaling and automation.png" 
                   alt="Technology & Automation" 
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"

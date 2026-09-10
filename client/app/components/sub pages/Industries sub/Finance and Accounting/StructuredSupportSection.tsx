@@ -6,21 +6,21 @@ export default function StructuredSupportSection() {
     <section className="w-full bg-white py-12 md:py-16">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-14">
-          
+
           {/* Left Text Content */}
           <div className="w-full lg:w-[48%] flex flex-col justify-center">
             <span className="text-[#2563eb] text-[12px] font-bold tracking-wider uppercase mb-3">
               FINANCE &amp; ACCOUNTING
             </span>
-            
+
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#0f172a] leading-[1.2] mb-4 tracking-tight">
               Structured Support for Finance and Accounting Teams
             </h2>
-            
+
             <p className="text-[#475569] text-[14px] sm:text-[15px] leading-relaxed mb-8 max-w-lg">
               Practical support for organised records, consistent processes and better operational visibility.
             </p>
-            
+
             <div className="flex flex-wrap gap-4 items-center">
               <Link
                 href="/contact"

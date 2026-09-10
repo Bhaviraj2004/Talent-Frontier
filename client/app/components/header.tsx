@@ -94,10 +94,10 @@ export default function Header() {
           })}
           
           <Link 
-            href="/blog" 
-            className={`${pathname.startsWith('/blog') ? 'text-[#2563eb]' : 'text-[#1e293b]'} hover:text-[#2563eb] transition-colors`}
+            href="/insight" 
+            className={`${pathname.startsWith('/insight') ? 'text-[#2563eb]' : 'text-[#1e293b]'} hover:text-[#2563eb] transition-colors`}
           >
-            Blog
+            Insight
           </Link>
           <Link 
             href="/contact" 
@@ -268,15 +268,15 @@ export default function Header() {
               );
             })}
 
-            {/* Blog */}
+            {/* Insight */}
             <Link
-              href="/blog"
+              href="/insight"
               onClick={() => setMobileMenuOpen(false)}
               className={`py-3 px-3 rounded-lg text-[15px] font-bold transition-colors ${
-                pathname.startsWith('/blog') ? 'text-[#2563eb] bg-blue-50/70' : 'text-[#1e293b] hover:bg-gray-50'
+                pathname.startsWith('/insight') ? 'text-[#2563eb] bg-blue-50/70' : 'text-[#1e293b] hover:bg-gray-50'
               }`}
             >
-              Blog
+              Insight
             </Link>
 
             {/* Contact Us */}

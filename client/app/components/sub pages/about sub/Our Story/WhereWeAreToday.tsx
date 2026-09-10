@@ -26,7 +26,7 @@ export default function WhereWeAreToday() {
         {/* Right Image Area */}
         <div className="w-full md:w-1/2 relative h-[300px] md:h-[450px] rounded-3xl overflow-hidden shadow-lg border border-gray-100">
           <Image
-            src="/sub pages/About/Story page/Rectangle (2).png"
+            src="/sub pages/About/Our Story/Rectangle (2).png"
             alt="City skyline"
             fill
             className="object-cover"
