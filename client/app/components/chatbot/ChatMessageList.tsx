@@ -4,7 +4,7 @@ import { Message, FormDataState } from './chatFlow';
 
 interface ChatMessageListProps {
   messages: Message[];
-  messagesEndRef: RefObject<HTMLDivElement>;
+  messagesEndRef: RefObject<HTMLDivElement | null>;
   formSubmitted: boolean;
   isSubmitting: boolean;
   formData: FormDataState;

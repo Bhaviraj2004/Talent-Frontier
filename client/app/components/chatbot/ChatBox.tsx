@@ -46,8 +46,8 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
             id: Date.now().toString(), 
             sender: 'bot', 
             text: nextNode.text, 
-            options: nextNode.options,
-            isForm: nextNode.isForm
+            options: (nextNode as any).options,
+            isForm: (nextNode as any).isForm
           }
         ]);
       }
@@ -77,8 +77,8 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
             id: Date.now().toString(), 
             sender: 'bot', 
             text: nextNode.text, 
-            options: nextNode.options,
-            isForm: nextNode.isForm
+            options: (nextNode as any).options,
+            isForm: (nextNode as any).isForm
           }
         ]);
       }
