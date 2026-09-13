@@ -16,12 +16,13 @@ export default function SupportSection() {
         </div>
 
         {/* Image Content */}
-        <div className="w-full lg:w-[55%] relative h-[300px] sm:h-[400px] lg:h-[420px] rounded-2xl overflow-hidden shadow-lg">
+        <div className="w-full lg:w-[55%] relative aspect-[877/328] rounded-2xl overflow-hidden shadow-lg">
           <Image 
             src="/Services page/Rectangle 2.png" 
             alt="Support team meeting" 
             fill
-            className="object-cover"
+            className="object-cover object-center"
+            sizes="(max-width: 1024px) 100vw, 750px"
           />
         </div>
         

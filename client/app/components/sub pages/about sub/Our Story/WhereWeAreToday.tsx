@@ -24,7 +24,7 @@ export default function WhereWeAreToday() {
         </div>
 
         {/* Right Image Area */}
-        <div className="w-full md:w-1/2 relative h-[300px] md:h-[450px] rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+        <div className="w-full md:w-1/2 relative aspect-[16/9] md:aspect-auto md:h-[420px] rounded-2xl md:rounded-[32px] overflow-hidden rounded-3xl overflow-hidden shadow-lg border border-gray-100">
           <Image
             src="/sub pages/About/Our Story/Rectangle (2).png"
             alt="City skyline"

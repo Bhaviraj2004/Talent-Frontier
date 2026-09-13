@@ -47,21 +47,21 @@ export default function ApproachSteps() {
   ];
 
   return (
-    <section className="w-full max-w-7xl mx-auto py-16 px-4 md:px-8 space-y-16 md:space-y-24">
+    <section className="w-full max-w-7xl mx-auto py-12 sm:py-16 px-4 sm:px-6 md:px-8 space-y-12 md:space-y-20">
       {steps.map((step) => (
         <div 
           key={step.id} 
-          className={`flex flex-col gap-8 md:gap-20 items-center ${
+          className={`flex flex-col gap-6 md:gap-16 items-center ${
             step.imageRight ? "md:flex-row-reverse" : "md:flex-row"
           }`}
         >
-          {/* Image */}
-          <div className="w-full md:w-1/2 relative h-[250px] md:h-[350px] rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+          {/* Image - Exact aspect card framing */}
+          <div className="w-full md:w-1/2 relative aspect-[602/231] md:aspect-auto md:h-[260px] lg:h-[290px] rounded-2xl md:rounded-3xl overflow-hidden shadow-md border border-gray-100 bg-slate-50">
             <Image
               src={step.image}
               alt={step.title}
               fill
-              className="object-cover"
+              className="object-cover object-center"
             />
           </div>
 

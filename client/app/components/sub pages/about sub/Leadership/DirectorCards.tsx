@@ -22,17 +22,17 @@ export default function DirectorCards() {
   ];
 
   return (
-    <section className="w-full bg-[#f8f9fa] pb-24 px-6">
-      <div className="max-w-7xl mx-auto bg-white rounded-[40px] p-8 md:p-12 shadow-sm">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+    <section className="w-full bg-[#f8f9fa] pb-16 sm:pb-24 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto bg-white rounded-2xl sm:rounded-3xl md:rounded-[40px] p-5 sm:p-8 md:p-12 shadow-sm border border-gray-100">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
           {directors.map((director, index) => (
             <div key={index} className="flex flex-col sm:flex-row gap-6 md:gap-8">
-              <div className="w-full sm:w-2/5 flex-shrink-0 relative h-[320px] sm:h-auto sm:min-h-[400px]">
+              <div className="w-full sm:w-2/5 flex-shrink-0 relative aspect-[284/400] sm:aspect-auto sm:h-auto sm:min-h-[380px] max-w-[260px] sm:max-w-none mx-auto rounded-2xl sm:rounded-[24px] overflow-hidden shadow-sm">
                 <Image
                   src={director.image}
                   alt={director.name}
                   fill
-                  className="object-cover object-top sm:object-center rounded-[24px]"
+                  className="object-cover object-top"
                 />
               </div>
               <div className="w-full sm:w-3/5 flex flex-col justify-center">

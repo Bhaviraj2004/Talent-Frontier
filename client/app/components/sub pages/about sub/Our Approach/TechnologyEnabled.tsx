@@ -36,13 +36,13 @@ export default function TechnologyEnabled() {
           </p>
         </div>
 
-        {/* Right Image - Woman Smiling */}
-        <div className="w-full md:w-[30%] relative min-h-[250px]">
+        {/* Right Image - Team member */}
+        <div className="w-full md:w-[30%] relative aspect-[602/231] md:aspect-auto min-h-[180px] sm:min-h-[220px] md:min-h-[250px] overflow-hidden">
           <Image
-            src="/sub pages/About/Our Approach/Rectangle 13.png" // Re-using Rectangle 13 as a placeholder since it matches the context
+            src="/sub pages/About/Our Approach/Rectangle 13.png"
             alt="Team member"
             fill
-            className="object-cover"
+            className="object-cover object-center"
           />
         </div>
 

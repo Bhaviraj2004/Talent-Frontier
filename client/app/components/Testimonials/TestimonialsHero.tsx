@@ -9,10 +9,11 @@ export default function TestimonialsHero() {
           src="/Testimonials page/ChatGPT Image Sep 1, 2026, 10_18_12 PM 1.png"
           alt="Business Relationships" 
           fill
-          className="object-cover object-right opacity-90"
+          className="object-cover object-[75%_center] md:object-right opacity-90"
           priority
         />
         {/* Gradient Overlay for text readability on left side */}
+        <div className="absolute inset-0 bg-[#02091a]/60 md:bg-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#02091a] via-[#02091a]/95 md:via-[#02091a]/80 to-transparent w-full md:w-[70%]"></div>
       </div>
 

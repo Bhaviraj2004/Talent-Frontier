@@ -12,7 +12,7 @@ export default function BetterAutomation() {
           Then we simplify it before introducing automation.
         </p>
       </div>
-      <div className="w-full md:w-[60%] relative h-[250px] md:h-[300px]">
+      <div className="w-full md:w-[60%] relative aspect-[16/9] md:aspect-auto md:h-[300px] rounded-2xl md:rounded-[24px] overflow-hidden">
         <Image
           src="/sub pages/Services/Process & Automation Support/Editable Shape (1).png"
           alt="Better Automation"

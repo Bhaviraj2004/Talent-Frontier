@@ -28,7 +28,7 @@ export default function FlexibleSupportSection() {
         </div>
 
         {/* Right Image */}
-        <div className="w-full lg:w-1/2 relative h-[350px] md:h-[420px] lg:h-[480px] rounded-[2rem] overflow-hidden shadow-lg">
+        <div className="w-full lg:w-1/2 relative aspect-[16/9] md:aspect-auto md:h-[420px] lg:h-[480px] rounded-2xl md:rounded-[24px] overflow-hidden rounded-[2rem] overflow-hidden shadow-lg">
           <Image
             src="/sub pages/Industries/SMEs & Growing Businesses/Rectangle 138.png"
             alt="Flexible Support"

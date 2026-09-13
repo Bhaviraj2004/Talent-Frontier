@@ -37,7 +37,7 @@ export default function PracticalAI() {
           Important work remains human reviewed.
         </p>
       </div>
-      <div className="w-full md:w-[55%] relative h-[300px] md:h-[400px]">
+      <div className="w-full md:w-[55%] relative aspect-[16/9] md:aspect-auto md:h-[380px] rounded-2xl md:rounded-[24px] overflow-hidden">
         <Image
           src="/sub pages/Services/Technology, IT & AI Support/AI Image.png"
           alt="Practical AI Applications"

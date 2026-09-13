@@ -11,32 +11,30 @@ export default function SupportThatGrows() {
   ];
 
   return (
-    <section className="w-full bg-white py-16 md:py-24 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+    <section className="w-full bg-white py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-8">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
         <div className="w-full md:w-1/2 flex flex-col">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0a192f] leading-tight mb-8">
-            Support That Grows <br /> With Your Team
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0a192f] leading-tight mb-6 sm:mb-8">
+            Support That Grows <br className="hidden sm:inline" /> With Your Team
           </h2>
           
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-2.5 sm:space-y-3.5">
             {points.map((point, index) => (
-              <div key={index} className="flex items-center">
-                <span className="text-[#0047FF] text-sm font-medium w-6">{point.id}</span>
-                <span className="text-[#0047FF] text-sm">{point.text}</span>
+              <div key={index} className="flex items-start gap-3 p-2 sm:p-2.5 rounded-xl hover:bg-blue-50/50 transition-colors">
+                <span className="text-[#0047FF] text-xs sm:text-sm font-bold shrink-0 w-6 pt-0.5">{point.id}</span>
+                <span className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed flex-1">{point.text}</span>
               </div>
             ))}
           </div>
         </div>
         
-        <div className="w-full md:w-1/2 relative h-[300px] md:h-[400px]">
-          <div className="absolute inset-0 rounded-[24px] overflow-hidden shadow-sm">
-            <Image
-              src="/sub pages/Services/People & Operations Support/Team Collaboration Image.png"
-              alt="Support That Grows"
-              fill
-              className="object-cover"
-            />
-          </div>
+        <div className="w-full md:w-1/2 relative aspect-[600/250] md:aspect-auto md:h-[360px] lg:h-[400px] rounded-2xl md:rounded-[24px] overflow-hidden shadow-sm border border-slate-100">
+          <Image
+            src="/sub pages/Services/People & Operations Support/Team Collaboration Image.png"
+            alt="Support That Grows"
+            fill
+            className="object-cover object-center"
+          />
         </div>
       </div>
     </section>

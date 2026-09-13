@@ -5,7 +5,7 @@ export default function RealChallenges() {
   return (
     <section className="w-full max-w-7xl mx-auto py-20 px-4 md:px-8 flex flex-col md:flex-row items-center gap-12">
       {/* Left Image Area */}
-      <div className="w-full md:w-1/2 relative h-[300px] md:h-[450px] rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+      <div className="w-full md:w-1/2 relative aspect-[16/9] md:aspect-auto md:h-[420px] rounded-2xl md:rounded-3xl overflow-hidden rounded-3xl overflow-hidden shadow-lg border border-gray-100">
         <Image
           src="/sub pages/Testimonials/Client Success Stories/Rectangle 130.png"
           alt="Team analyzing challenges"

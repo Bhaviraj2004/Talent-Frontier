@@ -39,12 +39,12 @@ export default function StructuredSupportSection() {
 
           {/* Right Image */}
           <div className="w-full lg:w-[52%] flex items-center justify-center">
-            <div className="relative w-full h-[280px] sm:h-[360px] md:h-[400px] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-lg">
+            <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-auto md:h-[400px] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-lg">
               <Image
                 src="/sub pages/Industries/Finance and Accounting/structured-support.png"
                 alt="Structured Support for Finance and Accounting Teams"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 680px"
               />
             </div>

@@ -2,14 +2,14 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-[500px] md:h-[600px] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full aspect-[1440/667] sm:aspect-auto sm:h-[340px] md:h-[480px] lg:h-[580px] flex items-center justify-center overflow-hidden bg-[#0A1128]">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/sub pages/About/Our Approach/ChatGPT Image Sep 2, 2026, 10_02_51 AM 1.png"
           alt="Our Approach Background"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
         />
         {/* Dark overlay */}
@@ -17,8 +17,8 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
           Our Approach
         </h1>
       </div>

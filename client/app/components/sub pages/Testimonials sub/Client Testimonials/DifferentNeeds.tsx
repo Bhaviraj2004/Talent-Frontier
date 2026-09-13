@@ -19,7 +19,7 @@ export default function DifferentNeeds() {
       </div>
 
       {/* Right Image Area */}
-      <div className="w-full md:w-2/3 relative h-[300px] md:h-[450px] rounded-3xl overflow-hidden">
+      <div className="w-full md:w-2/3 relative aspect-[16/9] md:aspect-auto md:h-[420px] rounded-2xl md:rounded-3xl overflow-hidden rounded-3xl overflow-hidden">
         <Image
           src="/sub pages/Testimonials/Client Testimonials/Rectangle 98.png"
           alt="Team meeting"

@@ -12,7 +12,7 @@ export default function AccuracyAndAccountability() {
 
   return (
     <section className="w-full max-w-7xl mx-auto px-4 py-20 flex flex-col md:flex-row gap-16 items-center">
-      <div className="w-full md:w-[55%] relative h-[350px] md:h-[500px]">
+      <div className="w-full md:w-[55%] relative aspect-[16/9] md:aspect-auto md:h-[460px] rounded-2xl md:rounded-[32px] overflow-hidden">
         <Image
           src="/sub pages/Services/Finance & Accounting Support/Accuracy Image — Finance review.png"
           alt="Accuracy and Accountability"

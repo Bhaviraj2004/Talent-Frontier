@@ -10,7 +10,7 @@ export default function IndustriesHero() {
           src="/Industries page/ChatGPT Image Sep 1, 2026, 07_18_41 PM 1.png"
           alt="Business Support Designed For Your Industry" 
           fill
-          className="object-cover opacity-90 object-right"
+          className="object-cover opacity-90 object-[75%_center] md:object-right"
           priority
         />
         {/* Gradient Overlay for text readability on left side */}

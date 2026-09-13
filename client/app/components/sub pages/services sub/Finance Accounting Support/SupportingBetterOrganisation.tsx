@@ -19,7 +19,7 @@ export default function SupportingBetterOrganisation() {
           Organised records. Clear workflows. Appropriate oversight.
         </p>
       </div>
-      <div className="w-full md:w-1/2 relative h-[350px] md:h-[450px]">
+      <div className="w-full md:w-1/2 relative aspect-[16/9] md:aspect-auto md:h-[450px] rounded-2xl md:rounded-[32px] overflow-hidden">
         <Image
           src="/sub pages/Services/Finance & Accounting Support/Support Image — Finance team in office.png"
           alt="Supporting Better Financial Organisation"

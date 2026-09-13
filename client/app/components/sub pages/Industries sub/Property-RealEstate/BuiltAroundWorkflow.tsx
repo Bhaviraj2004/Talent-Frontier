@@ -12,12 +12,12 @@ export default function BuiltAroundWorkflow() {
     <section className="w-full font-sans bg-white flex flex-col md:flex-row">
       
       {/* Left: Image */}
-      <div className="w-full md:w-1/2 relative min-h-[400px]">
+      <div className="w-full md:w-1/2 relative min-h-[260px] aspect-[16/10] sm:aspect-[16/9] md:aspect-auto md:min-h-[400px]">
         <Image 
           src="/sub pages/Industries/Property & Real Estate/Image placeholder – Property team reviewing plans.png" 
           alt="Property team" 
           fill 
-          className="object-cover" 
+          className="object-cover object-center" 
         />
       </div>
 

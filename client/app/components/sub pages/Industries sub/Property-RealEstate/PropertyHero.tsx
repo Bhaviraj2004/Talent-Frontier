@@ -2,13 +2,13 @@ import Image from 'next/image';
 
 export default function PropertyHero() {
   return (
-    <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center font-sans">
+    <section className="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-auto md:h-[500px] lg:h-[600px] min-h-[220px] flex items-center justify-center overflow-hidden bg-slate-950">
       <div className="absolute inset-0 z-0">
         <Image 
           src="/sub pages/Industries/Property & Real Estate/Rectangle 138.png" 
           alt="Property Team" 
           fill 
-          className="object-cover" 
+          className="object-cover object-center" 
           priority 
         />
         {/* Dark overlay */}

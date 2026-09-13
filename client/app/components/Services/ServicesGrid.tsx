@@ -67,12 +67,13 @@ export default function ServicesGrid() {
             >
               {/* Framed Image Container */}
               <div className="p-4 pb-0">
-                <div className="relative w-full h-[220px] overflow-hidden rounded-2xl">
+                <div className="relative w-full aspect-[426/220] overflow-hidden rounded-2xl">
                   <Image 
                     src={service.image} 
                     alt={service.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
               </div>

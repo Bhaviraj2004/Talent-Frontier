@@ -67,7 +67,7 @@ export default function FeedbackSection() {
 
       {/* Featured Testimonial */}
       <div className="bg-[#f4f7fb] rounded-3xl overflow-hidden flex flex-col md:flex-row mb-12">
-        <div className="w-full md:w-1/2 relative h-[300px] md:h-[400px]">
+        <div className="w-full md:w-1/2 relative aspect-[16/9] md:aspect-auto md:h-[380px] rounded-2xl md:rounded-3xl overflow-hidden">
           <Image
             src="/sub pages/Testimonials/Client Testimonials/Rectangle 99.png"
             alt="Client smiling"

@@ -14,12 +14,13 @@ export default function WhyWorkWithUs() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
         
         {/* Left: Image */}
-        <div className="w-full lg:w-[45%] relative h-[350px] md:h-[500px] lg:h-[600px] rounded-[32px] overflow-hidden bg-[#f8fafc] border border-slate-100 shadow-sm flex items-center justify-center group">
+        <div className="w-full lg:w-[45%] relative aspect-[16/10] sm:aspect-[4/3] lg:aspect-auto lg:h-[600px] rounded-[32px] overflow-hidden bg-[#f8fafc] border border-slate-100 shadow-sm flex items-center justify-center group">
           <Image 
             src="/Services page/Rectangle 19.png" 
             alt="Why businesses work with us" 
             fill
             className="object-contain p-4 sm:p-8 group-hover:scale-[1.03] transition-transform duration-700 ease-in-out"
+            sizes="(max-width: 1024px) 100vw, 600px"
           />
         </div>
 

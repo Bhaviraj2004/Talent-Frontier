@@ -25,7 +25,7 @@ export default function HaveYouWorked() {
         </div>
 
         {/* Right Image */}
-        <div className="w-full md:w-1/2 relative h-[300px] md:h-[400px]">
+        <div className="w-full md:w-1/2 relative aspect-[16/9] md:aspect-auto md:h-[380px] rounded-2xl md:rounded-3xl overflow-hidden">
           {/* Using Rectangle 99.png as it seems to match the style of the "Have you worked with..." image from the screenshot */}
           <div className="absolute inset-4 md:inset-8 rounded-3xl overflow-hidden">
              <Image

@@ -17,12 +17,12 @@ export default function HelpingPropertyTeams() {
         </div>
 
         {/* Right: Image */}
-        <div className="flex-1 w-full relative min-h-[350px] md:min-h-[400px] rounded-3xl overflow-hidden shadow-sm">
+        <div className="flex-1 w-full relative aspect-[16/10] sm:aspect-[16/9] md:aspect-auto md:min-h-[400px] rounded-2xl md:rounded-3xl overflow-hidden shadow-sm">
           <Image 
             src="/sub pages/Industries/Property & Real Estate/Image placeholder – Property team reviewing plans.png" 
             alt="Team reviewing plans" 
             fill 
-            className="object-cover" 
+            className="object-cover object-center" 
           />
         </div>
 

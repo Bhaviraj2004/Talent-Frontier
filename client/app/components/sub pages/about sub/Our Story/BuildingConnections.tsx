@@ -27,7 +27,7 @@ export default function BuildingConnections() {
       </div>
 
       {/* Right Image */}
-      <div className="w-full md:w-1/2 relative h-[350px] md:h-[500px] rounded-3xl overflow-hidden">
+      <div className="w-full md:w-1/2 relative aspect-[16/9] md:aspect-auto md:h-[460px] rounded-2xl md:rounded-[32px] overflow-hidden rounded-3xl overflow-hidden">
         <Image
           src="/sub pages/About/Our Story/Rectangle.png"
           alt="Team collaboration"

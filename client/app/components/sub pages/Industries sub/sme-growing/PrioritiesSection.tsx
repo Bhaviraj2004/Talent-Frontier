@@ -13,12 +13,12 @@ export default function PrioritiesSection() {
       <div className="w-full flex flex-col lg:flex-row">
         
         {/* Left Image */}
-        <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-0">
+        <div className="w-full lg:w-1/2 relative min-h-[260px] aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto lg:min-h-0">
           <Image
             src="/sub pages/Industries/SMEs & Growing Businesses/Priorities image placeholder.png"
             alt="Business Priorities"
             fill
-            className="object-cover"
+            className="object-cover object-center"
           />
         </div>
 

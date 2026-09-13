@@ -81,8 +81,13 @@ export default function TrustedClients() {
     }
   ];
 
+  const row1 = clients.slice(0, 4);
+  const row2 = clients.slice(4, 8);
+  const row1Items = [...row1, ...row1, ...row1, ...row1];
+  const row2Items = [...row2, ...row2, ...row2, ...row2];
+
   return (
-    <section className="w-full bg-white py-14 sm:py-18 md:py-20 border-t border-gray-100 font-sans">
+    <section className="w-full bg-white py-14 sm:py-18 md:py-20 border-t border-gray-100 font-sans overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 text-center">
         <p className="text-blue-600 text-xs font-bold tracking-widest uppercase mb-2 sm:mb-3">
           OUR TRUSTED CLIENTS
@@ -90,26 +95,59 @@ export default function TrustedClients() {
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0f172a] mb-8 sm:mb-12">
           Trusted by Businesses Worldwide
         </h2>
-        
-        <div className="w-full max-w-[1200px] mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-          {clients.map((client, idx) => (
-            <div 
-              key={idx} 
-              className="flex items-center gap-2.5 sm:gap-3.5 bg-slate-50/80 hover:bg-white border border-slate-200/70 hover:border-blue-400 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group min-w-0"
-            >
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl border-2 border-blue-500 bg-blue-50/70 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 text-blue-600 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300">
-                {client.icon}
+      </div>
+
+      <div className="relative w-full overflow-hidden py-2">
+        {/* Left & Right gradient edge fades */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-28 md:w-44 bg-gradient-to-r from-white to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-28 md:w-44 bg-gradient-to-l from-white to-transparent z-10" />
+
+        {/* First Row: Continuously moves forward */}
+        <div className="mb-4 sm:mb-6 overflow-hidden">
+          <div className="animate-marquee-forward flex gap-3 sm:gap-5 py-1">
+            {row1Items.map((client, idx) => (
+              <div 
+                key={`r1-${idx}`} 
+                className="flex items-center gap-2.5 sm:gap-3.5 bg-slate-50/80 hover:bg-white border border-slate-200/70 hover:border-blue-400 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group min-w-[210px] sm:min-w-[250px] md:min-w-[270px] shrink-0"
+              >
+                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl border-2 border-blue-500 bg-blue-50/70 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 text-blue-600 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300">
+                  {client.icon}
+                </div>
+                <div className="text-left min-w-0 flex-1 overflow-hidden">
+                  <span className="block text-[11px] sm:text-sm font-black tracking-tight text-[#0f172a] group-hover:text-blue-600 transition-colors truncate">
+                    {client.name}
+                  </span>
+                  <span className="block text-[7.5px] sm:text-[9px] tracking-[0.16em] font-bold text-blue-500 mt-0.5 truncate">
+                    {client.subtitle}
+                  </span>
+                </div>
               </div>
-              <div className="text-left min-w-0 flex-1 overflow-hidden">
-                <span className="block text-[11px] sm:text-sm font-black tracking-tight text-[#0f172a] group-hover:text-blue-600 transition-colors truncate">
-                  {client.name}
-                </span>
-                <span className="block text-[7.5px] sm:text-[9px] tracking-[0.16em] font-bold text-blue-500 mt-0.5 truncate">
-                  {client.subtitle}
-                </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Second Row: Continuously moves backward */}
+        <div className="overflow-hidden">
+          <div className="animate-marquee-backward flex gap-3 sm:gap-5 py-1">
+            {row2Items.map((client, idx) => (
+              <div 
+                key={`r2-${idx}`} 
+                className="flex items-center gap-2.5 sm:gap-3.5 bg-slate-50/80 hover:bg-white border border-slate-200/70 hover:border-blue-400 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group min-w-[210px] sm:min-w-[250px] md:min-w-[270px] shrink-0"
+              >
+                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl border-2 border-blue-500 bg-blue-50/70 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 text-blue-600 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300">
+                  {client.icon}
+                </div>
+                <div className="text-left min-w-0 flex-1 overflow-hidden">
+                  <span className="block text-[11px] sm:text-sm font-black tracking-tight text-[#0f172a] group-hover:text-blue-600 transition-colors truncate">
+                    {client.name}
+                  </span>
+                  <span className="block text-[7.5px] sm:text-[9px] tracking-[0.16em] font-bold text-blue-500 mt-0.5 truncate">
+                    {client.subtitle}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

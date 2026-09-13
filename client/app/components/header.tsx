@@ -11,7 +11,9 @@ export default function Header() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(true);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const lastScrollY = useRef(0);
 
   const handleMouseEnter = (title: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -32,6 +34,50 @@ export default function Header() {
     setMobileExpanded(mobileExpanded === title ? null : title);
   };
 
+  // Smart sticky header: hide on scroll down, show on scroll up
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+
+          if (currentScrollY <= 25) {
+            setIsVisible(true);
+          } else {
+            const diff = currentScrollY - lastScrollY.current;
+            // Scrolling down by more than 4px
+            if (diff > 4 && currentScrollY > 70) {
+              if (!mobileMenuOpen) {
+                setIsVisible(false);
+                setActiveMenu(null);
+              }
+            } 
+            // Moving from down to top (scrolling up by more than 4px)
+            else if (diff < -4) {
+              setIsVisible(true);
+            }
+          }
+
+          lastScrollY.current = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [mobileMenuOpen]);
+
+  // Ensure header is visible if mobile menu is opened
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      setIsVisible(true);
+    }
+  }, [mobileMenuOpen]);
+
   // Close menus on route change
   useEffect(() => {
     setActiveMenu(null);
@@ -51,7 +97,10 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all">
+    <>
+      <header className={`fixed top-0 left-0 right-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-gray-100 transition-transform duration-300 ease-in-out ${
+        isVisible || mobileMenuOpen ? 'translate-y-0 shadow-sm' : '-translate-y-full shadow-none'
+      }`}>
       <div className="flex items-center justify-between px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto w-full font-sans py-3 md:py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center z-10 shrink-0" onClick={() => setMobileMenuOpen(false)}>
@@ -304,5 +353,8 @@ export default function Header() {
         </div>
       )}
     </header>
+    {/* Spacer to preserve document layout flow */}
+    <div className="h-[76px] sm:h-[84px] md:h-[96px] lg:h-[104px] w-full shrink-0" aria-hidden="true" />
+  </>
   );
 }

@@ -35,12 +35,12 @@ export default function BringStructureCTA() {
           </div>
 
           {/* Right Image */}
-          <div className="w-full lg:w-[50%] relative h-[280px] sm:h-[360px] lg:h-[440px]">
+          <div className="w-full lg:w-[50%] relative min-h-[220px] aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto lg:h-[440px]">
             <Image
               src="/sub pages/Industries/Finance and Accounting/finance-cta.png"
               alt="Bring Greater Structure to Your Finance Operations"
               fill
-              className="object-cover"
+              className="object-cover object-center"
               sizes="(max-width: 1024px) 100vw, 680px"
             />
           </div>

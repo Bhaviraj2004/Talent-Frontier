@@ -20,7 +20,7 @@ export default function StayOrganised() {
         </div>
       </div>
       
-      <div className="w-full relative h-[350px] md:h-[450px] lg:h-[500px]">
+      <div className="w-full relative aspect-[16/9] md:aspect-auto md:h-[450px] lg:h-[500px] rounded-2xl md:rounded-[32px] overflow-hidden">
         <div className="absolute inset-0 rounded-[24px] overflow-hidden shadow-sm">
           <Image
             src="/sub pages/Services/Business Support Services/Rectangle 105.png"

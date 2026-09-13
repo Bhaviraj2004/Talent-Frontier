@@ -15,7 +15,7 @@ export default function PracticalSupport() {
             Structured assistance that helps your organisation coordinate people-related activities, maintain documentation and support everyday operations.
           </p>
         </div>
-        <div className="w-full md:w-7/12 relative h-[350px] md:h-[500px]">
+        <div className="w-full md:w-7/12 relative aspect-[16/9] md:aspect-auto md:h-[460px] rounded-2xl md:rounded-[32px] overflow-hidden">
           <div className="absolute inset-0 rounded-[32px] overflow-hidden shadow-sm">
             <Image
               src="/sub pages/Services/People & Operations Support/Hero Image — replace with supplied photo.png"

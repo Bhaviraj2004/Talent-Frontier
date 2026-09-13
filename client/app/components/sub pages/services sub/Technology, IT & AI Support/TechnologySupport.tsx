@@ -22,7 +22,7 @@ export default function TechnologySupport() {
           Discuss Your Technology Needs
         </Link>
       </div>
-      <div className="w-full md:w-[55%] relative h-[400px] md:h-[450px]">
+      <div className="w-full md:w-[55%] relative aspect-[16/9] md:aspect-auto md:h-[450px] rounded-2xl md:rounded-[24px] overflow-hidden">
         <Image
           src="/sub pages/Services/Technology, IT & AI Support/ChatGPT Image Sep 2, 2026, 01_37_30 PM 1.png"
           alt="Technology Support"

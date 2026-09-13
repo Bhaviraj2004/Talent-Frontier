@@ -27,12 +27,41 @@ export default function HowWeWork() {
           </div>
         </div>
 
-        <div className="flex overflow-x-auto md:overflow-visible md:flex-row justify-start md:justify-between items-center max-w-5xl mx-auto gap-x-4 md:gap-x-0 mb-10 md:mb-16 pb-4 md:pb-0 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        {/* Mobile View: Continuously movable in forward direction */}
+        <div className="flex md:hidden relative w-full overflow-hidden mb-10 py-1">
+          {/* Gradient fade on left and right edges */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-[#08154a] to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-[#08154a] to-transparent z-10" />
+
+          <div className="animate-marquee-forward flex items-center gap-2 py-2">
+            {[...steps, ...steps].map((step, idx) => {
+              const Icon = step.icon;
+              return (
+                <div key={`mob-${idx}`} className="flex items-center flex-shrink-0">
+                  <div className="flex flex-col items-center px-3">
+                    <div className="w-12 h-12 rounded-full border border-slate-500/80 bg-[#0c1e63] flex items-center justify-center text-white mb-2 shadow-sm">
+                      <Icon className="w-5 h-5" strokeWidth={1.5} />
+                    </div>
+                    <h4 className="text-[11px] font-medium text-white text-center whitespace-nowrap">
+                      {step.title}
+                    </h4>
+                  </div>
+                  <div className="flex-shrink-0 mx-1 text-slate-400">
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Desktop View: Static clean balanced layout */}
+        <div className="hidden md:flex md:flex-row justify-between items-center max-w-5xl mx-auto mb-16">
           {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
-              <div key={idx} className="flex items-center justify-center flex-shrink-0 md:flex-1 snap-center">
-                <div className="flex flex-col items-center mx-auto px-4 md:px-0">
+              <div key={idx} className="flex items-center justify-center flex-1">
+                <div className="flex flex-col items-center mx-auto">
                   <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border border-slate-500 flex items-center justify-center text-white mb-3 sm:mb-4 hover:bg-blue-600 transition-colors cursor-default shadow-sm">
                     <Icon className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={1.5} />
                   </div>

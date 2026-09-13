@@ -26,12 +26,13 @@ export default function ServicesCTA() {
           </div>
           
           {/* Right Image */}
-          <div className="w-full md:w-[50%] relative min-h-[300px] md:min-h-full">
+          <div className="w-full md:w-[50%] relative min-h-[220px] aspect-[643/426] md:aspect-auto md:min-h-full">
             <Image 
               src="/Services page/Rectangle 16.png" 
               alt="Support team" 
               fill
               className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             {/* Soft gradient fade on the left side of the image to blend with background */}
             <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#041133] to-transparent hidden md:block"></div>

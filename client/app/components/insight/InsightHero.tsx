@@ -9,10 +9,11 @@ export default function InsightHero() {
           src="/Insight page/ChatGPT Image Sep 1, 2026, 11_59_41 PM 1.png"
           alt="Business Insights" 
           fill
-          className="object-cover opacity-90 object-right"
+          className="object-cover opacity-90 object-[75%_center] md:object-right"
           priority
         />
         {/* Gradient Overlay for text readability on left side */}
+        <div className="absolute inset-0 bg-[#02091a]/60 md:bg-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#02091a] via-[#02091a]/95 md:via-[#02091a]/80 to-transparent w-full md:w-[75%] lg:w-[65%]"></div>
       </div>
 

@@ -11,7 +11,7 @@ export default function WhatYouCanExpect() {
   return (
     <section className="w-full bg-[#f4f7fb] py-16 md:py-24 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        <div className="w-full md:w-1/2 relative h-[300px] md:h-[400px]">
+        <div className="w-full md:w-1/2 relative aspect-[16/9] md:aspect-auto md:h-[380px] rounded-2xl md:rounded-[24px] overflow-hidden">
           <div className="absolute inset-0 rounded-[24px] overflow-hidden shadow-sm">
             <Image
               src="/sub pages/Services/People & Operations Support/Team Support Image.png"

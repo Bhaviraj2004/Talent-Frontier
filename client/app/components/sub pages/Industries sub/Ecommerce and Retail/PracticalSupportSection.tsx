@@ -1,4 +1,4 @@
-﻿import Image from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function PracticalSupportSection() {
@@ -9,12 +9,12 @@ export default function PracticalSupportSection() {
           
           {/* Left Side: 4-Quadrant Image Collage */}
           <div className="w-full lg:w-[48%] flex items-center justify-center">
-            <div className="relative w-full h-[360px] sm:h-[440px] lg:h-full min-h-[380px] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-lg">
+            <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-full min-h-[260px] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-lg">
               <Image
                 src="/sub pages/Industries/Ecommerce and Retail/practical-support.png"
                 alt="Practical Support for Growing Commerce Businesses"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 650px"
               />
             </div>

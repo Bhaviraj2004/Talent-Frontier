@@ -4,7 +4,7 @@ export default function HowItStarted() {
   return (
     <section className="w-full max-w-7xl mx-auto py-16 px-4 md:px-8 flex flex-col-reverse md:flex-row items-center gap-12 lg:gap-20">
       {/* Left Image Area */}
-      <div className="w-full md:w-1/2 relative h-[300px] md:h-[450px] rounded-3xl overflow-hidden">
+      <div className="w-full md:w-1/2 relative aspect-[16/9] md:aspect-auto md:h-[420px] rounded-2xl md:rounded-[32px] overflow-hidden rounded-3xl overflow-hidden">
         <Image
           src="/sub pages/About/Our Story/Rectangle (1).png"
           alt="Founders discussing"
