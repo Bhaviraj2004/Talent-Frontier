@@ -4,7 +4,7 @@ const OpenAI = require('openai');
 const { SYSTEM_PROMPT } = require('./chatbot.prompts');
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY || 'dummy_key_to_prevent_startup_crash',
 });
 
 async function generateEmbedding(text) {

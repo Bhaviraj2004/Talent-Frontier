@@ -62,8 +62,7 @@
       }
 
       .mobile-padding {
-        padding-left: 24px !important;
-        padding-right: 24px !important;
+        padding: 30px 20px !important;
       }
 
       .mobile-header-padding {
@@ -71,15 +70,17 @@
       }
 
       .hero-heading {
-        font-size: 26px !important;
-        line-height: 34px !important;
+        font-size: 24px !important;
+        line-height: 32px !important;
       }
 
-      .two-col-cell {
+      .two-col-cell, .footer-col {
         display: block !important;
         width: 100% !important;
         padding-right: 0 !important;
-        margin-bottom: 14px !important;
+        padding-left: 0 !important;
+        border-right: none !important;
+        margin-bottom: 16px !important;
       }
 
       .cta-btn-cell {
@@ -95,13 +96,27 @@
         text-align: center !important;
       }
 
-      .meta-right-col {
-        display: none !important;
-      }
       .hide-on-mobile {
         display: none !important;
-        width: 0 !important;
-        border: none !important;
+      }
+      
+      /* Typography & Icon Tweaks */
+      .signature-name {
+        font-size: 20px !important;
+      }
+      .contact-text {
+        font-size: 13.5px !important;
+      }
+      .address-text {
+        font-size: 12.5px !important;
+        line-height: 18px !important;
+      }
+      .legal-text {
+        font-size: 9.5px !important;
+        line-height: 13px !important;
+      }
+      .logo-img {
+        max-width: 150px !important;
       }
     }
   </style>
@@ -154,24 +169,8 @@
                           <table border="0" cellpadding="0" cellspacing="0" role="presentation">
                             <tbody>
                               <tr>
-                                <!-- Architectural Monogram Emblem -->
-                                <td style="padding-right: 14px;" valign="middle">
-                                  <div
-                                    style="width: 38px; height: 38px; background: linear-gradient(145deg, #0A2540 0%, #0F172A 100%); border-radius: 6px; text-align: center; line-height: 38px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);">
-                                    <span
-                                      style="font-family: 'Georgia', 'Times New Roman', serif; font-weight: 700; font-size: 19px; color: #FFFFFF; letter-spacing: 0.5px;">TF</span>
-                                  </div>
-                                </td>
-                                <!-- Corporate Typography -->
                                 <td valign="middle">
-                                  <span
-                                    style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 18px; font-weight: 800; color: #0A2540; letter-spacing: 1.5px; text-transform: uppercase; display: block; line-height: 20px;">
-                                    Talent<span style="color: #0284C7; font-weight: 700;">Frontier</span>
-                                  </span>
-                                  <span
-                                    style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 1.8px; font-weight: 600; color: #64748B; display: block; margin-top: 3px;">
-                                    Executive Search • Leadership Advisory
-                                  </span>
+                                  <img src="https://talentfrontier.com.au/logo.png" alt="Talent Frontier Logo" style="display: block; max-width: 200px; height: auto;" />
                                 </td>
                               </tr>
                             </tbody>
@@ -185,29 +184,7 @@
               <!-- HERO CONFIRMATION WITH BESPOKE SUCCESS BADGE -->
               <tr>
                 <td class="mobile-padding" style="padding: 40px 44px 32px 44px;">
-                  <!-- Subtle Executive Seal / Badge -->
-                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom: 24px;">
-                    <tbody>
-                      <tr>
-                        <td align="center" style="width: 48px; height: 48px; border: 1.5px solid #86EFAC;">
-                          <svg fill="none" height="22" stroke="#15803D" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2.5" viewbox="0 0 24 24" width="22">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                          </svg>
-                        </td>
-                        <td style="padding-left: 14px;">
-                          <div
-                            style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #166534; text-transform: uppercase; letter-spacing: 1.2px; line-height: 14px;">
-                            Transmission Logged
-                          </div>
-                          <div
-                            style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 500; color: #475569; margin-top: 3px;">
-                            Corporate Advisory Queue Activated
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+               
                   <!-- Executive Personalized Headline -->
                   <h1 class="hero-heading"
                     style="font-family: 'Georgia', 'Times New Roman', serif; font-size: 30px; font-weight: 700; color: #0A2540; line-height: 38px; margin-bottom: 12px; letter-spacing: -0.5px;">
@@ -244,12 +221,6 @@
                                   <span
                                     style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #0A2540; text-transform: uppercase; letter-spacing: 1.2px;">
                                     Briefing Specification Summary
-                                  </span>
-                                </td>
-                                <td align="right">
-                                  <span
-                                    style="font-family: 'Courier New', monospace; font-size: 11px; font-weight: 700; color: #0284C7; background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 3px; padding: 2px 8px;">
-                                    #TF-{{referenceId}}
                                   </span>
                                 </td>
                               </tr>
@@ -376,68 +347,72 @@
                   </table>
                 </td>
               </tr>
-              <!-- TIER-1 CORPORATE FOOTER -->
+              <!-- NEW EMAIL SIGNATURE & DISCLAIMER -->
               <tr>
-                <td class="mobile-padding"
-                  style="padding: 36px 44px 32px 44px; background-color: #0A2540; border-top: 1px solid #1E293B;">
-                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                <td class="mobile-padding" style="padding: 36px 44px 32px 44px; background-color: #FFFFFF; border-top: 1px solid #E2E8F0;">
+                  <!-- Regards Section -->
+                  <p style="font-family: Arial, sans-serif; font-size: 14px; color: #333333; margin-bottom: 20px;">
+                    Regards,
+                  </p>
+                  <p class="signature-name" style="font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; color: #0A2540; margin: 0 0 4px 0;">
+                    Name
+                  </p>
+                  <p style="font-family: Arial, sans-serif; font-size: 14px; color: #475569; margin: 0 0 24px 0;">
+                    Admin
+                  </p>
+                  
+                  <!-- Contact info -->
+                  <table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 24px;" role="presentation">
                     <tbody>
                       <tr>
-                        <td align="left">
-                          <!-- Footer Brand Signature -->
-                          <table border="0" cellpadding="0" cellspacing="0" role="presentation"
-                            style="margin-bottom: 16px;">
-                            <tbody>
-                              <tr>
-                                <td style="padding-right: 10px;" valign="middle">
-                                  <div
-                                    style="width: 26px; height: 26px; background-color: rgba(255,255,255,0.1); border-radius: 4px; text-align: center; line-height: 26px;">
-                                    <span
-                                      style="font-family: 'Georgia', serif; font-size: 13px; font-weight: 700; color: #38BDF8;">TF</span>
-                                  </div>
-                                </td>
-                                <td valign="middle">
-                                  <span
-                                    style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; font-weight: 800; color: #FFFFFF; letter-spacing: 1px; text-transform: uppercase;">
-                                    TALENT FRONTIER
-                                  </span>
-                                  <span
-                                    style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 9.5px; font-weight: 500; color: #94A3B8; letter-spacing: 1.2px; text-transform: uppercase; margin-left: 6px;">
-                                    GLOBAL TALENT ADVISORY
-                                  </span>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                          <!-- Office Location -->
-                          <p
-                            style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11.5px; color: #94A3B8; line-height: 18px; margin-bottom: 14px;">
-                            Level 28, Governor Phillip Tower, 1 Farrer Place, Sydney NSW 2000, Australia<br />
-                            Global Practices: Sydney • Melbourne • Singapore • London
-                          </p>
-                          <!-- Legal Navigation Links -->
-                          <p
-                            style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748B; margin-bottom: 14px; line-height: 16px;">
-                            <a href="https://talentfrontier.com.au/privacy"
-                              style="color: #94A3B8; text-decoration: none; border-bottom: 1px dotted #64748B; margin-right: 14px;">Privacy
-                              Policy</a>
-                            <a href="https://talentfrontier.com.au/terms"
-                              style="color: #94A3B8; text-decoration: none; border-bottom: 1px dotted #64748B; margin-right: 14px;">Terms
-                              of Engagement</a>
-                            <a href="https://talentfrontier.com.au/portal"
-                              style="color: #94A3B8; text-decoration: none; border-bottom: 1px dotted #64748B;">Client
-                              Portal</a>
-                          </p>
-                          <!-- Copyright Notice -->
-                          <p
-                            style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10.5px; color: #64748B; margin: 0; line-height: 15px;">
-                            © {{year}} Talent Frontier Pty Ltd. All rights reserved. Confidential communication for
-                            intended recipient only.
-                          </p>
+                        <td style="padding-right: 12px; padding-bottom: 12px;" valign="middle">
+                          <img src="https://img.icons8.com/ios-filled/50/0A2540/circled-envelope.png" alt="Email" width="24" height="24" style="display: block; width: 24px; height: 24px; outline: none; border: none; text-decoration: none;" />
+                        </td>
+                        <td style="padding-bottom: 12px;" valign="middle">
+                          <a class="contact-text" href="mailto:admin@talentfrontier.com.au" style="font-family: Arial, sans-serif; font-size: 14px; color: #0284C7; text-decoration: underline;">admin@talentfrontier.com.au</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding-right: 12px;" valign="middle">
+                          <img src="https://img.icons8.com/ios-filled/50/0A2540/geography.png" alt="Website" width="24" height="24" style="display: block; width: 24px; height: 24px; outline: none; border: none; text-decoration: none;" />
+                        </td>
+                        <td valign="middle">
+                          <a class="contact-text" href="http://www.talentfrontier.com.au" style="font-family: Arial, sans-serif; font-size: 14px; color: #0284C7; text-decoration: underline;">www.talentfrontier.com.au</a>
                         </td>
                       </tr>
                     </tbody>
                   </table>
+
+                  <!-- Logo and Address Banner -->
+                  <table border="0" cellpadding="0" cellspacing="0" style="border-top: 2px solid #0A2540; padding-top: 20px; margin-bottom: 24px; width: 100%;" role="presentation">
+                    <tbody>
+                      <tr>
+                        <td class="footer-col" valign="middle" style="padding-right: 20px; border-right: 2px solid #0A2540; width: 220px;">
+                          <!-- Logo Image -->
+                          <img class="logo-img" src="https://talentfrontier.com.au/logo.png" alt="Talent Frontier Logo" style="display: block; max-width: 180px; height: auto;" />
+                        </td>
+                        <td class="footer-col" valign="middle" style="padding-left: 20px;">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation">
+                            <tbody>
+                              <tr>
+                                <td style="padding-right: 10px;" valign="middle">
+                                  <img src="https://img.icons8.com/ios-filled/50/0284C7/marker.png" alt="Location" width="20" height="20" style="display: block; width: 20px; height: 20px; outline: none; border: none; text-decoration: none;" />
+                                </td>
+                                <td class="address-text" style="font-family: Arial, sans-serif; font-size: 13px; color: #0A2540; font-weight: 500;" valign="middle">
+                                  650 Nicholson Street Fitzroy North VIC 3068, Australia
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+                  <!-- Legal Disclaimer -->
+                  <p class="legal-text" style="font-family: Arial, sans-serif; font-size: 10px; color: #94A3B8; text-align: justify; line-height: 14px; margin: 0;">
+                    Talent Frontier has its liability limited to the extent permitted under applicable Australian law. The information contained in this email and any attachments is confidential and intended solely for the named recipient. If you are not the intended recipient, you must not read, copy, distribute, disclose or use this communication. If received in error, please notify the sender immediately and permanently delete all copies from your system. Any views expressed are those of the individual sender and may not necessarily represent Talent Frontier. Information concerning candidates, clients, vacancies, remuneration, availability or engagement terms must not be relied upon unless confirmed in writing by an authorized representative of Talent Frontier. Recipients are responsible for checking this email and any attachments for viruses or other harmful components. To the extent permitted by law, Talent Frontier accepts no liability for any loss or damage resulting from this communication or its attachments.
+                  </p>
                 </td>
               </tr>
             </tbody>

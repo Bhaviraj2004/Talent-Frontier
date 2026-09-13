@@ -1,55 +1,88 @@
-const nodemailer = require('nodemailer');
 const { getEnquiryUserTemplate, getEnquiryAdminTemplate } = require('../utils/template.util');
+const msal = require('@azure/msal-node');
 
-let transporter;
-
-const initializeTransporter = async () => {
-  if (process.env.SMTP_HOST === 'sandbox.smtp.mailtrap.io' && process.env.SMTP_USER === 'your_mailtrap_user') {
-    // Generate a test ethereal account if using default dummies
-    const testAccount = await nodemailer.createTestAccount();
-    transporter = nodemailer.createTransport({
-      host: "smtp.ethereal.email",
-      port: 587,
-      secure: false, // true for 465, false for other ports
-      auth: {
-        user: testAccount.user, // generated ethereal user
-        pass: testAccount.pass, // generated ethereal password
-      },
-    });
-    console.log("Using Ethereal Email for testing...");
-  } else {
-    transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-  }
+const msalConfig = {
+    auth: {
+        clientId: process.env.MICROSOFT_CLIENT_ID,
+        authority: `https://login.microsoftonline.com/${process.env.MICROSOFT_TENANT_ID}`,
+        clientSecret: process.env.MICROSOFT_CLIENT_SECRET,
+    }
 };
 
-initializeTransporter();
+const cca = new msal.ConfidentialClientApplication(msalConfig);
+
+const getAccessToken = async () => {
+    const clientCredentialRequest = {
+        scopes: ["https://graph.microsoft.com/.default"],
+    };
+
+    try {
+        const response = await cca.acquireTokenByClientCredential(clientCredentialRequest);
+        return response.accessToken;
+    } catch (error) {
+        console.error("Error acquiring MSAL access token:", error);
+        throw new Error('Failed to acquire Microsoft Graph token');
+    }
+};
+
+const sendEmailGraphApi = async (toEmail, subject, htmlContent) => {
+    const accessToken = await getAccessToken();
+    const fromEmail = process.env.MAIL_FROM || 'admin@talentfrontier.com.au';
+    
+    const mailData = {
+        message: {
+            subject: subject,
+            body: {
+                contentType: "HTML",
+                content: htmlContent
+            },
+            toRecipients: [
+                {
+                    emailAddress: {
+                        address: toEmail
+                    }
+                }
+            ]
+        },
+        saveToSentItems: "true"
+    };
+
+    const endpoint = `https://graph.microsoft.com/v1.0/users/${fromEmail}/sendMail`;
+
+    try {
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(mailData)
+        });
+
+        if (!response.ok) {
+            const errData = await response.json().catch(() => ({}));
+            console.error(`Microsoft Graph API Error: ${response.status} ${response.statusText}`, errData);
+            throw new Error(`Graph API failed: ${response.statusText}`);
+        }
+        
+        return { success: true };
+    } catch (error) {
+        console.error('Error sending email via Graph API:', error);
+        throw error;
+    }
+};
 
 const sendEnquiryUserEmail = async (data) => {
   try {
     const htmlContent = getEnquiryUserTemplate(data);
-
-    const info = await transporter.sendMail({
-      from: `"Talent Frontier" <${process.env.EMAIL_FROM}>`,
-      to: data.email, // send to the user's email
-      subject: `Enquiry Confirmation: TF-${data.referenceId}`,
-      html: htmlContent,
-    });
-
-    console.log('Message sent: %s', info.messageId);
+    const subject = `Enquiry Confirmation: TF-${data.referenceId}`;
     
-    // Preview only available when sending through an Ethereal account
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    await sendEmailGraphApi(data.email, subject, htmlContent);
+    console.log('User email sent via Microsoft Graph API');
     
-    return { success: true, messageId: info.messageId };
+    return { success: true };
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Error in sendEnquiryUserEmail:', error);
     throw new Error('Failed to send email');
   }
 };
@@ -57,23 +90,15 @@ const sendEnquiryUserEmail = async (data) => {
 const sendEnquiryAdminEmail = async (data) => {
   try {
     const htmlContent = getEnquiryAdminTemplate(data);
-    const adminEmail = process.env.ADMIN_EMAIL || 'admin@talentfrontier.com.au';
+    const adminEmail = process.env.MAIL_TO || process.env.ADMIN_EMAIL || 'admin@talentfrontier.com.au';
+    const subject = `New Inbound Client Mandate: ${data.company || 'New Enquiry'}`;
 
-    const info = await transporter.sendMail({
-      from: `"Talent Frontier" <${process.env.EMAIL_FROM}>`,
-      to: adminEmail, // send to the admin
-      subject: `New Inbound Client Mandate: ${data.company || 'New Enquiry'}`,
-      html: htmlContent,
-    });
-
-    console.log('Admin message sent: %s', info.messageId);
+    await sendEmailGraphApi(adminEmail, subject, htmlContent);
+    console.log('Admin email sent via Microsoft Graph API');
     
-    // Preview only available when sending through an Ethereal account
-    console.log('Admin Preview URL: %s', nodemailer.getTestMessageUrl(info));
-    
-    return { success: true, messageId: info.messageId };
+    return { success: true };
   } catch (error) {
-    console.error('Error sending admin email:', error);
+    console.error('Error in sendEnquiryAdminEmail:', error);
     throw new Error('Failed to send admin email');
   }
 };

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>New Enquiry - Admin Notification</title>
   <style>
     body {
@@ -14,9 +15,11 @@
       color: #1e293b;
       line-height: 1.5;
     }
+
     .wrapper {
       padding: 24px 16px;
     }
+
     .container {
       max-width: 620px;
       margin: 0 auto;
@@ -26,6 +29,7 @@
       overflow: hidden;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
+
     .header-top {
       background-color: #0f172a;
       border-bottom: 1px solid #1e293b;
@@ -36,15 +40,18 @@
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
+
     .brand-section {
       padding: 24px;
       border-bottom: 1px solid #f1f5f9;
       background-color: #ffffff;
     }
+
     .brand-flex {
       display: flex;
       align-items: center;
     }
+
     .logo {
       width: 44px;
       height: 44px;
@@ -60,19 +67,23 @@
       border: 1px solid #1e293b;
       margin-right: 14px;
     }
+
     .brand-text {
       display: inline-block;
       vertical-align: middle;
     }
+
     .brand-name {
       font-weight: bold;
       color: #020617;
       font-size: 16px;
       letter-spacing: 0.05em;
     }
+
     .brand-name span {
       color: #0284c7;
     }
+
     .brand-tagline {
       font-size: 9.5px;
       text-transform: uppercase;
@@ -81,10 +92,12 @@
       font-weight: 600;
       margin-top: 2px;
     }
+
     .hero-section {
       padding: 24px;
       background-color: #ffffff;
     }
+
     .badge {
       display: inline-block;
       background-color: #ecfdf5;
@@ -98,6 +111,7 @@
       letter-spacing: 0.025em;
       margin-bottom: 16px;
     }
+
     .hero-title {
       font-size: 24px;
       font-family: Georgia, serif;
@@ -105,28 +119,34 @@
       margin: 0 0 8px 0;
       font-weight: normal;
     }
+
     .hero-title span {
       font-weight: bold;
       color: #0f172a;
     }
+
     .hero-subtitle {
       color: #475569;
       font-size: 14px;
       margin: 0 0 16px 0;
     }
+
     .hero-subtitle a {
       color: #0284c7;
       text-decoration: none;
     }
+
     .section-card {
       padding: 12px 24px;
     }
+
     .card-inner {
       border: 1px solid #e2e8f0;
       border-radius: 6px;
       overflow: hidden;
       background-color: #f8fafc;
     }
+
     .card-header {
       background-color: #f1f5f9;
       border-bottom: 1px solid #e2e8f0;
@@ -137,25 +157,53 @@
       letter-spacing: 0.05em;
       color: #334155;
     }
+
     .card-body {
       padding: 16px;
     }
+
     .data-grid {
       display: block;
       width: 100%;
     }
+
     .data-item {
       display: inline-block;
       width: 48%;
       vertical-align: top;
       margin-bottom: 14px;
     }
-    @media only screen and (max-width: 480px) {
+
+    @media only screen and (max-width: 620px) {
       .data-item {
         width: 100%;
         display: block;
       }
+
+      .footer-col {
+        display: block !important;
+        width: 100% !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        border-right: none !important;
+        margin-bottom: 16px !important;
+      }
+
+      .logo-img {
+        max-width: 150px !important;
+      }
+
+      .address-text {
+        font-size: 12.5px !important;
+        line-height: 18px !important;
+      }
+
+      .legal-text {
+        font-size: 9.5px !important;
+        line-height: 13px !important;
+      }
     }
+
     .data-label {
       color: #94a3b8;
       font-size: 10px;
@@ -164,22 +212,27 @@
       letter-spacing: 0.05em;
       margin-bottom: 2px;
     }
+
     .data-value {
       color: #0f172a;
       font-weight: 600;
       font-size: 14px;
     }
+
     .data-value a {
       color: #0284c7;
       text-decoration: none;
     }
+
     .data-value.mono {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
+
     .card-white {
       background-color: #ffffff;
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     }
+
     .requirements-box {
       background-color: #f8fafc;
       border-left: 4px solid #0284c7;
@@ -190,6 +243,7 @@
       border-radius: 0 4px 4px 0;
       margin-top: 4px;
     }
+
     .footer {
       background-color: #0f172a;
       color: #94a3b8;
@@ -198,9 +252,11 @@
       font-size: 12px;
       border-top: 1px solid #1e293b;
     }
+
     .footer-brand {
       margin-bottom: 12px;
     }
+
     .footer-brand span.tf {
       display: inline-block;
       background-color: #1e293b;
@@ -214,20 +270,24 @@
       border-radius: 4px;
       margin-right: 8px;
     }
+
     .footer-brand span.name {
       font-weight: bold;
       color: #ffffff;
       letter-spacing: 0.1em;
       margin-right: 8px;
     }
+
     .footer-brand span.internal {
       color: #64748b;
       font-size: 10px;
       letter-spacing: 0.05em;
     }
+
     .footer p {
       margin: 0 0 12px 0;
     }
+
     .footer-legal {
       font-size: 10px;
       color: #64748b;
@@ -236,6 +296,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="wrapper">
     <div class="container">
@@ -244,17 +305,15 @@
       </div>
       <div class="brand-section">
         <div class="brand-flex">
-          <div class="logo">TF</div>
-          <div class="brand-text">
-            <div class="brand-name">TALENT<span>FRONTIER</span></div>
-            <div class="brand-tagline">EXECUTIVE SEARCH • LEADERSHIP ADVISORY</div>
-          </div>
+          <img src="https://talentfrontier.com.au/logo.png" alt="Talent Frontier Logo"
+            style="display: block; max-width: 200px; height: auto;" />
         </div>
       </div>
       <div class="hero-section">
         <div class="badge">NEW INBOUND CLIENT MANDATE REGISTERED</div>
         <h1 class="hero-title">New Client Enquiry Logged: <span>{{companyName}}</span></h1>
-        <p class="hero-subtitle">Submitted by <strong>{{fullName}}</strong> (<a href="mailto:{{email}}">{{email}}</a>) • <a href="tel:{{phone}}">{{phone}}</a> on {{timestamp}}.</p>
+        <p class="hero-subtitle">Submitted by <strong>{{fullName}}</strong> (<a href="mailto:{{email}}">{{email}}</a>) •
+          <a href="tel:{{phone}}">{{phone}}</a> on {{timestamp}}.</p>
       </div>
 
       <div class="section-card">
@@ -297,7 +356,9 @@
           <div class="card-body">
             <div style="margin-bottom: 16px;">
               <div class="data-label">Mandate Subject / Search Objective</div>
-              <div class="data-value" style="background-color: #f8fafc; padding: 8px; border: 1px solid #f1f5f9; border-radius: 4px;">{{subject}}</div>
+              <div class="data-value"
+                style="background-color: #f8fafc; padding: 8px; border: 1px solid #f1f5f9; border-radius: 4px;">
+                {{subject}}</div>
             </div>
             <div>
               <div class="data-label">Recorded Scope & Client Requirements</div>
@@ -307,18 +368,89 @@
         </div>
       </div>
 
-      <div class="footer">
-        <div class="footer-brand">
-          <span class="tf">TF</span>
-          <span class="name">TALENT FRONTIER</span>
-          <span class="internal">| INTERNAL DISPATCH</span>
-        </div>
-        <p>This automated transmission was dispatched via Talent Frontier Enterprise Inbound Gateway.</p>
-        <div class="footer-legal">
-          CONFIDENTIALITY NOTICE: This email and any attachments contain strictly confidential and proprietary talent intelligence intended solely for the eyes of authorized Talent Frontier partners and directors. Unauthorized distribution or copying is strictly prohibited. © {{year}} Talent Frontier Pty Ltd.
-        </div>
+      <div
+        style="background-color: #FFFFFF; border-top: 1px solid #E2E8F0; padding: 24px 16px; border-radius: 0 0 4px 4px;">
+        <!-- Contact info -->
+        <table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 24px;" role="presentation">
+          <tbody>
+            <tr>
+              <td style="padding-right: 12px; padding-bottom: 12px;" valign="middle">
+                <img src="https://img.icons8.com/ios-filled/50/0A2540/circled-envelope.png" alt="Email" width="24"
+                  height="24"
+                  style="display: block; width: 24px; height: 24px; outline: none; border: none; text-decoration: none;" />
+              </td>
+              <td style="padding-bottom: 12px;" valign="middle">
+                <a class="contact-text" href="mailto:admin@talentfrontier.com.au"
+                  style="font-family: Arial, sans-serif; font-size: 14px; color: #0284C7; text-decoration: underline;">admin@talentfrontier.com.au</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-right: 12px;" valign="middle">
+                <img src="https://img.icons8.com/ios-filled/50/0A2540/geography.png" alt="Website" width="24"
+                  height="24"
+                  style="display: block; width: 24px; height: 24px; outline: none; border: none; text-decoration: none;" />
+              </td>
+              <td valign="middle">
+                <a class="contact-text" href="http://www.talentfrontier.com.au"
+                  style="font-family: Arial, sans-serif; font-size: 14px; color: #0284C7; text-decoration: underline;">www.talentfrontier.com.au</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Logo and Address Banner -->
+        <table border="0" cellpadding="0" cellspacing="0"
+          style="border-top: 2px solid #0A2540; padding-top: 20px; margin-bottom: 24px; width: 100%;"
+          role="presentation">
+          <tbody>
+            <tr>
+              <td class="footer-col" valign="middle"
+                style="padding-right: 20px; border-right: 2px solid #0A2540; width: 220px;">
+                <!-- Logo Image -->
+                <img class="logo-img" src="https://talentfrontier.com.au/logo.png" alt="Talent Frontier Logo"
+                  style="display: block; max-width: 180px; height: auto;" />
+              </td>
+              <td class="footer-col" valign="middle" style="padding-left: 20px;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation">
+                  <tbody>
+                    <tr>
+                      <td style="padding-right: 10px;" valign="middle">
+                        <img src="https://img.icons8.com/ios-filled/50/0284C7/marker.png" alt="Location" width="20"
+                          height="20"
+                          style="display: block; width: 20px; height: 20px; outline: none; border: none; text-decoration: none;" />
+                      </td>
+                      <td class="address-text"
+                        style="font-family: Arial, sans-serif; font-size: 13px; color: #0A2540; font-weight: 500;"
+                        valign="middle">
+                        650 Nicholson Street Fitzroy North VIC 3068, Australia
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Admin Legal Disclaimer -->
+        <p class="legal-text"
+          style="font-family: Arial, sans-serif; font-size: 10px; color: #94A3B8; text-align: justify; line-height: 14px; margin: 0;">
+          Talent Frontier has its liability limited to the extent permitted under applicable Australian law. The
+          information contained in this email and any attachments is confidential and intended solely for the named
+          recipient. If you are not the intended recipient,
+          you must not read, copy, distribute, disclose or use this communication. If received in error, please notify
+          the sender immediately and permanently delete all copies from your system. Any views expressed are those of
+          the individual sender and may not necessarily
+          represent Talent Frontier. Information concerning candidates, clients, vacancies, remuneration, availability
+          or engagement terms must not be relied upon unless confirmed in writing by an authorized representative of
+          Talent Frontier. Recipients are responsible
+          for checking this email and any attachments for viruses or other harmful components. To the extent permitted
+          by law, Talent Frontier accepts no liability for any loss or damage resulting from this communication or its
+          attachments.
+        </p>
       </div>
     </div>
   </div>
 </body>
+
 </html>
