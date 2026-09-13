@@ -68,12 +68,13 @@ async function askQuestion(query) {
   return completion.choices[0].message.content;
 }
 
-async function saveLead(name, email, phone, query) {
+async function saveLead(name, email, phone, query, contactMethod) {
   const lead = await prisma.chatLead.create({
     data: {
       name,
       email,
       phone,
+      contactMethod,
       query,
     }
   });

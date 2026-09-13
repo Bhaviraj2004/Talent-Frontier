@@ -34,12 +34,12 @@ const addChunk = async (req, res) => {
 
 const captureLead = async (req, res) => {
   try {
-    const { name, email, phone, query } = req.body;
+    const { name, email, phone, query, contactMethod } = req.body;
     if (!name || !query) {
       return res.status(400).json({ error: "Name and query are required" });
     }
     
-    const lead = await chatbotService.saveLead(name, email, phone, query);
+    const lead = await chatbotService.saveLead(name, email, phone, query, contactMethod);
     
     // TODO: Trigger email to admin here
     
