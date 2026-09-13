@@ -27,12 +27,6 @@ export default function ChatInputArea({ inputValue, setInputValue, onSendMessage
           <ArrowRight className="w-[18px] h-[18px]" />
         </button>
       </div>
-      
-      {/* Footer Text */}
-      <div className="flex justify-between items-center text-[10.5px] text-[#8b9bb4] px-1">
-        <span>Enterprise Confidentiality Guaranteed</span>
-        <span>Privacy & Data Governance</span>
-      </div>
     </div>
   );
 }
