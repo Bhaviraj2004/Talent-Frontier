@@ -16,7 +16,7 @@ export type FormDataState = {
 
 export const FLOW = {
   init: {
-    text: "Hi, Welcome to Talent Frontier.\n\nI’d love to understand a little about your business and what you’re looking to achieve.\nHow can we help you today?",
+    text: "Hi, welcome to Talent Frontier.\n\nHow can we help you today?",
     options: [
       { label: "Grow my business", action: "grow_business" },
       { label: "Improve my operations", action: "improve_ops" },
