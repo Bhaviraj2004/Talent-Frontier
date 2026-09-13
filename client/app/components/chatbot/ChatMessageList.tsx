@@ -68,7 +68,7 @@ export default function ChatMessageList({
 
             {/* Form */}
             {msg.isForm && !formSubmitted && (
-              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 mt-2 w-[280px]">
+              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 mt-2 w-full sm:w-[280px]">
                 <form onSubmit={onFormSubmit} className="space-y-3.5">
                   <div>
                     <label className="text-[11.5px] text-gray-500 font-bold mb-1.5 block uppercase tracking-wider">Full Name *</label>
@@ -77,7 +77,7 @@ export default function ChatMessageList({
                       type="text" 
                       value={formData.name}
                       onChange={e => setFormData(prev => ({...prev, name: e.target.value}))}
-                      className="w-full border border-gray-200 rounded-lg py-2 px-3 text-[13.5px] focus:border-[#007ba8] focus:ring-1 focus:ring-[#007ba8] outline-none transition-colors"
+                      className="w-full border border-gray-200 rounded-lg py-2 px-3 text-[16px] sm:text-[13.5px] focus:border-[#007ba8] focus:ring-1 focus:ring-[#007ba8] outline-none transition-colors"
                       placeholder="John Doe"
                     />
                   </div>
@@ -88,7 +88,7 @@ export default function ChatMessageList({
                       type="email" 
                       value={formData.email}
                       onChange={e => setFormData(prev => ({...prev, email: e.target.value}))}
-                      className="w-full border border-gray-200 rounded-lg py-2 px-3 text-[13.5px] focus:border-[#007ba8] focus:ring-1 focus:ring-[#007ba8] outline-none transition-colors"
+                      className="w-full border border-gray-200 rounded-lg py-2 px-3 text-[16px] sm:text-[13.5px] focus:border-[#007ba8] focus:ring-1 focus:ring-[#007ba8] outline-none transition-colors"
                       placeholder="john@company.com"
                     />
                   </div>
@@ -98,7 +98,7 @@ export default function ChatMessageList({
                       type="tel" 
                       value={formData.phone}
                       onChange={e => setFormData(prev => ({...prev, phone: e.target.value}))}
-                      className="w-full border border-gray-200 rounded-lg py-2 px-3 text-[13.5px] focus:border-[#007ba8] focus:ring-1 focus:ring-[#007ba8] outline-none transition-colors"
+                      className="w-full border border-gray-200 rounded-lg py-2 px-3 text-[16px] sm:text-[13.5px] focus:border-[#007ba8] focus:ring-1 focus:ring-[#007ba8] outline-none transition-colors"
                       placeholder="+61 400 000 000"
                     />
                   </div>
@@ -108,7 +108,7 @@ export default function ChatMessageList({
                       <select 
                         value={formData.contactMethod}
                         onChange={e => setFormData(prev => ({...prev, contactMethod: e.target.value}))}
-                        className="w-full border border-gray-200 rounded-lg py-2 px-3 text-[13.5px] focus:border-[#007ba8] focus:ring-1 focus:ring-[#007ba8] outline-none bg-white appearance-none cursor-pointer"
+                        className="w-full border border-gray-200 rounded-lg py-2 px-3 text-[16px] sm:text-[13.5px] focus:border-[#007ba8] focus:ring-1 focus:ring-[#007ba8] outline-none bg-white appearance-none cursor-pointer"
                       >
                         <option value="Email">Email</option>
                         <option value="WhatsApp">WhatsApp</option>

@@ -17,7 +17,7 @@ export default function ChatInputArea({ inputValue, setInputValue, onSendMessage
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && onSendMessage()}
             placeholder="Ask about leadership search..."
-            className="w-full border border-gray-200 rounded-lg py-2.5 pl-3 pr-3 text-[13px] text-[#004a69] placeholder-[#8b9bb4] focus:outline-none focus:border-[#007ba8] focus:ring-1 focus:ring-[#007ba8]"
+            className="w-full border border-gray-200 rounded-lg py-2.5 pl-3 pr-3 text-[16px] sm:text-[13px] text-[#004a69] placeholder-[#8b9bb4] focus:outline-none focus:border-[#007ba8] focus:ring-1 focus:ring-[#007ba8]"
           />
         </div>
         <button 

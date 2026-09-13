@@ -127,7 +127,7 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="absolute bottom-16 right-0 w-[400px] h-[540px] bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.25)] border border-gray-200 overflow-hidden flex flex-col animate-in slide-in-from-bottom-5 fade-in duration-300 origin-bottom-right z-50 font-sans">
+    <div className="absolute bottom-16 right-0 w-[calc(100vw-48px)] sm:w-[400px] h-[calc(100vh-120px)] sm:h-[540px] max-h-[540px] bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.25)] border border-gray-200 overflow-hidden flex flex-col animate-in slide-in-from-bottom-5 fade-in duration-300 origin-bottom-right z-50 font-sans">
       
       <ChatHeader onReset={resetChat} onClose={onClose} />
       
