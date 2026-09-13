@@ -35,14 +35,16 @@ export default function BringStructureCTA() {
           </div>
 
           {/* Right Image */}
-          <div className="w-full lg:w-[50%] relative min-h-[220px] aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto lg:h-[440px]">
-            <Image
-              src="/sub pages/Industries/Finance and Accounting/finance-cta.png"
-              alt="Bring Greater Structure to Your Finance Operations"
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 1024px) 100vw, 680px"
-            />
+          <div className="w-full lg:w-[50%] relative aspect-[648/256] sm:aspect-[648/280] lg:aspect-auto lg:self-stretch min-h-[240px] sm:min-h-[280px] flex items-center justify-center p-2 sm:p-4">
+            <div className="relative w-full h-full min-h-[220px]">
+              <Image
+                src="/sub pages/Industries/Finance and Accounting/finance-cta.png"
+                alt="Bring Greater Structure to Your Finance Operations"
+                fill
+                className="object-contain object-center"
+                sizes="(max-width: 1024px) 100vw, 680px"
+              />
+            </div>
           </div>
 
         </div>

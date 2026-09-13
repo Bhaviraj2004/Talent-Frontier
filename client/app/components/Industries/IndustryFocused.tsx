@@ -21,12 +21,13 @@ export default function IndustryFocused() {
         </div>
 
         {/* Image */}
-        <div className="w-full relative h-[220px] sm:h-[350px] md:h-[450px] lg:h-[500px] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-sm">
+        <div className="w-full relative aspect-[890/345] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-sm">
           <Image 
             src="/Industries page/Rectangle 19.png" 
             alt="Team meeting" 
             fill
             className="object-cover object-center"
+            sizes="(max-width: 1024px) 100vw, 1400px"
           />
         </div>
 

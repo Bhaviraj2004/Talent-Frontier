@@ -19,6 +19,9 @@ export default function InsightHero() {
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 flex flex-col py-16 sm:py-20">
         <div className="max-w-[650px] mt-8">
+          <p className="text-blue-500 text-xs md:text-sm font-bold tracking-widest uppercase mb-3 sm:mb-4">
+            INSIGHTS TALENT FRONTIER
+          </p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.1] mb-6 tracking-tight">
             Insights for<br />
             Better <span className="italic font-serif font-light text-gray-200">Business<br/>Decisions</span>
@@ -31,13 +34,13 @@ export default function InsightHero() {
           <div className="flex flex-col sm:flex-row gap-4 mb-4">
             <a 
               href="#latest-insights"
-              className="bg-[#1d4ed8] hover:bg-blue-600 text-white px-8 py-3.5 rounded-md font-semibold text-[13px] transition-colors shadow-lg shadow-blue-500/20 text-center w-full sm:w-auto"
+              className="bg-[#1d4ed8] hover:bg-blue-600 active:scale-[0.98] text-white px-8 py-3.5 rounded-md font-semibold text-[13px] transition-all duration-300 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-0.5 text-center w-full sm:w-auto"
             >
               Explore Latest Insights
             </a>
             <a 
               href="#explore-topics"
-              className="bg-transparent hover:bg-white/5 border border-[#1d4ed8] text-[#3b82f6] hover:text-[#60a5fa] px-8 py-3.5 rounded-md font-semibold text-[13px] transition-colors text-center w-full sm:w-auto"
+              className="bg-transparent hover:bg-white/10 active:scale-[0.98] border border-[#1d4ed8] text-[#3b82f6] hover:text-[#60a5fa] px-8 py-3.5 rounded-md font-semibold text-[13px] transition-all duration-300 text-center w-full sm:w-auto hover:-translate-y-0.5"
             >
               Browse All Topics
             </a>

@@ -63,17 +63,21 @@ export default function CommonChallenges() {
             Common Business Challenges
           </h3>
 
-          {/* 5 Column Grid with Dividers */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-8 items-center">
+          {/* 5 Column Grid with Balanced Responsive Layout */}
+          <div className="grid grid-cols-2 sm:grid-cols-6 lg:grid-cols-5 gap-3.5 sm:gap-4 items-stretch">
             {challenges.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center justify-center text-center px-3 sm:px-4 lg:border-r lg:border-white/15 last:lg:border-r-0"
+                className={`bg-white/[0.07] hover:bg-white/[0.14] border border-white/10 hover:border-blue-400/50 rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group cursor-pointer ${
+                  idx === 4 
+                    ? 'col-span-2 sm:col-span-3 lg:col-span-1' 
+                    : 'col-span-1 sm:col-span-2 lg:col-span-1'
+                }`}
               >
-                <div className="mb-4 flex items-center justify-center">
+                <div className="mb-3 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform duration-300">
                   {item.icon}
                 </div>
-                <span className="text-white text-[13px] sm:text-[14px] font-medium leading-snug max-w-[130px]">
+                <span className="text-white text-[13px] sm:text-[14px] font-medium leading-snug">
                   {item.title}
                 </span>
               </div>

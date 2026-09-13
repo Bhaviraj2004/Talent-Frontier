@@ -27,14 +27,14 @@ export default function CTASection() {
             </Link>
           </div>
         </div>
-        <div className="w-full md:w-[45%] relative min-h-[300px] md:min-h-0 z-0 bg-black">
+        <div className="w-full md:w-[45%] relative aspect-[632/235] md:aspect-auto min-h-[200px] md:min-h-0 z-0 bg-black group overflow-hidden">
           {/* Curved cutout overlay */}
           <div className="absolute top-[-10%] -left-16 w-32 h-[120%] bg-[#08154a] rounded-[50%] z-10 hidden md:block"></div>
           <Image
             src="/sub pages/Services/Process & Automation Support/Editable Shape (7).png"
             alt="Ready to improve"
             fill
-            className="object-cover"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
       </div>

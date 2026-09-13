@@ -22,12 +22,12 @@ export default function SmarterProcesses() {
           Discuss Your Process Requirements
         </Link>
       </div>
-      <div className="w-full md:w-[55%] relative min-h-[400px] md:min-h-0">
+      <div className="w-full md:w-[55%] relative aspect-[1440/588] md:aspect-auto min-h-[220px] md:min-h-0 group overflow-hidden">
         <Image
           src="/sub pages/Services/Process & Automation Support/ChatGPT Image Sep 2, 2026, 03_28_10 PM 2.png"
           alt="Smarter Processes"
           fill
-          className="object-cover"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
     </section>

@@ -60,17 +60,17 @@ export default function WhyWorkWithTalentFrontier() {
             Why Work With Talent Frontier?
           </h3>
 
-          {/* 5 Values Row with Dividers */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-6 items-center">
+          {/* 5 Values Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 items-stretch">
             {values.map((item, idx) => (
               <div
                 key={idx}
-                className="flex items-center justify-center gap-3 px-3 sm:px-4 lg:border-r lg:border-white/15 last:lg:border-r-0"
+                className="bg-white/10 hover:bg-white/20 border border-white/15 hover:border-blue-400/60 rounded-2xl p-4 sm:p-5 flex flex-row sm:flex-col items-center justify-center gap-3.5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group cursor-pointer text-left sm:text-center last:sm:col-span-2 last:lg:col-span-1"
               >
-                <div className="flex-shrink-0 flex items-center justify-center">
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
                   {item.icon}
                 </div>
-                <span className="text-white text-[13px] sm:text-[14px] font-medium leading-tight">
+                <span className="text-white text-[13.5px] sm:text-[14px] font-semibold leading-tight group-hover:text-blue-200 transition-colors">
                   {item.title}
                 </span>
               </div>

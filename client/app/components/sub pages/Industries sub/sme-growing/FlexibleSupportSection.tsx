@@ -28,12 +28,12 @@ export default function FlexibleSupportSection() {
         </div>
 
         {/* Right Image */}
-        <div className="w-full lg:w-1/2 relative aspect-[16/9] md:aspect-auto md:h-[420px] lg:h-[480px] rounded-2xl md:rounded-[24px] overflow-hidden rounded-[2rem] overflow-hidden shadow-lg">
+        <div className="w-full lg:w-1/2 relative aspect-[1440/659] rounded-[2rem] overflow-hidden shadow-lg group">
           <Image
             src="/sub pages/Industries/SMEs & Growing Businesses/Rectangle 138.png"
             alt="Flexible Support"
             fill
-            className="object-cover"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
 

@@ -20,18 +20,18 @@ export default function OperationsSupportSection() {
           
           {/* Left Side: Lifecycle Image */}
           <div className="w-full lg:w-[48%] flex items-center justify-center">
-            <div className="relative w-full h-[300px] sm:h-[380px] md:h-[440px] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-lg">
+            <div className="relative w-full aspect-[620/440] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-lg group">
               <Image
                 src="/sub pages/Industries/Property and Real Estate/lifecycle-support.png"
                 alt="Support Across Your Property Operations"
                 fill
-                className="object-cover"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 1024px) 100vw, 650px"
               />
             </div>
           </div>
 
-          {/* Right Side: Title and 6 Services in 2 Sub-columns */}
+          {/* Right Side: Title and 6 Services in Cards */}
           <div className="w-full lg:w-[52%] flex flex-col justify-center">
             <div className="w-8 h-[3px] bg-[#2563eb] mb-4" />
             <h2 className="text-2xl sm:text-3xl md:text-[34px] font-bold text-[#0f172a] leading-tight mb-8 tracking-tight">
@@ -39,50 +39,25 @@ export default function OperationsSupportSection() {
               Property Operations
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-              
-              {/* Sub-column 1: 01, 02, 03 */}
-              <div className="flex flex-col space-y-6">
-                {leftItems.map((item, idx) => (
-                  <div key={idx} className="border-b border-gray-100 pb-5">
-                    <div className="flex items-start gap-4">
-                      <span className="text-[#2563eb] text-2xl sm:text-3xl font-bold tracking-tight min-w-[36px]">
-                        {item.num}
-                      </span>
-                      <div className="flex flex-col">
-                        <span className="text-[#0f172a] font-bold text-[14px] sm:text-[15px] leading-snug">
-                          {item.title}
-                        </span>
-                        <span className="text-[#64748b] text-[12px] sm:text-[13px] mt-0.5">
-                          {item.subtitle}
-                        </span>
-                      </div>
-                    </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+              {[...leftItems, ...rightItems].map((item, idx) => (
+                <div 
+                  key={idx} 
+                  className="bg-slate-50/80 hover:bg-white p-4 rounded-xl border border-slate-200/80 hover:border-blue-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer flex items-start gap-3"
+                >
+                  <span className="w-8 h-8 rounded-lg bg-blue-50 text-[#2563eb] group-hover:bg-[#2563eb] group-hover:text-white font-bold text-xs sm:text-sm flex items-center justify-center shrink-0 transition-colors duration-300">
+                    {item.num}
+                  </span>
+                  <div className="flex flex-col">
+                    <span className="text-[#0f172a] group-hover:text-blue-600 font-bold text-[13.5px] sm:text-[14.5px] leading-snug transition-colors">
+                      {item.title}
+                    </span>
+                    <span className="text-[#64748b] text-[12px] mt-0.5 leading-snug">
+                      {item.subtitle}
+                    </span>
                   </div>
-                ))}
-              </div>
-
-              {/* Sub-column 2: 04, 05, 06 */}
-              <div className="flex flex-col space-y-6">
-                {rightItems.map((item, idx) => (
-                  <div key={idx} className="border-b border-gray-100 pb-5">
-                    <div className="flex items-start gap-4">
-                      <span className="text-[#2563eb] text-2xl sm:text-3xl font-bold tracking-tight min-w-[36px]">
-                        {item.num}
-                      </span>
-                      <div className="flex flex-col">
-                        <span className="text-[#0f172a] font-bold text-[14px] sm:text-[15px] leading-snug">
-                          {item.title}
-                        </span>
-                        <span className="text-[#64748b] text-[12px] sm:text-[13px] mt-0.5">
-                          {item.subtitle}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
+                </div>
+              ))}
             </div>
           </div>
 

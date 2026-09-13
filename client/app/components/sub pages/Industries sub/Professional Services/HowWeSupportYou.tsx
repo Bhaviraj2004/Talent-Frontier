@@ -23,16 +23,19 @@ export default function HowWeSupportYou() {
         </h2>
 
         {/* 3-Column Layout: Left List, Center Image, Right List */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* Left List */}
-          <div className="lg:col-span-3 flex flex-col justify-center space-y-8 sm:space-y-12 lg:space-y-14 order-2 lg:order-1">
+          <div className="lg:col-span-3 flex flex-col justify-center space-y-3 sm:space-y-4 order-2 lg:order-1">
             {leftItems.map((item, idx) => (
-              <div key={idx} className="flex items-center gap-4 group">
-                <span className="text-[#2563eb] text-xl sm:text-2xl font-bold tracking-tight min-w-[32px]">
+              <div 
+                key={idx} 
+                className="bg-slate-50/80 hover:bg-white border border-slate-200/80 hover:border-blue-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 p-3.5 sm:p-4 rounded-xl cursor-pointer flex items-center gap-3.5 group"
+              >
+                <span className="w-8 h-8 rounded-lg bg-blue-50 text-[#2563eb] group-hover:bg-[#2563eb] group-hover:text-white transition-colors duration-300 text-xs sm:text-sm font-bold flex items-center justify-center shrink-0">
                   {item.num}
                 </span>
-                <span className="text-[#0f172a] font-semibold text-[14px] sm:text-[15px] leading-snug">
+                <span className="text-[#0f172a] group-hover:text-blue-600 font-semibold text-[13.5px] sm:text-[14.5px] leading-snug transition-colors">
                   {item.title}
                 </span>
               </div>
@@ -41,25 +44,28 @@ export default function HowWeSupportYou() {
 
           {/* Center Image */}
           <div className="lg:col-span-6 flex justify-center order-1 lg:order-2">
-            <div className="relative w-full max-w-[580px] h-[240px] sm:h-[300px] md:h-[340px] rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-md">
+            <div className="relative w-full max-w-[580px] aspect-[718/316] rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-md group">
               <Image
                 src="/sub pages/Industries/Professional Services/how-we-support.png"
                 alt="How We Can Support You"
                 fill
-                className="object-cover"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 1024px) 100vw, 580px"
               />
             </div>
           </div>
 
           {/* Right List */}
-          <div className="lg:col-span-3 flex flex-col justify-center space-y-8 sm:space-y-12 lg:space-y-14 order-3">
+          <div className="lg:col-span-3 flex flex-col justify-center space-y-3 sm:space-y-4 order-3">
             {rightItems.map((item, idx) => (
-              <div key={idx} className="flex items-center gap-4 group">
-                <span className="text-[#2563eb] text-xl sm:text-2xl font-bold tracking-tight min-w-[32px]">
+              <div 
+                key={idx} 
+                className="bg-slate-50/80 hover:bg-white border border-slate-200/80 hover:border-blue-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 p-3.5 sm:p-4 rounded-xl cursor-pointer flex items-center gap-3.5 group"
+              >
+                <span className="w-8 h-8 rounded-lg bg-blue-50 text-[#2563eb] group-hover:bg-[#2563eb] group-hover:text-white transition-colors duration-300 text-xs sm:text-sm font-bold flex items-center justify-center shrink-0">
                   {item.num}
                 </span>
-                <span className="text-[#0f172a] font-semibold text-[14px] sm:text-[15px] leading-snug">
+                <span className="text-[#0f172a] group-hover:text-blue-600 font-semibold text-[13.5px] sm:text-[14.5px] leading-snug transition-colors">
                   {item.title}
                 </span>
               </div>

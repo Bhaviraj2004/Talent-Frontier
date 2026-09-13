@@ -14,10 +14,17 @@ export default function WhyTalentFrontierBar() {
           Why Talent<br />Frontier
         </h3>
         
-        <div className="flex flex-wrap md:flex-nowrap items-center gap-x-12 gap-y-6 overflow-hidden">
+        <div className="grid grid-cols-2 sm:grid-cols-6 lg:grid-cols-5 gap-3 sm:gap-4 w-full">
           {attributes.map((item, idx) => (
-            <div key={idx} className={`flex items-center ${idx !== 0 ? 'md:border-l border-white/20 md:pl-12' : ''}`}>
-              <span className="text-white text-[13px] font-semibold max-w-[120px] leading-snug">
+            <div 
+              key={idx} 
+              className={`bg-white/10 hover:bg-white/20 border border-white/15 hover:border-blue-400/60 rounded-xl p-3.5 sm:p-4 text-center flex items-center justify-center hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer ${
+                idx === 4 
+                  ? 'col-span-2 sm:col-span-3 lg:col-span-1' 
+                  : 'col-span-1 sm:col-span-2 lg:col-span-1'
+              }`}
+            >
+              <span className="text-white group-hover:text-blue-200 text-[13px] sm:text-[14px] font-semibold leading-snug transition-colors">
                 {item}
               </span>
             </div>

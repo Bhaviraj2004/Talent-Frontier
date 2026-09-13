@@ -19,12 +19,12 @@ export default function BusinessSupport() {
             Tell Us What You Need
           </Link>
         </div>
-        <div className="w-full md:w-1/2 relative aspect-[769/415] md:aspect-auto md:h-[400px] lg:h-[450px] rounded-2xl md:rounded-[32px] overflow-hidden shadow-sm border border-slate-100">
+        <div className="w-full md:w-1/2 relative aspect-[769/415] md:aspect-auto md:h-[400px] lg:h-[450px] rounded-2xl md:rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl border border-slate-100 group transition-all duration-300">
           <Image
             src="/sub pages/About/Why Choose Us/Rectangle 88.png"
             alt="Business Support Partner"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
           />
         </div>
       </div>

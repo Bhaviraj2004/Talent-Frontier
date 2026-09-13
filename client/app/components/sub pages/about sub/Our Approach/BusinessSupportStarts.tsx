@@ -30,12 +30,12 @@ export default function BusinessSupportStarts() {
       </div>
 
       {/* Right Image - Framed in clean card container */}
-      <div className="w-full md:w-1/2 relative aspect-[640/470] md:aspect-auto md:h-[420px] lg:h-[480px] rounded-2xl md:rounded-3xl overflow-hidden shadow-md border border-gray-100 bg-slate-50">
+      <div className="w-full md:w-1/2 relative aspect-[640/470] md:aspect-auto md:h-[420px] lg:h-[480px] rounded-2xl md:rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:border-blue-300 hover:-translate-y-1 border border-gray-100 bg-slate-50 group cursor-pointer transition-all duration-300">
         <Image
           src="/sub pages/About/Our Approach/Hero Image — replace with source photo.png"
           alt="Team discussing at a table"
           fill
-          className="object-cover object-center"
+          className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
         />
       </div>
     </section>

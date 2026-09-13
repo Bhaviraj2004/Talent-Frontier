@@ -48,12 +48,12 @@ export default function SupportBuiltAround() {
           
           {/* Left Image Side */}
           <div className="w-full lg:w-[48%] flex justify-center">
-            <div className="relative w-full h-[280px] sm:h-[340px] md:h-[380px] rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-md">
+            <div className="relative w-full aspect-[624/309] rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-md group">
               <Image
                 src="/sub pages/Industries/Professional Services/support-built-around.png"
                 alt="Support Built Around Your Business"
                 fill
-                className="object-cover"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 1024px) 100vw, 600px"
               />
             </div>
@@ -70,13 +70,16 @@ export default function SupportBuiltAround() {
             </p>
 
             {/* 4 Pillars in a row */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 items-start">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4 items-stretch">
               {pillars.map((item, idx) => (
-                <div key={idx} className="flex flex-col items-center text-center">
-                  <div className="mb-3 flex items-center justify-center">
+                <div 
+                  key={idx} 
+                  className="bg-slate-50/80 hover:bg-white p-4 rounded-xl border border-slate-200/80 hover:border-blue-500/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group flex flex-col items-center text-center cursor-pointer justify-between"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-3 group-hover:bg-blue-600 transition-colors duration-300 [&_svg]:transition-colors group-hover:[&_svg]:text-white">
                     {item.icon}
                   </div>
-                  <span className="text-[#0f172a] text-[12px] sm:text-[13px] font-bold leading-snug">
+                  <span className="text-[#0f172a] group-hover:text-blue-600 transition-colors text-[12.5px] sm:text-[13px] font-bold leading-snug">
                     {item.title}
                   </span>
                 </div>

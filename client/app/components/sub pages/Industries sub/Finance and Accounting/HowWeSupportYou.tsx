@@ -25,63 +25,38 @@ export default function HowWeSupportYou() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-14">
           
           {/* Left Side: Image */}
-          <div className="w-full lg:w-[48%] flex items-center justify-center">
-            <div className="relative w-full h-[280px] sm:h-[340px] md:h-[400px] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-md">
+          <div className="w-full lg:w-[46%] flex items-center justify-center">
+            <div className="relative w-full aspect-[581/330] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-md group hover:shadow-2xl transition-all duration-300 border border-slate-100">
               <Image
                 src="/sub pages/Industries/Finance and Accounting/how-we-support.png"
                 alt="How We Can Support You"
                 fill
-                className="object-cover"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 1024px) 100vw, 650px"
               />
             </div>
           </div>
 
-          {/* Right Side: 6 Numbered Services in 2 Sub-columns */}
-          <div className="w-full lg:w-[52%] grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-            
-            {/* Sub-column 1: 01, 02, 03 */}
-            <div className="flex flex-col space-y-6">
-              {leftColumn.map((item, idx) => (
-                <div key={idx} className="border-b border-gray-100 pb-5">
-                  <div className="flex items-start gap-4">
-                    <span className="text-[#2563eb] text-2xl sm:text-3xl font-bold tracking-tight min-w-[36px]">
-                      {item.num}
-                    </span>
-                    <div className="flex flex-col">
-                      <span className="text-[#0f172a] font-bold text-[14px] sm:text-[15px] leading-snug">
-                        {item.title}
-                      </span>
-                      <span className="text-[#64748b] text-[12px] sm:text-[13px] mt-0.5">
-                        {item.subtitle}
-                      </span>
-                    </div>
-                  </div>
+          {/* Right Side: 6 Numbered Services in Cards */}
+          <div className="w-full lg:w-[54%] grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+            {[...leftColumn, ...rightColumn].map((item, idx) => (
+              <div 
+                key={idx} 
+                className="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-4 sm:p-4.5 hover:shadow-xl hover:border-blue-500 hover:bg-white hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex items-start gap-3.5"
+              >
+                <span className="text-[#2563eb] text-2xl sm:text-3xl font-black tracking-tight group-hover:scale-110 origin-left transition-transform duration-300 shrink-0">
+                  {item.num}
+                </span>
+                <div className="flex flex-col">
+                  <span className="text-[#0f172a] font-bold text-[14px] sm:text-[15px] group-hover:text-blue-600 transition-colors leading-snug">
+                    {item.title}
+                  </span>
+                  <span className="text-[#64748b] text-[12px] sm:text-[13px] mt-0.5">
+                    {item.subtitle}
+                  </span>
                 </div>
-              ))}
-            </div>
-
-            {/* Sub-column 2: 04, 05, 06 */}
-            <div className="flex flex-col space-y-6">
-              {rightColumn.map((item, idx) => (
-                <div key={idx} className="border-b border-gray-100 pb-5">
-                  <div className="flex items-start gap-4">
-                    <span className="text-[#2563eb] text-2xl sm:text-3xl font-bold tracking-tight min-w-[36px]">
-                      {item.num}
-                    </span>
-                    <div className="flex flex-col">
-                      <span className="text-[#0f172a] font-bold text-[14px] sm:text-[15px] leading-snug">
-                        {item.title}
-                      </span>
-                      <span className="text-[#64748b] text-[12px] sm:text-[13px] mt-0.5">
-                        {item.subtitle}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
+              </div>
+            ))}
           </div>
 
         </div>

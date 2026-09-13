@@ -20,15 +20,17 @@ export default function ComplexToolsSection() {
             </h3>
           </div>
 
-          {/* Right 4 Challenges */}
-          <div className="w-full lg:w-[58%] grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 items-start">
+          {/* Right 4 Challenges Cards */}
+          <div className="w-full lg:w-[58%] grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4 items-stretch">
             {challenges.map((item, idx) => (
-              <div key={idx} className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                <span className="text-white text-[13px] sm:text-[14px] font-medium leading-snug">
+              <div 
+                key={idx} 
+                className="bg-white/10 hover:bg-white/20 border border-white/15 hover:border-blue-400/60 rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group cursor-pointer text-left"
+              >
+                <span className="text-white text-[13px] sm:text-[14px] font-semibold leading-snug group-hover:text-blue-200 transition-colors">
                   {item.line1}<br />{item.line2}
                 </span>
-                {/* Subtle underline bar matching screenshot */}
-                <div className="w-8 h-[2px] bg-[#3b82f6] mt-2" />
+                <div className="w-8 h-[2px] bg-[#3b82f6] group-hover:w-12 transition-all duration-300 mt-3" />
               </div>
             ))}
           </div>

@@ -26,12 +26,13 @@ export default function IndustriesCTA() {
           </div>
           
           {/* Right Image */}
-          <div className="w-full md:w-[55%] relative min-h-[260px] sm:min-h-[300px] md:min-h-full">
+          <div className="w-full md:w-[55%] relative aspect-[1209/279] md:aspect-auto md:min-h-full overflow-hidden">
             <Image 
               src="/Industries page/Rectangle 20.png" 
               alt="Office interior" 
               fill
               className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 55vw"
             />
             {/* Blend left edge of image */}
             <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#08154a] to-transparent hidden md:block"></div>

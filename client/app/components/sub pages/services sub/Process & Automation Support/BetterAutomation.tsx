@@ -12,12 +12,12 @@ export default function BetterAutomation() {
           Then we simplify it before introducing automation.
         </p>
       </div>
-      <div className="w-full md:w-[60%] relative aspect-[16/9] md:aspect-auto md:h-[300px] rounded-2xl md:rounded-[24px] overflow-hidden">
+      <div className="w-full md:w-[60%] relative aspect-[794/258] md:aspect-auto md:h-[300px] rounded-2xl md:rounded-[24px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100">
         <Image
           src="/sub pages/Services/Process & Automation Support/Editable Shape (1).png"
           alt="Better Automation"
           fill
-          className="object-cover rounded-[32px]"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
     </section>

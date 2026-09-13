@@ -20,7 +20,7 @@ export default function ReliableSupport() {
           </Link>
         </div>
       </div>
-      <div className="w-full md:w-7/12 relative min-h-[260px] sm:min-h-[360px] md:min-h-[600px]">
+      <div className="w-full md:w-7/12 relative aspect-[777/451] md:aspect-auto min-h-[240px] sm:min-h-[320px] md:min-h-[600px] group overflow-hidden">
         {/* Diagonal cut effect for the image container only on desktop */}
         <div 
           className="absolute inset-0 w-full h-full overflow-hidden [clip-path:none] md:[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)]" 
@@ -29,7 +29,7 @@ export default function ReliableSupport() {
             src="/sub pages/Services/Business Support Services/Group 5.png"
             alt="Reliable Support"
             fill
-            className="object-cover object-center md:object-left"
+            className="object-cover object-center md:object-left group-hover:scale-105 transition-transform duration-500"
           />
         </div>
       </div>

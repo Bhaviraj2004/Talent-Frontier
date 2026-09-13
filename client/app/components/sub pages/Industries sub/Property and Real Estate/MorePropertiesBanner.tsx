@@ -19,11 +19,17 @@ export default function MorePropertiesBanner() {
             </h3>
           </div>
 
-          {/* Right 4 Challenges */}
-          <div className="w-full lg:w-[55%] grid grid-cols-2 sm:grid-cols-4 gap-6 items-center">
+          {/* Right 4 Challenges Cards */}
+          <div className="w-full lg:w-[55%] grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4 items-stretch">
             {challenges.map((item, idx) => (
-              <div key={idx} className="flex flex-col items-center justify-center text-center">
-                <span className="text-[#0f172a] text-[13px] sm:text-[14px] font-semibold leading-snug">
+              <div 
+                key={idx} 
+                className="bg-white/90 hover:bg-white p-4 rounded-xl border border-blue-200/60 hover:border-blue-500 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col items-center justify-center text-center shadow-xs"
+              >
+                <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#2563eb] group-hover:bg-[#2563eb] group-hover:text-white flex items-center justify-center mb-2.5 transition-colors duration-300">
+                  <span className="text-xs font-bold">0{idx + 1}</span>
+                </div>
+                <span className="text-[#0f172a] group-hover:text-blue-600 text-[13px] sm:text-[14px] font-semibold leading-snug transition-colors">
                   {item.line1}<br />{item.line2}
                 </span>
               </div>

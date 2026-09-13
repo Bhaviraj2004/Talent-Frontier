@@ -13,24 +13,26 @@ export default function GrowthCreatesMovingPartsBanner() {
               more moving parts.
             </h2>
             
-            <div className="text-gray-300 text-[13px] sm:text-[14px] font-normal leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-2">
-              <span>Product Data</span>
-              <span className="text-gray-500">|</span>
-              <span>Customer Enquiries</span>
-              <span className="text-gray-500">|</span>
-              <span>Order Updates</span>
-              <span className="text-gray-500">|</span>
-              <span>Campaign Activity</span>
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+              {['Product Data', 'Customer Enquiries', 'Order Updates', 'Campaign Activity'].map((item, idx) => (
+                <div 
+                  key={idx}
+                  className="bg-white/10 hover:bg-white/20 border border-white/15 hover:border-blue-400/60 rounded-xl p-3 sm:p-3.5 text-xs sm:text-sm font-semibold text-white flex items-center gap-2.5 transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                >
+                  <span className="w-2 h-2 rounded-full bg-blue-400" />
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Right Image */}
-          <div className="w-full lg:w-[55%] min-h-[280px] sm:min-h-[340px] relative">
+          <div className="w-full lg:w-[55%] relative aspect-[753/276] lg:aspect-auto lg:min-h-[340px] group overflow-hidden">
             <Image
               src="/sub pages/Industries/Ecommerce and Retail/growth-moving-parts.png"
               alt="Growth creates more moving parts"
               fill
-              className="object-cover"
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
               sizes="(max-width: 1024px) 100vw, 750px"
             />
           </div>

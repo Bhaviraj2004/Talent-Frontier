@@ -67,17 +67,17 @@ export default function BuiltForServiceOrganisations() {
           Built for Service-Based Organisations
         </h2>
 
-        {/* 6 Columns with Vertical Dividers */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-8 items-center">
+        {/* 6 Columns Cards Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4 items-stretch">
           {items.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center text-center px-4 lg:border-r lg:border-gray-200 last:lg:border-r-0"
+              className="bg-slate-50/80 hover:bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 hover:border-blue-500/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col items-center justify-center text-center"
             >
-              <div className="mb-3 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-3 group-hover:bg-blue-600 transition-colors duration-300 [&_svg]:transition-colors group-hover:[&_svg]:text-white">
                 {item.icon}
               </div>
-              <span className="text-[13px] sm:text-[14px] font-bold text-[#0f172a]">
+              <span className="text-[13px] sm:text-[14px] font-bold text-[#0f172a] group-hover:text-blue-600 transition-colors">
                 {item.title}
               </span>
             </div>

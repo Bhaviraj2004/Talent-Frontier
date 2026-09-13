@@ -30,7 +30,7 @@ export default function OurApproach() {
             {steps.map((step, idx) => (
               <div 
                 key={idx} 
-                className="bg-white rounded-2xl p-6 sm:p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 hover:border-blue-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-2xl p-6 sm:p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 hover:border-blue-400 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1.5 active:scale-[0.99] transition-all duration-300 flex flex-col justify-between group cursor-pointer"
               >
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-blue-50 text-[#1d4ed8] font-bold text-base sm:text-lg flex items-center justify-center border border-blue-100/80 shadow-xs group-hover:bg-[#1d4ed8] group-hover:text-white transition-all duration-300">

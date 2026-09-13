@@ -9,30 +9,35 @@ export default function WhatYouCanExpect() {
   ];
 
   return (
-    <section className="w-full bg-[#f4f7fb] py-16 md:py-24 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        <div className="w-full md:w-1/2 relative aspect-[16/9] md:aspect-auto md:h-[380px] rounded-2xl md:rounded-[24px] overflow-hidden">
-          <div className="absolute inset-0 rounded-[24px] overflow-hidden shadow-sm">
-            <Image
-              src="/sub pages/Services/People & Operations Support/Team Support Image.png"
-              alt="What You Can Expect"
-              fill
-              className="object-cover"
-            />
-          </div>
+    <section className="w-full bg-[#f4f7fb] py-10 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div className="w-full md:w-1/2 relative aspect-[500/280] md:aspect-auto md:h-[380px] rounded-2xl md:rounded-[24px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100">
+          <Image
+            src="/sub pages/Services/People & Operations Support/Team Support Image.png"
+            alt="What You Can Expect"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+          />
         </div>
         
         <div className="w-full md:w-1/2">
-          <div className="bg-white rounded-[24px] p-8 md:p-12 shadow-sm max-w-lg">
-            <h2 className="text-3xl font-bold text-[#0a192f] mb-8">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-sm border border-slate-200/80 max-w-lg">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0a192f] mb-6 sm:mb-8">
               What You Can Expect
             </h2>
             
-            <div className="flex flex-col space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {points.map((point, index) => (
-                <div key={index} className="flex items-center">
-                  <span className="text-[#0047FF] text-sm font-medium w-8">{point.id}</span>
-                  <span className="text-[#0047FF] text-sm font-medium">{point.text}</span>
+                <div 
+                  key={index} 
+                  className="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 flex items-center gap-3.5 hover:shadow-md hover:border-blue-500 hover:bg-white hover:-translate-y-0.5 transition-all duration-200 group/card cursor-pointer"
+                >
+                  <span className="w-9 h-9 rounded-xl bg-blue-50 border border-blue-100/80 text-[#0047FF] font-black text-xs flex items-center justify-center group-hover/card:bg-[#0047FF] group-hover/card:text-white transition-all duration-200 shrink-0">
+                    {point.id}
+                  </span>
+                  <span className="text-slate-800 font-bold text-xs sm:text-sm group-hover/card:text-blue-600 transition-colors">
+                    {point.text}
+                  </span>
                 </div>
               ))}
             </div>

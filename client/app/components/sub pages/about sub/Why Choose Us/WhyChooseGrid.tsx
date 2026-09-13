@@ -49,18 +49,27 @@ export default function WhyChooseGrid() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           {reasons.map((reason, index) => (
-            <div key={index} className="bg-white flex flex-col sm:flex-row h-full border-2 border-transparent hover:border-white hover:shadow-xl transition-all duration-300 cursor-default">
-              <div className="p-8 sm:w-1/2 flex flex-col items-start justify-center">
-                <span className="text-3xl md:text-4xl font-bold text-[#0047FF] mb-3">{reason.id}</span>
-                <h3 className="text-lg md:text-xl font-bold text-[#0a192f] mb-4 leading-tight">{reason.title}</h3>
-                <p className="text-gray-500 text-xs md:text-sm leading-relaxed">{reason.description}</p>
+            <div 
+              key={index} 
+              className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col sm:flex-row h-full border border-slate-200/80 shadow-sm hover:shadow-2xl hover:border-blue-500 hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
+            >
+              <div className="p-6 sm:p-8 sm:w-1/2 flex flex-col items-start justify-center">
+                <span className="text-3xl md:text-4xl font-extrabold text-[#0047FF] group-hover:scale-110 transition-transform duration-300 mb-3 origin-left inline-block">
+                  {reason.id}
+                </span>
+                <h3 className="text-lg md:text-xl font-bold text-[#0a192f] group-hover:text-blue-600 transition-colors duration-300 mb-3 leading-tight">
+                  {reason.title}
+                </h3>
+                <p className="text-gray-500 text-xs md:text-sm leading-relaxed">
+                  {reason.description}
+                </p>
               </div>
-              <div className="sm:w-1/2 relative min-h-[250px] sm:min-h-0">
+              <div className="w-full sm:w-1/2 relative aspect-[333/359] sm:aspect-auto min-h-[240px] sm:min-h-0 overflow-hidden bg-slate-50">
                 <Image
                   src={reason.image}
                   alt={reason.title}
                   fill
-                  className="object-cover"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </div>

@@ -3,12 +3,12 @@ import Image from "next/image";
 export default function SolveRealProblems() {
   return (
     <section className="w-full max-w-7xl mx-auto px-4 pb-20 flex flex-col md:flex-row items-center gap-16">
-      <div className="w-full md:w-[45%] relative h-[300px] md:h-[350px]">
+      <div className="w-full md:w-[45%] relative aspect-[573/300] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100">
         <Image
           src="/sub pages/Services/Technology, IT & AI Support/Intro Image.png"
           alt="Solve Real Business Problems"
           fill
-          className="object-cover rounded-[32px]"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
       <div className="w-full md:w-[55%]">

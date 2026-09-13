@@ -16,12 +16,12 @@ export default function ConsistentCommunication() {
           recognition and support business development.
         </p>
       </div>
-      <div className="w-full md:w-[55%] relative aspect-[16/10] sm:aspect-[16/9] md:aspect-auto md:h-[300px] rounded-2xl md:rounded-[32px] overflow-hidden">
+      <div className="w-full md:w-[55%] relative aspect-[736/300] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100">
         <Image
           src="/sub pages/Services/Brand, Marketing & Creative Support/Intro Image.png"
           alt="Consistent Communication"
           fill
-          className="object-cover object-center rounded-[32px]"
+          className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
         />
       </div>
     </section>

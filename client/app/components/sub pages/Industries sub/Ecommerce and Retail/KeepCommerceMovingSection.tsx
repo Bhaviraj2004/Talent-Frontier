@@ -1,4 +1,4 @@
-﻿import Image from 'next/image';
+import Image from 'next/image';
 
 export default function KeepCommerceMovingSection() {
   return (
@@ -20,12 +20,12 @@ export default function KeepCommerceMovingSection() {
 
           {/* Right Wide Image */}
           <div className="w-full lg:w-[65%] xl:w-[68%] flex items-center justify-center">
-            <div className="relative w-full h-[200px] sm:h-[250px] md:h-[280px] rounded-[16px] md:rounded-[20px] overflow-hidden shadow-md">
+            <div className="relative w-full aspect-[768/205] rounded-[16px] md:rounded-[20px] overflow-hidden shadow-md group">
               <Image
                 src="/sub pages/Industries/Ecommerce and Retail/commerce-moving.png"
                 alt="Keep Your Commerce Operations Moving"
                 fill
-                className="object-cover"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 1024px) 100vw, 900px"
               />
             </div>

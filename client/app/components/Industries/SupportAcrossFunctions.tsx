@@ -34,11 +34,14 @@ export default function SupportAcrossFunctions() {
 
         {/* Right List */}
         <div className="w-full xl:w-[75%]">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-0">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
             {functions.map((func, idx) => (
-              <div key={idx} className={`flex flex-col px-4 md:px-6 py-4 ${idx !== 0 && idx !== 2 && idx !== 4 ? 'border-l border-white/20' : 'lg:border-l lg:border-white/20'} ${idx === 0 ? 'lg:border-l-0' : ''}`}>
-                <span className="text-white text-[24px] font-medium leading-none mb-4">{func.num}</span>
-                <h4 className="text-white text-[12px] md:text-[13px] font-bold leading-snug pr-2">
+              <div 
+                key={idx} 
+                className="flex flex-col px-4 md:px-5 py-4 rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-xs hover:bg-white/10 hover:border-blue-400/50 hover:shadow-lg hover:shadow-blue-500/10 hover:-translate-y-1 active:scale-[0.98] transition-all duration-300 group cursor-pointer"
+              >
+                <span className="text-blue-400 group-hover:text-white text-[24px] font-bold leading-none mb-3 sm:mb-4 transition-colors">{func.num}</span>
+                <h4 className="text-white group-hover:text-blue-200 text-[12px] md:text-[13px] font-bold leading-snug pr-1 transition-colors">
                   {func.title}
                 </h4>
               </div>

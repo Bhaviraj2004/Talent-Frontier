@@ -19,6 +19,9 @@ export default function TestimonialsHero() {
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 flex flex-col py-16 sm:py-20">
         <div className="max-w-[650px] mt-8">
+          <p className="text-blue-500 text-xs md:text-sm font-bold tracking-widest uppercase mb-3 sm:mb-4">
+            TESTIMONIALS TALENT FRONTIER
+          </p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.1] mb-6 tracking-tight">
             Trusted Support<br />
             Meaningful Business<br />
@@ -32,13 +35,13 @@ export default function TestimonialsHero() {
           <div className="flex flex-col sm:flex-row gap-4 mb-4">
             <a 
               href="#client-feedback"
-              className="bg-[#1d4ed8] hover:bg-blue-600 text-white px-8 py-3.5 rounded-md font-semibold text-sm transition-colors shadow-lg shadow-blue-500/20 text-center w-full sm:w-auto"
+              className="bg-[#1d4ed8] hover:bg-blue-600 active:scale-95 hover:scale-105 text-white px-8 py-3.5 rounded-md font-semibold text-sm transition-all duration-300 shadow-lg shadow-blue-500/20 text-center w-full sm:w-auto"
             >
               Read Client Testimonials
             </a>
             <a 
               href="#success-stories"
-              className="bg-transparent hover:bg-[#101d42] border border-blue-900/50 text-[#3b82f6] px-8 py-3.5 rounded-md font-semibold text-sm transition-colors text-center w-full sm:w-auto"
+              className="bg-transparent hover:bg-white/10 hover:scale-105 active:scale-95 border border-blue-900/50 text-[#3b82f6] hover:text-white px-8 py-3.5 rounded-md font-semibold text-sm transition-all duration-300 text-center w-full sm:w-auto"
             >
               Explore Success Stories
             </a>

@@ -14,12 +14,12 @@ export default function BuiltAroundWorkflowSection() {
         <div className="bg-[#0a1835] rounded-[24px] md:rounded-[32px] overflow-hidden flex flex-col lg:flex-row items-stretch justify-between shadow-xl">
           
           {/* Left Side: Workflow Image */}
-          <div className="w-full lg:w-[48%] relative min-h-[300px] sm:min-h-[380px] lg:min-h-[440px]">
+          <div className="w-full lg:w-[48%] relative aspect-[690/340] lg:aspect-auto lg:min-h-[440px] group overflow-hidden">
             <Image
               src="/sub pages/Industries/Property and Real Estate/built-around-workflow.png"
               alt="Built Around Your Property Workflow"
               fill
-              className="object-cover"
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
               sizes="(max-width: 1024px) 100vw, 650px"
             />
           </div>
@@ -33,10 +33,13 @@ export default function BuiltAroundWorkflowSection() {
             </h2>
 
             {/* 4 Pillars in a row */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4 mb-8">
               {items.map((item, idx) => (
-                <div key={idx} className="flex flex-col">
-                  <span className="text-white text-[13px] sm:text-[14px] font-medium leading-snug">
+                <div 
+                  key={idx} 
+                  className="bg-white/10 hover:bg-white/20 border border-white/15 hover:border-blue-400/60 rounded-xl p-3.5 sm:p-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group cursor-pointer text-left"
+                >
+                  <span className="text-white group-hover:text-blue-200 text-[13px] sm:text-[14px] font-semibold leading-snug transition-colors">
                     {item.line1}<br />{item.line2}
                   </span>
                 </div>

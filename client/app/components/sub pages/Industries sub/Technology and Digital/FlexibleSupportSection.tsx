@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function FlexibleSupportSection() {
   return (
-    <section className="w-full bg-white py-12 md:py-16">
+    <section className="w-full bg-white py-8 md:py-12">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-14">
           
@@ -39,12 +39,12 @@ export default function FlexibleSupportSection() {
 
           {/* Right Image */}
           <div className="w-full lg:w-[52%] flex items-center justify-center">
-            <div className="relative w-full h-[280px] sm:h-[360px] md:h-[400px] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-lg">
+            <div className="relative w-full aspect-[661/390] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-lg group">
               <Image
                 src="/sub pages/Industries/Technology and Digital/flexible-support.png"
                 alt="Flexible Support for Technology and Digital Businesses"
                 fill
-                className="object-cover"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 1024px) 100vw, 680px"
               />
             </div>

@@ -22,9 +22,11 @@ export const navData = [
     categoryTitle: "About Talent Frontier",
     exploreLinks: [
       { label: "Our Story", href: "/about/story" },
-      { label: "Meet the Team", href: "/about/leadership" }
+      { label: "Our Approach", href: "/about/our-approach" }
+      // { label: "Meet the Team", href: "/about/leadership" }
     ],
     items: [
+      /*
       {
         title: "Leadership",
         subtitle: "GUIDING OUR VISION",
@@ -32,6 +34,7 @@ export const navData = [
         icon: Users,
         href: "/about/leadership"
       },
+      */
       {
         title: "Our Approach",
         subtitle: "HOW WE WORK",
@@ -97,14 +100,14 @@ export const navData = [
         subtitle: "TECH FOR GROWTH",
         description: "Reliable tech support for modern digital systems and AI.",
         icon: Monitor,
-        href: "/services/technology"
+        href: "/services/Technology"
       },
       {
         title: "Brand, Marketing & Creative",
         subtitle: "STRENGTHENS BRAND",
         description: "Creative support that strengthens your brand identity.",
         icon: Megaphone,
-        href: "/services/brand-marketing"
+        href: "/services/Brand-Marketing"
       },
       {
         title: "Process & Automation Support",

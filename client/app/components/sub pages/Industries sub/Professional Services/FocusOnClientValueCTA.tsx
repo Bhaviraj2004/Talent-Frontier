@@ -35,12 +35,12 @@ export default function FocusOnClientValueCTA() {
           </div>
 
           {/* Right Image Side */}
-          <div className="w-full lg:w-[50%] relative h-[300px] sm:h-[380px] lg:h-[460px]">
+          <div className="w-full lg:w-[50%] relative aspect-[753/360] lg:aspect-auto lg:h-[460px] group overflow-hidden">
             <Image
               src="/sub pages/Industries/Professional Services/client-value.png"
               alt="More Time to Focus on Client Value"
               fill
-              className="object-cover"
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
               sizes="(max-width: 1024px) 100vw, 680px"
             />
           </div>

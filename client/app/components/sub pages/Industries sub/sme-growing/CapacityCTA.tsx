@@ -7,12 +7,12 @@ export default function CapacityCTA() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
         
         {/* Left Image */}
-        <div className="w-full lg:w-1/2 relative h-[300px] md:h-[400px] rounded-[2rem] overflow-hidden shadow-2xl">
+        <div className="w-full lg:w-1/2 relative aspect-[601/248] rounded-[2rem] overflow-hidden shadow-2xl group">
           <Image
             src="/sub pages/Industries/SMEs & Growing Businesses/CTA image placeholder.png"
             alt="Create More Capacity"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
           />
         </div>
 

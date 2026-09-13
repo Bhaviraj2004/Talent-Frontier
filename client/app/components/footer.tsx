@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="w-full lg:w-[30%] xl:w-[25%] bg-white p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
         <div>
           <Link href="/" className="block mb-4 sm:mb-6">
-            <img src="/logo.png" alt="Talent Frontier Logo" className="h-10 sm:h-14 md:h-16 w-auto object-contain" />
+            <img src="/logo.png" alt="Talent Frontier Logo" className="h-14 sm:h-18 md:h-20 lg:h-24 w-auto object-contain" />
           </Link>
           
           <div className="w-12 h-0.5 bg-[#0f172a] mb-4 sm:mb-6"></div>
@@ -59,7 +59,7 @@ export default function Footer() {
               <li><Link href="/about" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">About</Link></li>
               <li><Link href="/about/story" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Our Story</Link></li>
               <li><Link href="/about/our-approach" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Our Approach</Link></li>
-              <li><Link href="/about/leadership" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Leadership</Link></li>
+              {/* <li><Link href="/about/leadership" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Leadership</Link></li> */}
               <li><Link href="/about/why-choose-us" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Why Choose Us</Link></li>
               <li><Link href="/contact" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Contact Us</Link></li>
             </ul>

@@ -27,6 +27,9 @@ export default function HardInsightPage() {
               <span className="text-gray-200">Processes Ready for Automation</span>
             </div>
 
+            <p className="text-blue-400 text-xs md:text-sm font-bold tracking-widest uppercase mb-4">
+              INSIGHTS TALENT FRONTIER
+            </p>
             <div className="inline-flex items-center space-x-2 bg-blue-900/40 border border-blue-800 rounded-full px-4 py-1.5 mb-8">
               <div className="w-2 h-2 rounded-full bg-blue-400"></div>
               <span className="text-xs font-semibold text-blue-200 uppercase tracking-wider">Technology & Automation</span>
@@ -61,12 +64,12 @@ export default function HardInsightPage() {
           </div>
 
           {/* Hero Image */}
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl h-[300px] sm:h-[400px] border border-gray-800/50">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl h-[300px] sm:h-[400px] border border-gray-800/50 group cursor-pointer hover:border-blue-500/40 hover:shadow-blue-500/10 transition-all duration-300">
             <Image 
               src="/hardinsight/Screenshot 2026-09-06 075051.png" 
               alt="Team discussing workflow" 
               fill
-              className="object-cover"
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             <div className="absolute bottom-4 left-4">

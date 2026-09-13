@@ -22,7 +22,7 @@ export default function Hero() {
       <main className="relative z-10 flex-grow flex items-center px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto w-full py-16 md:py-20">
         <div className="max-w-2xl mt-4 md:mt-8">
           <p className="text-[#3b82f6] text-xs md:text-sm font-bold tracking-widest uppercase mb-4 md:mb-6">
-            Business First Priority
+            TALENT FRONTIER
           </p>
           
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.15] md:leading-[1.1] mb-6 tracking-tight">

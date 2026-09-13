@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function BuildBetterSupportCTA() {
   return (
-    <section className="w-full bg-white pt-8 pb-16 md:pb-24">
+    <section className="w-full bg-white pt-4 pb-12 md:pb-16">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#0a1835] rounded-[24px] md:rounded-[32px] overflow-hidden flex flex-col lg:flex-row items-center justify-between p-8 sm:p-12 lg:p-16 gap-8 lg:gap-12 shadow-xl">
           
@@ -36,12 +36,12 @@ export default function BuildBetterSupportCTA() {
 
           {/* Right Image */}
           <div className="w-full lg:w-[50%] flex items-center justify-center">
-            <div className="relative w-full h-[280px] sm:h-[340px] md:h-[400px] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-lg">
+            <div className="relative w-full aspect-[639/287] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-lg group">
               <Image
                 src="/sub pages/Industries/Technology and Digital/tech-cta.png"
                 alt="Build Better Support Around Your Digital Business"
                 fill
-                className="object-cover"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 1024px) 100vw, 650px"
               />
             </div>

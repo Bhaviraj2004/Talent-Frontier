@@ -9,12 +9,12 @@ export default function PracticalSupportSection() {
           
           {/* Left Side: 4-Quadrant Image Collage */}
           <div className="w-full lg:w-[48%] flex items-center justify-center">
-            <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-full min-h-[260px] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-lg">
+            <div className="relative w-full aspect-[659/528] lg:aspect-auto lg:h-full min-h-[260px] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-lg group">
               <Image
                 src="/sub pages/Industries/Ecommerce and Retail/practical-support.png"
                 alt="Practical Support for Growing Commerce Businesses"
                 fill
-                className="object-cover object-center"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 1024px) 100vw, 650px"
               />
             </div>

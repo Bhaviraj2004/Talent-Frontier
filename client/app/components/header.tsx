@@ -103,8 +103,12 @@ export default function Header() {
       }`}>
       <div className="flex items-center justify-between px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto w-full font-sans py-3 md:py-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center z-10 shrink-0" onClick={() => setMobileMenuOpen(false)}>
-          <img src="/logo.png" alt="Talent Frontier" className="h-14 sm:h-16 md:h-[72px] lg:h-20 w-auto object-contain transition-all" />
+        <Link href="/" className="group flex items-center z-10 shrink-0 relative transition-transform duration-300 hover:scale-[1.03]" onClick={() => setMobileMenuOpen(false)}>
+          <img 
+            src="/logo.png" 
+            alt="Talent Frontier" 
+            className="h-14 sm:h-16 md:h-[72px] lg:h-20 w-auto object-contain filter drop-shadow-[0_2px_12px_rgba(37,99,235,0.28)] group-hover:drop-shadow-[0_4px_18px_rgba(37,99,235,0.45)] transition-all duration-300" 
+          />
         </Link>
         
         {/* Desktop Navigation */}

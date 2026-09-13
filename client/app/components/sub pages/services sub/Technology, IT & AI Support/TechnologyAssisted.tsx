@@ -26,12 +26,12 @@ export default function TechnologyAssisted() {
           </div>
         </div>
       </div>
-      <div className="w-full md:w-[55%] relative min-h-[400px] md:min-h-0">
+      <div className="w-full md:w-[55%] relative aspect-[765/305] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300">
         <Image
           src="/sub pages/Services/Technology, IT & AI Support/Human Image.png"
           alt="Human Led"
           fill
-          className="object-cover"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
     </section>

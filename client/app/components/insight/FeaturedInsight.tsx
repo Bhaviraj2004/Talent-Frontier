@@ -30,14 +30,17 @@ export default function FeaturedInsight() {
         <div className="w-full flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-16 items-center">
           
           {/* Image */}
-          <div className="w-full lg:w-1/2 relative h-[250px] sm:h-[350px] md:h-[450px] rounded-2xl sm:rounded-[24px] overflow-hidden shadow-md">
+          <Link 
+            href="/insight/hardinsight"
+            className="w-full lg:w-1/2 relative h-[250px] sm:h-[350px] md:h-[450px] rounded-2xl sm:rounded-[24px] overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer block"
+          >
             <Image 
               src="/Insight page/Rectangle 20.png" 
               alt="Feature Insight" 
               fill
-              className="object-cover"
+              className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
             />
-          </div>
+          </Link>
 
           {/* Content */}
           <div className="w-full lg:w-1/2 flex flex-col py-4 sm:py-6">

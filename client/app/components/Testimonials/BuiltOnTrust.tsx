@@ -17,12 +17,12 @@ export default function BuiltOnTrust() {
         </div>
 
         {/* Image */}
-        <div className="w-full relative h-[250px] sm:h-[380px] md:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden mb-12 sm:mb-16 shadow-sm">
+        <div className="w-full relative aspect-[1255/442] sm:aspect-auto sm:h-[380px] md:h-[480px] rounded-2xl sm:rounded-3xl overflow-hidden mb-12 sm:mb-16 shadow-md border border-slate-100 group">
           <Image 
             src="/Testimonials page/Rectangle 20.png" 
             alt="Business meeting" 
             fill
-            className="object-cover"
+            className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
           />
         </div>
 

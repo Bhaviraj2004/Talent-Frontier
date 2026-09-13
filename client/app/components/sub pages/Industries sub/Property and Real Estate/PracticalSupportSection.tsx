@@ -39,12 +39,12 @@ export default function PracticalSupportSection() {
 
           {/* Right Image */}
           <div className="w-full lg:w-[50%] flex items-center justify-center">
-            <div className="relative w-full h-[320px] sm:h-[400px] lg:h-full min-h-[340px] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-lg">
+            <div className="relative w-full aspect-[712/522] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-lg group">
               <Image
                 src="/sub pages/Industries/Property and Real Estate/practical-support.png"
                 alt="Practical Support for Property and Real Estate Businesses"
                 fill
-                className="object-cover"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 1024px) 100vw, 680px"
               />
             </div>

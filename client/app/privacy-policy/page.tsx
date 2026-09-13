@@ -16,6 +16,9 @@ export default function PrivacyPolicyPage() {
           <div className="p-4 bg-white/10 rounded-full mb-6 backdrop-blur-sm shadow-lg">
             <ShieldCheck className="w-12 h-12 text-blue-50" />
           </div>
+          <p className="text-blue-200 text-xs md:text-sm font-bold tracking-widest uppercase mb-3">
+            PRIVACY POLICY &bull; TALENT FRONTIER
+          </p>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Privacy Policy
           </h1>

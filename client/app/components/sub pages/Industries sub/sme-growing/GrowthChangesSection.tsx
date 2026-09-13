@@ -20,12 +20,12 @@ export default function GrowthChangesSection() {
         </div>
 
         {/* Right Image */}
-        <div className="w-full lg:w-1/3 relative h-[220px] md:h-[260px] rounded-[2rem] overflow-hidden shadow-md">
+        <div className="w-full lg:w-1/3 relative aspect-[420/285] rounded-[2rem] overflow-hidden shadow-md group">
           <Image
             src="/sub pages/Industries/SMEs & Growing Businesses/Support image placeholder (1).png"
             alt="Growth Support"
             fill
-            className="object-cover"
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
           />
         </div>
 

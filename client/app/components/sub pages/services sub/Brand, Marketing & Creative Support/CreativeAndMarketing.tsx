@@ -20,12 +20,12 @@ export default function CreativeAndMarketing() {
           Discuss Your Marketing Needs
         </Link>
       </div>
-      <div className="w-full md:w-[55%] relative aspect-[16/9] md:aspect-auto md:h-[480px] rounded-2xl md:rounded-[32px] overflow-hidden">
+      <div className="w-full md:w-[55%] relative aspect-[1440/578] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100">
         <Image
           src="/sub pages/Services/Brand, Marketing & Creative Support/ChatGPT Image Sep 2, 2026, 02_48_59 PM 1.png"
           alt="Creative and marketing Support"
           fill
-          className="object-cover rounded-[32px]"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
     </section>

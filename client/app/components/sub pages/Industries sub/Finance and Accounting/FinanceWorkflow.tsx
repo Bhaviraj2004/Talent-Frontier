@@ -16,26 +16,23 @@ export default function FinanceWorkflow() {
           Support Across the Finance Workflow
         </h2>
 
-        {/* 5 Steps with Connecting Horizontal Lines */}
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
+        {/* 5 Steps as Modern Responsive Cards */}
+        <div className="grid grid-cols-2 sm:grid-cols-6 md:grid-cols-5 gap-3.5 sm:gap-4 max-w-4xl mx-auto">
           {steps.map((step, idx) => (
-            <div key={idx} className="flex items-center gap-4 sm:gap-6 lg:gap-8">
-              
-              {/* Step info */}
-              <div className="flex flex-col items-center text-center">
-                <span className="text-[#2563eb] text-2xl sm:text-3xl font-bold tracking-tight">
-                  {step.num}
-                </span>
-                <span className="text-[#0f172a] text-[13px] sm:text-[14px] font-semibold mt-1">
-                  {step.label}
-                </span>
+            <div 
+              key={idx}
+              className={`bg-slate-50 border border-slate-200/80 rounded-2xl p-4 sm:p-5 flex flex-col items-center text-center shadow-sm hover:shadow-xl hover:border-blue-500 hover:bg-white hover:-translate-y-1 transition-all duration-300 group cursor-pointer ${
+                idx === 4 
+                  ? 'col-span-2 sm:col-span-3 md:col-span-1' 
+                  : 'col-span-1 sm:col-span-2 md:col-span-1'
+              }`}
+            >
+              <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#2563eb] font-black text-base flex items-center justify-center group-hover:bg-[#2563eb] group-hover:text-white transition-colors duration-200 mb-2.5">
+                {step.num}
               </div>
-
-              {/* Connecting Line (not after the last step) */}
-              {idx < steps.length - 1 && (
-                <div className="hidden sm:block w-8 md:w-12 lg:w-16 h-[1.5px] bg-gray-300 -mt-5" />
-              )}
-
+              <span className="text-[#0f172a] text-[13px] sm:text-[14px] font-bold group-hover:text-blue-600 transition-colors">
+                {step.label}
+              </span>
             </div>
           ))}
         </div>

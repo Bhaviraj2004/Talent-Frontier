@@ -32,18 +32,21 @@ export default function MissionVisionValues() {
   ];
 
   return (
-    <section className="w-full max-w-7xl mx-auto py-20 px-4 md:px-8">
-      {/* 3 Pillars */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+    <section className="w-full max-w-7xl mx-auto py-10 sm:py-14 px-4 md:px-8">
+      {/* 3 Pillar Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-8 sm:mb-12">
         {pillars.map((pillar, index) => (
-          <div key={index} className="flex flex-col">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
-                {pillar.icon}
-              </div>
-              <h3 className="text-xl font-bold text-[#1a2332]">{pillar.title}</h3>
+          <div 
+            key={index} 
+            className="bg-[#f8fafc] border border-slate-200/80 hover:border-blue-400 hover:bg-white rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-xl hover:-translate-y-1.5 active:scale-[0.99] transition-all duration-300 flex flex-col group cursor-pointer"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-sm mb-5">
+              {pillar.icon}
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#1a2332] group-hover:text-blue-600 transition-colors mb-3">
+              {pillar.title}
+            </h3>
+            <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed font-medium">
               {pillar.desc}
             </p>
           </div>
@@ -53,9 +56,16 @@ export default function MissionVisionValues() {
       {/* 5 Value Cards */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4">
         {valuesList.map((val, idx) => (
-          <div key={idx} className="bg-white rounded-lg shadow-sm border border-gray-100 p-3.5 sm:p-4 flex items-center justify-center last:col-span-2 md:last:col-span-1 lg:last:col-span-1">
-            {val.icon}
-            <span className="text-xs sm:text-sm font-bold text-[#1a2332]">{val.name}</span>
+          <div 
+            key={idx} 
+            className="bg-white rounded-xl shadow-sm border border-slate-200/80 hover:border-blue-400 hover:shadow-lg hover:bg-blue-50/40 hover:-translate-y-1 active:scale-[0.98] transition-all duration-300 p-4 flex items-center justify-center gap-2 group cursor-pointer last:col-span-2 md:last:col-span-1 lg:last:col-span-1"
+          >
+            <div className="group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 text-blue-600">
+              {val.icon}
+            </div>
+            <span className="text-xs sm:text-sm font-bold text-[#1a2332] group-hover:text-blue-600 transition-colors">
+              {val.name}
+            </span>
           </div>
         ))}
       </div>

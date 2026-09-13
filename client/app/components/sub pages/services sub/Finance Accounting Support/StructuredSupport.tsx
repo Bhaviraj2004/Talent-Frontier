@@ -21,12 +21,12 @@ export default function StructuredSupport() {
           </Link>
         </div>
       </div>
-      <div className="w-full md:w-1/2 relative min-h-[260px] aspect-[16/10] sm:aspect-[16/9] md:aspect-auto md:min-h-0">
+      <div className="w-full md:w-1/2 relative aspect-[1440/602] md:aspect-auto min-h-[220px] md:min-h-0 group overflow-hidden">
         <Image
           src="/sub pages/Services/Finance & Accounting Support/ChatGPT Image Sep 2, 2026, 12_51_44 PM 1.png"
           alt="Structured Support"
           fill
-          className="object-cover object-center"
+          className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
         />
       </div>
     </section>

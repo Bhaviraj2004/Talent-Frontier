@@ -28,12 +28,12 @@ export default function SupportThatGrows() {
           </div>
         </div>
         
-        <div className="w-full md:w-1/2 relative aspect-[600/250] md:aspect-auto md:h-[360px] lg:h-[400px] rounded-2xl md:rounded-[24px] overflow-hidden shadow-sm border border-slate-100">
+        <div className="w-full md:w-1/2 relative aspect-[600/250] rounded-2xl md:rounded-[24px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100">
           <Image
             src="/sub pages/Services/People & Operations Support/Team Collaboration Image.png"
             alt="Support That Grows"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
           />
         </div>
       </div>

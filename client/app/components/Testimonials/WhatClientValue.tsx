@@ -32,12 +32,12 @@ export default function WhatClientValue() {
           {values.map((val, idx) => (
             <div 
               key={idx} 
-              className="bg-white/[0.05] backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-5 hover:bg-white/[0.09] hover:border-blue-400/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between last:col-span-2 md:last:col-span-1 lg:last:col-span-1"
+              className="bg-white/[0.05] backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-5 hover:bg-white/[0.12] hover:border-blue-400 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 flex flex-col justify-between last:col-span-2 md:last:col-span-1 lg:last:col-span-1 group cursor-pointer"
             >
               <div>
-                <span className="text-white text-[22px] sm:text-[26px] md:text-[30px] font-bold leading-none mb-2 sm:mb-3 block">{val.num}</span>
+                <span className="text-blue-400 group-hover:text-white text-[22px] sm:text-[26px] md:text-[30px] font-bold leading-none mb-2 sm:mb-3 block transition-colors">{val.num}</span>
                 <div className="w-full h-px bg-white/20 mb-2.5 sm:mb-3.5"></div>
-                <h4 className="text-white font-bold text-[13.5px] sm:text-[15px] mb-1.5 sm:mb-2 leading-snug">{val.title}</h4>
+                <h4 className="text-white group-hover:text-blue-200 text-[13.5px] sm:text-[15px] mb-1.5 sm:mb-2 leading-snug transition-colors">{val.title}</h4>
               </div>
               <p className="text-[#93c5fd] text-[11.5px] sm:text-[12.5px] leading-relaxed font-medium">
                 {val.desc}

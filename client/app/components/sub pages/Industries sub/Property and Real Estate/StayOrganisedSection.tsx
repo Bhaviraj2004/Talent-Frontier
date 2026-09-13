@@ -20,12 +20,12 @@ export default function StayOrganisedSection() {
 
           {/* Right Image Side */}
           <div className="w-full md:w-[55%] flex items-center justify-center">
-            <div className="relative w-full h-[260px] sm:h-[320px] md:h-[360px] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-md">
+            <div className="relative w-full aspect-[650/320] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-md group">
               <Image
                 src="/sub pages/Industries/Property and Real Estate/stay-organised.png"
                 alt="Helping Property Teams Stay Organised"
                 fill
-                className="object-cover"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 1024px) 100vw, 700px"
               />
             </div>

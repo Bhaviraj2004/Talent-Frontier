@@ -11,13 +11,13 @@ export default function AccuracyAndAccountability() {
   ];
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 py-20 flex flex-col md:flex-row gap-16 items-center">
-      <div className="w-full md:w-[55%] relative aspect-[16/9] md:aspect-auto md:h-[460px] rounded-2xl md:rounded-[32px] overflow-hidden">
+    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 flex flex-col md:flex-row gap-8 sm:gap-12 md:gap-16 items-center">
+      <div className="w-full md:w-[55%] relative aspect-[645/405] md:aspect-auto md:h-[420px] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100">
         <Image
           src="/sub pages/Services/Finance & Accounting Support/Accuracy Image — Finance review.png"
           alt="Accuracy and Accountability"
           fill
-          className="object-cover rounded-[32px]"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
       <div className="w-full md:w-[45%]">

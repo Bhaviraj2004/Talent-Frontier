@@ -4,12 +4,12 @@ export default function BusinessRequirements() {
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-16 md:py-20 mb-6 sm:mb-10">
       <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
-        <div className="w-full md:w-1/2 relative aspect-[630/391] md:aspect-auto md:h-[380px] lg:h-[420px] rounded-2xl md:rounded-[32px] overflow-hidden shadow-sm border border-slate-100">
+        <div className="w-full md:w-1/2 relative aspect-[630/391] md:aspect-auto md:h-[380px] lg:h-[420px] rounded-2xl md:rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl border border-slate-100 group transition-all duration-300">
           <Image
             src="/sub pages/About/Why Choose Us/Rectangle 89.png"
             alt="Business Requirements Come First"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
           />
         </div>
         <div className="w-full md:w-1/2 flex flex-col items-start space-y-4 sm:space-y-6 pl-0 md:pl-8">

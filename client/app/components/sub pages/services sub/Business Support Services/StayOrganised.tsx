@@ -20,15 +20,13 @@ export default function StayOrganised() {
         </div>
       </div>
       
-      <div className="w-full relative aspect-[16/9] md:aspect-auto md:h-[450px] lg:h-[500px] rounded-2xl md:rounded-[32px] overflow-hidden">
-        <div className="absolute inset-0 rounded-[24px] overflow-hidden shadow-sm">
-          <Image
-            src="/sub pages/Services/Business Support Services/Rectangle 105.png"
-            alt="Business Operations"
-            fill
-            className="object-cover"
-          />
-        </div>
+      <div className="w-full relative aspect-[1286/329] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100">
+        <Image
+          src="/sub pages/Services/Business Support Services/Rectangle 105.png"
+          alt="Business Operations"
+          fill
+          className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+        />
       </div>
       
       <div className="text-center mt-8">

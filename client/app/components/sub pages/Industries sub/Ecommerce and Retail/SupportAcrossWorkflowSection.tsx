@@ -49,16 +49,19 @@ export default function SupportAcrossWorkflowSection() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Column: 01, 02, 03 */}
-            <div className="lg:col-span-3 flex flex-col space-y-6">
+            <div className="lg:col-span-3 flex flex-col space-y-3 sm:space-y-4">
               {leftServices.map((service, idx) => (
-                <div key={idx} className="flex flex-col">
-                  <span className="text-[#1d4ed8] text-xl font-bold mb-1">
+                <div 
+                  key={idx} 
+                  className="bg-white hover:bg-blue-50/40 p-4 rounded-xl border border-slate-200/80 hover:border-blue-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer"
+                >
+                  <span className="w-8 h-8 rounded-lg bg-blue-50 text-[#1d4ed8] group-hover:bg-[#1d4ed8] group-hover:text-white font-bold text-xs sm:text-sm flex items-center justify-center mb-2 transition-colors duration-300">
                     {service.num}
                   </span>
-                  <h3 className="text-[#0f172a] font-bold text-[15px] sm:text-[16px] leading-snug">
+                  <h3 className="text-[#0f172a] group-hover:text-blue-600 font-bold text-[14.5px] sm:text-[15.5px] leading-snug transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-[#64748b] text-[12px] sm:text-[13px] mt-0.5">
+                  <p className="text-[#64748b] text-[12px] sm:text-[13px] mt-0.5 leading-relaxed">
                     {service.desc}
                   </p>
                 </div>
@@ -67,28 +70,31 @@ export default function SupportAcrossWorkflowSection() {
 
             {/* Center Column: Workflow Image */}
             <div className="lg:col-span-6 flex items-center justify-center">
-              <div className="relative w-full h-[260px] sm:h-[300px] md:h-[340px] rounded-[16px] md:rounded-[20px] overflow-hidden shadow-md">
+              <div className="relative w-full aspect-[444/237] rounded-[16px] md:rounded-[20px] overflow-hidden shadow-md group">
                 <Image
                   src="/sub pages/Industries/Ecommerce and Retail/commerce-workflow.png"
                   alt="Support Across Your Commerce Workflow"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 1024px) 100vw, 680px"
                 />
               </div>
             </div>
 
             {/* Right Column: 04, 05, 06 */}
-            <div className="lg:col-span-3 flex flex-col space-y-6">
+            <div className="lg:col-span-3 flex flex-col space-y-3 sm:space-y-4">
               {rightServices.map((service, idx) => (
-                <div key={idx} className="flex flex-col">
-                  <span className="text-[#1d4ed8] text-xl font-bold mb-1">
+                <div 
+                  key={idx} 
+                  className="bg-white hover:bg-blue-50/40 p-4 rounded-xl border border-slate-200/80 hover:border-blue-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer"
+                >
+                  <span className="w-8 h-8 rounded-lg bg-blue-50 text-[#1d4ed8] group-hover:bg-[#1d4ed8] group-hover:text-white font-bold text-xs sm:text-sm flex items-center justify-center mb-2 transition-colors duration-300">
                     {service.num}
                   </span>
-                  <h3 className="text-[#0f172a] font-bold text-[15px] sm:text-[16px] leading-snug">
+                  <h3 className="text-[#0f172a] group-hover:text-blue-600 font-bold text-[14.5px] sm:text-[15.5px] leading-snug transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-[#64748b] text-[12px] sm:text-[13px] mt-0.5">
+                  <p className="text-[#64748b] text-[12px] sm:text-[13px] mt-0.5 leading-relaxed">
                     {service.desc}
                   </p>
                 </div>

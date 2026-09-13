@@ -19,12 +19,12 @@ export default function CTASection() {
         {/* Right side triangle detail based on image */}
         <div className="hidden md:block absolute -right-16 top-0 h-full w-32 bg-[#08154a] transform -skew-x-[20deg] z-10"></div>
       </div>
-      <div className="w-full md:w-1/2 relative min-h-[300px] md:min-h-0 z-0">
+      <div className="w-full md:w-1/2 relative aspect-[705/210] md:aspect-auto min-h-[180px] md:min-h-0 z-0 group overflow-hidden">
         <Image
           src="/sub pages/Services/Technology, IT & AI Support/CTA Image.png"
           alt="Make technology work"
           fill
-          className="object-cover"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
     </section>

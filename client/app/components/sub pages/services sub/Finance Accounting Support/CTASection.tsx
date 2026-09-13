@@ -26,12 +26,12 @@ export default function CTASection() {
           </Link>
         </div>
       </div>
-      <div className="w-full md:w-1/2 relative min-h-[350px] md:min-h-0 rounded-sm overflow-hidden">
+      <div className="w-full md:w-1/2 relative aspect-[624/245] md:aspect-auto min-h-[200px] md:min-h-0 rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-300">
         <Image
           src="/sub pages/Services/Finance & Accounting Support/Final CTA Image — Consultation meeting.png"
           alt="Consultation meeting"
           fill
-          className="object-cover"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
     </section>

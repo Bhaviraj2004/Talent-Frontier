@@ -19,25 +19,34 @@ export default function SupportNeedsSection() {
           <h2 className="text-3xl md:text-[34px] font-bold text-[#0f172a] leading-[1.15] tracking-tight mb-8 max-w-sm">
             Support Where Your Business Needs It Most
           </h2>
-          <div className="relative w-full h-[250px] md:h-[300px] rounded-[2rem] overflow-hidden shadow-md mt-auto">
+          <div className="relative w-full aspect-[420/285] rounded-[2rem] overflow-hidden shadow-md mt-auto group">
             <Image
               src="/sub pages/Industries/SMEs & Growing Businesses/Support image placeholder.png"
               alt="Support Needs"
               fill
-              className="object-cover"
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
             />
           </div>
         </div>
 
-        {/* Middle Col - List */}
+        {/* Middle Col - Cards List */}
         <div className="w-full lg:w-1/3 flex flex-col justify-center">
-          <div className="flex flex-col">
+          <div className="flex flex-col space-y-3">
             {services.map((item, idx) => (
-              <div key={idx} className="flex gap-6 py-5 border-t border-gray-100 first:border-t-0">
-                <span className="text-[#1d4ed8] font-bold text-[15px] pt-0.5">{item.num}</span>
+              <div 
+                key={idx} 
+                className="bg-slate-50/80 hover:bg-white p-3.5 sm:p-4 rounded-xl border border-slate-200/80 hover:border-blue-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer flex items-start gap-3.5"
+              >
+                <span className="w-8 h-8 rounded-lg bg-blue-50 text-[#1d4ed8] group-hover:bg-[#1d4ed8] group-hover:text-white font-bold text-xs sm:text-sm flex items-center justify-center shrink-0 transition-colors duration-300 mt-0.5">
+                  {item.num}
+                </span>
                 <div className="flex flex-col">
-                  <h4 className="text-[#0f172a] font-bold text-[15px] mb-1">{item.title}</h4>
-                  <p className="text-[#64748b] text-[13px]">{item.desc}</p>
+                  <h4 className="text-[#0f172a] group-hover:text-blue-600 font-bold text-[14px] sm:text-[15px] leading-snug transition-colors">
+                    {item.title}
+                  </h4>
+                  <p className="text-[#64748b] text-[12px] sm:text-[13px] mt-0.5 leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -45,13 +54,13 @@ export default function SupportNeedsSection() {
         </div>
 
         {/* Right Col */}
-        <div className="w-full lg:w-1/3">
-          <div className="relative w-full h-full min-h-[400px] rounded-[2rem] overflow-hidden shadow-lg">
+        <div className="w-full lg:w-1/3 flex items-center justify-center">
+          <div className="relative w-full aspect-[404/408] lg:aspect-auto lg:h-full min-h-[260px] rounded-[2rem] overflow-hidden shadow-lg group">
             <Image
               src="/sub pages/Industries/SMEs & Growing Businesses/Support right image placeholder.png"
               alt="Support Workflow"
               fill
-              className="object-cover"
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
             />
           </div>
         </div>

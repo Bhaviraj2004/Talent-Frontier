@@ -53,9 +53,9 @@ export default function ExploreTopics() {
         {/* Grid */}
         <div className="grid grid-cols-2 xl:grid-cols-4 gap-3.5 sm:gap-6">
           {filteredTopics.map((topic, idx) => (
-            <div key={idx} className="bg-[#f8fafc] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col h-full border border-gray-100">
-              <div className="relative w-full h-[120px] sm:h-[180px]">
-                <Image src={topic.img} alt={topic.title} fill className="object-cover" />
+            <div key={idx} className="bg-[#f8fafc] rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-blue-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full border border-gray-100 group cursor-pointer">
+              <div className="relative w-full h-[120px] sm:h-[180px] overflow-hidden">
+                <Image src={topic.img} alt={topic.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
               </div>
               <div className="p-3.5 sm:p-6 flex flex-col flex-1">
                 <h3 className="text-[13px] sm:text-[16px] font-bold text-[#0f172a] mb-2 sm:mb-3 leading-snug">{topic.title}</h3>

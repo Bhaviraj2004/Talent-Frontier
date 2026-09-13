@@ -1,6 +1,11 @@
+'use client';
+
+import { useState } from 'react';
 import { ShieldCheck, Lightbulb, PieChart, Users } from 'lucide-react';
 
 export default function WhyChooseUs() {
+  const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
+
   const values = [
     {
       title: "Reliable Expertise",
@@ -43,21 +48,44 @@ export default function WhyChooseUs() {
           <div className="lg:w-3/4 grid grid-cols-2 lg:grid-cols-4">
             {values.map((val, idx) => {
               const Icon = val.icon;
+              const isSelected = selectedIdx === idx;
               return (
                 <div 
                   key={idx} 
-                  className={`p-4 sm:p-8 lg:p-10 flex flex-col group hover:bg-[#112285] active:bg-[#152a9e] transition-all duration-300 cursor-default
+                  onClick={() => setSelectedIdx(isSelected ? null : idx)}
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setSelectedIdx(isSelected ? null : idx);
+                    }
+                  }}
+                  className={`p-4 sm:p-8 lg:p-10 flex flex-col group transition-all duration-300 cursor-pointer relative z-0 hover:z-10 focus:outline-none select-none
                     ${idx % 2 === 0 ? 'border-r lg:border-r-0' : ''}
                     ${idx !== values.length - 1 ? 'lg:border-r' : ''} 
                     ${idx < 2 ? 'border-b lg:border-b-0' : ''}
                     border-[#1e329c]
+                    ${isSelected 
+                      ? 'ring-2 ring-white ring-inset bg-white/15 shadow-[0_0_25px_rgba(255,255,255,0.35)]' 
+                      : 'ring-2 ring-transparent ring-inset hover:ring-white hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] active:bg-white/20'}
                   `}
                 >
-                  <div className="w-10 h-10 sm:w-14 sm:h-14 bg-[#1d4ed8] text-white rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-8 shrink-0 group-hover:scale-110 group-hover:bg-blue-500 transition-all duration-300 shadow-md">
+                  <div className={`w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-8 shrink-0 transition-all duration-300 shadow-md
+                    ${isSelected
+                      ? 'bg-white text-[#0b1a78] scale-110 shadow-lg'
+                      : 'bg-[#1d4ed8] text-white group-hover:scale-110 group-hover:bg-white group-hover:text-[#0b1a78] group-hover:shadow-lg'
+                    }
+                  `}>
                     <Icon className="w-5 h-5 sm:w-7 sm:h-7" />
                   </div>
-                  <h3 className="text-sm sm:text-lg font-bold text-white group-hover:text-blue-200 transition-colors duration-200 mb-1.5 sm:mb-4">{val.title}</h3>
-                  <p className="text-blue-100 text-[11px] sm:text-sm leading-relaxed opacity-90">
+                  <h3 className={`text-sm sm:text-lg font-bold transition-colors duration-200 mb-1.5 sm:mb-4
+                    ${isSelected ? 'text-white' : 'text-white group-hover:text-white'}
+                  `}>
+                    {val.title}
+                  </h3>
+                  <p className={`text-[11px] sm:text-sm leading-relaxed transition-colors duration-200
+                    ${isSelected ? 'text-white font-medium opacity-100' : 'text-blue-100 opacity-90 group-hover:text-white group-hover:opacity-100'}
+                  `}>
                     {val.description}
                   </p>
                 </div>
@@ -70,3 +98,4 @@ export default function WhyChooseUs() {
     </section>
   );
 }
+

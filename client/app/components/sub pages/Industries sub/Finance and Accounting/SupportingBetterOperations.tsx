@@ -18,12 +18,12 @@ export default function SupportingBetterOperations() {
 
           {/* Right Image Side */}
           <div className="w-full md:w-[55%] flex items-center justify-center">
-            <div className="relative w-full h-[260px] sm:h-[320px] md:h-[360px] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-md">
+            <div className="relative w-full aspect-[780/297] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-md">
               <Image
                 src="/sub pages/Industries/Finance and Accounting/supporting-operations.png"
                 alt="Supporting Better Financial Operations"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 700px"
               />
             </div>

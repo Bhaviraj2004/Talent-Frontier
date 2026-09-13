@@ -20,6 +20,9 @@ export default function ServicesHero() {
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col">
         <div className="max-w-[600px] mt-4 md:mt-8">
+          <p className="text-blue-500 text-xs md:text-sm font-bold tracking-widest uppercase mb-3 sm:mb-4">
+            SERVICES TALENT FRONTIER
+          </p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.15] md:leading-[1.1] mb-6 tracking-tight">
             Business Support<br />
             Build Around<br />
@@ -33,13 +36,13 @@ export default function ServicesHero() {
           <div className="flex flex-col sm:flex-row gap-4 mb-4">
             <Link 
               href="/contact"
-              className="bg-[#2563eb] hover:bg-blue-600 text-white px-8 py-3.5 rounded-md font-semibold text-sm transition-colors shadow-lg shadow-blue-500/20 text-center w-full sm:w-auto"
+              className="bg-[#2563eb] hover:bg-blue-600 active:scale-[0.98] text-white px-8 py-3.5 rounded-md font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 text-center w-full sm:w-auto"
             >
               Discuss Your Business Needs
             </Link>
             <Link 
               href="/services"
-              className="bg-white hover:bg-gray-100 text-[#2563eb] px-8 py-3.5 rounded-md font-semibold text-sm transition-colors text-center shadow-md w-full sm:w-auto"
+              className="bg-white hover:bg-gray-100 active:scale-[0.98] text-[#2563eb] px-8 py-3.5 rounded-md font-semibold text-sm transition-all duration-300 text-center shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto"
             >
               Explore Our Services
             </Link>
