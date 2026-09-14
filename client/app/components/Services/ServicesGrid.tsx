@@ -28,14 +28,14 @@ const servicesData = [
     title: "4. Technology, IT & AI Support",
     description: "Technology support and practical AI-enabled solutions designed to improve business efficiency.",
     image: "/Services page/Rectangle 12.png",
-    link: "/services/Technology"
+    link: "/services/technology"
   },
   {
     id: 5,
     title: "5. Brand, Marketing & Creative Support",
     description: "Integrated support for brand communication, digital marketing and creative requirements.",
     image: "/Services page/Rectangle 13.png",
-    link: "/services/Brand-Marketing"
+    link: "/services/brand-marketing"
   },
   {
     id: 6,

@@ -100,14 +100,14 @@ export const navData = [
         subtitle: "TECH FOR GROWTH",
         description: "Reliable tech support for modern digital systems and AI.",
         icon: Monitor,
-        href: "/services/Technology"
+        href: "/services/technology"
       },
       {
         title: "Brand, Marketing & Creative",
         subtitle: "STRENGTHENS BRAND",
         description: "Creative support that strengthens your brand identity.",
         icon: Megaphone,
-        href: "/services/Brand-Marketing"
+        href: "/services/brand-marketing"
       },
       {
         title: "Process & Automation Support",

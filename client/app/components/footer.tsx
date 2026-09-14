@@ -72,8 +72,8 @@ export default function Footer() {
               <li><Link href="/services/business-support" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Business Support Services</Link></li>
               <li><Link href="/services/people-operations" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">People & Operations Support</Link></li>
               <li><Link href="/services/finance-accounting" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Finance & Accounting Support</Link></li>
-              <li><Link href="/services/Technology" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Technology, IT & AI Support</Link></li>
-              <li><Link href="/services/Brand-Marketing" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm leading-tight inline-block">Brand, Marketing & Creative Support</Link></li>
+              <li><Link href="/services/technology" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Technology, IT & AI Support</Link></li>
+              <li><Link href="/services/brand-marketing" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm leading-tight inline-block">Brand, Marketing & Creative Support</Link></li>
               <li><Link href="/services/process-automation" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Process & Automation Support</Link></li>
             </ul>
           </div>

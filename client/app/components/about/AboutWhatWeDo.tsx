@@ -6,8 +6,8 @@ export default function AboutWhatWeDo() {
     { title: "Business\nSupport\nServices", icon: Briefcase, link: "/services/business-support" },
     { title: "People &\nOperations\nSupport", icon: Users, link: "/services/people-operations" },
     { title: "Finance &\nAccounting\nSupport", icon: FileText, link: "/services/finance-accounting" },
-    { title: "Technology,\nIT & AI\nSupport", icon: MonitorSmartphone, link: "/services/Technology" },
-    { title: "Brand, Marketing\n& Creative Support", icon: PenTool, link: "/services/Brand-Marketing" },
+    { title: "Technology,\nIT & AI\nSupport", icon: MonitorSmartphone, link: "/services/technology" },
+    { title: "Brand, Marketing\n& Creative Support", icon: PenTool, link: "/services/brand-marketing" },
     { title: "Process &\nAutomation\nSupport", icon: GitMerge, link: "/services/process-automation" },
   ];
 
