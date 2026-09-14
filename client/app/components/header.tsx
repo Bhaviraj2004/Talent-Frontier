@@ -107,7 +107,7 @@ export default function Header() {
           <img 
             src="/logo.png" 
             alt="Talent Frontier" 
-            className="h-14 sm:h-16 md:h-[72px] lg:h-20 w-auto object-contain filter drop-shadow-[0_2px_12px_rgba(37,99,235,0.28)] group-hover:drop-shadow-[0_4px_18px_rgba(37,99,235,0.45)] transition-all duration-300" 
+            className="h-28 sm:h-24 md:h-[88px] lg:h-[96px] w-auto object-contain transition-all duration-300" 
           />
         </Link>
         
@@ -358,7 +358,7 @@ export default function Header() {
       )}
     </header>
     {/* Spacer to preserve document layout flow */}
-    <div className="h-[76px] sm:h-[84px] md:h-[96px] lg:h-[104px] w-full shrink-0" aria-hidden="true" />
+    <div className="h-[136px] sm:h-[116px] md:h-[120px] lg:h-[128px] w-full shrink-0" aria-hidden="true" />
   </>
   );
 }
