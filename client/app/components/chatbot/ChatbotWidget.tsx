@@ -1,6 +1,6 @@
 "use client";
 
-import { Bot, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { useState } from 'react';
 import ChatBox from './ChatBox';
 
@@ -42,7 +42,7 @@ export default function ChatbotWidget() {
         {/* Widget Button */}
         <button
           onClick={() => { setIsOpen(!isOpen); setShowMessage(false); }}
-          className={`relative group flex items-center justify-center w-14 h-14 bg-white rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] border border-gray-100 transition-all duration-300 ease-out ${!isOpen ? 'animate-float' : ''}`}
+          className={`relative group flex items-center justify-center w-14 h-14 transition-all duration-300 ease-out ${!isOpen ? 'bg-transparent animate-float' : 'bg-white rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] border border-gray-100'}`}
           aria-label="Toggle Chat"
         >
           {/* Smooth Pulse Animation Ring */}
@@ -53,7 +53,7 @@ export default function ChatbotWidget() {
           {isOpen ? (
             <X className="w-6 h-6 text-[#005B82] relative z-10 transition-transform duration-300 ease-out group-hover:rotate-90" strokeWidth={2.5} />
           ) : (
-            <Bot className="w-6 h-6 text-[#005B82] relative z-10 transition-transform duration-300 ease-out group-hover:scale-110" strokeWidth={2} />
+            <img src="/chatlogo.png" alt="Chat Bot" className="w-14 h-14 relative z-10 transition-transform duration-300 ease-out group-hover:scale-110 object-contain drop-shadow-md" />
           )}
         </button>
       </div>
