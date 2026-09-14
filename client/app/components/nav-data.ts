@@ -115,6 +115,13 @@ export const navData = [
         description: "Smarter processes and practical workflow optimization.",
         icon: Zap,
         href: "/services/process-automation"
+      },
+      {
+        title: "Virtual CEO Services",
+        subtitle: "STRATEGIC LEADERSHIP",
+        description: "Senior-level business guidance without a full-time executive.",
+        icon: Target,
+        href: "/services/virtual-services"
       }
     ],
     bottomBar: {

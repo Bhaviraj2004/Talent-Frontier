@@ -16,9 +16,6 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-black/30" />
       </div>
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <p className="text-blue-400 text-[10px] sm:text-xs md:text-sm font-bold tracking-widest uppercase mb-1 sm:mb-2 md:mb-3 drop-shadow">
-          SERVICES TALENT FRONTIER
-        </p>
         <h1 className="text-base sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-tight drop-shadow-md">
           People & Operations <br /> Support
         </h1>
