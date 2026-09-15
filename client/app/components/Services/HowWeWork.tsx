@@ -9,23 +9,23 @@ const steps = [
 
 export default function HowWeWork() {
   return (
-    <section className="w-full bg-white py-16 lg:py-24 font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="bg-[#f8fafc] border border-slate-100 rounded-[32px] py-16 lg:py-20 px-6 md:px-10 lg:px-16 w-full shadow-sm">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1e293b] tracking-tight mb-4">
+    <section className="w-full bg-white pt-8 pb-4 md:py-16 lg:py-24 font-sans">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
+        <div className="bg-[#f8fafc] border border-slate-100 rounded-2xl md:rounded-[32px] py-8 sm:py-12 md:py-16 lg:py-20 px-5 sm:px-8 md:px-10 lg:px-16 w-full shadow-sm">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1e293b] tracking-tight mb-3 md:mb-4">
               How We Work
             </h2>
-            <p className="text-slate-500 text-base md:text-lg max-w-2xl mx-auto">
+            <p className="text-slate-500 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
               A structured and transparent approach to ensure we deliver exactly what your business needs.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
             {steps.map((step, index) => (
               <div 
                 key={index} 
-                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-slate-100 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+                className="bg-white rounded-2xl p-6 sm:p-7 md:p-8 shadow-sm hover:shadow-lg border border-slate-100 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
               >
                 {/* Big Number Background */}
                 <div className="absolute -right-2 -top-4 text-[100px] font-black text-slate-50 group-hover:text-[#f0f4f8] transition-colors duration-500 select-none pointer-events-none leading-none">

@@ -3,30 +3,31 @@ import Link from 'next/link';
 
 export default function ServicesHero() {
   return (
-    <section className="relative w-full min-h-[460px] md:h-[600px] lg:h-[650px] bg-[#020617] overflow-hidden flex items-center font-sans py-12 md:py-0">
-      {/* Background Image */}
+    <section className="relative w-full min-h-[500px] md:h-[600px] lg:h-[650px] bg-[#010921] overflow-hidden flex items-center font-sans py-14 md:py-0">
+      {/* Background Image Container */}
       <div className="absolute inset-0 z-0">
         <Image 
           src="/Services page/ChatGPT Image Sep 1, 2026, 06_42_51 PM 1 (1).png"
           alt="Business Support Services" 
           fill
-          className="object-cover object-[70%_center] md:object-right opacity-90"
+          className="object-cover object-[75%_center] md:object-right opacity-90"
           priority
+          sizes="100vw"
         />
-        {/* Gradient Overlay for text readability on mobile and left side */}
-        <div className="absolute inset-0 bg-[#010921]/60 md:bg-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#010921] via-[#010921]/95 md:via-[#010921]/70 to-transparent w-full md:w-3/4 lg:w-[60%]"></div>
+        {/* Gradient overlays for contrast and readability */}
+        <div className="absolute inset-0 bg-[#010921]/35 md:bg-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#010921] via-[#010921]/85 md:via-[#010921]/70 to-transparent w-full md:w-3/4 lg:w-[60%]"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 flex flex-col">
         <div className="max-w-[600px] mt-4 md:mt-8">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.15] md:leading-[1.1] mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.15] md:leading-[1.1] mb-4 sm:mb-6 tracking-tight">
             Business Support<br />
             Build Around<br />
             <span className="italic font-serif font-light text-gray-100">Your Growth</span>
           </h1>
           
-          <p className="text-gray-300 text-sm md:text-[15px] lg:text-base max-w-[500px] mb-8 md:mb-10 leading-relaxed font-light">
+          <p className="text-gray-200 text-sm md:text-[15px] lg:text-base max-w-[500px] mb-6 sm:mb-8 md:mb-10 leading-relaxed font-light drop-shadow-sm">
             From daily operations and people support to finance, technology, marketing and automation, we provide structured business support designed around your organisation&apos;s requirements.
           </p>
           

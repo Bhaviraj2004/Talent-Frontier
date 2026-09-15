@@ -10,23 +10,23 @@ const reasons = [
 
 export default function WhyWorkWithUs() {
   return (
-    <section className="w-full bg-white py-16 lg:py-24 font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+    <section className="w-full bg-white pt-4 pb-12 md:py-16 lg:py-24 font-sans">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
         
         {/* Left: Image */}
-        <div className="w-full lg:w-[45%] relative aspect-[16/10] sm:aspect-[4/3] lg:aspect-auto lg:h-[600px] rounded-[32px] overflow-hidden bg-[#f8fafc] border border-slate-100 shadow-sm flex items-center justify-center group">
+        <div className="w-full lg:w-[45%] relative aspect-[672/276] sm:aspect-[16/9] lg:aspect-auto lg:h-[540px] rounded-2xl md:rounded-[32px] overflow-hidden bg-[#f8fafc] border border-slate-100 shadow-sm flex items-center justify-center group">
           <Image 
             src="/Services page/Rectangle 19.png" 
             alt="Why businesses work with us" 
             fill
-            className="object-contain p-4 sm:p-8 group-hover:scale-[1.03] transition-transform duration-700 ease-in-out"
+            className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-in-out"
             sizes="(max-width: 1024px) 100vw, 600px"
           />
         </div>
 
         {/* Right: Content */}
         <div className="w-full lg:w-[55%] flex flex-col">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1e293b] mb-10 lg:mb-14 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1e293b] mb-6 md:mb-8 lg:mb-12 tracking-tight">
             Why Businesses Work With Us
           </h2>
           

@@ -2,8 +2,8 @@ import Image from 'next/image';
 
 export default function SupportSection() {
   return (
-    <section className="w-full bg-white py-20 lg:py-28 font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+    <section className="w-full bg-white py-10 md:py-16 lg:py-24 font-sans">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
         
         {/* Text Content */}
         <div className="w-full lg:w-[45%] flex flex-col">

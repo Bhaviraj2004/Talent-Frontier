@@ -10,12 +10,12 @@ export default function Hero() {
           src="/main%20page/hero.png" 
           alt="Talent Frontier Hero Background" 
           fill
-          className="object-cover object-right md:object-center opacity-90"
-          priority
+          className="object-cover object-[68%_center] md:object-center opacity-90" 
+          priority 
         />
-        {/* Dark gradient overlay to ensure text readability on the left side */}
-        <div className="absolute inset-0 bg-[#020617]/60 md:bg-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/95 md:via-[#020617]/80 to-transparent w-full md:w-3/4"></div>
+        {/* Dark gradient overlay to ensure text readability while keeping hero visuals clear */}
+        <div className="absolute inset-0 bg-[#020617]/40 md:bg-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/85 md:via-[#020617]/80 to-transparent w-full md:w-3/4"></div>
       </div>
 
       {/* Hero Main Content */}

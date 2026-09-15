@@ -22,11 +22,52 @@ export default function GoogleMapSection() {
           </p>
         </div>
 
-        {/* Map & Card Container */}
-        <div className="relative w-full rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 bg-white">
+        {/* Map & Card Responsive Container */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           
+          {/* Location Details Card */}
+          <div className="lg:col-span-5 xl:col-span-4 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-lg flex flex-col justify-between gap-6 order-2 lg:order-1">
+            <div className="flex flex-col gap-5">
+              <div className="flex items-start gap-3.5">
+                <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#2563eb] shrink-0 shadow-sm">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[11px] font-bold text-blue-600 tracking-wider uppercase">Headquarters</span>
+                  <h3 className="text-lg font-bold text-[#0f172a] leading-snug">Talent Frontier Australia</h3>
+                  <p className="text-sm text-slate-600 font-medium mt-1 leading-relaxed">
+                    650 Nicholson Street, Fitzroy North<br />VIC 3068, Australia
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3 pt-4 border-t border-slate-100 text-xs sm:text-sm text-slate-600 font-medium">
+                <div className="flex items-center gap-2.5">
+                  <Clock className="w-4 h-4 text-blue-500 shrink-0" />
+                  <span>Monday – Friday: 9:00 AM – 5:30 PM AEST</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <Mail className="w-4 h-4 text-blue-500 shrink-0" />
+                  <a href="mailto:admin@talentfrontier.com.au" className="hover:text-blue-600 transition-colors">
+                    admin@talentfrontier.com.au
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <a
+              href={directionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-[#1d4ed8] hover:bg-blue-700 active:scale-[0.98] text-white py-3.5 px-5 rounded-xl font-bold text-xs sm:text-[13px] flex items-center justify-center gap-2 transition-all duration-200 shadow-md shadow-blue-500/20 hover:shadow-blue-500/40"
+            >
+              <Navigation className="w-4 h-4" />
+              Open in Google Maps
+            </a>
+          </div>
+
           {/* Interactive Google Map */}
-          <div className="w-full h-[380px] sm:h-[460px] md:h-[520px] relative bg-slate-100">
+          <div className="lg:col-span-7 xl:col-span-8 w-full min-h-[380px] sm:min-h-[440px] lg:min-h-[500px] rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 bg-slate-100 relative order-1 lg:order-2">
             <iframe
               title="Talent Frontier Melbourne Location"
               src={mapEmbedUrl}
@@ -36,47 +77,8 @@ export default function GoogleMapSection() {
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full filter saturate-[0.95] contrast-[1.02]"
+              className="w-full h-full min-h-[380px] sm:min-h-[440px] lg:min-h-[500px] filter saturate-[0.95] contrast-[1.02]"
             />
-          </div>
-
-          {/* Location Details Card */}
-          <div className="md:absolute md:top-6 md:left-6 md:max-w-[380px] w-full bg-white/95 md:backdrop-blur-md p-6 sm:p-7 md:rounded-2xl border-t md:border border-slate-200 shadow-lg flex flex-col gap-4">
-            <div className="flex items-start gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#2563eb] shrink-0 shadow-sm">
-                <MapPin className="w-5 h-5" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[11px] font-bold text-blue-600 tracking-wider uppercase">Headquarters</span>
-                <h3 className="text-[16px] font-bold text-[#0f172a] leading-snug">Talent Frontier Australia</h3>
-                <p className="text-[13px] text-slate-600 font-medium mt-1 leading-relaxed">
-                  650 Nicholson Street, Fitzroy North<br />VIC 3068, Australia
-                </p>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-2 pt-3 border-t border-slate-100 text-xs text-slate-600 font-medium">
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-blue-500 shrink-0" />
-                <span>Monday – Friday: 9:00 AM – 5:30 PM AEST</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-blue-500 shrink-0" />
-                <a href="mailto:admin@talentfrontier.com.au" className="hover:text-blue-600 transition-colors">
-                  admin@talentfrontier.com.au
-                </a>
-              </div>
-            </div>
-
-            <a
-              href={directionsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-1 w-full bg-[#1d4ed8] hover:bg-blue-700 active:scale-[0.98] text-white py-3 px-4 rounded-xl font-bold text-xs sm:text-[13px] flex items-center justify-center gap-2 transition-all duration-200 shadow-md shadow-blue-500/20"
-            >
-              <Navigation className="w-4 h-4" />
-              Open in Google Maps
-            </a>
           </div>
 
         </div>

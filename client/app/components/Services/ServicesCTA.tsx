@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function ServicesCTA() {
   return (
-    <section className="w-full bg-white pb-20 font-sans">
+    <section className="w-full bg-white pb-12 md:pb-20 font-sans">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-16">
         <div className="w-full bg-[#041133] rounded-2xl md:rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-lg">
           
