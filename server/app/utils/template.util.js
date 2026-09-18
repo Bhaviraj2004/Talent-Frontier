@@ -38,7 +38,20 @@ const getEnquiryAdminTemplate = (data) => {
   return htmlContent;
 };
 
+const getForgotPasswordTemplate = (data) => {
+  const templatePath = path.join(__dirname, '..', '..', '..', 'client', 'app', 'email-template', 'forgot-password.html');
+  let htmlContent = fs.readFileSync(templatePath, 'utf-8');
+
+  htmlContent = htmlContent
+    .replace(/{{email}}/g, data.email || '')
+    .replace(/{{resetUrl}}/g, data.resetUrl || '')
+    .replace(/{{year}}/g, data.year || new Date().getFullYear());
+
+  return htmlContent;
+};
+
 module.exports = {
   getEnquiryUserTemplate,
-  getEnquiryAdminTemplate
+  getEnquiryAdminTemplate,
+  getForgotPasswordTemplate
 };

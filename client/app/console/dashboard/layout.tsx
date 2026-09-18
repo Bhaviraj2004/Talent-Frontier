@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Cookies from 'js-cookie';
 import Link from 'next/link';
-import { LayoutDashboard, FileText, LogOut, Shield } from 'lucide-react';
+import { LayoutDashboard, FileText, LogOut, Shield, Users } from 'lucide-react';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [isAuth, setIsAuth] = useState(false);
@@ -32,6 +32,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const navItems = [
     { name: 'Overview', href: '/console/dashboard', icon: LayoutDashboard },
     { name: 'Insights', href: '/console/dashboard/insights', icon: FileText },
+    { name: 'Leads', href: '/console/dashboard/leads', icon: Users },
   ];
 
   return (

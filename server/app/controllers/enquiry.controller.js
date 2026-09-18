@@ -1,3 +1,5 @@
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 const { sendEnquiryUserEmail, sendEnquiryAdminEmail } = require('../services/email.service');
 
 const submitEnquiry = async (req, res) => {
@@ -26,6 +28,18 @@ const submitEnquiry = async (req, res) => {
       fullName,
       timestamp
     };
+
+    // Save to database
+    await prisma.chatLead.create({
+      data: {
+        name: fullName,
+        email: email || '',
+        phone: phone || '',
+        contactMethod: 'CONTACT_FORM',
+        query: `Subject: ${subject || 'N/A'}\nCompany: ${company || 'N/A'}\nIndustry: ${industry || 'N/A'}\nRequirements: ${requirements || 'N/A'}`,
+        status: 'Client Created'
+      }
+    });
 
     // Send the email to user
     await sendEnquiryUserEmail(emailData);

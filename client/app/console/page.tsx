@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import axios from 'axios';
+import Link from 'next/link';
 import { Shield, Mail, Lock, Eye, EyeOff, ArrowRight, Building, LockKeyhole } from 'lucide-react';
 
 export default function AdminLogin() {
@@ -94,9 +95,9 @@ export default function AdminLogin() {
               <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wide">
                 Password
               </label>
-              <a href="#" onClick={(e) => { e.preventDefault(); alert('Please contact IT support to reset your password.'); }} className="text-[13px] font-medium text-[#005B82] hover:underline">
+              <Link href="/console/forgot-password" className="text-[13px] font-medium text-[#005B82] hover:underline">
                 Forgot password?
-              </a>
+              </Link>
             </div>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
