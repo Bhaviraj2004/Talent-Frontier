@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Header from './header';
 import Footer from './footer';
+import ScrollRevealProvider from './ScrollRevealProvider';
 
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -10,6 +11,7 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
 
   return (
     <>
+      <ScrollRevealProvider />
       {!isConsole && <Header />}
       <main className="flex-grow">{children}</main>
       {!isConsole && <Footer />}

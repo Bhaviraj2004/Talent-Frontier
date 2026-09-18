@@ -21,7 +21,7 @@ export default function ContactHero() {
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 flex flex-col">
         <div className="max-w-[650px]">
           <p className="text-blue-500 text-xs md:text-sm font-bold tracking-widest uppercase mb-3 sm:mb-4">
-            CONTACT TALENT FRONTIER
+            Talent Frontier - Contact
           </p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.1] mb-4 sm:mb-6 tracking-tight">
             <span className="italic font-serif font-light text-gray-200">Let's Start a</span><br />

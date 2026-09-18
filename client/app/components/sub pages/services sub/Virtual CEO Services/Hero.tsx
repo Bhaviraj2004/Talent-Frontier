@@ -17,6 +17,9 @@ const Hero = () => {
         <div className="absolute inset-0 bg-black/20 md:bg-black/30" />
       </div>
       <div className="relative z-10 text-center px-2 sm:px-4 max-w-4xl mx-auto">
+        <p className="text-blue-400 text-xs md:text-sm font-bold tracking-widest uppercase mb-2 sm:mb-3 drop-shadow">
+          TALENT FRONTIER
+        </p>
         <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight drop-shadow-md">
           Virtual CEO <br className="hidden sm:block" /> Services
         </h1>

@@ -43,6 +43,7 @@ export default function TechnologyEnabled() {
             alt="Team member"
             fill
             className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            sizes="(max-width: 768px) 100vw, 30vw"
           />
         </div>
 

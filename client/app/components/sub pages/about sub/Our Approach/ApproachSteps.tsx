@@ -55,13 +55,14 @@ export default function ApproachSteps() {
             step.imageRight ? "md:flex-row-reverse" : "md:flex-row"
           }`}
         >
-          {/* Image - Exact aspect card framing */}
+          {/* Image - Exact aspect card framing, full size without shrinking */}
           <div className="w-full md:w-1/2 relative aspect-[602/231] md:aspect-auto md:h-[260px] lg:h-[290px] rounded-2xl md:rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:border-blue-300 hover:-translate-y-1 border border-gray-100 bg-slate-50 group cursor-pointer transition-all duration-300">
             <Image
               src={step.image}
               alt={step.title}
               fill
               className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
 

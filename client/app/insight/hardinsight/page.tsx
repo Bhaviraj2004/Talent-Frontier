@@ -28,7 +28,7 @@ export default function HardInsightPage() {
             </div>
 
             <p className="text-blue-400 text-xs md:text-sm font-bold tracking-widest uppercase mb-4">
-              INSIGHTS TALENT FRONTIER
+              Talent Frontier - Insights
             </p>
             <div className="inline-flex items-center space-x-2 bg-blue-900/40 border border-blue-800 rounded-full px-4 py-1.5 mb-8">
               <div className="w-2 h-2 rounded-full bg-blue-400"></div>

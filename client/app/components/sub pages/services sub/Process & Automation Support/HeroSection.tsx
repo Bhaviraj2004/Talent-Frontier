@@ -16,6 +16,9 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-black/30" />
       </div>
       <div className="relative z-10 text-center text-white px-4">
+        <p className="text-blue-400 text-[10px] sm:text-xs md:text-sm font-bold tracking-widest uppercase mb-1 sm:mb-2 md:mb-3 drop-shadow">
+          TALENT FRONTIER
+        </p>
         <h1 className="text-base sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight max-w-4xl mx-auto drop-shadow-md">
           Process & Automation<br />Support
         </h1>

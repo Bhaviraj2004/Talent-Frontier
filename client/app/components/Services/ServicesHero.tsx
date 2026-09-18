@@ -21,6 +21,9 @@ export default function ServicesHero() {
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 flex flex-col">
         <div className="max-w-[600px] mt-4 md:mt-8">
+          <p className="text-blue-400 text-xs md:text-sm font-bold tracking-widest uppercase mb-3 sm:mb-4">
+            Talent Frontier - Services
+          </p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.15] md:leading-[1.1] mb-4 sm:mb-6 tracking-tight">
             Business Support<br />
             Build Around<br />
