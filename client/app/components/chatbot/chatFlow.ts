@@ -4,6 +4,8 @@ export type Message = {
   text?: string;
   options?: { label: string; action: string }[];
   isForm?: boolean;
+  nextAction?: string;
+  expects?: keyof FormDataState;
 };
 
 export type FormDataState = {
@@ -91,17 +93,36 @@ export const FLOW = {
     ]
   },
   transition_to_contact: {
-    text: "I think I have a good understanding of what you're looking for. Would you like to continue with our team?",
+    text: "I think I have a good understanding of what you're looking for. To help us connect you with the right person, may I have your full name?",
+    expects: "name",
+    nextAction: "ask_email"
+  },
+  ask_email: {
+    text: "Thanks! What is your work email address?",
+    expects: "email",
+    nextAction: "ask_phone"
+  },
+  ask_phone: {
+    text: "Got it. And what is your contact number?",
+    expects: "phone",
+    nextAction: "contact_method"
+  },
+  contact_method: {
+    text: "Thank you. How would you like our Senior Partner to reach out to you?",
     options: [
-      { label: "Continue on WhatsApp", action: "capture_details" },
-      { label: "Continue by Email", action: "capture_details" },
-      { label: "Request a Call", action: "capture_details" },
-      { label: "Other", action: "capture_details" }
+      { label: "Email", action: "continue_email" },
+      { label: "WhatsApp", action: "continue_whatsapp" },
+      { label: "Phone Call", action: "continue_call" }
     ]
   },
-  capture_details: {
-    text: "Please provide your details below so our Senior Partner can reach out:",
-    isForm: true
+  continue_email: {
+    text: "Perfect! We have securely received your details. Our Senior Partner will reach out via Email shortly.\n\nOpening your email client just in case you'd like to send us an additional message right away... (If it didn't open automatically, please email us directly at admin@talentfrontier.com.au)"
+  },
+  continue_whatsapp: {
+    text: "Perfect! We have securely received your details. Our Senior Partner will reach out via WhatsApp shortly."
+  },
+  continue_call: {
+    text: "Perfect! We have securely received your details. Our Senior Partner will call you shortly."
   },
   end_chat: {
     text: "No problem! You can always browse our website or email us directly at admin@talentfrontier.com.au. Have a great day!"
