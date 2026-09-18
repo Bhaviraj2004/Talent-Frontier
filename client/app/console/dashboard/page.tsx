@@ -19,9 +19,10 @@ export default function DashboardOverview() {
     const fetchData = async () => {
       try {
         const token = Cookies.get('admin_token');
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
         const [insightsRes, leadsRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/insights', { headers: { Authorization: `Bearer ${token}` } }),
-          axios.get('http://localhost:5000/api/leads', { headers: { Authorization: `Bearer ${token}` } })
+          axios.get(`${API_URL}/api/insights`, { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get(`${API_URL}/api/leads`, { headers: { Authorization: `Bearer ${token}` } })
         ]);
         
         if (insightsRes.data.success) {

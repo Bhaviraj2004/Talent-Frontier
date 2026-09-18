@@ -11,6 +11,8 @@ import { AddLeadModal } from './components/AddLeadModal';
 import { ViewLeadModal } from './components/ViewLeadModal';
 import { DeleteLeadModal } from './components/DeleteLeadModal';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+
 export default function LeadsDashboard() {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
@@ -31,7 +33,7 @@ export default function LeadsDashboard() {
     try {
       setLoading(true);
       const token = Cookies.get('admin_token');
-      const res = await axios.get('http://localhost:5000/api/leads', {
+      const res = await axios.get(`${API_URL}/api/leads`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setLeads(res.data.leads || []);
@@ -49,7 +51,7 @@ export default function LeadsDashboard() {
   const handleStatusChange = async (id: string, newStatus: string) => {
     try {
       const token = Cookies.get('admin_token');
-      await axios.put(`http://localhost:5000/api/leads/${id}/status`, { status: newStatus }, {
+      await axios.put(`${API_URL}/api/leads/${id}/status`, { status: newStatus }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchLeads();
@@ -65,7 +67,7 @@ export default function LeadsDashboard() {
   const handleUpdateLead = async (id: string, data: any) => {
     try {
       const token = Cookies.get('admin_token');
-      await axios.put(`http://localhost:5000/api/leads/${id}`, data, {
+      await axios.put(`${API_URL}/api/leads/${id}`, data, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchLeads();
@@ -82,7 +84,7 @@ export default function LeadsDashboard() {
     if (!leadToDelete) return;
     try {
       const token = Cookies.get('admin_token');
-      await axios.delete(`http://localhost:5000/api/leads/${leadToDelete.id}`, {
+      await axios.delete(`${API_URL}/api/leads/${leadToDelete.id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setLeadToDelete(null);
@@ -97,7 +99,7 @@ export default function LeadsDashboard() {
     try {
       setFormLoading(true);
       const token = Cookies.get('admin_token');
-      await axios.post('http://localhost:5000/api/leads/manual', formData, {
+      await axios.post(`${API_URL}/api/leads/manual`, formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setIsAddModalOpen(false);

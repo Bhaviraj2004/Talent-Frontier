@@ -7,6 +7,8 @@ import axios from 'axios';
 import Link from 'next/link';
 import { Shield, Mail, Lock, Eye, EyeOff, ArrowRight, Building, LockKeyhole } from 'lucide-react';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,7 +24,7 @@ export default function AdminLogin() {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const res = await axios.post(`${API_URL}/api/auth/login`, { email, password });
       if (res.data.success && res.data.token) {
         // If remember me is checked, token lasts 30 days, else 1 day
         Cookies.set('admin_token', res.data.token, { expires: rememberMe ? 30 : 1 });

@@ -33,6 +33,8 @@ const quillFormats = [
   'link'
 ];
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+
 export default function InsightsPage() {
   const [insights, setInsights] = useState<any[]>([]);
   const [categories, setCategories] = useState<any[]>([]);
@@ -61,7 +63,7 @@ export default function InsightsPage() {
   const fetchCategories = async () => {
     try {
       const token = Cookies.get('admin_token');
-      const res = await axios.get('http://localhost:5000/api/categories', {
+      const res = await axios.get(`${API_URL}/api/categories`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.data.success) {
@@ -76,7 +78,7 @@ export default function InsightsPage() {
     if (!newCategoryName.trim()) return;
     try {
       const token = Cookies.get('admin_token');
-      const res = await axios.post('http://localhost:5000/api/categories', { name: newCategoryName }, {
+      const res = await axios.post(`${API_URL}/api/categories`, { name: newCategoryName }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.data.success) {
@@ -94,7 +96,7 @@ export default function InsightsPage() {
   const fetchInsights = async () => {
     try {
       const token = Cookies.get('admin_token');
-      const res = await axios.get('http://localhost:5000/api/insights', {
+      const res = await axios.get(`${API_URL}/api/insights`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.data.success) {
@@ -148,7 +150,7 @@ export default function InsightsPage() {
         imageUrl: finalImageUrl
       };
 
-      await axios.post('http://localhost:5000/api/insights', payload, {
+      await axios.post(`${API_URL}/api/insights`, payload, {
         headers: { 
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -170,7 +172,7 @@ export default function InsightsPage() {
     if (!confirm('Are you sure you want to permanently delete this insight?')) return;
     try {
       const token = Cookies.get('admin_token');
-      await axios.delete(`http://localhost:5000/api/insights/${id}`, {
+      await axios.delete(`${API_URL}/api/insights/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchInsights();
@@ -195,7 +197,7 @@ export default function InsightsPage() {
   const handleToggleFlag = async (id: string, flag: string, currentValue: boolean) => {
     try {
       const token = Cookies.get('admin_token');
-      await axios.patch(`http://localhost:5000/api/insights/${id}/toggle`, {
+      await axios.patch(`${API_URL}/api/insights/${id}/toggle`, {
         flag,
         value: !currentValue
       }, {

@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useState, FormEvent, useRef, useEffect } from 'react';
 import { ChevronDown, Check } from 'lucide-react';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
 export default function ContactFormSection() {
   const [formData, setFormData] = useState({
@@ -57,7 +58,7 @@ export default function ContactFormSection() {
     setErrorMessage('');
 
     try {
-      const res = await fetch('http://localhost:5000/api/enquiry', {
+      const res = await fetch(`${API_URL}/api/enquiry`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

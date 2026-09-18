@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import { Shield, Lock, Eye, EyeOff, CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
 function ResetPasswordForm() {
   const [password, setPassword] = useState('');
@@ -44,7 +45,7 @@ function ResetPasswordForm() {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/reset-password', {
+      const res = await axios.post(`${API_URL}/api/auth/reset-password`, {
         id,
         token,
         newPassword: password

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
 import { Shield, Mail, ArrowRight, ArrowLeft, CheckCircle2 } from 'lucide-react';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
@@ -17,7 +18,7 @@ export default function ForgotPassword() {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/forgot-password', { email });
+      const res = await axios.post(`${API_URL}/api/auth/forgot-password`, { email });
       if (res.data.success) {
         setSuccess(true);
       }
