@@ -152,12 +152,12 @@ export default function Header() {
           >
             Insight
           </Link>
-          <Link 
+          {/* <Link 
             href="/contact" 
             className={`${pathname === '/contact' ? 'text-[#2563eb]' : 'text-[#1e293b]'} hover:text-[#2563eb] transition-colors`}
           >
             Contact Us
-          </Link>
+          </Link> */}
         </nav>
 
         {/* Desktop CTA */}
@@ -332,7 +332,7 @@ export default function Header() {
               Insight
             </Link>
 
-            {/* Contact Us */}
+            {/* Contact Us
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
@@ -341,7 +341,7 @@ export default function Header() {
               }`}
             >
               Contact Us
-            </Link>
+            </Link> */}
 
             {/* Mobile CTA */}
             <div className="pt-4 mt-2">
