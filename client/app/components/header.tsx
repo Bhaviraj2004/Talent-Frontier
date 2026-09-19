@@ -146,12 +146,12 @@ export default function Header() {
             );
           })}
           
-          <Link 
+          {/* <Link 
             href="/insight" 
             className={`${pathname.startsWith('/insight') ? 'text-[#2563eb]' : 'text-[#1e293b]'} hover:text-[#2563eb] transition-colors`}
           >
             Insight
-          </Link>
+          </Link> */}
           {/* <Link 
             href="/contact" 
             className={`${pathname === '/contact' ? 'text-[#2563eb]' : 'text-[#1e293b]'} hover:text-[#2563eb] transition-colors`}
@@ -321,7 +321,7 @@ export default function Header() {
               );
             })}
 
-            {/* Insight */}
+            {/* Insight
             <Link
               href="/insight"
               onClick={() => setMobileMenuOpen(false)}
@@ -330,7 +330,7 @@ export default function Header() {
               }`}
             >
               Insight
-            </Link>
+            </Link> */}
 
             {/* Contact Us
             <Link
