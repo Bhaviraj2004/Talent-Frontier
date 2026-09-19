@@ -14,7 +14,7 @@ export default function Home() {
         <BusinessOverview />
         <WhyChooseUs />
         <WhatWeDo />
-        <IndustriesPreview />
+        {/* <IndustriesPreview /> */}
         <TrustedClients />
         <CTA />
       </main>

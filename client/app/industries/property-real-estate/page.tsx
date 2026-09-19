@@ -1,3 +1,3 @@
-import PropertyAndRealEstatePage from "../property-and-real-estate/page";
+// import PropertyAndRealEstatePage from "../property-and-real-estate/page";
 
-export default PropertyAndRealEstatePage;
+// export default PropertyAndRealEstatePage;

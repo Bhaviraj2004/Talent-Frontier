@@ -71,7 +71,7 @@ export const navData = [
     categoryTitle: "Business Support & Professional Services Portfolio",
     exploreLinks: [
       { label: "About Talent Frontier", href: "/about" },
-      { label: "Industries We Serve", href: "/industries" }
+      // { label: "Industries We Serve", href: "/industries" }
     ],
     items: [
       {
@@ -132,65 +132,65 @@ export const navData = [
       buttonHref: "/services"
     }
   },
-  {
-    title: "Industries",
-    href: "/industries",
-    categoryTitle: "Industries We Serve",
-    exploreLinks: [
-      { label: "Our Services", href: "/services" }
-    ],
-    items: [
-      {
-        title: "Finance and Accounting",
-        subtitle: "SPECIALIZED SUPPORT",
-        description: "Tailored solutions for financial and accounting firms.",
-        icon: LineChart,
-        href: "/industries/finance-accounting"
-      },
-      {
-        title: "Professional Services",
-        subtitle: "SCALABLE OPERATIONS",
-        description: "Enhance capabilities with dedicated operational teams.",
-        icon: Shield,
-        href: "/industries/professional-services"
-      },
-      {
-        title: "Technology and Digital",
-        subtitle: "RESOURCE AUGMENTATION",
-        description: "Support for tech companies scaling their operations.",
-        icon: Code,
-        href: "/industries/technology-and-digital"
-      },
-      {
-        title: "Property and Real Estate",
-        subtitle: "PROPERTY MANAGEMENT",
-        description: "Streamline operations for real estate agencies.",
-        icon: Building2,
-        href: "/industries/property-and-real-estate"
-      },
-      {
-        title: "E-Commerce and Retail",
-        subtitle: "DIGITAL RETAIL",
-        description: "Optimize retail operations and digital commerce workflows.",
-        icon: Target,
-        href: "/industries/ecommerce-and-retail"
-      },
-      {
-        title: "SMEs & Growing Businesses",
-        subtitle: "FLEXIBLE SUPPORT",
-        description: "Practical support to manage workload and scale efficiently.",
-        icon: Users,
-        href: "/industries/smes-and-growing-businesses"
-      }
-    ],
-    bottomBar: {
-      text: "Don't see your industry listed?",
-      linkText: "Contact Us",
-      linkHref: "/contact",
-      buttonText: "All Industries",
-      buttonHref: "/industries"
-    }
-  },
+  // {
+  //   title: "Industries",
+  //   href: "/industries",
+  //   categoryTitle: "Industries We Serve",
+  //   exploreLinks: [
+  //     { label: "Our Services", href: "/services" }
+  //   ],
+  //   items: [
+  //     {
+  //       title: "Finance and Accounting",
+  //       subtitle: "SPECIALIZED SUPPORT",
+  //       description: "Tailored solutions for financial and accounting firms.",
+  //       icon: LineChart,
+  //       href: "/industries/finance-accounting"
+  //     },
+  //     {
+  //       title: "Professional Services",
+  //       subtitle: "SCALABLE OPERATIONS",
+  //       description: "Enhance capabilities with dedicated operational teams.",
+  //       icon: Shield,
+  //       href: "/industries/professional-services"
+  //     },
+  //     {
+  //       title: "Technology and Digital",
+  //       subtitle: "RESOURCE AUGMENTATION",
+  //       description: "Support for tech companies scaling their operations.",
+  //       icon: Code,
+  //       href: "/industries/technology-and-digital"
+  //     },
+  //     {
+  //       title: "Property and Real Estate",
+  //       subtitle: "PROPERTY MANAGEMENT",
+  //       description: "Streamline operations for real estate agencies.",
+  //       icon: Building2,
+  //       href: "/industries/property-and-real-estate"
+  //     },
+  //     {
+  //       title: "E-Commerce and Retail",
+  //       subtitle: "DIGITAL RETAIL",
+  //       description: "Optimize retail operations and digital commerce workflows.",
+  //       icon: Target,
+  //       href: "/industries/ecommerce-and-retail"
+  //     },
+  //     {
+  //       title: "SMEs & Growing Businesses",
+  //       subtitle: "FLEXIBLE SUPPORT",
+  //       description: "Practical support to manage workload and scale efficiently.",
+  //       icon: Users,
+  //       href: "/industries/smes-and-growing-businesses"
+  //     }
+  //   ],
+  //   bottomBar: {
+  //     text: "Don't see your industry listed?",
+  //     linkText: "Contact Us",
+  //     linkHref: "/contact",
+  //     buttonText: "All Industries",
+  //     buttonHref: "/industries"
+  //   }
+  // },
   {
     title: "Testimonials",
     href: "/testimonials",

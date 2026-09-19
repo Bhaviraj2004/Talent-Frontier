@@ -51,7 +51,8 @@ export default function Footer() {
       {/* Right Column (Dark) */}
       <div className="w-full lg:w-[70%] xl:w-[75%] bg-[#081a40] p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8 sm:mb-10">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8 sm:mb-10"> */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8 sm:mb-10">
           {/* Company */}
           <div>
             <h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-5">Company</h3>
@@ -80,7 +81,7 @@ export default function Footer() {
           </div>
           
           {/* Industries */}
-          <div>
+          {/* <div>
             <h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-5">Industries</h3>
             <ul className="flex flex-col gap-2 sm:gap-2.5">
               <li><Link href="/industries/professional-services" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Professional Services</Link></li>
@@ -90,7 +91,7 @@ export default function Footer() {
               <li><Link href="/industries/ecommerce-and-retail" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">E-Commerce & Retails</Link></li>
               <li><Link href="/industries/smes-and-growing-businesses" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">SMEs & Growing Business</Link></li>
             </ul>
-          </div>
+          </div> */}
           
           {/* Contact Us */}
           <div>

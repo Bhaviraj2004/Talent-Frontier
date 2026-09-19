@@ -1,3 +1,3 @@
-import FinanceAndAccountingPage from "../finance-and-accounting/page";
+// import FinanceAndAccountingPage from "../finance-and-accounting/page";
 
-export default FinanceAndAccountingPage;
+// export default FinanceAndAccountingPage;
