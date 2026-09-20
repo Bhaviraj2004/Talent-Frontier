@@ -44,7 +44,7 @@ export default function GoogleMapSection() {
               <div className="flex flex-col gap-3 pt-4 border-t border-slate-100 text-xs sm:text-sm text-slate-600 font-medium">
                 <div className="flex items-center gap-2.5">
                   <Clock className="w-4 h-4 text-blue-500 shrink-0" />
-                  <span>Monday – Friday: 9:00 AM – 5:30 PM AEST</span>
+                  <span>Monday – Friday: 9:00 AM – 5:00 PM AEST</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Mail className="w-4 h-4 text-blue-500 shrink-0" />
