@@ -19,8 +19,8 @@ export default function HeroSection() {
         <p className="text-blue-400 text-[10px] sm:text-xs md:text-sm font-bold tracking-widest uppercase mb-1 sm:mb-2 md:mb-3 drop-shadow">
           TALENT FRONTIER
         </p>
-        <h1 className="text-base sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-tight drop-shadow-md">
-          Business Support <br /> Services
+        <h1 className="text-base sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-tight drop-shadow-md uppercase">
+          Virtual Assistants & <br /> Administrative Professionals
         </h1>
       </div>
     </section>

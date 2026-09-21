@@ -1,16 +1,14 @@
 import React from 'react';
 
 const areas = [
-  'Business planning and prioritisation',
-  'Technology and systems planning',
-  'Operational performance reviews',
-  'Financial-performance visibility',
-  'Leadership and management meetings',
-  'Sales and marketing alignment',
-  'Organisational structure',
-  'Risk and issue identification',
-  'Process improvement',
-  'Growth and capacity planning'
+  'Virtual CEOs',
+  'Fractional CEOs',
+  'Fractional COOs',
+  'Operations Executives',
+  'Business Strategy Professionals',
+  'Executive Advisors',
+  'Transformation Leaders',
+  'Senior Business Operations Professionals'
 ];
 
 const Section4 = () => {
@@ -20,8 +18,7 @@ const Section4 = () => {
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
           <div className="w-full lg:w-1/2 text-white">
             <div className="w-10 md:w-12 h-[2px] bg-white mb-5 md:mb-6"></div>
-            <h2 className="text-[28px] sm:text-3xl md:text-4xl lg:text-[40px] font-bold mb-4 md:mb-5 tracking-tight leading-tight">Areas of Focus</h2>
-            <p className="text-slate-300 mb-6 md:mb-10 text-[15px] sm:text-base md:text-[17px]">Depending on your requirements, support may include:</p>
+            <h2 className="text-[28px] sm:text-3xl md:text-4xl lg:text-[40px] font-bold mb-4 md:mb-5 tracking-tight leading-tight">Professionals We Can Help You Find</h2>
             
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 sm:gap-y-5 md:gap-y-7">
               {areas.map((area, index) => (

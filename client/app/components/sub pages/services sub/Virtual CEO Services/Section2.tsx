@@ -16,13 +16,13 @@ const Section2 = () => {
           </div>
           <div className="w-full lg:w-1/2">
             <h2 className="text-[28px] sm:text-3xl md:text-4xl font-bold text-[#0f172a] mb-4 md:mb-6 leading-tight">
-              Leadership Support for<br className="hidden md:block" />Growing Businesses
+              When Fractional Leadership May Make Sense
             </h2>
             <p className="text-[15px] sm:text-base md:text-lg text-gray-600 mb-4 md:mb-6">
-              As a business grows, founders often become responsible for strategy, operations, people, systems and everyday decisions at the same time.
+              A virtual or fractional executive model may be considered when your organisation needs senior expertise but the requirement does not necessarily justify a conventional full-time executive appointment.
             </p>
             <p className="text-[15px] sm:text-base md:text-lg text-gray-600">
-              Our Virtual CEO service provides structured leadership support to help you step back from daily complexity, focus on important priorities and build a more organised path forward.
+              It can also provide additional leadership capacity during periods of growth, change or specific strategic initiatives.
             </p>
           </div>
         </div>

@@ -5,16 +5,21 @@ export default function ConsistentCommunication() {
     <section className="w-full max-w-7xl mx-auto px-4 pb-20 flex flex-col md:flex-row items-center gap-16">
       <div className="w-full md:w-[45%]">
         <h2 className="text-3xl md:text-[34px] font-bold mb-6 text-[#091535] leading-tight pr-4">
-          Consistent Communication<br />Builds Stronger Brands
+          Professionals We Can Help You Find
         </h2>
-        <p className="text-gray-800 text-[15px] leading-relaxed mb-6">
-          Your audience experiences your business across websites, social media,<br />
-          presentations, emails and marketing campaigns.
-        </p>
-        <p className="text-gray-800 text-[15px] leading-relaxed">
-          A consistent and organised approach helps maintain trust, improve brand<br />
-          recognition and support business development.
-        </p>
+        <ul className="text-gray-800 text-[15px] leading-relaxed mb-6 list-disc pl-5 space-y-2">
+          <li>Digital Marketing Specialists</li>
+          <li>Marketing Coordinators</li>
+          <li>Social Media Specialists</li>
+          <li>SEO Specialists</li>
+          <li>Content Writers</li>
+          <li>Copywriters</li>
+          <li>Graphic Designers</li>
+          <li>Video Editors</li>
+          <li>Performance Marketing Specialists</li>
+          <li>Email Marketing Specialists</li>
+          <li>Marketing Automation Professionals</li>
+        </ul>
       </div>
       <div className="w-full md:w-[55%] relative aspect-[736/300] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100">
         <Image

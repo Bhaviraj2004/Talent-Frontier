@@ -5,12 +5,19 @@ export default function BetterAutomation() {
     <section className="w-full max-w-7xl mx-auto px-4 py-24 flex flex-col md:flex-row items-center gap-16 border-b border-gray-200">
       <div className="w-full md:w-[40%]">
         <h2 className="text-3xl md:text-[34px] font-bold mb-6 text-[#091535] leading-tight max-w-sm">
-          Better Automation<br />Starts With a<br />Better Process
+          Professionals We Can Help You Find
         </h2>
-        <p className="text-gray-600 text-[14px] leading-relaxed max-w-xs">
-          We understand the current workflow first.<br />
-          Then we simplify it before introducing automation.
-        </p>
+        <ul className="text-gray-600 text-[14px] leading-relaxed max-w-xs list-disc pl-5 space-y-2">
+          <li>Workflow Automation Specialists</li>
+          <li>Business Automation Specialists</li>
+          <li>CRM Specialists</li>
+          <li>Business Systems Specialists</li>
+          <li>Integration Specialists</li>
+          <li>No-Code Developers</li>
+          <li>Low-Code Developers</li>
+          <li>Process Improvement Professionals</li>
+          <li>Automation Developers</li>
+        </ul>
       </div>
       <div className="w-full md:w-[60%] relative aspect-[794/258] md:aspect-auto md:h-[300px] rounded-2xl md:rounded-[24px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100">
         <Image

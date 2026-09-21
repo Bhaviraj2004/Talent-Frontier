@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import HeroSection from "../../components/sub pages/services sub/Finance Accounting Support/HeroSection";
 import StructuredSupport from "../../components/sub pages/services sub/Finance Accounting Support/StructuredSupport";
 import SupportingBetterOrganisation from "../../components/sub pages/services sub/Finance Accounting Support/SupportingBetterOrganisation";
@@ -8,7 +9,12 @@ import ImportantServiceBoundaries from "../../components/sub pages/services sub/
 import WhatYouCanExpect from "../../components/sub pages/services sub/Finance Accounting Support/WhatYouCanExpect";
 import CTASection from "../../components/sub pages/services sub/Finance Accounting Support/CTASection";
 
-export default function FinanceAccountingSupportPage() {
+export const metadata: Metadata = {
+  title: 'Accountants & Bookkeepers for Australian Businesses | Talent Frontier',
+  description: 'Find Accountants, Bookkeepers, Payroll Officers and finance professionals suited to your business requirements with Talent Frontier.',
+};
+
+export default function AccountantsBookkeepersPage() {
   return (
     <main className="min-h-screen bg-white">
       <HeroSection />

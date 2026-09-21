@@ -8,63 +8,29 @@ export default function HowWeCanSupport() {
           <h2 className="text-2xl sm:text-3xl md:text-[36px] font-bold mb-8 md:mb-10 text-[#091535] text-center md:text-left">
             How We Can Support You
           </h2>
-          <div className="flex flex-col gap-4 sm:gap-5">
-            {/* Cards */}
-            <div className="bg-white p-5 sm:p-6 rounded-2xl flex gap-4 sm:gap-6 items-start shadow-sm border border-slate-200/80 hover:shadow-xl hover:border-blue-500 hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
-              <span className="text-[#1150fb] text-2xl font-black group-hover:scale-110 origin-left transition-transform duration-300 shrink-0">01</span>
-              <div>
-                <h3 className="font-bold text-[#091535] text-[16px] mb-1.5 group-hover:text-blue-600 transition-colors">Brand Communication</h3>
-                <p className="text-gray-600 text-xs sm:text-[14px] leading-relaxed pr-2">Assistance with maintaining consistent messaging, visual standards and brand presentation.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              "Digital campaigns",
+              "Social media management",
+              "Content creation",
+              "SEO activities",
+              "Website content",
+              "Graphic design",
+              "Video content",
+              "Email marketing",
+              "Campaign coordination",
+              "Paid advertising support",
+              "Marketing reporting"
+            ].map((item, idx) => (
+              <div key={idx} className="bg-white p-3 sm:p-4 rounded-xl flex gap-3 sm:gap-4 items-center shadow-sm border border-slate-200/80 hover:shadow-md hover:border-blue-500 hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer">
+                <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-blue-50 text-[#1150fb] text-sm sm:text-lg font-black flex items-center justify-center shrink-0 group-hover:bg-[#1150fb] group-hover:text-white transition-colors">
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 className="font-bold text-[#091535] text-[14px] sm:text-[15px] group-hover:text-blue-600 transition-colors leading-snug">{item}</h3>
+                </div>
               </div>
-            </div>
-            
-            <div className="bg-white p-5 sm:p-6 rounded-2xl flex gap-4 sm:gap-6 items-start shadow-sm border border-slate-200/80 hover:shadow-xl hover:border-blue-500 hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
-              <span className="text-[#1150fb] text-2xl font-black group-hover:scale-110 origin-left transition-transform duration-300 shrink-0">02</span>
-              <div>
-                <h3 className="font-bold text-[#091535] text-[16px] mb-1.5 group-hover:text-blue-600 transition-colors">Graphic Design</h3>
-                <p className="text-gray-600 text-xs sm:text-[14px] leading-relaxed pr-2">Creative support for digital graphics, presentations, brochures, reports and approved marketing materials.</p>
-              </div>
-            </div>
-
-            <div className="bg-white p-5 sm:p-6 rounded-2xl flex gap-4 sm:gap-6 items-start shadow-sm border border-slate-200/80 hover:shadow-xl hover:border-blue-500 hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
-              <span className="text-[#1150fb] text-2xl font-black group-hover:scale-110 origin-left transition-transform duration-300 shrink-0">03</span>
-              <div>
-                <h3 className="font-bold text-[#091535] text-[16px] mb-1.5 group-hover:text-blue-600 transition-colors">Social Media Content</h3>
-                <p className="text-gray-600 text-xs sm:text-[14px] leading-relaxed pr-2">Planning and creating approved posts, captions, campaign material and content schedules.</p>
-              </div>
-            </div>
-
-            <div className="bg-white p-5 sm:p-6 rounded-2xl flex gap-4 sm:gap-6 items-start shadow-sm border border-slate-200/80 hover:shadow-xl hover:border-blue-500 hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
-              <span className="text-[#1150fb] text-2xl font-black group-hover:scale-110 origin-left transition-transform duration-300 shrink-0">04</span>
-              <div>
-                <h3 className="font-bold text-[#091535] text-[16px] mb-1.5 group-hover:text-blue-600 transition-colors">Website Content Support</h3>
-                <p className="text-gray-600 text-xs sm:text-[14px] leading-relaxed pr-2">Assistance with service-page content, insight formatting, landing pages and website updates.</p>
-              </div>
-            </div>
-
-            <div className="bg-white p-5 sm:p-6 rounded-2xl flex gap-4 sm:gap-6 items-start shadow-sm border border-slate-200/80 hover:shadow-xl hover:border-blue-500 hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
-              <span className="text-[#1150fb] text-2xl font-black group-hover:scale-110 origin-left transition-transform duration-300 shrink-0">05</span>
-              <div>
-                <h3 className="font-bold text-[#091535] text-[16px] mb-1.5 group-hover:text-blue-600 transition-colors">Email Marketing Support</h3>
-                <p className="text-gray-600 text-xs sm:text-[14px] leading-relaxed pr-2">Support for approved email layouts, newsletters, campaign setup and audience organisation.</p>
-              </div>
-            </div>
-
-            <div className="bg-white p-5 sm:p-6 rounded-2xl flex gap-4 sm:gap-6 items-start shadow-sm border border-slate-200/80 hover:shadow-xl hover:border-blue-500 hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
-              <span className="text-[#1150fb] text-2xl font-black group-hover:scale-110 origin-left transition-transform duration-300 shrink-0">06</span>
-              <div>
-                <h3 className="font-bold text-[#091535] text-[16px] mb-1.5 group-hover:text-blue-600 transition-colors">Content Coordination</h3>
-                <p className="text-gray-600 text-xs sm:text-[14px] leading-relaxed pr-2">Maintaining content calendars, approvals, assets and publication schedules.</p>
-              </div>
-            </div>
-
-            <div className="bg-white p-5 sm:p-6 rounded-2xl flex gap-4 sm:gap-6 items-start shadow-sm border border-slate-200/80 hover:shadow-xl hover:border-blue-500 hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
-              <span className="text-[#1150fb] text-2xl font-black group-hover:scale-110 origin-left transition-transform duration-300 shrink-0">07</span>
-              <div>
-                <h3 className="font-bold text-[#091535] text-[16px] mb-1.5 group-hover:text-blue-600 transition-colors">Campaign Support</h3>
-                <p className="text-gray-600 text-xs sm:text-[14px] leading-relaxed pr-2">Assistance with campaign preparation, creative production, implementation and reporting organisation.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
         <div className="w-full md:w-[45%] mt-8 md:mt-16">

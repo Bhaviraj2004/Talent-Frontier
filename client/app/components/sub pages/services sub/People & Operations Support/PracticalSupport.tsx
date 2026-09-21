@@ -7,17 +7,14 @@ export default function PracticalSupport() {
       <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
         <div className="w-full md:w-5/12 flex flex-col items-start space-y-5">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0a192f] leading-tight">
-            Practical Support <br /> for Your People and <br /> Operations
+            Build a Stronger <br /> People Function
           </h2>
           <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
-            Structured assistance that helps your organisation coordinate people-related activities, maintain documentation and support everyday operations.
+            As organisations grow, managing recruitment, employee coordination and people operations becomes increasingly important.
           </p>
-          <Link 
-            href="/contact" 
-            className="inline-block bg-[#0047FF] hover:bg-blue-700 active:bg-blue-800 text-white font-medium py-3 px-6 rounded-xl transition-all text-sm text-center shadow-sm"
-          >
-            Discuss Your People and Operations Needs
-          </Link>
+          <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
+            Talent Frontier helps businesses connect with HR and people professionals aligned with their workforce requirements.
+          </p>
         </div>
         <div className="w-full md:w-7/12 relative aspect-[790/600] md:aspect-auto md:h-[420px] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100">
           <Image

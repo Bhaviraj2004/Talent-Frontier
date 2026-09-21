@@ -21,7 +21,7 @@ export default function FlexibleSupportSection() {
             <Link href="/contact" className="bg-[#1d4ed8] hover:bg-blue-600 text-white font-semibold py-3.5 px-6 rounded-md text-[13px] text-center transition-colors shadow-sm">
               Discuss Your Business Needs
             </Link>
-            <Link href="/services" className="bg-white border border-[#1d4ed8] text-[#1d4ed8] hover:bg-blue-50 font-semibold py-3.5 px-6 rounded-md text-[13px] text-center transition-colors">
+            <Link href="/talent-solutions" className="bg-white border border-[#1d4ed8] text-[#1d4ed8] hover:bg-blue-50 font-semibold py-3.5 px-6 rounded-md text-[13px] text-center transition-colors">
               Explore Our Services
             </Link>
           </div>

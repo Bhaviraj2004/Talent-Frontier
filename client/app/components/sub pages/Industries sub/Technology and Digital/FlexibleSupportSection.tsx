@@ -29,7 +29,7 @@ export default function FlexibleSupportSection() {
                 Discuss Your Technology Needs
               </Link>
               <Link
-                href="/services"
+                href="/talent-solutions"
                 className="bg-transparent hover:bg-blue-50 border border-[#2563eb] text-[#2563eb] px-6 py-3 rounded-md font-semibold text-[13px] transition-colors text-center"
               >
                 Explore Our Services

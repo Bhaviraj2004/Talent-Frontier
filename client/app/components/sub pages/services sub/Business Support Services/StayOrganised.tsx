@@ -6,33 +6,32 @@ export default function StayOrganised() {
       <div className="flex flex-col md:flex-row gap-12 mb-12">
         <div className="w-full md:w-5/12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0a192f] leading-tight">
-            Helping Your <br /> Business Stay <br /> Organised
+            Professionals We <br /> Can Help You Find
           </h2>
           <div className="w-24 h-[2px] bg-[#0047FF] mt-6"></div>
         </div>
         <div className="w-full md:w-7/12 flex flex-col justify-center space-y-6 pt-2">
-          <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-            Routine administrative activities are essential, but they can take valuable time away from customers, strategy and business growth.
-          </p>
-          <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-            Talent Frontier provides structured support for agreed business activities, helping your organisation improve coordination and maintain consistent day-to-day operations.
-          </p>
+          <ul className="text-gray-600 text-sm md:text-base leading-relaxed list-disc pl-5 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
+            <li>Virtual Assistants</li>
+            <li>Executive Assistants</li>
+            <li>Administrative Assistants</li>
+            <li>Personal Assistants</li>
+            <li>Data Entry Specialists</li>
+            <li>Customer Support Professionals</li>
+            <li>Appointment Coordinators</li>
+            <li>Office Administration Professionals</li>
+            <li>Operations Assistants</li>
+          </ul>
         </div>
       </div>
       
-      <div className="w-full relative aspect-[1286/329] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100">
+      <div className="w-full relative aspect-[1286/329] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100 mt-8">
         <Image
           src="/sub pages/Services/Business Support Services/Rectangle 105.png"
           alt="Business Operations"
           fill
           className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
         />
-      </div>
-      
-      <div className="text-center mt-8">
-        <p className="text-[#0047FF] text-lg md:text-xl font-medium inline-block border-b-2 border-transparent hover:border-[#0047FF] pb-1 cursor-default transition-colors">
-          More organisation, Better coordination, More time for your core priorities.
-        </p>
       </div>
     </section>
   );

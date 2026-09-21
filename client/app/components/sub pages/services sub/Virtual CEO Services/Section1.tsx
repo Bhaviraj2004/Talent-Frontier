@@ -8,19 +8,17 @@ const Section1 = () => {
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-20">
           <div className="w-full lg:w-1/2">
             <h2 className="text-[28px] sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-4 md:mb-6 leading-tight">
-              Strategic Leadership<br className="hidden md:block" />Without a Full-Time<br className="hidden md:block" />Executive
+              Experienced Leadership Without a Traditional Full-Time Executive Model
             </h2>
-            <p className="text-[15px] sm:text-base md:text-lg text-gray-600 mb-6 md:mb-8 max-w-lg">
-              Senior-level business guidance designed to help founders and leadership teams establish priorities, strengthen operations and move forward with greater clarity.
+            <p className="text-[15px] sm:text-base md:text-lg text-gray-600 mb-4 max-w-lg">
+              Not every organisation requires—or is ready for—another permanent senior executive.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
-              <Link href="/contact" className="w-full sm:w-auto inline-flex justify-center items-center px-6 py-3 border border-transparent text-sm md:text-base font-medium rounded bg-[#1c55d4] text-white hover:bg-blue-700 transition-colors">
-                Discuss Your Business Priorities
-              </Link>
-              <Link href="/contact" className="w-full sm:w-auto inline-flex justify-center items-center px-6 py-3 border border-[#1c55d4] text-sm md:text-base font-medium rounded text-[#1c55d4] bg-white hover:bg-blue-50 transition-colors">
-                Book a Consultation
-              </Link>
-            </div>
+            <p className="text-[15px] sm:text-base md:text-lg text-gray-600 mb-4 max-w-lg">
+              Some businesses need experienced leadership for a particular growth stage, transformation, operational challenge or strategic requirement.
+            </p>
+            <p className="text-[15px] sm:text-base md:text-lg text-gray-600 mb-6 md:mb-8 max-w-lg">
+              Talent Frontier helps businesses explore experienced professionals who can provide leadership on virtual or fractional arrangements.
+            </p>
           </div>
           <div className="w-full lg:w-1/2">
             <div className="relative rounded-2xl overflow-hidden shadow-lg group">

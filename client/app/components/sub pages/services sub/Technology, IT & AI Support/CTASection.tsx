@@ -6,14 +6,17 @@ export default function CTASection() {
     <section className="w-full flex flex-col md:flex-row h-auto md:h-[400px] overflow-hidden">
       <div className="w-full md:w-1/2 bg-[#08154a] text-white p-12 md:p-20 flex flex-col justify-center relative">
         <div className="max-w-lg relative z-10 lg:ml-auto">
-          <h2 className="text-3xl md:text-[36px] lg:text-[42px] font-bold mb-10 leading-tight pr-4">
-            Make technology work more<br />effectively for your business.
+          <h2 className="text-3xl md:text-[36px] lg:text-[42px] font-bold mb-4 leading-tight pr-4">
+            Tell Us the Skills You Need
           </h2>
+          <p className="mb-10 text-blue-100 text-[15px] pr-4 leading-relaxed">
+            From a specific development stack to broader IT support requirements, tell us what capabilities your position requires.
+          </p>
           <Link 
             href="/contact"
             className="inline-block border border-white hover:bg-white/10 active:bg-white/20 active:scale-[0.98] active:brightness-110 text-white px-8 py-3 rounded-sm text-[15px] font-semibold transition-all w-fit text-center"
           >
-            Discuss Your Technology Needs
+            Find Technology Talent
           </Link>
         </div>
         {/* Right side triangle detail based on image */}

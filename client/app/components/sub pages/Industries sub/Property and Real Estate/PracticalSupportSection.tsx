@@ -29,7 +29,7 @@ export default function PracticalSupportSection() {
                 Discuss Your Property Needs
               </Link>
               <Link
-                href="/services"
+                href="/talent-solutions"
                 className="bg-white hover:bg-gray-100 text-[#1d4ed8] px-6 py-3 rounded-md font-semibold text-[13px] transition-colors shadow text-center"
               >
                 Explore Our Services

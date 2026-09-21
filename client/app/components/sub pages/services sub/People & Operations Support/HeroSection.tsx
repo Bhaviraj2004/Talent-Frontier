@@ -20,7 +20,7 @@ export default function HeroSection() {
           TALENT FRONTIER
         </p>
         <h1 className="text-base sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-tight drop-shadow-md">
-          People & Operations <br /> Support
+          HR & People <br /> Professionals
         </h1>
       </div>
     </section>

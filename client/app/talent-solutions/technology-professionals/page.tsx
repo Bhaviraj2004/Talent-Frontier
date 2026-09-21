@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import HeroSection from "../../components/sub pages/services sub/Technology, IT & AI Support/HeroSection";
 import TechnologySupport from "../../components/sub pages/services sub/Technology, IT & AI Support/TechnologySupport";
 import SolveRealProblems from "../../components/sub pages/services sub/Technology, IT & AI Support/SolveRealProblems";
@@ -8,7 +9,12 @@ import BuiltForEvolving from "../../components/sub pages/services sub/Technology
 import SecurityAndResponsibleUse from "../../components/sub pages/services sub/Technology, IT & AI Support/SecurityAndResponsibleUse";
 import CTASection from "../../components/sub pages/services sub/Technology, IT & AI Support/CTASection";
 
-export default function TechnologyITASupportPage() {
+export const metadata: Metadata = {
+  title: 'IT, Software & AI Professionals | Talent Frontier Australia',
+  description: 'Find software developers, IT specialists, data professionals and AI talent for your business with Talent Frontier.',
+};
+
+export default function TechnologyProfessionalsPage() {
   return (
     <main className="min-h-screen bg-white">
       <HeroSection />

@@ -5,22 +5,15 @@ export default function TechnologySupport() {
   return (
     <section className="w-full max-w-7xl mx-auto px-4 py-20 flex flex-col md:flex-row items-center gap-16">
       <div className="w-full md:w-[45%]">
-        <p className="text-[#1150fb] font-bold text-[11px] tracking-wider uppercase mb-4">
-          Technology, IT & AI Support
-        </p>
         <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold mb-6 text-[#091535] leading-tight">
-          Technology Support<br />Designed Around<br />Your Business
+          Find the Technical Talent Behind Your Next Stage of Growth
         </h2>
-        <p className="text-gray-800 mb-10 max-w-sm text-[15px] leading-relaxed">
-          Practical support for smarter, safer and more<br />
-          consistent ways of working.
+        <p className="text-gray-800 mb-4 max-w-sm text-[15px] leading-relaxed">
+          Technology requirements continue to evolve, but finding professionals with the right technical capabilities can be challenging.
         </p>
-        <Link 
-          href="/contact"
-          className="inline-block bg-[#1150fb] hover:bg-blue-700 text-white px-8 py-3 text-sm font-semibold transition-colors w-fit rounded-sm text-center"
-        >
-          Discuss Your Technology Needs
-        </Link>
+        <p className="text-gray-800 mb-10 max-w-sm text-[15px] leading-relaxed">
+          Talent Frontier helps businesses identify technology professionals across software, IT, data, digital systems and AI.
+        </p>
       </div>
       <div className="w-full md:w-[55%] relative aspect-[1441/595] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100">
         <Image

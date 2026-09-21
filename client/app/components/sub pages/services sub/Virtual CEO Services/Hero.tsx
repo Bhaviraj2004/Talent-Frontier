@@ -20,8 +20,8 @@ const Hero = () => {
         <p className="text-blue-400 text-xs md:text-sm font-bold tracking-widest uppercase mb-2 sm:mb-3 drop-shadow">
           TALENT FRONTIER
         </p>
-        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight drop-shadow-md">
-          Virtual CEO <br className="hidden sm:block" /> Services
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] font-bold text-white leading-[1.1] tracking-tight drop-shadow-md">
+          Virtual & Fractional Executives
         </h1>
       </div>
     </section>

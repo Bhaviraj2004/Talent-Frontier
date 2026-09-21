@@ -1,15 +1,6 @@
 import Image from 'next/image';
 
 export default function MoreCapacity() {
-  const points = [
-    { id: '01', text: 'Growing businesses with increasing administrative workloads' },
-    { id: '02', text: 'Teams requiring additional operational support and coordination' },
-    { id: '03', text: 'Businesses seeking clearer finance and reporting processes' },
-    { id: '04', text: 'Organisations upgrading their technology and digital systems' },
-    { id: '05', text: 'Companies strengthening their marketing and brand presence' },
-    { id: '06', text: 'Businesses looking to automate repetitive processes and workflows' }
-  ];
-
   return (
     <section className="relative w-full py-20 md:py-32 flex items-center mb-10">
       {/* Background Image */}
@@ -28,18 +19,28 @@ export default function MoreCapacity() {
       
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row">
-        <div className="w-full md:w-1/2 flex flex-col">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-10 max-w-md">
-            Support for Business <br /> that Need More Capacity
+        <div className="w-full md:w-3/5 flex flex-col">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 max-w-lg">
+            Who Is This For?
           </h2>
           
-          <div className="flex flex-col">
-            {points.map((point, index) => (
-              <div key={index} className="flex items-center py-3 border-b border-blue-900/50 hover:bg-white/5 transition-colors">
-                <span className="text-[#0047FF] font-medium mr-4 w-6">{point.id}</span>
-                <span className="text-gray-300 text-sm">{point.text}</span>
-              </div>
-            ))}
+          <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-12 max-w-xl">
+            This talent solution may suit businesses experiencing growing administrative workloads, expanding teams or a need for dedicated support without adding unnecessary pressure to existing employees.
+          </p>
+
+          <div className="bg-white/10 p-6 md:p-8 rounded-2xl border border-white/20 backdrop-blur-sm max-w-xl">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+              Find the Administrative Professional Your Business Needs
+            </h3>
+            <p className="text-gray-300 text-sm mb-6">
+              Tell us the position, responsibilities and experience you require.
+            </p>
+            <a 
+              href="/contact"
+              className="inline-block bg-[#0047FF] hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-md transition-colors text-sm text-center"
+            >
+              Find Administrative Talent
+            </a>
           </div>
         </div>
       </div>

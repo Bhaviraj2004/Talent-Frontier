@@ -14,17 +14,21 @@ export default function SupportThatGrows() {
     <section className="w-full bg-white py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-8">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
         <div className="w-full md:w-1/2 flex flex-col">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0a192f] leading-tight mb-6 sm:mb-8">
-            Support That Grows <br className="hidden sm:inline" /> With Your Team
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0a192f] leading-tight mb-6">
+            Strengthen Your People Operations
           </h2>
           
-          <div className="flex flex-col space-y-2.5 sm:space-y-3.5">
-            {points.map((point, index) => (
-              <div key={index} className="flex items-start gap-3 p-2 sm:p-2.5 rounded-xl hover:bg-blue-50/50 transition-colors">
-                <span className="text-[#0047FF] text-xs sm:text-sm font-bold shrink-0 w-6 pt-0.5">{point.id}</span>
-                <span className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed flex-1">{point.text}</span>
-              </div>
-            ))}
+          <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md mb-8">
+            Whether you require additional recruitment capacity or ongoing HR administration support, we can help you search for suitable professionals.
+          </p>
+
+          <div>
+            <a 
+              href="/contact"
+              className="inline-block bg-[#0047FF] hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-md transition-colors text-sm text-center shadow-sm"
+            >
+              Find HR & People Talent
+            </a>
           </div>
         </div>
         

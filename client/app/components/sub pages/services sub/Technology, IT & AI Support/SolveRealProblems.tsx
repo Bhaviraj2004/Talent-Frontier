@@ -13,12 +13,23 @@ export default function SolveRealProblems() {
       </div>
       <div className="w-full md:w-[55%]">
         <h2 className="text-3xl md:text-[34px] font-bold mb-6 text-[#091535] leading-tight max-w-md">
-          Technology Should Solve<br />Real Business Problems
+          Professionals We Can Help You Find
         </h2>
-        <p className="text-gray-800 text-[15px] leading-relaxed max-w-md">
-          We start by understanding your processes, systems and people.
-          Then we design practical solutions aligned to your objectives.
-        </p>
+        <ul className="text-gray-800 text-[15px] leading-relaxed max-w-md list-disc pl-5 space-y-2">
+          <li>Software Developers</li>
+          <li>Front-End Developers</li>
+          <li>Back-End Developers</li>
+          <li>Full-Stack Developers</li>
+          <li>Web Developers</li>
+          <li>Mobile App Developers</li>
+          <li>IT Support Specialists</li>
+          <li>QA & Testing Professionals</li>
+          <li>Data Analysts</li>
+          <li>Data Professionals</li>
+          <li>AI Specialists</li>
+          <li>Technical Support Professionals</li>
+          <li>Cloud & Systems Professionals</li>
+        </ul>
       </div>
     </section>
   );

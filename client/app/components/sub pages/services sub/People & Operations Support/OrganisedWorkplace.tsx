@@ -14,14 +14,19 @@ export default function OrganisedWorkplace() {
         </div>
         <div className="w-full md:w-7/12 flex flex-col items-start space-y-4 md:pl-8">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0a192f] leading-tight mb-2">
-            Supporting a More <br /> Organised Workplace
+            Professionals We Can <br /> Help You Find
           </h2>
-          <p className="text-gray-500 text-xs md:text-sm leading-relaxed max-w-lg">
-            Growing teams create more responsibilities across communication, document management and data coordination. Our support helps organise these agreed activities, maintain accurate records and keep your operations running smoothly. Management decisions remain with authorised leaders.
-          </p>
-          <p className="text-[#0047FF] font-bold text-sm md:text-base max-w-sm mt-4">
-            Clear coordination helps people, <br /> managers and operations stay aligned.
-          </p>
+          <ul className="text-gray-500 text-xs md:text-sm leading-relaxed max-w-lg space-y-2 list-disc pl-5">
+            <li>HR Coordinators</li>
+            <li>HR Administrators</li>
+            <li>HR Assistants</li>
+            <li>Recruiters</li>
+            <li>Talent Acquisition Specialists</li>
+            <li>Recruitment Coordinators</li>
+            <li>People & Culture Coordinators</li>
+            <li>HR Operations Professionals</li>
+            <li>Onboarding Coordinators</li>
+          </ul>
         </div>
       </div>
     </section>

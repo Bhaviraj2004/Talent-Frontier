@@ -3,12 +3,12 @@ import { Users, Briefcase, FileText, MonitorSmartphone, PenTool, GitMerge } from
 
 export default function AboutWhatWeDo() {
   const services = [
-    { title: "Business\nSupport\nServices", icon: Briefcase, link: "/services/business-support" },
-    { title: "People &\nOperations\nSupport", icon: Users, link: "/services/people-operations" },
-    { title: "Finance &\nAccounting\nSupport", icon: FileText, link: "/services/finance-accounting" },
-    { title: "Technology,\nIT & AI\nSupport", icon: MonitorSmartphone, link: "/services/technology" },
-    { title: "Brand, Marketing\n& Creative Support", icon: PenTool, link: "/services/brand-marketing" },
-    { title: "Process &\nAutomation\nSupport", icon: GitMerge, link: "/services/process-automation" },
+    { title: "Business\nSupport\nServices", icon: Briefcase, link: "/talent-solutions/virtual-assistants-administration" },
+    { title: "People &\nOperations\nSupport", icon: Users, link: "/talent-solutions/people-operations" },
+    { title: "Finance &\nAccounting\nSupport", icon: FileText, link: "/talent-solutions/finance-accounting" },
+    { title: "Technology,\nIT & AI\nSupport", icon: MonitorSmartphone, link: "/talent-solutions/technology" },
+    { title: "Brand, Marketing\n& Creative Support", icon: PenTool, link: "/talent-solutions/brand-marketing" },
+    { title: "Process &\nAutomation\nSupport", icon: GitMerge, link: "/talent-solutions/process-automation" },
   ];
 
   return (

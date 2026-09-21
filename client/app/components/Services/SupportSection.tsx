@@ -8,11 +8,19 @@ export default function SupportSection() {
         {/* Text Content */}
         <div className="w-full lg:w-[45%] flex flex-col">
           <h2 className="text-[32px] md:text-[38px] lg:text-[42px] font-bold text-[#1e293b] mb-6 leading-[1.2] tracking-tight">
-            Support Across<br/>Your Business
+            Professionals for Every<br/>Part of Your Business
           </h2>
-          <p className="text-gray-600 text-[15px] md:text-base leading-relaxed font-medium">
-            Growing businesses often need reliable support across multiple functions. Our team helps simplify essential business activities through structured processes, clear communication and flexible service delivery.
-          </p>
+          <div className="flex flex-col gap-4 text-gray-600 text-[15px] md:text-base leading-relaxed font-medium">
+            <p>
+              Every business has different talent requirements.
+            </p>
+            <p>
+              You may need a Bookkeeper to strengthen day-to-day finance operations, a Virtual Assistant to support your team, a Software Developer for a growing technology function, or an experienced executive to provide strategic leadership.
+            </p>
+            <p>
+              Talent Frontier helps you find professionals across a broad range of business functions.
+            </p>
+          </div>
         </div>
 
         {/* Image Content */}

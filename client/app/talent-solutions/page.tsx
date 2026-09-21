@@ -1,7 +1,6 @@
 import ServicesHero from "../components/Services/ServicesHero";
 import SupportSection from "../components/Services/SupportSection";
 import ServicesGrid from "../components/Services/ServicesGrid";
-import HowWeWork from "../components/Services/HowWeWork";
 import WhyWorkWithUs from "../components/Services/WhyWorkWithUs";
 import ServicesCTA from "../components/Services/ServicesCTA";
 
@@ -12,7 +11,6 @@ export default function ServicesPage() {
         <ServicesHero />
         <SupportSection />
         <ServicesGrid />
-        <HowWeWork />
         <WhyWorkWithUs />
         <ServicesCTA />
       </main>

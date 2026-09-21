@@ -45,7 +45,7 @@ export default function PracticalSupportSection() {
                 Discuss Your Business Needs
               </Link>
               <Link
-                href="/services"
+                href="/talent-solutions"
                 className="bg-white hover:bg-gray-50 text-[#1d4ed8] border border-transparent px-6 py-3.5 rounded-md font-semibold text-[13px] sm:text-[14px] transition-colors shadow text-center"
               >
                 Explore Our Services

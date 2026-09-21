@@ -66,17 +66,17 @@ export default function Footer() {
             </ul>
           </div>
           
-          {/* Services */}
+          {/* Talent Solutions */}
           <div>
-            <h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-5">Services</h3>
+            <h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-5">Talent Solutions</h3>
             <ul className="flex flex-col gap-2 sm:gap-2.5">
-              <li><Link href="/services/business-support" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Business Support Services</Link></li>
-              <li><Link href="/services/people-operations" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">People & Operations Support</Link></li>
-              <li><Link href="/services/finance-accounting" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Finance & Accounting Support</Link></li>
-              <li><Link href="/services/technology" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Technology, IT & AI Support</Link></li>
-              <li><Link href="/services/brand-marketing" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm leading-tight inline-block">Brand, Marketing & Creative Support</Link></li>
-              <li><Link href="/services/process-automation" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Process & Automation Support</Link></li>
-              <li><Link href="/services/virtual-services" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Virtual CEO Services</Link></li>
+              <li><Link href="/talent-solutions/virtual-assistants-administration" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Virtual Assistants & Administration</Link></li>
+              <li><Link href="/talent-solutions/hr-people-professionals" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">HR & People Professionals</Link></li>
+              <li><Link href="/talent-solutions/accountants-bookkeepers" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Accountants & Bookkeepers</Link></li>
+              <li><Link href="/talent-solutions/technology-professionals" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">IT, Software & AI Professionals</Link></li>
+              <li><Link href="/talent-solutions/marketing-creative-professionals" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm leading-tight inline-block">Marketing & Creative Professionals Support</Link></li>
+              <li><Link href="/talent-solutions/automation-systems-professionals" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Automation & Systems Professionals</Link></li>
+              <li><Link href="/talent-solutions/virtual-fractional-executives" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Virtual & Fractional Executives</Link></li>
             </ul>
           </div>
           

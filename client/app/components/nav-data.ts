@@ -66,70 +66,69 @@ export const navData = [
     }
   },
   {
-    title: "Services",
-    href: "/services",
+    title: "Talent Solutions",
+    href: "/talent-solutions",
     categoryTitle: "Business Support & Professional Services Portfolio",
     exploreLinks: [
       { label: "About Talent Frontier", href: "/about" },
-      // { label: "Industries We Serve", href: "/industries" }
     ],
     items: [
       {
-        title: "Business Support Services",
+        title: "Virtual Assistants & Administration",
         subtitle: "RELIABLE SUPPORT",
         description: "Practical administration tailored to keep operations smooth.",
         icon: Building2,
-        href: "/services/business-support"
+        href: "/talent-solutions/virtual-assistants-administration"
       },
       {
-        title: "People & Operations Support",
+        title: "HR & People Professionals",
         subtitle: "PRACTICAL SUPPORT",
         description: "Dedicated operational assistance for HR and talent pipelines.",
         icon: Users,
-        href: "/services/people-operations"
+        href: "/talent-solutions/hr-people-professionals"
       },
       {
-        title: "Finance & Accounting Support",
+        title: "Accountants & Bookkeepers",
         subtitle: "STRUCTURED SUPPORT",
         description: "Structured support for finance processes and bookkeeping.",
         icon: Briefcase,
-        href: "/services/finance-accounting"
+        href: "/talent-solutions/accountants-bookkeepers"
       },
       {
-        title: "Technology, IT & AI Support",
+        title: "IT, Software & AI Professionals",
         subtitle: "TECH FOR GROWTH",
         description: "Reliable tech support for modern digital systems and AI.",
         icon: Monitor,
-        href: "/services/technology"
+        href: "/talent-solutions/technology-professionals"
       },
       {
-        title: "Brand, Marketing & Creative",
+        title: "Marketing & Creative Professionals",
         subtitle: "STRENGTHENS BRAND",
         description: "Creative support that strengthens your brand identity.",
         icon: Megaphone,
-        href: "/services/brand-marketing"
+        href: "/talent-solutions/marketing-creative-professionals"
       },
       {
-        title: "Process & Automation Support",
+        title: "Automation & Systems Professionals",
         subtitle: "SMARTER WORKFLOWS",
         description: "Smarter processes and practical workflow optimization.",
         icon: Zap,
-        href: "/services/process-automation"
+        href: "/talent-solutions/automation-systems-professionals"
       },
       {
-        title: "Virtual CEO Services",
+        title: "Virtual & Fractional Executives",
         subtitle: "STRATEGIC LEADERSHIP",
         description: "Senior-level business guidance without a full-time executive.",
         icon: Target,
-        href: "/services/virtual-services"
+        href: "/talent-solutions/virtual-fractional-executives"
       }
     ],
     bottomBar: {
       text: "Looking for tailored dedicated teams? We build support models around your exact operational workflows.",
       linkText: "Speak to a Specialist",
       linkHref: "/contact",
-      buttonText: "Explore All Services",
-      buttonHref: "/services"
+      buttonText: "Explore All Solutions",
+      buttonHref: "/talent-solutions"
     }
   },
   // {
@@ -137,7 +136,7 @@ export const navData = [
   //   href: "/industries",
   //   categoryTitle: "Industries We Serve",
   //   exploreLinks: [
-  //     { label: "Our Services", href: "/services" }
+  //     { label: "Our Services", href: "/talent-solutions" }
   //   ],
   //   items: [
   //     {

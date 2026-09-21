@@ -9,18 +9,18 @@ export default function ServicesCTA() {
           
           {/* Left Content */}
           <div className="w-full md:w-[50%] p-8 sm:p-10 md:p-14 lg:p-16 flex flex-col justify-center">
-            <h2 className="text-[26px] sm:text-[28px] md:text-[32px] font-bold text-white mb-4 md:mb-5 tracking-tight">
-              Not Sure What You Need?
+            <h2 className="text-[26px] sm:text-[28px] md:text-[32px] font-bold text-white mb-4 md:mb-5 tracking-tight leading-tight">
+              Need a Position Not Listed Here?
             </h2>
-            <p className="text-[#93c5fd] text-[14px] leading-relaxed mb-8 md:mb-10 max-w-[420px] font-medium">
-              Tell us about your current challenges and our team will help identify the right support approach for your business.
+            <p className="text-[#93c5fd] text-[14px] leading-relaxed mb-8 md:mb-10 max-w-[440px] font-medium">
+              Your talent requirements may extend beyond the positions shown above. Tell us about the role, experience and capabilities you need, and our team can discuss how Talent Frontier may assist.
             </p>
             <div>
               <Link 
                 href="/contact"
                 className="inline-block bg-[#1d4ed8] hover:bg-blue-600 text-white px-8 py-3.5 rounded-md font-bold text-sm transition-colors shadow-lg shadow-blue-500/20 text-center w-full sm:w-auto"
               >
-                Talk to Our Team
+                Discuss Your Hiring Requirement
               </Link>
             </div>
           </div>
