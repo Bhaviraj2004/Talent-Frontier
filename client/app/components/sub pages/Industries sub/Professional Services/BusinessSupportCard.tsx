@@ -29,7 +29,7 @@ export default function BusinessSupportCard() {
                 Discuss Your Business Needs
               </Link>
               <Link
-                href="/talent-solutions"
+                href="/our-services"
                 className="bg-transparent hover:bg-white/10 border border-white/30 text-white px-6 py-3 rounded-md font-semibold text-[13px] transition-colors text-center"
               >
                 Explore Our Services

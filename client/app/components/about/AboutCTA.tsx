@@ -15,7 +15,7 @@ export default function AboutCTA() {
             Start a Conversation
           </Link>
           <Link 
-            href="/talent-solutions"
+            href="/our-services"
             className="bg-[#1c55d4] hover:bg-blue-700 text-white px-8 py-3.5 rounded-md font-semibold text-sm transition-colors w-full sm:w-auto text-center shadow-md"
           >
             Explore Our Services

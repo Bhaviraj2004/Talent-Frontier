@@ -8,7 +8,7 @@ const servicesData = [
     description: "Build reliable administrative support around your business with professionals who can assist with day-to-day coordination, communication and operational tasks.",
     positions: ["Virtual Assistants", "Executive Assistants", "Administrative Assistants", "Data Entry Specialists", "Customer Support Professionals", "Office Support Professionals"],
     image: "/Services page/Rectangle 6.png",
-    link: "/talent-solutions/virtual-assistants-administration",
+    link: "/our-services/virtual-assistants-administration",
     cta: "Explore Administrative Talent"
   },
   {
@@ -17,7 +17,7 @@ const servicesData = [
     description: "Build a stronger people function with professionals experienced in recruitment, HR administration, employee coordination and talent management.",
     positions: ["HR Coordinators", "HR Administrators", "Recruiters", "Talent Acquisition Specialists", "People & Culture Coordinators", "HR Assistants"],
     image: "/Services page/Rectangle 7.png",
-    link: "/talent-solutions/hr-people-professionals",
+    link: "/our-services/hr-people-professionals",
     cta: "Explore HR Talent"
   },
   {
@@ -26,7 +26,7 @@ const servicesData = [
     description: "Strengthen your finance function with professionals who can support accounting, bookkeeping, payroll, accounts and financial operations.",
     positions: ["Accountants", "Bookkeepers", "Assistant Accountants", "Accounts Payable Officers", "Accounts Receivable Officers", "Payroll Officers", "Finance Assistants", "Management Accountants"],
     image: "/Services page/Rectangle 8.png",
-    link: "/talent-solutions/accountants-bookkeepers",
+    link: "/our-services/accountants-bookkeepers",
     cta: "Explore Finance Talent"
   },
   {
@@ -35,7 +35,7 @@ const servicesData = [
     description: "Access technical professionals who can support software development, IT operations, digital platforms, data and emerging AI requirements.",
     positions: ["Software Developers", "Web Developers", "Full-Stack Developers", "IT Support Specialists", "QA Professionals", "Data Professionals", "AI & Automation Specialists", "Technical Support Professionals"],
     image: "/Services page/Rectangle 12.png",
-    link: "/talent-solutions/technology-professionals",
+    link: "/our-services/technology-professionals",
     cta: "Explore Technology Talent"
   },
   {
@@ -44,7 +44,7 @@ const servicesData = [
     description: "Expand your marketing capability with professionals across digital marketing, content, social media, search and creative design.",
     positions: ["Digital Marketing Specialists", "Social Media Specialists", "SEO Specialists", "Content Writers", "Graphic Designers", "Performance Marketing Specialists", "Marketing Coordinators", "Video Editors"],
     image: "/Services page/Rectangle 13.png",
-    link: "/talent-solutions/marketing-creative-professionals",
+    link: "/our-services/marketing-creative-professionals",
     cta: "Explore Marketing Talent"
   },
   {
@@ -53,7 +53,7 @@ const servicesData = [
     description: "Find professionals who can help improve workflows, connect business systems and reduce repetitive manual processes.",
     positions: ["Automation Specialists", "CRM Specialists", "Business Systems Specialists", "Workflow Automation Professionals", "Integration Specialists", "No-Code/Low-Code Developers", "Process Improvement Professionals"],
     image: "/Services page/Rectangle 14.png",
-    link: "/talent-solutions/automation-systems-professionals",
+    link: "/our-services/automation-systems-professionals",
     cta: "Explore Automation Talent"
   },
   {
@@ -62,7 +62,7 @@ const servicesData = [
     description: "Access experienced professionals who can provide leadership, strategic direction and operational oversight based on your business requirements.",
     positions: ["Virtual CEOs", "Fractional CEOs", "Fractional COOs", "Operations Leaders", "Business Strategy Professionals", "Executive Advisors"],
     image: "/Services page/Rectangle 6.png",
-    link: "/talent-solutions/virtual-fractional-executives",
+    link: "/our-services/virtual-fractional-executives",
     cta: "Explore Executive Talent"
   }
 ];

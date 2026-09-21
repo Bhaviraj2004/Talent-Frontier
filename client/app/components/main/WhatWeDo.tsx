@@ -53,7 +53,7 @@ export default function WhatWeDo() {
               End-to-end solutions designed to streamline operations and accelerate sustainable growth.
             </p>
           </div>
-          <Link href="/talent-solutions" className="hidden md:flex items-center text-blue-600 font-bold text-sm hover:text-blue-800 transition-colors gap-1">
+          <Link href="/our-services" className="hidden md:flex items-center text-blue-600 font-bold text-sm hover:text-blue-800 transition-colors gap-1">
             View All Services <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -81,7 +81,7 @@ export default function WhatWeDo() {
         </div>
         
         <div className="mt-8 md:hidden">
-          <Link href="/talent-solutions" className="flex items-center justify-center text-blue-600 font-bold text-sm hover:text-blue-800 transition-colors gap-1">
+          <Link href="/our-services" className="flex items-center justify-center text-blue-600 font-bold text-sm hover:text-blue-800 transition-colors gap-1">
             View All Services <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

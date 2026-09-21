@@ -66,8 +66,8 @@ export const navData = [
     }
   },
   {
-    title: "Talent Solutions",
-    href: "/talent-solutions",
+    title: "Our Services",
+    href: "/our-services",
     categoryTitle: "Business Support & Professional Services Portfolio",
     exploreLinks: [
       { label: "About Talent Frontier", href: "/about" },
@@ -78,49 +78,49 @@ export const navData = [
         subtitle: "RELIABLE SUPPORT",
         description: "Practical administration tailored to keep operations smooth.",
         icon: Building2,
-        href: "/talent-solutions/virtual-assistants-administration"
+        href: "/our-services/virtual-assistants-administration"
       },
       {
         title: "HR & People Professionals",
         subtitle: "PRACTICAL SUPPORT",
         description: "Dedicated operational assistance for HR and talent pipelines.",
         icon: Users,
-        href: "/talent-solutions/hr-people-professionals"
+        href: "/our-services/hr-people-professionals"
       },
       {
         title: "Accountants & Bookkeepers",
         subtitle: "STRUCTURED SUPPORT",
         description: "Structured support for finance processes and bookkeeping.",
         icon: Briefcase,
-        href: "/talent-solutions/accountants-bookkeepers"
+        href: "/our-services/accountants-bookkeepers"
       },
       {
         title: "IT, Software & AI Professionals",
         subtitle: "TECH FOR GROWTH",
         description: "Reliable tech support for modern digital systems and AI.",
         icon: Monitor,
-        href: "/talent-solutions/technology-professionals"
+        href: "/our-services/technology-professionals"
       },
       {
         title: "Marketing & Creative Professionals",
         subtitle: "STRENGTHENS BRAND",
         description: "Creative support that strengthens your brand identity.",
         icon: Megaphone,
-        href: "/talent-solutions/marketing-creative-professionals"
+        href: "/our-services/marketing-creative-professionals"
       },
       {
         title: "Automation & Systems Professionals",
         subtitle: "SMARTER WORKFLOWS",
         description: "Smarter processes and practical workflow optimization.",
         icon: Zap,
-        href: "/talent-solutions/automation-systems-professionals"
+        href: "/our-services/automation-systems-professionals"
       },
       {
         title: "Virtual & Fractional Executives",
         subtitle: "STRATEGIC LEADERSHIP",
         description: "Senior-level business guidance without a full-time executive.",
         icon: Target,
-        href: "/talent-solutions/virtual-fractional-executives"
+        href: "/our-services/virtual-fractional-executives"
       }
     ],
     bottomBar: {
@@ -128,7 +128,7 @@ export const navData = [
       linkText: "Speak to a Specialist",
       linkHref: "/contact",
       buttonText: "Explore All Solutions",
-      buttonHref: "/talent-solutions"
+      buttonHref: "/our-services"
     }
   },
   // {
@@ -136,7 +136,7 @@ export const navData = [
   //   href: "/industries",
   //   categoryTitle: "Industries We Serve",
   //   exploreLinks: [
-  //     { label: "Our Services", href: "/talent-solutions" }
+  //     { label: "Our Services", href: "/our-services" }
   //   ],
   //   items: [
   //     {

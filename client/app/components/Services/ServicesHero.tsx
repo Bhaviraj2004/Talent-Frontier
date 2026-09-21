@@ -44,7 +44,7 @@ Talent Frontier helps Australian businesses identify, screen and connect with pr
               Find the Right Talent
             </Link>
             <Link 
-              href="/talent-solutions"
+              href="/our-services"
               className="bg-white hover:bg-gray-100 active:scale-[0.98] text-[#2563eb] px-8 py-3.5 rounded-md font-semibold text-sm transition-all duration-300 text-center shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto"
             >
               Talk to Our Team
