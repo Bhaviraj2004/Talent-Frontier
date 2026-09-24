@@ -9,8 +9,28 @@ export default function Footer() {
       {/* Left Column (Light) */}
       <div className="w-full lg:w-[30%] xl:w-[25%] bg-white p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
         <div>
-          <Link href="/" className="block mb-4 sm:mb-6">
+          <Link href="/" className="inline-flex relative mb-4 sm:mb-6 w-fit group">
             <img src="/logo.png" alt="Talent Frontier Logo" className="h-14 sm:h-18 md:h-20 lg:h-24 w-auto object-contain" />
+            <svg viewBox="0 0 7680 2047" className="absolute inset-0 w-full h-full pointer-events-none">
+              <defs>
+                <linearGradient id="footerTaglineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#3b85c6" />
+                  <stop offset="100%" stopColor="#071c3d" />
+                </linearGradient>
+              </defs>
+              <text 
+                x="4900" 
+                y="1830" 
+                textAnchor="middle"
+                fill="url(#footerTaglineGradient)" 
+                fontFamily="sans-serif" 
+                fontSize="340"
+                fontWeight="500"
+                fontStyle="italic"
+              >
+                <tspan>Talent Beyond </tspan><tspan fontWeight="700">Borders.</tspan>
+              </text>
+            </svg>
           </Link>
           
           <div className="w-12 h-0.5 bg-[#0f172a] mb-4 sm:mb-6"></div>

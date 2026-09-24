@@ -103,12 +103,32 @@ export default function Header() {
       }`}>
       <div className="flex items-center justify-between px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto w-full font-sans py-3 md:py-4">
         {/* Logo */}
-        <Link href="/" className="group flex items-center z-10 shrink-0 relative transition-transform duration-300 hover:scale-[1.03]" onClick={() => setMobileMenuOpen(false)}>
+        <Link href="/" className="group flex items-center z-10 shrink-0 relative w-fit transition-transform duration-300 hover:scale-[1.03]" onClick={() => setMobileMenuOpen(false)}>
           <img 
             src="/logo.png" 
             alt="Talent Frontier" 
             className="h-28 sm:h-24 md:h-[88px] lg:h-[96px] w-auto object-contain transition-all duration-300" 
           />
+          <svg viewBox="0 0 7680 2047" className="absolute inset-0 w-full h-full pointer-events-none">
+            <defs>
+              <linearGradient id="headerTaglineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#3b85c6" />
+                <stop offset="100%" stopColor="#071c3d" />
+              </linearGradient>
+            </defs>
+            <text 
+              x="4900" 
+              y="1830" 
+              textAnchor="middle"
+              fill="url(#headerTaglineGradient)" 
+              fontFamily="sans-serif" 
+              fontSize="340"
+              fontWeight="500"
+              fontStyle="italic"
+            >
+              <tspan>Talent Beyond </tspan><tspan fontWeight="700">Borders.</tspan>
+            </text>
+          </svg>
         </Link>
         
         {/* Desktop Navigation */}
@@ -152,12 +172,13 @@ export default function Header() {
           >
             Insight
           </Link> */}
-          {/* <Link 
-            href="/contact" 
-            className={`${pathname === '/contact' ? 'text-[#2563eb]' : 'text-[#1e293b]'} hover:text-[#2563eb] transition-colors`}
+          
+          <Link 
+            href="/how-we-work" 
+            className={`${pathname === '/how-we-work' ? 'text-[#2563eb]' : 'text-[#1e293b]'} hover:text-[#2563eb] transition-colors`}
           >
-            Contact Us
-          </Link> */}
+            How We Work
+          </Link>
         </nav>
 
         {/* Desktop CTA */}
@@ -321,27 +342,16 @@ export default function Header() {
               );
             })}
 
-            {/* Insight
+            {/* How We Work - Core Page */}
             <Link
-              href="/insight"
+              href="/how-we-work"
               onClick={() => setMobileMenuOpen(false)}
               className={`py-3 px-3 rounded-lg text-[15px] font-bold transition-colors ${
-                pathname.startsWith('/insight') ? 'text-[#2563eb] bg-blue-50/70' : 'text-[#1e293b] hover:bg-gray-50'
+                pathname === '/how-we-work' ? 'text-[#2563eb] bg-blue-50/70' : 'text-[#1e293b] hover:bg-gray-50'
               }`}
             >
-              Insight
-            </Link> */}
-
-            {/* Contact Us
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`py-3 px-3 rounded-lg text-[15px] font-bold transition-colors ${
-                pathname === '/contact' ? 'text-[#2563eb] bg-blue-50/70' : 'text-[#1e293b] hover:bg-gray-50'
-              }`}
-            >
-              Contact Us
-            </Link> */}
+              How We Work
+            </Link>
 
             {/* Mobile CTA */}
             <div className="pt-4 mt-2">

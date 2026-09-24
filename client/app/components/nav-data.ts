@@ -23,21 +23,11 @@ export const navData = [
     exploreLinks: [
       { label: "Our Story", href: "/about/story" },
       { label: "Our Approach", href: "/about/our-approach" }
-      // { label: "Meet the Team", href: "/about/leadership" }
     ],
     items: [
-      /*
-      {
-        title: "Leadership",
-        subtitle: "GUIDING OUR VISION",
-        description: "Meet the experienced professionals guiding our strategy and growth.",
-        icon: Users,
-        href: "/about/leadership"
-      },
-      */
       {
         title: "Our Approach",
-        subtitle: "HOW WE WORK",
+        subtitle: "HOW WE DELIVER",
         description: "Discover our methodology for delivering reliable support.",
         icon: Target,
         href: "/about/our-approach"
