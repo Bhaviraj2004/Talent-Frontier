@@ -3,7 +3,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { Plus, Search, RefreshCw, Filter } from 'lucide-react';
+import { 
+  Plus, Search, RefreshCw, Filter, Users, 
+  Target, UserCheck, TrendingUp
+} from 'lucide-react';
 import { Lead, PIPELINE_STAGES } from './components/types';
 import { CustomSelect } from './components/CustomSelect';
 import { LeadsTable } from './components/LeadsTable';
@@ -20,96 +23,59 @@ export default function LeadsDashboard() {
   const [statusFilter, setStatusFilter] = useState('ALL');
   const [sourceFilter, setSourceFilter] = useState('ALL');
   
-  // Modal state
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [formLoading, setFormLoading] = useState(false);
-  
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
-  
   const [leadToDelete, setLeadToDelete] = useState<Lead | null>(null);
 
   const fetchLeads = async () => {
     try {
       setLoading(true);
       const token = Cookies.get('admin_token');
-      const res = await axios.get(`${API_URL}/api/leads`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      const res = await axios.get(`${API_URL}/api/leads`, { headers: { Authorization: `Bearer ${token}` } });
       setLeads(res.data.leads || []);
-    } catch (error) {
-      console.error('Error fetching leads:', error);
-    } finally {
-      setLoading(false);
-    }
+    } catch (error) { console.error('Error fetching leads:', error); }
+    finally { setLoading(false); }
   };
 
-  useEffect(() => {
-    fetchLeads();
-  }, []);
+  useEffect(() => { fetchLeads(); }, []);
 
   const handleStatusChange = async (id: string, newStatus: string) => {
     try {
       const token = Cookies.get('admin_token');
-      await axios.put(`${API_URL}/api/leads/${id}/status`, { status: newStatus }, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      await axios.put(`${API_URL}/api/leads/${id}/status`, { status: newStatus }, { headers: { Authorization: `Bearer ${token}` } });
       fetchLeads();
-      if (selectedLead && selectedLead.id === id) {
-        setSelectedLead({ ...selectedLead, status: newStatus });
-      }
-    } catch (error) {
-      console.error('Error updating status:', error);
-      alert('Failed to update status');
-    }
+      if (selectedLead && selectedLead.id === id) setSelectedLead({ ...selectedLead, status: newStatus });
+    } catch (error) { console.error('Error updating status:', error); }
   };
 
   const handleUpdateLead = async (id: string, data: any) => {
     try {
       const token = Cookies.get('admin_token');
-      await axios.put(`${API_URL}/api/leads/${id}`, data, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      await axios.put(`${API_URL}/api/leads/${id}`, data, { headers: { Authorization: `Bearer ${token}` } });
       fetchLeads();
-      if (selectedLead && selectedLead.id === id) {
-        setSelectedLead({ ...selectedLead, ...data });
-      }
-    } catch (error) {
-      console.error('Error updating lead:', error);
-      alert('Failed to update lead');
-    }
+      if (selectedLead && selectedLead.id === id) setSelectedLead({ ...selectedLead, ...data });
+    } catch (error) { console.error('Error updating lead:', error); }
   };
 
   const handleDeleteConfirm = async () => {
     if (!leadToDelete) return;
     try {
       const token = Cookies.get('admin_token');
-      await axios.delete(`${API_URL}/api/leads/${leadToDelete.id}`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      setLeadToDelete(null);
-      fetchLeads();
-    } catch (error) {
-      console.error('Error deleting lead:', error);
-      alert('Failed to delete lead');
-    }
+      await axios.delete(`${API_URL}/api/leads/${leadToDelete.id}`, { headers: { Authorization: `Bearer ${token}` } });
+      setLeadToDelete(null); fetchLeads();
+    } catch (error) { console.error('Error deleting lead:', error); }
   };
 
   const handleAddSubmit = async (formData: any) => {
     try {
       setFormLoading(true);
       const token = Cookies.get('admin_token');
-      await axios.post(`${API_URL}/api/leads/manual`, formData, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      setIsAddModalOpen(false);
-      fetchLeads();
-    } catch (error) {
-      console.error('Error adding lead:', error);
-      alert('Failed to add lead');
-    } finally {
-      setFormLoading(false);
-    }
+      await axios.post(`${API_URL}/api/leads/manual`, formData, { headers: { Authorization: `Bearer ${token}` } });
+      setIsAddModalOpen(false); fetchLeads();
+    } catch (error) { console.error('Error adding lead:', error); }
+    finally { setFormLoading(false); }
   };
 
   const filteredLeads = leads.filter(lead => {
@@ -120,35 +86,80 @@ export default function LeadsDashboard() {
     return matchesSearch && matchesStatus && matchesSource;
   });
 
+  const totalLeads = leads.length;
+  const activeLeads = leads.filter(l => l.status !== 'Welcome Email').length;
+  const convertedLeads = leads.filter(l => l.status === 'Welcome Email').length;
+  const conversionRate = totalLeads > 0 ? Math.round((convertedLeads / totalLeads) * 100) : 0;
+
+  const miniStats = [
+    { label: 'Total', value: totalLeads, icon: Users },
+    { label: 'Active', value: activeLeads, icon: Target },
+    { label: 'Converted', value: convertedLeads, icon: UserCheck },
+    { label: 'Rate', value: `${conversionRate}%`, icon: TrendingUp },
+  ];
+
   return (
-    <div className="space-y-6">
-      {/* Header Actions */}
-      <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-4 bg-white p-5 rounded-[20px] shadow-sm border border-slate-100">
-        <div className="flex flex-col sm:flex-row items-center gap-3 w-full xl:w-auto">
-          <div className="relative w-full sm:w-64">
-            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-              <Search className="h-[16px] w-[16px] text-slate-400" />
+    <div className="space-y-4 sm:space-y-5 pb-10">
+
+      {/* KPI Ribbon */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+        {miniStats.map((s) => (
+          <div key={s.label} className="bg-white rounded-xl sm:rounded-2xl border border-neutral-200/60 px-3.5 sm:px-5 py-3 sm:py-4 flex items-center gap-3 sm:gap-4 group hover:border-neutral-300 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-neutral-50 border border-neutral-100 flex items-center justify-center group-hover:bg-neutral-900 group-hover:border-neutral-900 transition-all duration-300 shrink-0">
+              <s.icon className="w-4 h-4 sm:w-[18px] sm:h-[18px] text-neutral-900 group-hover:text-white transition-colors duration-300" strokeWidth={1.8} />
             </div>
-            <input
-              type="text"
-              placeholder="Search leads..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#005B82]/20 focus:border-[#005B82] text-[13px] text-slate-900 transition-all outline-none"
-            />
+            <div className="min-w-0">
+              <div className="text-[16px] sm:text-[20px] font-extrabold text-neutral-900 leading-none tracking-tight">
+                {loading ? <div className="w-7 h-4 sm:w-8 sm:h-5 bg-neutral-100 rounded animate-pulse" /> : s.value}
+              </div>
+              <div className="text-[10px] sm:text-[11px] font-semibold text-neutral-400 mt-0.5">{s.label}</div>
+            </div>
           </div>
-          <div className="h-8 w-px bg-slate-200 hidden sm:block mx-1"></div>
-          <div className="flex gap-3 w-full sm:w-auto">
+        ))}
+      </div>
+
+      {/* Toolbar */}
+      <div className="bg-white rounded-xl sm:rounded-2xl border border-neutral-200/60 relative z-30">
+        <div className="px-3.5 sm:px-5 py-3 sm:py-4 space-y-3">
+          {/* Search row */}
+          <div className="flex items-center gap-2">
+            <div className="relative flex-1">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <Search className="h-4 w-4 text-neutral-900" strokeWidth={2.2} />
+              </div>
+              <input
+                type="text"
+                placeholder="Search leads..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-9 pr-3 py-2.5 bg-neutral-50 border border-neutral-200/80 rounded-xl focus:ring-2 focus:ring-neutral-900/10 focus:border-neutral-400 text-[12px] sm:text-[13px] text-neutral-900 font-medium transition-all outline-none placeholder:text-neutral-400"
+              />
+            </div>
+            <button 
+              onClick={fetchLeads}
+              className="p-2.5 text-neutral-900 hover:bg-neutral-100 rounded-xl transition-all border border-neutral-200/80 shrink-0 active:scale-95"
+              title="Refresh"
+            >
+              <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} strokeWidth={2.2} />
+            </button>
+            <button 
+              onClick={() => setIsAddModalOpen(true)}
+              className="hidden sm:flex items-center bg-neutral-900 hover:bg-neutral-800 text-white text-[12px] font-semibold py-2.5 px-4 rounded-xl transition-all active:scale-[0.98]"
+            >
+              <Plus className="w-4 h-4 mr-1" strokeWidth={2.5} />
+              New Lead
+            </button>
+          </div>
+
+          {/* Filters row */}
+          <div className="flex items-center gap-2">
             <CustomSelect
               value={statusFilter}
               onChange={setStatusFilter}
               icon={Filter}
-              placeholder="Filter by Status"
-              options={[
-                { value: 'ALL', label: 'All Stages' },
-                ...PIPELINE_STAGES
-              ]}
-              widthClass="flex-1 sm:w-44"
+              placeholder="Filter by Stage"
+              options={[{ value: 'ALL', label: 'All Stages' }, ...PIPELINE_STAGES]}
+              widthClass="flex-1"
             />
             <CustomSelect
               value={sourceFilter}
@@ -157,61 +168,51 @@ export default function LeadsDashboard() {
               options={[
                 { value: 'ALL', label: 'All Sources' },
                 { value: 'MANUAL', label: 'Manual' },
-                { value: 'CONTACT_FORM', label: 'Website Form' },
+                { value: 'CONTACT_FORM', label: 'Website' },
                 { value: 'CHATBOT', label: 'Chatbot' }
               ]}
-              widthClass="flex-1 sm:w-36"
+              widthClass="flex-1"
             />
           </div>
-        </div>
-        <div className="flex items-center gap-3 w-full xl:w-auto mt-2 xl:mt-0">
-          <button 
-            onClick={fetchLeads}
-            className="p-2.5 text-slate-400 hover:text-[#005B82] hover:bg-[#eef4f8] rounded-xl transition-colors border border-transparent shrink-0"
-            title="Refresh list"
-          >
-            <RefreshCw className={`w-[18px] h-[18px] ${loading ? 'animate-spin' : ''}`} />
-          </button>
+
+          {/* Mobile Add Button */}
           <button 
             onClick={() => setIsAddModalOpen(true)}
-            className="flex-1 xl:flex-none flex items-center justify-center bg-[#005B82] hover:bg-[#004a69] text-white text-[13px] font-bold py-2.5 px-5 rounded-xl transition-colors shadow-sm"
+            className="sm:hidden w-full flex items-center justify-center bg-neutral-900 hover:bg-neutral-800 text-white text-[13px] font-semibold py-3 rounded-xl transition-all active:scale-[0.98]"
           >
-            <Plus className="w-4 h-4 mr-1.5" />
-            Add Manual Lead
+            <Plus className="w-4 h-4 mr-1.5" strokeWidth={2.5} />
+            New Lead
           </button>
+        </div>
+
+        {/* Results bar */}
+        <div className="px-3.5 sm:px-5 py-2 sm:py-2.5 bg-neutral-50/80 border-t border-neutral-100 flex items-center justify-between rounded-b-xl sm:rounded-b-2xl">
+          <div className="text-[10px] sm:text-[11px] font-medium text-neutral-400">
+            <span className="text-neutral-700 font-bold">{filteredLeads.length}</span> of <span className="text-neutral-700 font-bold">{totalLeads}</span> leads
+          </div>
+          {(statusFilter !== 'ALL' || sourceFilter !== 'ALL' || searchTerm) && (
+            <button 
+              onClick={() => { setStatusFilter('ALL'); setSourceFilter('ALL'); setSearchTerm(''); }}
+              className="text-[10px] sm:text-[11px] font-semibold text-neutral-500 hover:text-neutral-900 transition-colors"
+            >
+              Clear ×
+            </button>
+          )}
         </div>
       </div>
 
+      {/* Table */}
       <LeadsTable 
         leads={filteredLeads}
         loading={loading}
-        onView={(lead) => {
-          setSelectedLead(lead);
-          setIsViewModalOpen(true);
-        }}
+        onView={(lead) => { setSelectedLead(lead); setIsViewModalOpen(true); }}
         onDelete={(lead) => setLeadToDelete(lead)}
       />
 
-      <AddLeadModal 
-        isOpen={isAddModalOpen}
-        onClose={() => setIsAddModalOpen(false)}
-        onAdd={handleAddSubmit}
-        formLoading={formLoading}
-      />
-
-      <ViewLeadModal
-        isOpen={isViewModalOpen}
-        lead={selectedLead}
-        onClose={() => setIsViewModalOpen(false)}
-        onUpdate={handleUpdateLead}
-        onStatusChange={handleStatusChange}
-      />
-
-      <DeleteLeadModal
-        lead={leadToDelete}
-        onClose={() => setLeadToDelete(null)}
-        onConfirm={handleDeleteConfirm}
-      />
+      {/* Modals */}
+      <AddLeadModal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} onAdd={handleAddSubmit} formLoading={formLoading} />
+      <ViewLeadModal isOpen={isViewModalOpen} lead={selectedLead} onClose={() => setIsViewModalOpen(false)} onUpdate={handleUpdateLead} onStatusChange={handleStatusChange} />
+      <DeleteLeadModal lead={leadToDelete} onClose={() => setLeadToDelete(null)} onConfirm={handleDeleteConfirm} />
     </div>
   );
 }

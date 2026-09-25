@@ -1,3 +1,12 @@
+/*
+==========================================================================
+  INSIGHT CONTROLLER - COMMENTED OUT
+  All insight admin CRUD operations have been disabled as per requirement.
+  To re-enable, uncomment the code below.
+==========================================================================
+*/
+
+/*
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
@@ -119,4 +128,15 @@ module.exports = {
   updateInsight,
   deleteInsight,
   toggleInsightFlag
+};
+*/
+
+// Placeholder exports while Insight Admin is disabled
+module.exports = {
+  getInsights: (req, res) => res.status(503).json({ error: 'Insight module is currently disabled' }),
+  getInsightById: (req, res) => res.status(503).json({ error: 'Insight module is currently disabled' }),
+  createInsight: (req, res) => res.status(503).json({ error: 'Insight module is currently disabled' }),
+  updateInsight: (req, res) => res.status(503).json({ error: 'Insight module is currently disabled' }),
+  deleteInsight: (req, res) => res.status(503).json({ error: 'Insight module is currently disabled' }),
+  toggleInsightFlag: (req, res) => res.status(503).json({ error: 'Insight module is currently disabled' }),
 };

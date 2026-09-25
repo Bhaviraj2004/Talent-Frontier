@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Cookies from 'js-cookie';
 import Link from 'next/link';
-import { LayoutDashboard, FileText, LogOut, Shield, Users } from 'lucide-react';
+import { LayoutDashboard, LogOut, Users, Activity, ChevronRight, Menu, X } from 'lucide-react';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [isAuth, setIsAuth] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -20,91 +21,140 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     }
   }, [router]);
 
+  // Close sidebar on route change (mobile)
+  useEffect(() => {
+    setSidebarOpen(false);
+  }, [pathname]);
+
   const handleLogout = () => {
     Cookies.remove('admin_token');
     router.push('/console');
   };
 
   if (!isAuth) {
-    return <div className="min-h-screen bg-[#f4f7f9]" />; // Loading state
+    return <div className="min-h-screen bg-white" />;
   }
 
   const navItems = [
     { name: 'Overview', href: '/console/dashboard', icon: LayoutDashboard },
-    { name: 'Insights', href: '/console/dashboard/insights', icon: FileText },
     { name: 'Leads', href: '/console/dashboard/leads', icon: Users },
   ];
 
   return (
-    <div className="min-h-screen flex bg-gradient-to-br from-[#f4f7f9] via-white to-[#e8eff5] font-sans text-slate-900">
+    <div className="min-h-screen flex bg-[#fafafa] font-sans text-neutral-900">
+      
+      {/* Mobile Overlay */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
-      <aside className="w-[260px] bg-white flex flex-col border-r border-[#eef4f8] shadow-[4px_0_24px_rgb(0,0,0,0.02)] z-20">
-        <div className="p-7 border-b border-[#eef4f8] flex flex-col items-center justify-center text-center">
-          <div className="w-10 h-10 bg-[#eef4f8] text-[#005B82] flex items-center justify-center rounded-lg mb-3 border border-[#d6e5ef]">
-            <Shield className="w-5 h-5" />
+      <aside className={`
+        fixed lg:sticky top-0 left-0 h-screen w-[260px] sm:w-[252px] bg-white flex flex-col border-r border-neutral-200/80 z-50
+        transform transition-transform duration-300 ease-in-out
+        ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+        lg:transform-none
+      `}>
+        
+        {/* Brand */}
+        <div className="px-5 sm:px-7 py-5 sm:py-7 border-b border-neutral-100 flex items-center justify-between">
+          <div className="flex items-center space-x-2.5">
+            <div className="w-5 h-5 sm:w-6 sm:h-6 bg-neutral-900 rounded-md sm:rounded-lg flex items-center justify-center">
+              <Activity className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" strokeWidth={2.5} />
+            </div>
+            <div>
+              <div className="text-[10px] sm:text-[11px] font-extrabold text-neutral-900 tracking-tight leading-none">
+                TALENT FRONTIER
+              </div>
+              <div className="text-[7.5px] sm:text-[8px] font-semibold text-neutral-400 tracking-[0.15em] uppercase mt-0.5">
+                Admin Console
+              </div>
+            </div>
           </div>
-          <div className="font-serif font-bold text-slate-900 tracking-wide text-sm">
-            TALENT FRONTIER
-          </div>
-          <div className="text-[9px] font-bold uppercase tracking-[0.3em] text-slate-400 mt-1">
-            Console
-          </div>
+          {/* Close button - mobile only */}
+          <button 
+            onClick={() => setSidebarOpen(false)} 
+            className="lg:hidden w-8 h-8 flex items-center justify-center text-neutral-400 hover:text-neutral-900 hover:bg-neutral-100 rounded-lg transition-colors"
+          >
+            <X className="w-5 h-5" strokeWidth={2} />
+          </button>
         </div>
 
-        <div className="flex-1 py-8 px-5">
-          <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4 px-3">
-            Menu
+        {/* Navigation */}
+        <div className="flex-1 py-5 sm:py-6 px-3 sm:px-4">
+          <div className="text-[10px] font-bold text-neutral-400 uppercase tracking-[0.12em] mb-3 px-3">
+            Navigation
           </div>
-          <nav className="space-y-1.5">
+          <nav className="space-y-0.5">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`flex items-center space-x-3 px-3.5 py-3 rounded-lg transition-all font-medium text-[13px] ${
+                  className={`flex items-center justify-between px-3 py-3 sm:py-2.5 rounded-xl transition-all duration-200 group ${
                     isActive
-                      ? 'bg-[#eef4f8] text-[#005B82]'
-                      : 'hover:bg-slate-50 hover:text-slate-900 text-slate-500'
+                      ? 'bg-neutral-900 text-white shadow-sm'
+                      : 'text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900'
                   }`}
                 >
-                  <item.icon className={`w-[18px] h-[18px] ${isActive ? 'text-[#005B82]' : 'text-slate-400'}`} />
-                  <span>{item.name}</span>
+                  <div className="flex items-center space-x-3">
+                    <item.icon className={`w-[18px] h-[18px] sm:w-[17px] sm:h-[17px] ${isActive ? 'text-white' : 'text-neutral-900'}`} strokeWidth={2} />
+                    <span className="text-[14px] sm:text-[13px] font-semibold">{item.name}</span>
+                  </div>
+                  {isActive && <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />}
                 </Link>
               );
             })}
           </nav>
         </div>
 
-        <div className="p-5 border-t border-[#eef4f8]">
-          <div className="flex items-center px-3 py-3 mb-3 bg-slate-50 rounded-xl border border-slate-100">
-            <div className="w-8 h-8 rounded-full bg-[#005B82] flex items-center justify-center mr-3 text-white font-bold text-xs">
-              AD
+        {/* Footer / User */}
+        <div className="p-3 sm:p-4 border-t border-neutral-100">
+          <div className="flex items-center px-3 py-2.5 mb-2">
+            <div className="w-8 h-8 rounded-full bg-neutral-900 flex items-center justify-center mr-3 text-white text-[11px] font-bold">
+              A
             </div>
-            <div className="overflow-hidden">
-              <div className="text-xs font-bold text-slate-800 truncate">Administrator</div>
-              <div className="text-[10px] text-slate-500 truncate mt-0.5">admin@talentfrontier.com</div>
+            <div className="overflow-hidden flex-1">
+              <div className="text-[12px] font-bold text-neutral-900 truncate">Administrator</div>
+              <div className="text-[10px] text-neutral-400 truncate">admin@talentfrontier.com</div>
             </div>
           </div>
           <button
             onClick={handleLogout}
-            className="w-full flex items-center justify-center space-x-2 px-3 py-2.5 text-[13px] font-medium text-slate-500 hover:bg-slate-50 hover:text-red-600 rounded-lg transition-colors border border-transparent hover:border-red-100"
+            className="w-full flex items-center justify-center space-x-2 px-3 py-2.5 sm:py-2 text-[13px] sm:text-[12px] font-semibold text-neutral-400 hover:bg-red-50 hover:text-red-600 rounded-xl transition-all duration-200"
           >
-            <LogOut className="w-[16px] h-[16px]" />
-            <span>Secure Sign Out</span>
+            <LogOut className="w-[15px] h-[15px] sm:w-[14px] sm:h-[14px]" strokeWidth={2} />
+            <span>Sign Out</span>
           </button>
         </div>
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col h-screen overflow-hidden relative">
-        <header className="h-[72px] bg-white/80 backdrop-blur-md border-b border-[#eef4f8] flex items-center px-10 z-10 sticky top-0">
-          <h1 className="text-lg font-bold text-slate-800 tracking-tight">
-            {navItems.find(i => i.href === pathname)?.name || 'Dashboard'}
-          </h1>
+      <main className="flex-1 flex flex-col min-h-screen lg:h-screen lg:overflow-hidden relative w-full">
+        <header className="h-[56px] sm:h-[60px] bg-white/90 backdrop-blur-xl border-b border-neutral-200/60 flex items-center justify-between px-4 sm:px-8 z-10 sticky top-0 shrink-0">
+          <div className="flex items-center space-x-3">
+            {/* Hamburger - mobile */}
+            <button 
+              onClick={() => setSidebarOpen(true)}
+              className="lg:hidden w-9 h-9 flex items-center justify-center text-neutral-900 hover:bg-neutral-100 rounded-xl transition-colors -ml-1"
+            >
+              <Menu className="w-5 h-5" strokeWidth={2} />
+            </button>
+            <div className="w-1.5 h-5 bg-neutral-900 rounded-full hidden sm:block"></div>
+            <h1 className="text-[14px] sm:text-[15px] font-bold text-neutral-900 tracking-tight">
+              {navItems.find(i => i.href === pathname)?.name || 'Dashboard'}
+            </h1>
+          </div>
+          <div className="text-[10px] sm:text-[11px] font-medium text-neutral-400 hidden sm:block">
+            {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+          </div>
         </header>
-        <div className="flex-1 overflow-auto p-10 relative">
-          <div className="max-w-[1200px] mx-auto">
+        <div className="flex-1 lg:overflow-auto p-4 sm:p-6 lg:p-8 relative">
+          <div className="max-w-[1140px] mx-auto">
             {children}
           </div>
         </div>

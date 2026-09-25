@@ -1,4 +1,4 @@
-import { Calendar, Mail, Phone, Trash2 } from 'lucide-react';
+import { Calendar, Mail, Phone, Trash2, Eye } from 'lucide-react';
 import { Lead } from './types';
 import { getSourceBadge, getStatusBadge } from './LeadBadges';
 
@@ -11,84 +11,110 @@ interface LeadsTableProps {
 
 export const LeadsTable = ({ leads, loading, onView, onDelete }: LeadsTableProps) => {
   return (
-    <div className="bg-white rounded-[20px] shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-slate-100 overflow-hidden">
-      <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse">
+    <div className="bg-white rounded-xl sm:rounded-2xl border border-neutral-200/60 overflow-hidden">
+      {/* Desktop Table View */}
+      <div className="hidden md:block overflow-x-auto">
+        <table className="w-full text-left border-collapse min-w-[780px]">
           <thead>
-            <tr className="bg-slate-50/80 border-b border-slate-100">
-              <th className="py-4 px-6 text-[11px] font-bold text-slate-400 uppercase tracking-[0.1em] whitespace-nowrap">Lead Info</th>
-              <th className="py-4 px-6 text-[11px] font-bold text-slate-400 uppercase tracking-[0.1em] whitespace-nowrap">Contact</th>
-              <th className="py-4 px-6 text-[11px] font-bold text-slate-400 uppercase tracking-[0.1em] whitespace-nowrap">Source</th>
-              <th className="py-4 px-6 text-[11px] font-bold text-slate-400 uppercase tracking-[0.1em] whitespace-nowrap">Status</th>
-              <th className="py-4 px-6 text-[11px] font-bold text-slate-400 uppercase tracking-[0.1em] whitespace-nowrap text-right">Actions</th>
+            <tr className="border-b border-neutral-200/60">
+              <th className="py-3 px-5 text-[10px] font-extrabold text-neutral-900 uppercase tracking-[0.1em] whitespace-nowrap bg-neutral-50/70">Lead</th>
+              <th className="py-3 px-5 text-[10px] font-extrabold text-neutral-900 uppercase tracking-[0.1em] whitespace-nowrap bg-neutral-50/70">Contact Details</th>
+              <th className="py-3 px-5 text-[10px] font-extrabold text-neutral-900 uppercase tracking-[0.1em] whitespace-nowrap bg-neutral-50/70">Source</th>
+              <th className="py-3 px-5 text-[10px] font-extrabold text-neutral-900 uppercase tracking-[0.1em] whitespace-nowrap bg-neutral-50/70">Stage</th>
+              <th className="py-3 px-5 text-[10px] font-extrabold text-neutral-900 uppercase tracking-[0.1em] whitespace-nowrap bg-neutral-50/70 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100">
+          <tbody>
             {loading ? (
-              <tr>
-                <td colSpan={5} className="py-12 text-center text-slate-400 text-sm font-medium">
-                  Loading leads...
-                </td>
-              </tr>
+              Array.from({ length: 4 }).map((_, i) => (
+                <tr key={i} className="border-b border-neutral-50">
+                  <td className="py-4 px-5">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-9 h-9 bg-neutral-100 rounded-full animate-pulse" />
+                      <div className="space-y-1.5">
+                        <div className="w-24 h-3.5 bg-neutral-100 rounded animate-pulse" />
+                        <div className="w-16 h-2.5 bg-neutral-50 rounded animate-pulse" />
+                      </div>
+                    </div>
+                  </td>
+                  <td className="py-4 px-5"><div className="w-32 h-3 bg-neutral-100 rounded animate-pulse" /></td>
+                  <td className="py-4 px-5"><div className="w-14 h-5 bg-neutral-100 rounded animate-pulse" /></td>
+                  <td className="py-4 px-5"><div className="w-24 h-5 bg-neutral-100 rounded animate-pulse" /></td>
+                  <td className="py-4 px-5"><div className="w-16 h-7 bg-neutral-100 rounded ml-auto animate-pulse" /></td>
+                </tr>
+              ))
             ) : leads.length === 0 ? (
               <tr>
-                <td colSpan={5} className="py-12 text-center text-slate-500 text-sm font-medium bg-slate-50">
-                  No leads found matching your criteria.
+                <td colSpan={5} className="py-20 text-center">
+                  <div className="w-14 h-14 bg-neutral-50 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-neutral-100">
+                    <Mail className="w-6 h-6 text-neutral-300" strokeWidth={1.5} />
+                  </div>
+                  <p className="text-[14px] text-neutral-800 font-bold mb-1">No leads found</p>
+                  <p className="text-[12px] text-neutral-400 max-w-xs mx-auto">Try adjusting your search terms or clearing the active filters.</p>
                 </td>
               </tr>
             ) : (
-              leads.map((lead) => (
-                <tr key={lead.id} className="group bg-white hover:bg-slate-50/50 transition-colors">
-                  <td className="py-5 px-6 align-top max-w-[200px]">
-                    <div className="flex flex-col">
-                      <span className="text-[14px] font-extrabold text-slate-900 mb-1">{lead.name}</span>
-                      <div className="flex items-center text-[12px] text-slate-500 font-medium">
-                        <Calendar className="w-3.5 h-3.5 mr-1.5" />
-                        {new Date(lead.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
+              leads.map((lead, index) => (
+                <tr 
+                  key={lead.id} 
+                  className={`group transition-colors hover:bg-neutral-50/60 cursor-pointer ${
+                    index !== leads.length - 1 ? 'border-b border-neutral-100/80' : ''
+                  }`}
+                  onClick={() => onView(lead)}
+                >
+                  <td className="py-3.5 px-5">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-9 h-9 bg-neutral-900 rounded-full flex items-center justify-center text-[11px] font-bold text-white uppercase shrink-0 group-hover:scale-105 transition-transform duration-200">
+                        {lead.name?.charAt(0) || '?'}
                       </div>
-                      <span className="text-[10px] text-slate-400 font-mono mt-1 uppercase">ID: {lead.id.slice(-6)}</span>
+                      <div>
+                        <span className="text-[13px] font-bold text-neutral-900 block leading-tight group-hover:text-neutral-700 transition-colors">{lead.name}</span>
+                        <div className="flex items-center gap-1.5 mt-1">
+                          <Calendar className="w-3 h-3 text-neutral-900" strokeWidth={2.5} />
+                          <span className="text-[10px] text-neutral-400 font-medium">
+                            {new Date(lead.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </td>
-                  <td className="py-5 px-6 align-top">
-                    <div className="flex flex-col space-y-2.5">
-                      <div className="flex items-center text-[13px] text-slate-600 font-medium">
-                        <Mail className="w-3.5 h-3.5 mr-3 text-slate-400" />
+                  <td className="py-3.5 px-5">
+                    <div className="space-y-1">
+                      <div className="flex items-center text-[12px] text-neutral-600 font-medium">
+                        <Mail className="w-3 h-3 mr-2 text-neutral-900 shrink-0" strokeWidth={2.5} />
                         {lead.email ? (
-                          <a href={`mailto:${lead.email}`} className="hover:text-[#005B82] hover:underline truncate max-w-[150px]">{lead.email}</a>
+                          <span className="truncate max-w-[180px]">{lead.email}</span>
                         ) : (
-                          <span className="text-slate-400 italic">No email</span>
+                          <span className="text-neutral-300">—</span>
                         )}
                       </div>
-                      <div className="flex items-center text-[13px] text-slate-600 font-medium">
-                        <Phone className="w-3.5 h-3.5 mr-3 text-slate-400" />
+                      <div className="flex items-center text-[12px] text-neutral-600 font-medium">
+                        <Phone className="w-3 h-3 mr-2 text-neutral-900 shrink-0" strokeWidth={2.5} />
                         {lead.phone ? (
                           <span>{lead.phone}</span>
                         ) : (
-                          <span className="text-slate-400 italic">No phone</span>
+                          <span className="text-neutral-300">—</span>
                         )}
                       </div>
                     </div>
                   </td>
-                  <td className="py-5 px-6 align-top">
-                    <div className="pt-0.5">{getSourceBadge(lead.contactMethod)}</div>
-                  </td>
-                  <td className="py-5 px-6 align-top">
-                    <div className="pt-0.5">{getStatusBadge(lead.status)}</div>
-                  </td>
-                  <td className="py-5 px-6 align-top text-right">
-                    <div className="flex items-center justify-end space-x-3 pt-0.5">
+                  <td className="py-3.5 px-5">{getSourceBadge(lead.contactMethod)}</td>
+                  <td className="py-3.5 px-5">{getStatusBadge(lead.status)}</td>
+                  <td className="py-3.5 px-5 text-right" onClick={(e) => e.stopPropagation()}>
+                    <div className="flex items-center justify-end gap-1">
                       <button 
                         onClick={() => onView(lead)}
-                        className="px-4 py-2 bg-slate-50 hover:bg-[#eef4f8] text-slate-700 hover:text-[#005B82] text-[12px] font-bold rounded-xl transition-colors border border-slate-200"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 text-white text-[10px] font-bold rounded-lg transition-all duration-200 active:scale-95 uppercase tracking-wide"
                       >
-                        View
+                        <Eye className="w-3 h-3" strokeWidth={2.5} />
+                        Open
                       </button>
                       <button
                         onClick={() => onDelete(lead)}
-                        className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-colors"
-                        title="Delete Lead"
+                        className="p-1.5 text-neutral-200 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all duration-200"
+                        title="Delete"
                       >
-                        <Trash2 className="w-[18px] h-[18px]" />
+                        <Trash2 className="w-3.5 h-3.5" strokeWidth={2} />
                       </button>
                     </div>
                   </td>
@@ -98,6 +124,81 @@ export const LeadsTable = ({ leads, loading, onView, onDelete }: LeadsTableProps
           </tbody>
         </table>
       </div>
+
+      {/* Mobile Card View */}
+      <div className="md:hidden divide-y divide-neutral-100">
+        {loading ? (
+           <div className="p-8 text-center">
+             <div className="w-6 h-6 border-2 border-neutral-200 border-t-neutral-900 rounded-full animate-spin mx-auto mb-3"></div>
+             <p className="text-[12px] text-neutral-400 font-medium">Loading leads...</p>
+           </div>
+        ) : leads.length === 0 ? (
+          <div className="p-10 text-center">
+            <div className="w-12 h-12 bg-neutral-50 rounded-xl flex items-center justify-center mx-auto mb-4 border border-neutral-100">
+              <Mail className="w-5 h-5 text-neutral-300" strokeWidth={1.5} />
+            </div>
+            <p className="text-[13px] text-neutral-800 font-bold mb-1">No leads found</p>
+          </div>
+        ) : (
+          leads.map((lead) => (
+            <div 
+              key={lead.id} 
+              className="p-4 bg-white hover:bg-neutral-50/50 transition-colors cursor-pointer"
+              onClick={() => onView(lead)}
+            >
+              <div className="flex justify-between items-start mb-3">
+                <div className="flex items-center space-x-3 min-w-0">
+                  <div className="w-10 h-10 bg-neutral-900 rounded-full flex items-center justify-center text-[12px] font-bold text-white uppercase shrink-0">
+                    {lead.name?.charAt(0) || '?'}
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-[14px] font-bold text-neutral-900 block truncate">{lead.name}</span>
+                    <div className="flex items-center gap-1.5 mt-0.5">
+                      <Calendar className="w-3 h-3 text-neutral-400" strokeWidth={2} />
+                      <span className="text-[10px] text-neutral-400 font-medium truncate">
+                        {new Date(lead.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="shrink-0 ml-2" onClick={(e) => e.stopPropagation()}>
+                  <button
+                    onClick={() => onDelete(lead)}
+                    className="p-2 text-neutral-300 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                  >
+                    <Trash2 className="w-4 h-4" strokeWidth={2} />
+                  </button>
+                </div>
+              </div>
+              
+              <div className="space-y-1.5 mb-3 bg-neutral-50/50 p-3 rounded-xl border border-neutral-100/50">
+                <div className="flex items-center text-[12px] text-neutral-600 font-medium">
+                  <Mail className="w-3.5 h-3.5 mr-2 text-neutral-900 shrink-0" strokeWidth={2} />
+                  <span className="truncate">{lead.email || <span className="text-neutral-300">—</span>}</span>
+                </div>
+                <div className="flex items-center text-[12px] text-neutral-600 font-medium">
+                  <Phone className="w-3.5 h-3.5 mr-2 text-neutral-900 shrink-0" strokeWidth={2} />
+                  <span>{lead.phone || <span className="text-neutral-300">—</span>}</span>
+                </div>
+              </div>
+              
+              <div className="flex items-center justify-between">
+                <div>{getStatusBadge(lead.status)}</div>
+                <div>{getSourceBadge(lead.contactMethod)}</div>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+      
+      {/* Table Footer */}
+      {!loading && leads.length > 0 && (
+        <div className="px-4 sm:px-5 py-3 bg-neutral-50/50 border-t border-neutral-100 flex items-center justify-between">
+          <span className="text-[10px] sm:text-[11px] font-medium text-neutral-400">{leads.length} record{leads.length !== 1 ? 's' : ''}</span>
+          <span className="text-[9px] sm:text-[10px] font-medium text-neutral-300 hidden sm:block">Click any row to view details</span>
+          <span className="text-[9px] sm:text-[10px] font-medium text-neutral-300 sm:hidden">Tap card for details</span>
+        </div>
+      )}
     </div>
   );
 };

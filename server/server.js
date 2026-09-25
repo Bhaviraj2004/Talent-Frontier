@@ -4,8 +4,8 @@ const cors = require('cors');
 
 const enquiryRoutes = require('./app/routes/enquiry.routes');
 const authRoutes = require('./app/routes/auth.routes');
-const insightRoutes = require('./app/routes/insight.routes');
-const categoryRoutes = require('./app/routes/category.routes');
+// [INSIGHT ADMIN DISABLED] const insightRoutes = require('./app/routes/insight.routes');
+// [INSIGHT ADMIN DISABLED] const categoryRoutes = require('./app/routes/category.routes');
 const chatbotRoutes = require('./app/chatbot/chatbot.routes');
 const leadRoutes = require('./app/routes/lead.routes');
 
@@ -30,8 +30,8 @@ app.get('/', (req, res) => {
 });
 app.use('/api', enquiryRoutes);
 app.use('/api/auth', authRoutes);
-app.use('/api/insights', insightRoutes);
-app.use('/api/categories', categoryRoutes);
+// [INSIGHT ADMIN DISABLED] app.use('/api/insights', insightRoutes);
+// [INSIGHT ADMIN DISABLED] app.use('/api/categories', categoryRoutes);
 app.use('/api/chatbot', chatbotRoutes);
 app.use('/api/leads', leadRoutes);
 

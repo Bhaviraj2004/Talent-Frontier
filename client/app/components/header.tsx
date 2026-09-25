@@ -101,15 +101,15 @@ export default function Header() {
       <header className={`fixed top-0 left-0 right-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-gray-100 transition-transform duration-300 ease-in-out ${
         isVisible || mobileMenuOpen ? 'translate-y-0 shadow-sm' : '-translate-y-full shadow-none'
       }`}>
-      <div className="flex items-center justify-between px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto w-full font-sans py-3 md:py-4">
+      <div className="flex items-center justify-between px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto w-full font-sans pt-3 pb-7 md:pt-4 md:pb-10">
         {/* Logo */}
         <Link href="/" className="group flex items-center z-10 shrink-0 relative w-fit transition-transform duration-300 hover:scale-[1.03]" onClick={() => setMobileMenuOpen(false)}>
           <img 
             src="/logo.png" 
             alt="Talent Frontier" 
-            className="h-28 sm:h-24 md:h-[88px] lg:h-[96px] w-auto object-contain transition-all duration-300" 
+            className="h-14 sm:h-16 md:h-[56px] lg:h-[64px] w-auto object-contain transition-all duration-300" 
           />
-          <svg viewBox="0 0 7680 2047" className="absolute inset-0 w-full h-full pointer-events-none">
+          <svg viewBox="0 0 7680 2047" className="absolute inset-0 w-full h-full pointer-events-none overflow-visible">
             <defs>
               <linearGradient id="headerTaglineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#3b85c6" />
@@ -117,8 +117,8 @@ export default function Header() {
               </linearGradient>
             </defs>
             <text 
-              x="4900" 
-              y="1830" 
+              x="3500" 
+              y="2700" 
               textAnchor="middle"
               fill="url(#headerTaglineGradient)" 
               fontFamily="sans-serif" 
@@ -368,7 +368,7 @@ export default function Header() {
       )}
     </header>
     {/* Spacer to preserve document layout flow */}
-    <div className="h-[136px] sm:h-[116px] md:h-[120px] lg:h-[128px] w-full shrink-0" aria-hidden="true" />
+    <div className="h-[96px] sm:h-[104px] md:h-[112px] lg:h-[120px] w-full shrink-0" aria-hidden="true" />
   </>
   );
 }
