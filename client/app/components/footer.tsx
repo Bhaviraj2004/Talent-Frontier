@@ -11,7 +11,7 @@ export default function Footer() {
         <div>
           <Link href="/" className="inline-flex relative mb-4 sm:mb-6 w-fit group">
             <img src="/logo.png" alt="Talent Frontier Logo" className="h-14 sm:h-18 md:h-20 lg:h-24 w-auto object-contain" />
-            <svg viewBox="0 0 7680 2047" className="absolute inset-0 w-full h-full pointer-events-none">
+            <svg viewBox="0 0 7680 2047" className="absolute inset-0 w-full h-full pointer-events-none overflow-visible">
               <defs>
                 <linearGradient id="footerTaglineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stopColor="#3b85c6" />
@@ -19,8 +19,8 @@ export default function Footer() {
                 </linearGradient>
               </defs>
               <text 
-                x="4900" 
-                y="1830" 
+                x="3500" 
+                y="2700" 
                 textAnchor="middle"
                 fill="url(#footerTaglineGradient)" 
                 fontFamily="sans-serif" 
