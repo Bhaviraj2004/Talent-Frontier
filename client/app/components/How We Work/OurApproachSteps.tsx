@@ -6,7 +6,7 @@ export default function OurApproachSteps() {
       subtitle: "Understanding Your Business",
       description:
         "We begin by learning about your organisation, your objectives, team environment and the capabilities you need. This helps us understand not just what you are looking for, but what success in the role looks like within your business.",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+      image: "/How we works/discovery.jpg",
       imageRight: false,
     },
     {
@@ -15,7 +15,7 @@ export default function OurApproachSteps() {
       subtitle: "Creating the Right Profile",
       description:
         "We develop a clear understanding of the experience, capabilities and qualities that align with your requirements. We consider professional experience, technical skills, communication, aspirations and cultural alignment to create a well-rounded profile.",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+      image: "/How we works/strategy.jpg",
       imageRight: true,
     },
     {
@@ -24,7 +24,7 @@ export default function OurApproachSteps() {
       subtitle: "Connecting With Relevant Talent",
       description:
         "Using our professional network, market knowledge and targeted search approach, we identify professionals whose experience and aspirations align with your organisation. Our focus is on relevance and quality — not simply providing a long list of profiles.",
-      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80",
+      image: "/How we works/search.jpg",
       imageRight: false,
     },
     {
@@ -33,7 +33,7 @@ export default function OurApproachSteps() {
       subtitle: "Looking Beyond the CV",
       description:
         "Experience on paper is only part of the picture. We consider relevant experience, capabilities, communication, professional goals and overall alignment to ensure the professionals we introduce are relevant to your requirements.",
-      image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80",
+      image: "/How we works/selection.jpg",
       imageRight: true,
     },
     {
@@ -42,7 +42,7 @@ export default function OurApproachSteps() {
       subtitle: "Meet the Person Behind the Profile",
       description:
         "We facilitate introductions and conversations between you and suitable professionals. This gives you the opportunity to explore their experience, understand their approach and determine whether the connection feels right for your organisation. The final decision always remains with you.",
-      image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80",
+      image: "/How we works/onboarding.jpg",
       imageRight: false,
     },
     {
@@ -51,7 +51,7 @@ export default function OurApproachSteps() {
       subtitle: "Supporting the Next Step",
       description:
         "Once both sides decide to move forward, we help coordinate the next steps and maintain clear communication throughout the transition. Our support can continue beyond the initial introduction, helping establish a strong foundation for the relationship.",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+      image: "/How we works/growth.jpg",
       imageRight: true,
     },
   ];

@@ -23,9 +23,27 @@ export const FLOW = {
       { label: "Grow my business", action: "grow_business" },
       { label: "Improve my operations", action: "improve_ops" },
       { label: "Explore how you can help", action: "explore_help" },
+      { label: "Find your business talent", action: "find_business_talent" },
       { label: "Other", action: "other_help" }
     ]
   },
+  find_business_talent: {
+    text: "Finding the right talent is crucial for growth. We specialize in sourcing top-tier professionals across various domains.\n\nWhich area are you looking to hire for?",
+    options: [
+      { label: "Executive & Leadership", action: "talent_specific" },
+      { label: "IT & AI Experts", action: "talent_specific" },
+      { label: "Marketing & HR", action: "talent_specific" },
+      { label: "Other", action: "talent_specific" }
+    ]
+  },
+  talent_specific: {
+    text: "We have a strong network of professionals in this area. We can help you connect with candidates whose experience and aspirations align perfectly with your needs.\n\nWould you like to speak to our team?",
+    options: [
+      { label: "Yes, let's connect", action: "transition_to_contact" },
+      { label: "Go back", action: "init" }
+    ]
+  },
+
   grow_business: {
     text: "Great. What are you mainly looking to achieve?",
     options: [

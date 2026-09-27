@@ -22,7 +22,7 @@ export default function ClearerPath() {
       {/* Right Image */}
       <div className="w-full md:w-1/2 relative aspect-[640/470] md:aspect-auto md:h-[420px] lg:h-[480px] rounded-2xl md:rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:border-blue-300 hover:-translate-y-1 border border-gray-100 bg-slate-50 group cursor-pointer transition-all duration-300">
         <img
-          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+          src="/How we works/clearer-path.jpg"
           alt="Professional consultation"
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
         />
