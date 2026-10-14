@@ -1,31 +1,20 @@
 export default function TrustedClients() {
   const clients = [
     {
-      name: "NORTHRIDGE",
-      subtitle: "SOLUTIONS",
-      icon: (
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-        </svg>
-      )
-    },
-    {
-      name: "VERIDIAN",
-      subtitle: "PARTNERS",
-      icon: (
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="9" cy="12" r="5" />
-          <circle cx="15" cy="12" r="5" />
-        </svg>
-      )
-    },
-    {
       name: "LUMENIX",
       subtitle: "TECHNOLOGIES",
       icon: (
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z" />
-          <circle cx="12" cy="11" r="2.5" fill="currentColor" />
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300" viewBox="0 0 32 32" fill="none">
+          {/* High-tech faceted lumen crystal */}
+          <path d="M16 3L27 9.5V22.5L16 29L5 22.5V9.5L16 3Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M16 8L23 12V20L16 24L9 20V12L16 8Z" fill="currentColor" fillOpacity="0.2" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+          <circle cx="16" cy="16" r="3" fill="currentColor" />
+          <line x1="16" y1="3" x2="16" y2="8" stroke="currentColor" strokeWidth="1.8" />
+          <line x1="27" y1="9.5" x2="23" y2="12" stroke="currentColor" strokeWidth="1.8" />
+          <line x1="27" y1="22.5" x2="23" y2="20" stroke="currentColor" strokeWidth="1.8" />
+          <line x1="16" y1="29" x2="16" y2="24" stroke="currentColor" strokeWidth="1.8" />
+          <line x1="5" y1="22.5" x2="9" y2="20" stroke="currentColor" strokeWidth="1.8" />
+          <line x1="5" y1="9.5" x2="9" y2="12" stroke="currentColor" strokeWidth="1.8" />
         </svg>
       )
     },
@@ -33,39 +22,36 @@ export default function TrustedClients() {
       name: "ALTURA",
       subtitle: "ADVISORS",
       icon: (
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="18 15 12 9 6 15" />
-          <polyline points="18 9 12 3 6 9" />
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300" viewBox="0 0 32 32" fill="none">
+          {/* Modern strategic summit chevron monogram */}
+          <path d="M16 4L27 24H21L16 14L11 24H5L16 4Z" fill="currentColor" fillOpacity="0.2" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M16 13L21.5 24H10.5L16 13Z" fill="currentColor" />
+          <line x1="8" y1="28" x2="24" y2="28" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
         </svg>
       )
     },
     {
-      name: "NOVENTIS",
-      subtitle: "HEALTH",
+      name: "NORTHRIDGE",
+      subtitle: "SOLUTIONS",
       icon: (
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 5v14M5 12h14" />
-          <circle cx="12" cy="12" r="9" />
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300" viewBox="0 0 32 32" fill="none">
+          {/* Architectural dual-summit ridge */}
+          <path d="M4 25L13 9L18 17L22 11L28 25H4Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+          <polygon points="13,9 18,17 15,25 9,25" fill="currentColor" fillOpacity="0.22" />
+          <polygon points="22,11 26,25 21,25 18,17" fill="currentColor" fillOpacity="0.32" />
+          <path d="M13 9L18 25" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" opacity="0.6" />
         </svg>
       )
     },
     {
-      name: "VERITAS",
-      subtitle: "FINANCIAL",
+      name: "VERIDIAN",
+      subtitle: "PARTNERS",
       icon: (
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" />
-        </svg>
-      )
-    },
-    {
-      name: "COVALENT",
-      subtitle: "GLOBAL",
-      icon: (
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="9" />
-          <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(35 12 12)" />
-          <circle cx="12" cy="12" r="2" fill="currentColor" />
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300" viewBox="0 0 32 32" fill="none">
+          {/* Interlocking Mobius synergy partnership rings */}
+          <circle cx="11" cy="16" r="7.5" stroke="currentColor" strokeWidth="2.2" />
+          <circle cx="21" cy="16" r="7.5" stroke="currentColor" strokeWidth="2.2" />
+          <path d="M16 11.2C17.6 12.5 18.5 14.2 18.5 16C18.5 17.8 17.6 19.5 16 20.8C14.4 19.5 13.5 17.8 13.5 16C13.5 14.2 14.4 12.5 16 11.2Z" fill="currentColor" fillOpacity="0.3" />
         </svg>
       )
     },
@@ -73,9 +59,55 @@ export default function TrustedClients() {
       name: "PEREGRINE",
       subtitle: "CAPITAL",
       icon: (
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <polygon points="12 2 21 8.5 17 21 7 21 3 8.5 12 2" />
-          <line x1="12" y1="2" x2="12" y2="21" />
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300" viewBox="0 0 32 32" fill="none">
+          {/* Aerodynamic falcon wing / venture capital diamond */}
+          <path d="M16 3L28 15L16 29L4 15L16 3Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M16 3L28 15L16 29Z" fill="currentColor" fillOpacity="0.2" />
+          <path d="M8 15L16 7L24 15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M11 18L16 13L21 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="16" cy="21" r="2" fill="currentColor" />
+        </svg>
+      )
+    },
+    {
+      name: "NOVENTIS",
+      subtitle: "HEALTH",
+      icon: (
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300" viewBox="0 0 32 32" fill="none">
+          {/* Modern health cross with vitality heartbeat */}
+          <rect x="13" y="5" width="6" height="22" rx="3" fill="currentColor" fillOpacity="0.25" stroke="currentColor" strokeWidth="2" />
+          <rect x="5" y="13" width="22" height="6" rx="3" fill="currentColor" fillOpacity="0.25" stroke="currentColor" strokeWidth="2" />
+          <path d="M8 16H13L15 11L17 21L19 16H24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      )
+    },
+    {
+      name: "VERITAS",
+      subtitle: "FINANCIAL",
+      icon: (
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300" viewBox="0 0 32 32" fill="none">
+          {/* Sovereign financial pillar & shield */}
+          <path d="M16 3L6 7V16C6 22.5 10.3 27.5 16 29C21.7 27.5 26 22.5 26 16V7L16 3Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M16 3L6 7V16C6 22.5 10.3 27.5 16 29C21.7 27.5 26 22.5 26 16V7L16 3Z" fill="currentColor" fillOpacity="0.15" />
+          <path d="M11 12V21M16 12V21M21 12V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <line x1="9" y1="12" x2="23" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <line x1="9" y1="21" x2="23" y2="21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      )
+    },
+    {
+      name: "COVALENT",
+      subtitle: "GLOBAL",
+      icon: (
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300" viewBox="0 0 32 32" fill="none">
+          {/* Global network & covalent orbital sphere */}
+          <circle cx="16" cy="16" r="6" fill="currentColor" fillOpacity="0.25" stroke="currentColor" strokeWidth="1.8" />
+          <ellipse cx="16" cy="16" rx="13" ry="5.5" transform="rotate(-30 16 16)" stroke="currentColor" strokeWidth="1.8" />
+          <ellipse cx="16" cy="16" rx="13" ry="5.5" transform="rotate(30 16 16)" stroke="currentColor" strokeWidth="1.8" />
+          <circle cx="7" cy="11" r="2" fill="currentColor" />
+          <circle cx="25" cy="21" r="2" fill="currentColor" />
+          <circle cx="25" cy="11" r="2" fill="currentColor" />
+          <circle cx="7" cy="21" r="2" fill="currentColor" />
         </svg>
       )
     }
@@ -108,13 +140,13 @@ export default function TrustedClients() {
             {row1Items.map((client, idx) => (
               <div 
                 key={`r1-${idx}`} 
-                className="flex items-center gap-2.5 sm:gap-3.5 bg-slate-50/80 hover:bg-white border border-slate-200/70 hover:border-blue-400 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group min-w-[210px] sm:min-w-[250px] md:min-w-[270px] shrink-0"
+                className="flex items-center gap-3 sm:gap-4 bg-slate-50/90 hover:bg-white border border-slate-200/80 hover:border-blue-500/80 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group min-w-[210px] sm:min-w-[250px] md:min-w-[270px] shrink-0"
               >
-                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl border-2 border-blue-500 bg-blue-50/70 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 text-blue-600 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl border border-blue-200/70 bg-gradient-to-br from-blue-50 to-indigo-50/60 group-hover:from-blue-600 group-hover:to-blue-700 text-blue-600 group-hover:text-white group-hover:border-blue-600 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300">
                   {client.icon}
                 </div>
                 <div className="text-left min-w-0 flex-1 overflow-hidden">
-                  <span className="block text-[11px] sm:text-sm font-black tracking-tight text-[#0f172a] group-hover:text-blue-600 transition-colors truncate">
+                  <span className="block text-[12px] sm:text-[14px] font-black tracking-tight text-[#0f172a] group-hover:text-blue-600 transition-colors truncate">
                     {client.name}
                   </span>
                   <span className="block text-[7.5px] sm:text-[9px] tracking-[0.16em] font-bold text-blue-500 mt-0.5 truncate">
@@ -132,13 +164,13 @@ export default function TrustedClients() {
             {row2Items.map((client, idx) => (
               <div 
                 key={`r2-${idx}`} 
-                className="flex items-center gap-2.5 sm:gap-3.5 bg-slate-50/80 hover:bg-white border border-slate-200/70 hover:border-blue-400 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group min-w-[210px] sm:min-w-[250px] md:min-w-[270px] shrink-0"
+                className="flex items-center gap-3 sm:gap-4 bg-slate-50/90 hover:bg-white border border-slate-200/80 hover:border-blue-500/80 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group min-w-[210px] sm:min-w-[250px] md:min-w-[270px] shrink-0"
               >
-                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl border-2 border-blue-500 bg-blue-50/70 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 text-blue-600 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl border border-blue-200/70 bg-gradient-to-br from-blue-50 to-indigo-50/60 group-hover:from-blue-600 group-hover:to-blue-700 text-blue-600 group-hover:text-white group-hover:border-blue-600 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300">
                   {client.icon}
                 </div>
                 <div className="text-left min-w-0 flex-1 overflow-hidden">
-                  <span className="block text-[11px] sm:text-sm font-black tracking-tight text-[#0f172a] group-hover:text-blue-600 transition-colors truncate">
+                  <span className="block text-[12px] sm:text-[14px] font-black tracking-tight text-[#0f172a] group-hover:text-blue-600 transition-colors truncate">
                     {client.name}
                   </span>
                   <span className="block text-[7.5px] sm:text-[9px] tracking-[0.16em] font-bold text-blue-500 mt-0.5 truncate">

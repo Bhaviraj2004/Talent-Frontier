@@ -46,9 +46,19 @@ export default function ContactFormSection() {
     const { name, value, type } = e.target as HTMLInputElement;
     const checked = type === 'checkbox' ? (e.target as HTMLInputElement).checked : undefined;
     
+    let processedValue: any = value;
+    if (type === 'checkbox') {
+      processedValue = checked;
+    } else if (name === 'phone') {
+      // Mobile number: only numbers allowed, no letters or text (support optional leading '+')
+      const startsWithPlus = value.startsWith('+');
+      const numericDigits = value.replace(/\D/g, '');
+      processedValue = startsWithPlus ? `+${numericDigits}` : numericDigits;
+    }
+
     setFormData(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: processedValue
     }));
   };
 
@@ -56,6 +66,21 @@ export default function ContactFormSection() {
     e.preventDefault();
     setStatus('loading');
     setErrorMessage('');
+
+    // Strict validation for Email (must contain '@' and a valid domain format)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.includes('@') || !emailRegex.test(formData.email.trim())) {
+      setStatus('error');
+      setErrorMessage('Please provide a valid email address containing "@" and a domain (e.g. name@company.com).');
+      return;
+    }
+
+    // Strict validation for Phone (if provided, must contain only numbers and optional leading '+')
+    if (formData.phone && !/^\+?[0-9]{6,15}$/.test(formData.phone.trim())) {
+      setStatus('error');
+      setErrorMessage('Please provide a valid phone number containing only numbers (e.g., +61400000000 or 0400000000).');
+      return;
+    }
 
     try {
       const res = await fetch(`${API_URL}/api/enquiry`, {
@@ -128,11 +153,29 @@ export default function ContactFormSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Business Email Address*</label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@example.com" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
+                <input 
+                  type="email" 
+                  name="email" 
+                  value={formData.email} 
+                  onChange={handleChange} 
+                  required 
+                  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                  title="Please enter a valid email address with '@' (e.g., name@company.com)"
+                  placeholder="john@example.com" 
+                  className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" 
+                />
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Phone Number</label>
-                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="+61 ..." className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
+                <input 
+                  type="tel" 
+                  inputMode="numeric"
+                  name="phone" 
+                  value={formData.phone} 
+                  onChange={handleChange} 
+                  placeholder="+61400000000" 
+                  className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" 
+                />
               </div>
             </div>
 

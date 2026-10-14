@@ -132,34 +132,47 @@ export default function TermsAndConditionsPage() {
                 8. Contact Us
               </h2>
               
-              <div className="grid sm:grid-cols-2 gap-5 mt-6">
-                <div className="flex items-center p-5 bg-slate-50 dark:bg-zinc-800/50 rounded-2xl border border-slate-200 dark:border-zinc-700 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all group/card cursor-pointer">
-                  <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center mr-5 shrink-0 text-blue-600 dark:text-blue-400 group-hover/card:scale-110 transition-transform">
-                    <Mail className="w-6 h-6" />
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-5 mt-6">
+                <div className="flex items-center p-4 sm:p-5 bg-slate-50 dark:bg-zinc-800/50 rounded-2xl border border-slate-200 dark:border-zinc-700 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all group/card cursor-pointer min-w-0 overflow-hidden">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center mr-3.5 sm:mr-5 shrink-0 text-blue-600 dark:text-blue-400 group-hover/card:scale-110 transition-transform">
+                    <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 mb-1">Email</p>
-                    <a href="mailto:contact@talentfrontier.com.au" className="font-semibold text-slate-900 dark:text-white group-hover/card:text-blue-600 dark:group-hover/card:text-blue-400 transition-colors text-sm sm:text-base">contact@talentfrontier.com.au</a>
+                  <div className="min-w-0 flex-1 overflow-hidden">
+                    <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 mb-0.5 sm:mb-1">Email</p>
+                    <a 
+                      href="mailto:contact@talentfrontier.com.au" 
+                      title="contact@talentfrontier.com.au"
+                      className="font-semibold text-slate-900 dark:text-white group-hover/card:text-blue-600 dark:group-hover/card:text-blue-400 transition-colors text-[13.5px] sm:text-sm lg:text-base block truncate"
+                    >
+                      contact@talentfrontier.com.au
+                    </a>
                   </div>
                 </div>
                 
-                <div className="flex items-center p-5 bg-slate-50 dark:bg-zinc-800/50 rounded-2xl border border-slate-200 dark:border-zinc-700 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all group/card cursor-pointer">
-                  <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center mr-5 shrink-0 text-blue-600 dark:text-blue-400 group-hover/card:scale-110 transition-transform">
-                    <Phone className="w-6 h-6" />
+                <div className="flex items-center p-4 sm:p-5 bg-slate-50 dark:bg-zinc-800/50 rounded-2xl border border-slate-200 dark:border-zinc-700 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all group/card cursor-pointer min-w-0 overflow-hidden">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center mr-3.5 sm:mr-5 shrink-0 text-blue-600 dark:text-blue-400 group-hover/card:scale-110 transition-transform">
+                    <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 mb-1">Phone</p>
-                    <a href="tel:+61XXXXXXXXX" className="font-semibold text-slate-900 dark:text-white group-hover/card:text-blue-600 dark:group-hover/card:text-blue-400 transition-colors text-sm sm:text-base">+61 XXX XXX XXX</a>
+                  <div className="min-w-0 flex-1 overflow-hidden">
+                    <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 mb-0.5 sm:mb-1">Phone</p>
+                    <a 
+                      href="tel:+61XXXXXXXXX" 
+                      className="font-semibold text-slate-900 dark:text-white group-hover/card:text-blue-600 dark:group-hover/card:text-blue-400 transition-colors text-[13.5px] sm:text-sm lg:text-base block truncate"
+                    >
+                      +61 XXX XXX XXX
+                    </a>
                   </div>
                 </div>
 
-                <div className="flex items-center p-5 bg-slate-50 dark:bg-zinc-800/50 rounded-2xl border border-slate-200 dark:border-zinc-700 sm:col-span-2 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all group/card cursor-pointer">
-                  <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center mr-5 shrink-0 text-blue-600 dark:text-blue-400 group-hover/card:scale-110 transition-transform">
-                    <MapPin className="w-6 h-6" />
+                <div className="flex items-center p-4 sm:p-5 bg-slate-50 dark:bg-zinc-800/50 rounded-2xl border border-slate-200 dark:border-zinc-700 sm:col-span-2 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all group/card cursor-pointer min-w-0 overflow-hidden">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center mr-3.5 sm:mr-5 shrink-0 text-blue-600 dark:text-blue-400 group-hover/card:scale-110 transition-transform">
+                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 mb-1">Address</p>
-                    <p className="font-semibold text-slate-900 dark:text-white text-sm sm:text-base">Talent Frontier, Sydney, NSW, Australia</p>
+                  <div className="min-w-0 flex-1 overflow-hidden">
+                    <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 mb-0.5 sm:mb-1">Address</p>
+                    <p className="font-semibold text-slate-900 dark:text-white text-[13.5px] sm:text-sm lg:text-base truncate">
+                      Talent Frontier, Sydney, NSW, Australia
+                    </p>
                   </div>
                 </div>
               </div>

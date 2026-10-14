@@ -124,7 +124,7 @@ export default function Header() {
               fontFamily="sans-serif" 
               fontSize="340"
               fontWeight="500"
-              fontStyle="italic"
+              fontStyle="normal"
             >
               <tspan>Talent Beyond </tspan><tspan fontWeight="700">Borders.</tspan>
             </text>
@@ -248,9 +248,9 @@ export default function Header() {
                     <p className="text-[#2563eb] text-[9.5px] font-bold tracking-wider uppercase mb-1">{item.subtitle}</p>
                     <p className="text-gray-500 text-[11px] leading-snug mb-3 flex-grow">{item.description}</p>
                     
-                    <div className="flex items-center justify-between text-[11px] mt-auto pt-1">
-                      <span className="text-gray-400 font-medium">{item.title.split(',')[0]}</span>
-                      <span className="flex items-center text-[#2563eb] font-bold gap-1 group-hover:translate-x-1 transition-transform">
+                    <div className="flex items-center justify-between text-[11px] mt-auto pt-1 gap-2">
+                      <span className="text-gray-400 font-medium truncate max-w-[170px]">{(item as any).shortTitle || item.title}</span>
+                      <span className="flex items-center text-[#2563eb] font-bold gap-1 group-hover:translate-x-1 transition-transform shrink-0">
                         Explore <ArrowRight className="w-3 h-3" />
                       </span>
                     </div>

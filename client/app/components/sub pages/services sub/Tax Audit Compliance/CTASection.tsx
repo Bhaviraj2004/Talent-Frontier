@@ -1,0 +1,33 @@
+import Image from "next/image";
+import Link from "next/link";
+
+export default function CTASection() {
+  return (
+    <section className="w-full max-w-7xl mx-auto px-4 pb-24 flex flex-col md:flex-row gap-6">
+      <div className="w-full md:w-1/2 bg-[#08154a] text-white p-12 md:p-16 flex flex-col justify-center rounded-sm shadow-xl">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+          Strengthen Your Tax & Compliance Capacity
+        </h2>
+        <p className="mb-12 text-blue-100 text-[15px]">
+          Tell us about your seasonal peaks, ongoing compliance needs, or audit readiness requirements to get started.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Link 
+            href="/contact"
+            className="inline-block bg-white text-[#08154a] hover:bg-gray-100 active:bg-blue-50 active:scale-[0.98] active:brightness-105 px-8 py-3 rounded-sm text-sm font-semibold transition-all text-center shadow-md w-fit"
+          >
+            Find Compliance Talent
+          </Link>
+        </div>
+      </div>
+      <div className="w-full md:w-1/2 relative aspect-[624/245] md:aspect-auto min-h-[200px] md:min-h-0 rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-300">
+        <Image
+          src="/sub pages/Services/Finance & Accounting Support/Final CTA Image — Consultation meeting.png"
+          alt="Consultation meeting"
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+      </div>
+    </section>
+  );
+}

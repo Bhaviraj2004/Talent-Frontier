@@ -63,54 +63,72 @@ export const navData = [
       { label: "About Talent Frontier", href: "/about" },
     ],
     items: [
+      // Row 1: Accountants & Bookkeepers | Tax, Audit & Compliance | HR & People Professionals
       {
-        title: "Virtual Assistants & Administration",
-        subtitle: "RELIABLE SUPPORT",
-        description: "Practical administration tailored to keep operations smooth.",
-        icon: Building2,
-        href: "/our-services/virtual-assistants-administration"
+        title: "Accountants & Bookkeepers",
+        subtitle: "STRUCTURED SUPPORT",
+        description: "Structured support for finance processes and bookkeeping.",
+        icon: Briefcase,
+        href: "/our-services/accountants-bookkeepers",
+        shortTitle: "Accountants & Bookkeepers"
+      },
+      {
+        title: "Tax, Audit & Compliance",
+        subtitle: "REGULATORY COMPLIANCE",
+        description: "Specialized assistance for tax preparation, compliance reviews and audit processes.",
+        icon: Shield,
+        href: "/our-services/tax-audit-compliance",
+        shortTitle: "Tax, Audit & Compliance"
       },
       {
         title: "HR & People Professionals",
         subtitle: "PRACTICAL SUPPORT",
         description: "Dedicated operational assistance for HR and talent pipelines.",
         icon: Users,
-        href: "/our-services/hr-people-professionals"
+        href: "/our-services/hr-people-professionals",
+        shortTitle: "HR & People Professionals"
+      },
+      // Row 2: Virtual Assistants & Administration | IT, Software & AI | Automation & Systems
+      {
+        title: "Virtual Assistants & Administration",
+        subtitle: "RELIABLE SUPPORT",
+        description: "Practical administration tailored to keep operations smooth.",
+        icon: Building2,
+        href: "/our-services/virtual-assistants-administration",
+        shortTitle: "Virtual Assistants & Administration"
       },
       {
-        title: "Accountants & Bookkeepers",
-        subtitle: "STRUCTURED SUPPORT",
-        description: "Structured support for finance processes and bookkeeping.",
-        icon: Briefcase,
-        href: "/our-services/accountants-bookkeepers"
-      },
-      {
-        title: "IT, Software & AI Professionals",
+        title: "IT, Software & AI",
         subtitle: "TECH FOR GROWTH",
         description: "Reliable tech support for modern digital systems and AI.",
         icon: Monitor,
-        href: "/our-services/technology-professionals"
+        href: "/our-services/technology-professionals",
+        shortTitle: "IT, Software & AI"
       },
+      {
+        title: "Automation & Systems",
+        subtitle: "SMARTER WORKFLOWS",
+        description: "Smarter processes and practical workflow optimization.",
+        icon: Zap,
+        href: "/our-services/automation-systems-professionals",
+        shortTitle: "Automation & Systems"
+      },
+      // Row 3: Marketing & Creative Professionals | Virtual & Fractional Executives
       {
         title: "Marketing & Creative Professionals",
         subtitle: "STRENGTHENS BRAND",
         description: "Creative support that strengthens your brand identity.",
         icon: Megaphone,
-        href: "/our-services/marketing-creative-professionals"
-      },
-      {
-        title: "Automation & Systems Professionals",
-        subtitle: "SMARTER WORKFLOWS",
-        description: "Smarter processes and practical workflow optimization.",
-        icon: Zap,
-        href: "/our-services/automation-systems-professionals"
+        href: "/our-services/marketing-creative-professionals",
+        shortTitle: "Marketing & Creative Professionals"
       },
       {
         title: "Virtual & Fractional Executives",
         subtitle: "STRATEGIC LEADERSHIP",
         description: "Senior-level business guidance without a full-time executive.",
         icon: Target,
-        href: "/our-services/virtual-fractional-executives"
+        href: "/our-services/virtual-fractional-executives",
+        shortTitle: "Virtual & Fractional Executives"
       }
     ],
     bottomBar: {

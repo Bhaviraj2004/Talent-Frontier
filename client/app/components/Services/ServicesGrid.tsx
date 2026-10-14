@@ -4,25 +4,7 @@ import Link from 'next/link';
 const servicesData = [
   {
     id: 1,
-    title: "01 — Virtual Assistants & Administrative Professionals",
-    description: "Build reliable administrative support around your business with professionals who can assist with day-to-day coordination, communication and operational tasks.",
-    positions: ["Virtual Assistants", "Executive Assistants", "Administrative Assistants", "Data Entry Specialists", "Customer Support Professionals", "Office Support Professionals"],
-    image: "/Services page/Rectangle 6.png",
-    link: "/our-services/virtual-assistants-administration",
-    cta: "Explore Administrative Talent"
-  },
-  {
-    id: 2,
-    title: "02 — HR & People Professionals",
-    description: "Build a stronger people function with professionals experienced in recruitment, HR administration, employee coordination and talent management.",
-    positions: ["HR Coordinators", "HR Administrators", "Recruiters", "Talent Acquisition Specialists", "People & Culture Coordinators", "HR Assistants"],
-    image: "/Services page/Rectangle 7.png",
-    link: "/our-services/hr-people-professionals",
-    cta: "Explore HR Talent"
-  },
-  {
-    id: 3,
-    title: "03 — Accountants & Bookkeepers",
+    title: "01 — Accountants & Bookkeepers",
     description: "Strengthen your finance function with professionals who can support accounting, bookkeeping, payroll, accounts and financial operations.",
     positions: ["Accountants", "Bookkeepers", "Assistant Accountants", "Accounts Payable Officers", "Accounts Receivable Officers", "Payroll Officers", "Finance Assistants", "Management Accountants"],
     image: "/Services page/Rectangle 8.png",
@@ -30,22 +12,40 @@ const servicesData = [
     cta: "Explore Finance Talent"
   },
   {
+    id: 2,
+    title: "02 — Tax, Audit & Compliance Professionals",
+    description: "Ensure statutory compliance, maintain rigorous audit readiness, and prepare accurate tax documentation with dedicated, meticulous specialists.",
+    positions: ["Tax Accountants", "Audit Assistants", "Compliance Officers", "BAS & GST Specialists", "Internal Auditors", "Statutory Reporting Specialists", "Tax Workpaper Preparers"],
+    image: "/Services page/Rectangle 19.png",
+    link: "/our-services/tax-audit-compliance",
+    cta: "Explore Tax & Compliance Talent"
+  },
+  {
+    id: 3,
+    title: "03 — HR & People Professionals",
+    description: "Build a stronger people function with professionals experienced in recruitment, HR administration, employee coordination and talent management.",
+    positions: ["HR Coordinators", "HR Administrators", "Recruiters", "Talent Acquisition Specialists", "People & Culture Coordinators", "HR Assistants"],
+    image: "/Services page/Rectangle 7.png",
+    link: "/our-services/hr-people-professionals",
+    cta: "Explore HR Talent"
+  },
+  {
     id: 4,
-    title: "04 — IT, Software & AI Professionals",
+    title: "04 — Virtual Assistants & Administrative Professionals",
+    description: "Build reliable administrative support around your business with professionals who can assist with day-to-day coordination, communication and operational tasks.",
+    positions: ["Virtual Assistants", "Executive Assistants", "Administrative Assistants", "Data Entry Specialists", "Customer Support Professionals", "Office Support Professionals"],
+    image: "/Services page/Rectangle 6.png",
+    link: "/our-services/virtual-assistants-administration",
+    cta: "Explore Administrative Talent"
+  },
+  {
+    id: 5,
+    title: "05 — IT, Software & AI Professionals",
     description: "Access technical professionals who can support software development, IT operations, digital platforms, data and emerging AI requirements.",
     positions: ["Software Developers", "Web Developers", "Full-Stack Developers", "IT Support Specialists", "QA Professionals", "Data Professionals", "AI & Automation Specialists", "Technical Support Professionals"],
     image: "/Services page/Rectangle 12.png",
     link: "/our-services/technology-professionals",
     cta: "Explore Technology Talent"
-  },
-  {
-    id: 5,
-    title: "05 — Marketing & Creative Professionals",
-    description: "Expand your marketing capability with professionals across digital marketing, content, social media, search and creative design.",
-    positions: ["Digital Marketing Specialists", "Social Media Specialists", "SEO Specialists", "Content Writers", "Graphic Designers", "Performance Marketing Specialists", "Marketing Coordinators", "Video Editors"],
-    image: "/Services page/Rectangle 13.png",
-    link: "/our-services/marketing-creative-professionals",
-    cta: "Explore Marketing Talent"
   },
   {
     id: 6,
@@ -58,10 +58,19 @@ const servicesData = [
   },
   {
     id: 7,
-    title: "07 — Virtual & Fractional Executives",
+    title: "07 — Marketing & Creative Professionals",
+    description: "Expand your marketing capability with professionals across digital marketing, content, social media, search and creative design.",
+    positions: ["Digital Marketing Specialists", "Social Media Specialists", "SEO Specialists", "Content Writers", "Graphic Designers", "Performance Marketing Specialists", "Marketing Coordinators", "Video Editors"],
+    image: "/Services page/Rectangle 13.png",
+    link: "/our-services/marketing-creative-professionals",
+    cta: "Explore Marketing Talent"
+  },
+  {
+    id: 8,
+    title: "08 — Virtual & Fractional Executives",
     description: "Access experienced professionals who can provide leadership, strategic direction and operational oversight based on your business requirements.",
     positions: ["Virtual CEOs", "Fractional CEOs", "Fractional COOs", "Operations Leaders", "Business Strategy Professionals", "Executive Advisors"],
-    image: "/Services page/Rectangle 6.png",
+    image: "/Services page/Rectangle 16.png",
     link: "/our-services/virtual-fractional-executives",
     cta: "Explore Executive Talent"
   }
