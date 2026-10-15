@@ -1,5 +1,5 @@
-import { Cookie, ShieldCheck, Settings2, BarChart3, Megaphone, Mail, Phone, Settings } from "lucide-react";
-import Link from "next/link";
+import { Cookie, ShieldCheck, Settings2, BarChart3, Megaphone, Mail, Phone } from "lucide-react";
+import ManageCookiesButton from "../components/cookies/ManageCookiesButton";
 
 export const metadata = {
   title: "Cookie Policy | Talent Frontier",
@@ -109,10 +109,7 @@ export default function CookiePolicyPage() {
                 </p>
               </div>
               <div className="pt-2">
-                <Link href="#" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 shadow-sm transition-colors group/button">
-                  <Settings className="w-5 h-5 mr-2 group-hover/button:rotate-90 transition-transform" />
-                  Manage Cookie Settings
-                </Link>
+                <ManageCookiesButton />
               </div>
             </section>
 

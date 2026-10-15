@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
+import ManageCookiesButton from './cookies/ManageCookiesButton';
 
 export default function Footer() {
   return (
@@ -164,6 +165,11 @@ export default function Footer() {
           >
             Cookie Policy
           </Link>
+          <ManageCookiesButton
+            label="Cookie Settings"
+            showIcon={false}
+            className="text-slate-400 hover:text-white transition-colors duration-200 text-xs sm:text-sm font-medium cursor-pointer bg-transparent shadow-none p-0 border-0"
+          />
         </div>
         
       </div>

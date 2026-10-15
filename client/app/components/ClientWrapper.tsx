@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import Header from './header';
 import Footer from './footer';
 import ScrollRevealProvider from './ScrollRevealProvider';
+import CookieConsentManager from './cookies/CookieConsentManager';
 
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -15,6 +16,7 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
       {!isConsole && <Header />}
       <main className="flex-grow">{children}</main>
       {!isConsole && <Footer />}
+      {!isConsole && <CookieConsentManager />}
     </>
   );
 }

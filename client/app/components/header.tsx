@@ -117,12 +117,12 @@ export default function Header() {
               </linearGradient>
             </defs>
             <text 
-              x="3500" 
+              x="3200" 
               y="2700" 
               textAnchor="middle"
               fill="url(#headerTaglineGradient)" 
               fontFamily="sans-serif" 
-              fontSize="340"
+              fontSize="370"
               fontWeight="500"
               fontStyle="normal"
             >
