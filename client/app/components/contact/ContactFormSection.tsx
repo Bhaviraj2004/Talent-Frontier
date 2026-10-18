@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import { useState, FormEvent, useRef, useEffect } from 'react';
-import { ChevronDown, Check } from 'lucide-react';
+import { ChevronDown, Check, AlertCircle } from 'lucide-react';
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
 export default function ContactFormSection() {
@@ -16,6 +16,9 @@ export default function ContactFormSection() {
     requirements: '',
     privacyAgree: false,
   });
+
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -42,6 +45,102 @@ export default function ContactFormSection() {
     { value: 'services', label: 'Professional Services' }
   ];
 
+  const validateField = (name: string, value: any): string => {
+    switch (name) {
+      case 'firstName': {
+        const val = (value || '').trim();
+        if (!val) return 'First name is required.';
+        if (val.length < 2) return 'First name must be at least 2 characters.';
+        if (!/^[a-zA-Z\u00C0-\u024F\u1E00-\u1EFF\s.'’-]+$/.test(val)) {
+          return 'First name should only contain letters.';
+        }
+        return '';
+      }
+      case 'lastName': {
+        const val = (value || '').trim();
+        if (!val) return 'Last name is required.';
+        if (val.length < 2) return 'Last name must be at least 2 characters.';
+        if (!/^[a-zA-Z\u00C0-\u024F\u1E00-\u1EFF\s.'’-]+$/.test(val)) {
+          return 'Last name should only contain letters.';
+        }
+        return '';
+      }
+      case 'email': {
+        const val = (value || '').trim();
+        if (!val) return 'Business email address is required.';
+        // Standard RFC 5322 compatible check
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(val) || val.includes('..')) {
+          return 'Please enter a valid work email address (e.g. name@company.com).';
+        }
+        const parts = val.split('@');
+        if (parts.length !== 2) return 'Please enter a valid email address.';
+        const domainParts = parts[1].split('.');
+        const tld = domainParts[domainParts.length - 1];
+        if (!tld || tld.length < 2 || !/^[a-zA-Z]+$/.test(tld)) {
+          return 'Please enter a valid domain extension (e.g. .com, .com.au).';
+        }
+        return '';
+      }
+      case 'phone': {
+        const val = (value || '').trim();
+        if (!val) return ''; // Phone is optional, but if entered it must be valid
+        const allowedChars = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/;
+        const digits = val.replace(/\D/g, '');
+        if (!allowedChars.test(val) || digits.length < 7 || digits.length > 15) {
+          return 'Please enter a valid phone number (7 to 15 digits, e.g. +61 400 000 000).';
+        }
+        return '';
+      }
+      case 'company': {
+        const val = (value || '').trim();
+        if (!val) return 'Company name is required.';
+        if (val.length < 2) return 'Company name must be at least 2 characters.';
+        return '';
+      }
+      case 'subject': {
+        const val = (value || '').trim();
+        if (!val) return 'Subject is required.';
+        if (val.length < 3) return 'Subject must be at least 3 characters.';
+        return '';
+      }
+      case 'requirements': {
+        const val = (value || '').trim();
+        if (!val) return 'Please describe your requirements.';
+        if (val.length < 10) return 'Please provide more details (at least 10 characters).';
+        return '';
+      }
+      case 'privacyAgree': {
+        if (!value) return 'You must agree to the Privacy Policy to proceed.';
+        return '';
+      }
+      default:
+        return '';
+    }
+  };
+
+  const validateAll = (data: typeof formData): Record<string, string> => {
+    const newErrors: Record<string, string> = {};
+    const fieldsToValidate = ['firstName', 'lastName', 'email', 'phone', 'company', 'subject', 'requirements', 'privacyAgree'];
+
+    fieldsToValidate.forEach((field) => {
+      const err = validateField(field, data[field as keyof typeof formData]);
+      if (err) newErrors[field] = err;
+    });
+
+    return newErrors;
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setTouched(prev => ({ ...prev, [name]: true }));
+    const errorMsg = validateField(name, value);
+    setErrors(prev => ({
+      ...prev,
+      [name]: errorMsg
+    }));
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target as HTMLInputElement;
     const checked = type === 'checkbox' ? (e.target as HTMLInputElement).checked : undefined;
@@ -50,7 +149,7 @@ export default function ContactFormSection() {
     if (type === 'checkbox') {
       processedValue = checked;
     } else if (name === 'phone') {
-      // Mobile number: only numbers allowed, no letters or text (support optional leading '+')
+      // Allow only numbers and leading '+'
       const startsWithPlus = value.startsWith('+');
       const numericDigits = value.replace(/\D/g, '');
       processedValue = startsWithPlus ? `+${numericDigits}` : numericDigits;
@@ -60,27 +159,39 @@ export default function ContactFormSection() {
       ...prev,
       [name]: processedValue
     }));
+
+    // Clear error dynamically as soon as user enters valid input
+    if (errors[name] || touched[name]) {
+      const err = validateField(name, processedValue);
+      setErrors(prev => ({
+        ...prev,
+        [name]: err
+      }));
+    }
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    const validationErrors = validateAll(formData);
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) {
+      setStatus('error');
+      setErrorMessage('Please fix the highlighted errors before submitting.');
+
+      // Auto-focus the first field that has an error
+      const firstErrorField = Object.keys(validationErrors)[0];
+      const element = document.querySelector(`[name="${firstErrorField}"]`) as HTMLElement;
+      if (element) {
+        element.focus();
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+
     setStatus('loading');
     setErrorMessage('');
-
-    // Strict validation for Email (must contain '@' and a valid domain format)
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.includes('@') || !emailRegex.test(formData.email.trim())) {
-      setStatus('error');
-      setErrorMessage('Please provide a valid email address containing "@" and a domain (e.g. name@company.com).');
-      return;
-    }
-
-    // Strict validation for Phone (if provided, must contain only numbers and optional leading '+')
-    if (formData.phone && !/^\+?[0-9]{6,15}$/.test(formData.phone.trim())) {
-      setStatus('error');
-      setErrorMessage('Please provide a valid phone number containing only numbers (e.g., +61400000000 or 0400000000).');
-      return;
-    }
 
     try {
       const res = await fetch(`${API_URL}/api/enquiry`, {
@@ -99,16 +210,27 @@ export default function ContactFormSection() {
           firstName: '', lastName: '', email: '', phone: '', company: '',
           industry: '', subject: '', requirements: '', privacyAgree: false
         });
+        setErrors({});
+        setTouched({});
       } else {
         setStatus('error');
-        setErrorMessage(data.error || 'Something went wrong.');
+        setErrorMessage(data.error || 'Something went wrong while submitting. Please try again.');
       }
     } catch (error) {
       console.error(error);
       setStatus('error');
-      setErrorMessage('Failed to connect to the server. Please try again later.');
+      setErrorMessage('Unable to connect to the server. Please check your connection and try again.');
     }
   };
+
+  const getInputClass = (fieldName: string) => `
+    w-full bg-[#f8fafc] border rounded-lg px-4 py-3.5 outline-none text-[13px] text-[#0f172a] transition-all duration-200 shadow-sm placeholder:text-gray-400
+    ${errors[fieldName] 
+      ? 'border-red-400 bg-red-50/10 focus:border-red-500 focus:ring-4 focus:ring-red-500/10' 
+      : 'border-gray-200 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10'
+    }
+  `;
+
   return (
     <section id="contact-form" className="w-full bg-[#f8fafc] py-16 sm:py-24 font-sans">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row gap-12 lg:gap-24">
@@ -127,45 +249,79 @@ export default function ContactFormSection() {
           </p>
 
           {status === 'success' && (
-            <div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-md text-[13px] font-medium">
-              Thank you! Your enquiry has been submitted successfully. A confirmation email has been sent to you.
+            <div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg text-[13px] font-medium flex items-center gap-2.5">
+              <Check className="w-4 h-4 text-green-600 shrink-0" />
+              <span>Thank you! Your enquiry has been submitted successfully. A confirmation email has been sent to you.</span>
             </div>
           )}
 
           {status === 'error' && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-md text-[13px] font-medium">
-              {errorMessage}
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg text-[13px] font-medium flex items-center gap-2.5">
+              <AlertCircle className="w-4 h-4 text-red-600 shrink-0" />
+              <span>{errorMessage}</span>
             </div>
           )}
 
-          <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+          <form className="flex flex-col gap-6" onSubmit={handleSubmit} noValidate>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1.5">
                 <label className="text-[12px] font-bold text-[#1e293b]">First Name*</label>
-                <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required placeholder="John" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] text-[#0f172a] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
+                <input 
+                  type="text" 
+                  name="firstName" 
+                  value={formData.firstName} 
+                  onChange={handleChange} 
+                  onBlur={handleBlur}
+                  placeholder="John" 
+                  className={getInputClass('firstName')} 
+                />
+                {errors.firstName && (
+                  <p className="text-red-500 text-[11px] font-medium flex items-center gap-1 mt-0.5">
+                    <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                    <span>{errors.firstName}</span>
+                  </p>
+                )}
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1.5">
                 <label className="text-[12px] font-bold text-[#1e293b]">Last Name*</label>
-                <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required placeholder="Doe" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] text-[#0f172a] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
+                <input 
+                  type="text" 
+                  name="lastName" 
+                  value={formData.lastName} 
+                  onChange={handleChange} 
+                  onBlur={handleBlur}
+                  placeholder="Doe" 
+                  className={getInputClass('lastName')} 
+                />
+                {errors.lastName && (
+                  <p className="text-red-500 text-[11px] font-medium flex items-center gap-1 mt-0.5">
+                    <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                    <span>{errors.lastName}</span>
+                  </p>
+                )}
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1.5">
                 <label className="text-[12px] font-bold text-[#1e293b]">Business Email Address*</label>
                 <input 
                   type="email" 
                   name="email" 
                   value={formData.email} 
                   onChange={handleChange} 
-                  required 
-                  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
-                  title="Please enter a valid email address with '@' (e.g., name@company.com)"
+                  onBlur={handleBlur}
                   placeholder="john@example.com" 
-                  className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] text-[#0f172a] transition-all duration-200 shadow-sm placeholder:text-gray-400" 
+                  className={getInputClass('email')} 
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-[11px] font-medium flex items-center gap-1 mt-0.5">
+                    <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                    <span>{errors.email}</span>
+                  </p>
+                )}
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1.5">
                 <label className="text-[12px] font-bold text-[#1e293b]">Phone Number</label>
                 <input 
                   type="tel" 
@@ -173,18 +329,39 @@ export default function ContactFormSection() {
                   name="phone" 
                   value={formData.phone} 
                   onChange={handleChange} 
-                  placeholder="+61400000000" 
-                  className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] text-[#0f172a] transition-all duration-200 shadow-sm placeholder:text-gray-400" 
+                  onBlur={handleBlur}
+                  placeholder="+61 400 000 000" 
+                  className={getInputClass('phone')} 
                 />
+                {errors.phone && (
+                  <p className="text-red-500 text-[11px] font-medium flex items-center gap-1 mt-0.5">
+                    <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                    <span>{errors.phone}</span>
+                  </p>
+                )}
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1.5">
                 <label className="text-[12px] font-bold text-[#1e293b]">Company Name*</label>
-                <input type="text" name="company" value={formData.company} onChange={handleChange} required placeholder="Company Ltd" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] text-[#0f172a] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
+                <input 
+                  type="text" 
+                  name="company" 
+                  value={formData.company} 
+                  onChange={handleChange} 
+                  onBlur={handleBlur}
+                  placeholder="Company Ltd" 
+                  className={getInputClass('company')} 
+                />
+                {errors.company && (
+                  <p className="text-red-500 text-[11px] font-medium flex items-center gap-1 mt-0.5">
+                    <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                    <span>{errors.company}</span>
+                  </p>
+                )}
               </div>
-              <div className="flex flex-col gap-2" ref={dropdownRef}>
+              <div className="flex flex-col gap-1.5" ref={dropdownRef}>
                 <label className="text-[12px] font-bold text-[#1e293b]">Industry</label>
                 <div className="relative">
                   <button
@@ -229,23 +406,66 @@ export default function ContactFormSection() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-1.5">
               <label className="text-[12px] font-bold text-[#1e293b]">Subject*</label>
-              <input type="text" name="subject" value={formData.subject} onChange={handleChange} required placeholder="How can we help you?" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] text-[#0f172a] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
+              <input 
+                type="text" 
+                name="subject" 
+                value={formData.subject} 
+                onChange={handleChange} 
+                onBlur={handleBlur}
+                placeholder="How can we help you?" 
+                className={getInputClass('subject')} 
+              />
+              {errors.subject && (
+                <p className="text-red-500 text-[11px] font-medium flex items-center gap-1 mt-0.5">
+                  <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                  <span>{errors.subject}</span>
+                </p>
+              )}
             </div>
 
-            <div className="flex flex-col gap-2 mb-2">
+            <div className="flex flex-col gap-1.5 mb-2">
               <label className="text-[12px] font-bold text-[#1e293b]">Tell Us About Your Requirements*</label>
-              <textarea name="requirements" value={formData.requirements} onChange={handleChange} rows={5} required placeholder="Describe your staffing or support needs..." className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] text-[#0f172a] transition-all duration-200 shadow-sm placeholder:text-gray-400 resize-none"></textarea>
+              <textarea 
+                name="requirements" 
+                value={formData.requirements} 
+                onChange={handleChange} 
+                onBlur={handleBlur}
+                rows={5} 
+                placeholder="Describe your staffing or support needs..." 
+                className={`${getInputClass('requirements')} resize-none`}
+              ></textarea>
+              {errors.requirements && (
+                <p className="text-red-500 text-[11px] font-medium flex items-center gap-1 mt-0.5">
+                  <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                  <span>{errors.requirements}</span>
+                </p>
+              )}
             </div>
 
-            <div className="flex items-center gap-3 mb-6">
-              <div className="relative flex items-center justify-center">
-                <input type="checkbox" name="privacyAgree" checked={formData.privacyAgree} onChange={handleChange} required id="privacy-agree" className="peer w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer transition-all duration-200" />
+            <div className="flex flex-col gap-1.5 mb-6">
+              <div className="flex items-center gap-3">
+                <div className="relative flex items-center justify-center">
+                  <input 
+                    type="checkbox" 
+                    name="privacyAgree" 
+                    checked={formData.privacyAgree} 
+                    onChange={handleChange} 
+                    id="privacy-agree" 
+                    className="peer w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer transition-all duration-200" 
+                  />
+                </div>
+                <label htmlFor="privacy-agree" className="text-[12px] font-medium text-[#64748b] cursor-pointer hover:text-gray-700 transition-colors">
+                  I have read and agree to Talent frontier's <Link href="/contact" className="text-[#3b82f6] hover:text-blue-700 hover:underline font-bold transition-colors">Privacy Policy.</Link>
+                </label>
               </div>
-              <label htmlFor="privacy-agree" className="text-[12px] font-medium text-[#64748b] cursor-pointer hover:text-gray-700 transition-colors">
-                I have read and agree to Talent frontier's <Link href="/contact" className="text-[#3b82f6] hover:text-blue-700 hover:underline font-bold transition-colors">Privacy Policy.</Link>
-              </label>
+              {errors.privacyAgree && (
+                <p className="text-red-500 text-[11px] font-medium flex items-center gap-1 mt-0.5 pl-7">
+                  <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                  <span>{errors.privacyAgree}</span>
+                </p>
+              )}
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
