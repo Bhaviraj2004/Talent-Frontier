@@ -142,11 +142,11 @@ export default function ContactFormSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">First Name*</label>
-                <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required placeholder="John" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
+                <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required placeholder="John" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] text-[#0f172a] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Last Name*</label>
-                <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required placeholder="Doe" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
+                <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required placeholder="Doe" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] text-[#0f172a] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
               </div>
             </div>
 
@@ -162,7 +162,7 @@ export default function ContactFormSection() {
                   pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
                   title="Please enter a valid email address with '@' (e.g., name@company.com)"
                   placeholder="john@example.com" 
-                  className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" 
+                  className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] text-[#0f172a] transition-all duration-200 shadow-sm placeholder:text-gray-400" 
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -174,7 +174,7 @@ export default function ContactFormSection() {
                   value={formData.phone} 
                   onChange={handleChange} 
                   placeholder="+61400000000" 
-                  className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" 
+                  className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] text-[#0f172a] transition-all duration-200 shadow-sm placeholder:text-gray-400" 
                 />
               </div>
             </div>
@@ -182,7 +182,7 @@ export default function ContactFormSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="text-[12px] font-bold text-[#1e293b]">Company Name*</label>
-                <input type="text" name="company" value={formData.company} onChange={handleChange} required placeholder="Company Ltd" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
+                <input type="text" name="company" value={formData.company} onChange={handleChange} required placeholder="Company Ltd" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] text-[#0f172a] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
               </div>
               <div className="flex flex-col gap-2" ref={dropdownRef}>
                 <label className="text-[12px] font-bold text-[#1e293b]">Industry</label>
@@ -192,7 +192,7 @@ export default function ContactFormSection() {
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     className={`w-full bg-[#f8fafc] border ${isDropdownOpen ? 'border-blue-500 bg-white ring-4 ring-blue-500/10' : 'border-gray-200 hover:border-gray-300'} rounded-lg px-4 py-3.5 text-left outline-none text-[13px] text-gray-700 flex items-center justify-between transition-all duration-200 shadow-sm`}
                   >
-                    <span className={!formData.industry ? "text-gray-400" : "font-medium"}>
+                    <span className={!formData.industry ? "text-gray-400" : "font-medium text-[#0f172a]"}>
                       {industries.find(i => i.value === formData.industry)?.label || 'Select Industry'}
                     </span>
                     <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180 text-blue-500' : ''}`} />
@@ -231,12 +231,12 @@ export default function ContactFormSection() {
 
             <div className="flex flex-col gap-2">
               <label className="text-[12px] font-bold text-[#1e293b]">Subject*</label>
-              <input type="text" name="subject" value={formData.subject} onChange={handleChange} required placeholder="How can we help you?" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
+              <input type="text" name="subject" value={formData.subject} onChange={handleChange} required placeholder="How can we help you?" className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] text-[#0f172a] transition-all duration-200 shadow-sm placeholder:text-gray-400" />
             </div>
 
             <div className="flex flex-col gap-2 mb-2">
               <label className="text-[12px] font-bold text-[#1e293b]">Tell Us About Your Requirements*</label>
-              <textarea name="requirements" value={formData.requirements} onChange={handleChange} rows={5} required placeholder="Describe your staffing or support needs..." className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] transition-all duration-200 shadow-sm placeholder:text-gray-400 resize-none"></textarea>
+              <textarea name="requirements" value={formData.requirements} onChange={handleChange} rows={5} required placeholder="Describe your staffing or support needs..." className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-[13px] text-[#0f172a] transition-all duration-200 shadow-sm placeholder:text-gray-400 resize-none"></textarea>
             </div>
 
             <div className="flex items-center gap-3 mb-6">

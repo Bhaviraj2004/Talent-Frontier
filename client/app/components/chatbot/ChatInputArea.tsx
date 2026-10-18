@@ -4,19 +4,28 @@ interface ChatInputAreaProps {
   inputValue: string;
   setInputValue: (val: string) => void;
   onSendMessage: () => void;
+  inputType?: 'text' | 'email' | 'tel';
+  placeholder?: string;
 }
 
-export default function ChatInputArea({ inputValue, setInputValue, onSendMessage }: ChatInputAreaProps) {
+export default function ChatInputArea({ 
+  inputValue, 
+  setInputValue, 
+  onSendMessage,
+  inputType = 'text',
+  placeholder = "Ask about leadership search..."
+}: ChatInputAreaProps) {
   return (
     <div className="bg-white border-t border-gray-100 p-4 z-10">
       <div className="flex items-center space-x-2 mb-3">
         <div className="flex-1 relative">
           <input 
-            type="text" 
+            type={inputType} 
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && onSendMessage()}
-            placeholder="Ask about leadership search..."
+            placeholder={placeholder}
+            autoComplete={inputType === 'email' ? 'email' : inputType === 'tel' ? 'tel' : 'name'}
             className="w-full border border-gray-200 rounded-lg py-2.5 pl-3 pr-3 text-[16px] sm:text-[13px] text-[#004a69] placeholder-[#8b9bb4] focus:outline-none focus:border-[#007ba8] focus:ring-1 focus:ring-[#007ba8]"
           />
         </div>

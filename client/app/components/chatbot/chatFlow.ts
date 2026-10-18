@@ -6,6 +6,9 @@ export type Message = {
   isForm?: boolean;
   nextAction?: string;
   expects?: keyof FormDataState;
+  inputType?: 'text' | 'email' | 'tel';
+  placeholder?: string;
+  isError?: boolean;
 };
 
 export type FormDataState = {
@@ -16,7 +19,118 @@ export type FormDataState = {
   query: string;
 };
 
-export const FLOW = {
+export type ValidationResult = {
+  isValid: boolean;
+  error?: string;
+};
+
+export type FieldValidator = (value: string) => ValidationResult;
+
+export type FlowNode = {
+  text: string;
+  options?: { label: string; action: string }[];
+  isForm?: boolean;
+  nextAction?: string;
+  expects?: keyof FormDataState;
+  inputType?: 'text' | 'email' | 'tel';
+  placeholder?: string;
+};
+
+// ==========================================
+// VALIDATION LOGIC FOR FORM INPUTS
+// ==========================================
+
+export const validateName = (name: string): ValidationResult => {
+  const trimmed = (name || '').trim();
+  if (!trimmed) {
+    return { isValid: false, error: 'Please enter your full name.' };
+  }
+  if (trimmed.length < 2) {
+    return { isValid: false, error: 'Name must be at least 2 characters long.' };
+  }
+  if (trimmed.length > 70) {
+    return { isValid: false, error: 'Name cannot exceed 70 characters.' };
+  }
+  // Allow letters, accented characters, spaces, hyphens, periods, and apostrophes
+  const nameRegex = /^[a-zA-Z\u00C0-\u024F\u1E00-\u1EFF\s.'’-]+$/;
+  if (!nameRegex.test(trimmed)) {
+    return { isValid: false, error: 'Please enter a valid name using letters only (no numbers or special symbols).' };
+  }
+  const letterCount = (trimmed.match(/[a-zA-Z\u00C0-\u024F\u1E00-\u1EFF]/g) || []).length;
+  if (letterCount < 2) {
+    return { isValid: false, error: 'Please enter a valid full name with at least 2 letters.' };
+  }
+  return { isValid: true };
+};
+
+export const validateEmail = (email: string): ValidationResult => {
+  const trimmed = (email || '').trim();
+  if (!trimmed) {
+    return { isValid: false, error: 'Please enter your work email address.' };
+  }
+  if (trimmed.length > 100) {
+    return { isValid: false, error: 'Email address cannot exceed 100 characters.' };
+  }
+  // Standard email validation (RFC 5322 compatible regex)
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!emailRegex.test(trimmed) || trimmed.includes('..')) {
+    return { isValid: false, error: 'Please enter a valid work email address (e.g., name@company.com).' };
+  }
+  return { isValid: true };
+};
+
+export const validatePhone = (phone: string): ValidationResult => {
+  const trimmed = (phone || '').trim();
+  if (!trimmed) {
+    return { isValid: false, error: 'Please enter your contact number.' };
+  }
+  // Allow digits, spaces, hyphens, parentheses, and optional leading +
+  const allowedChars = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/;
+  const digits = trimmed.replace(/\D/g, '');
+
+  if (!allowedChars.test(trimmed) || digits.length < 7 || digits.length > 15) {
+    return {
+      isValid: false,
+      error: 'Please enter a valid contact number (7 to 15 digits, e.g., +61 400 000 000).'
+    };
+  }
+  return { isValid: true };
+};
+
+export const validateQuery = (query: string): ValidationResult => {
+  const trimmed = (query || '').trim();
+  if (!trimmed) {
+    return { isValid: false, error: 'Please enter your inquiry or question.' };
+  }
+  return { isValid: true };
+};
+
+export const FIELD_VALIDATORS: Partial<Record<keyof FormDataState, FieldValidator>> = {
+  name: validateName,
+  email: validateEmail,
+  phone: validatePhone,
+  query: validateQuery
+};
+
+export const validateField = (
+  field: keyof FormDataState,
+  value: string
+): ValidationResult => {
+  const validator = FIELD_VALIDATORS[field];
+  if (!validator) {
+    if (!value || !value.trim()) {
+      return { isValid: false, error: 'This field cannot be empty.' };
+    }
+    return { isValid: true };
+  }
+  return validator(value);
+};
+
+// ==========================================
+// CHAT FLOW CONVERSATION TREE
+// ==========================================
+
+export const FLOW: Record<string, FlowNode> = {
   init: {
     text: "Hi, welcome to Talent Frontier.\n\nHow can we help you today?",
     options: [
@@ -113,17 +227,23 @@ export const FLOW = {
   transition_to_contact: {
     text: "I think I have a good understanding of what you're looking for. To help us connect you with the right person, may I have your full name?",
     expects: "name",
-    nextAction: "ask_email"
+    nextAction: "ask_email",
+    inputType: "text",
+    placeholder: "Enter your full name (e.g., Bhaviraj Singh)"
   },
   ask_email: {
     text: "Thanks! What is your work email address?",
     expects: "email",
-    nextAction: "ask_phone"
+    nextAction: "ask_phone",
+    inputType: "email",
+    placeholder: "Enter your work email (e.g., name@company.com)"
   },
   ask_phone: {
     text: "Got it. And what is your contact number?",
     expects: "phone",
-    nextAction: "contact_method"
+    nextAction: "contact_method",
+    inputType: "tel",
+    placeholder: "Enter your contact number (e.g., +61 400 000 000)"
   },
   contact_method: {
     text: "Thank you. How would you like our Senior Partner to reach out to you?",

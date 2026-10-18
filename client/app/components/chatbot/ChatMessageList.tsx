@@ -1,4 +1,4 @@
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, AlertCircle } from 'lucide-react';
 import React, { RefObject } from 'react';
 import { Message } from './chatFlow';
 
@@ -30,12 +30,17 @@ export default function ChatMessageList({
                 className={`relative p-3 shadow-sm text-[14px] leading-[1.45] ${
                   msg.sender === 'user' 
                     ? 'bg-[#d9fdd3] text-[#111b21] rounded-2xl rounded-br-sm' 
+                    : msg.isError
+                    ? 'bg-[#fff5f5] text-[#b91c1c] border border-red-200 rounded-2xl rounded-bl-sm flex items-start gap-2'
                     : 'bg-white text-[#111b21] rounded-2xl rounded-bl-sm border border-gray-100'
                 }`}
               >
-                <p>{msg.text}</p>
-                <div className={`text-[10px] mt-1.5 flex items-center justify-end ${msg.sender === 'user' ? 'text-[#667781]' : 'text-[#8696a0]'}`}>
-                  Just now {msg.sender === 'user' && <CheckCircle2 className="w-[14px] h-[14px] ml-1 text-[#53bdeb]" />}
+                {msg.isError && <AlertCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />}
+                <div className="flex-1">
+                  <p>{msg.text}</p>
+                  <div className={`text-[10px] mt-1.5 flex items-center justify-end ${msg.sender === 'user' ? 'text-[#667781]' : msg.isError ? 'text-red-400' : 'text-[#8696a0]'}`}>
+                    Just now {msg.sender === 'user' && <CheckCircle2 className="w-[14px] h-[14px] ml-1 text-[#53bdeb]" />}
+                  </div>
                 </div>
               </div>
             )}

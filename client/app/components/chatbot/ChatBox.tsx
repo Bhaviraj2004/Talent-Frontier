@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { FLOW, Message } from './chatFlow';
+import { FLOW, Message, validateField } from './chatFlow';
 import ChatHeader from './ChatHeader';
 import ChatMessageList from './ChatMessageList';
 import ChatInputArea from './ChatInputArea';
@@ -16,8 +16,10 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
       sender: 'bot', 
       text: FLOW.init.text, 
       options: FLOW.init.options,
-      nextAction: (FLOW.init as any).nextAction,
-      expects: (FLOW.init as any).expects
+      nextAction: FLOW.init.nextAction,
+      expects: FLOW.init.expects,
+      inputType: FLOW.init.inputType,
+      placeholder: FLOW.init.placeholder
     }
   ]);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', contactMethod: 'Email', query: '' });
@@ -93,7 +95,7 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
     }
 
     setTimeout(() => {
-      const nextNode = FLOW[actionId as keyof typeof FLOW];
+      const nextNode = FLOW[actionId];
       if (nextNode) {
         setMessages(prev => [
           ...prev, 
@@ -101,9 +103,11 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
             id: Date.now().toString(), 
             sender: 'bot', 
             text: nextNode.text, 
-            options: (nextNode as any).options,
-            nextAction: (nextNode as any).nextAction,
-            expects: (nextNode as any).expects
+            options: nextNode.options,
+            nextAction: nextNode.nextAction,
+            expects: nextNode.expects,
+            inputType: nextNode.inputType,
+            placeholder: nextNode.placeholder
           }
         ]);
       }
@@ -111,16 +115,46 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
   };
 
   const handleSendMessage = () => {
-    if (!inputValue.trim()) return;
+    const trimmedInput = inputValue.trim();
+    if (!trimmedInput) return;
     
     const newMessages = [...messages];
     const lastMessage = newMessages[newMessages.length - 1];
+
+    // Validate expected field before advancing
+    if (lastMessage && lastMessage.sender === 'bot' && lastMessage.expects) {
+      const validation = validateField(lastMessage.expects, trimmedInput);
+      if (!validation.isValid) {
+        // Show user message
+        newMessages.push({ id: Date.now().toString(), sender: 'user', text: trimmedInput });
+        setMessages(newMessages);
+        setInputValue("");
+
+        // Respond with friendly validation error & retain expects/nextAction
+        setTimeout(() => {
+          setMessages(prev => [
+            ...prev,
+            {
+              id: (Date.now() + 1).toString(),
+              sender: 'bot',
+              text: validation.error || "Please enter valid information to proceed.",
+              expects: lastMessage.expects,
+              nextAction: lastMessage.nextAction,
+              inputType: lastMessage.inputType,
+              placeholder: lastMessage.placeholder,
+              isError: true
+            }
+          ]);
+        }, 500);
+        return;
+      }
+    }
     
     if (lastMessage && lastMessage.sender === 'bot') {
       lastMessage.options = undefined;
     }
     
-    newMessages.push({ id: Date.now().toString(), sender: 'user', text: inputValue });
+    newMessages.push({ id: Date.now().toString(), sender: 'user', text: trimmedInput });
     setMessages(newMessages);
     setInputValue("");
     
@@ -128,20 +162,20 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
     
     if (lastMessage && lastMessage.sender === 'bot') {
        if (lastMessage.expects) {
-         setFormData(prev => ({ ...prev, [lastMessage.expects!]: inputValue }));
+         setFormData(prev => ({ ...prev, [lastMessage.expects!]: trimmedInput }));
        } else {
-         setFormData(prev => ({ ...prev, query: prev.query ? `${prev.query} -> ${inputValue}` : inputValue }));
+         setFormData(prev => ({ ...prev, query: prev.query ? `${prev.query} -> ${trimmedInput}` : trimmedInput }));
        }
        
        if (lastMessage.nextAction) {
          nextNodeId = lastMessage.nextAction;
        }
     } else {
-       setFormData(prev => ({ ...prev, query: prev.query ? `${prev.query} -> ${inputValue}` : inputValue }));
+       setFormData(prev => ({ ...prev, query: prev.query ? `${prev.query} -> ${trimmedInput}` : trimmedInput }));
     }
 
     setTimeout(() => {
-      const nextNode = FLOW[nextNodeId as keyof typeof FLOW];
+      const nextNode = FLOW[nextNodeId];
       if (nextNode) {
         setMessages(prev => [
           ...prev, 
@@ -149,9 +183,11 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
             id: Date.now().toString(), 
             sender: 'bot', 
             text: nextNode.text, 
-            options: (nextNode as any).options,
-            nextAction: (nextNode as any).nextAction,
-            expects: (nextNode as any).expects
+            options: nextNode.options,
+            nextAction: nextNode.nextAction,
+            expects: nextNode.expects,
+            inputType: nextNode.inputType,
+            placeholder: nextNode.placeholder
           }
         ]);
       }
@@ -164,13 +200,19 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
       sender: 'bot', 
       text: FLOW.init.text, 
       options: FLOW.init.options,
-      nextAction: (FLOW.init as any).nextAction,
-      expects: (FLOW.init as any).expects
+      nextAction: FLOW.init.nextAction,
+      expects: FLOW.init.expects,
+      inputType: FLOW.init.inputType,
+      placeholder: FLOW.init.placeholder
     }]);
     setFormData({ name: '', email: '', phone: '', contactMethod: 'Email', query: '' });
   };
 
   if (!isOpen) return null;
+
+  const lastBotMessage = [...messages].reverse().find(m => m.sender === 'bot');
+  const activeInputType = lastBotMessage?.inputType || 'text';
+  const activePlaceholder = lastBotMessage?.placeholder || "Ask about leadership search...";
 
   return (
     <div className="absolute bottom-16 right-0 w-[calc(100vw-48px)] sm:w-[400px] h-[calc(100vh-120px)] sm:h-[540px] max-h-[540px] bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.25)] border border-gray-200 overflow-hidden flex flex-col animate-in slide-in-from-bottom-5 fade-in duration-300 origin-bottom-right z-50 font-sans">
@@ -187,6 +229,8 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
         inputValue={inputValue}
         setInputValue={setInputValue}
         onSendMessage={handleSendMessage}
+        inputType={activeInputType}
+        placeholder={activePlaceholder}
       />
       
     </div>
