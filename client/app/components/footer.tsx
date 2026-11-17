@@ -91,14 +91,11 @@ export default function Footer() {
           <div>
             <h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-5">Our Services</h3>
             <ul className="flex flex-col gap-2 sm:gap-2.5">
-              <li><Link href="/our-services/accountants-bookkeepers" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Accountants & Bookkeepers</Link></li>
-              <li><Link href="/our-services/tax-audit-compliance" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Tax, Audit & Compliance</Link></li>
+              <li><Link href="/our-services/accounting-tax-compliance" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Accountants, Bookkeepers, Tax & Compliance</Link></li>
               <li><Link href="/our-services/hr-people-professionals" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">HR & People Professionals</Link></li>
-              <li><Link href="/our-services/virtual-assistants-administration" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Virtual Assistants & Administration</Link></li>
-              <li><Link href="/our-services/technology-professionals" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">IT, Software & AI Professionals</Link></li>
-              <li><Link href="/our-services/automation-systems-professionals" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Automation & Systems Professionals</Link></li>
+              <li><Link href="/our-services/virtual-assistants-fractional-executives" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Virtual Assistants & Fractional Executives</Link></li>
+              <li><Link href="/our-services/technology-automation-professionals" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">IT, Software, AI & Automation</Link></li>
               <li><Link href="/our-services/marketing-creative-professionals" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm leading-tight inline-block">Marketing & Creative Professionals</Link></li>
-              <li><Link href="/our-services/virtual-fractional-executives" className="text-slate-300 hover:text-blue-400 active:text-blue-200 hover:translate-x-1 transition-all duration-200 text-xs sm:text-sm inline-block">Virtual & Fractional Executives</Link></li>
             </ul>
           </div>
           

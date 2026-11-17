@@ -1,6 +1,21 @@
 import Image from "next/image";
 
 export default function HowWeCanSupport() {
+  const supports = [
+    "Website & web application development",
+    "Software engineering & platform maintenance",
+    "Cloud infrastructure & DevOps management",
+    "Quality assurance & automated testing",
+    "Data management, pipelines & analytics",
+    "End-to-end workflow automation",
+    "CRM setup, configuration & optimization",
+    "System, API & webhook integrations",
+    "AI-enabled workflows & model integration",
+    "Automated notifications, alerts & routing",
+    "Operational process improvement",
+    "Technical documentation & architecture"
+  ];
+
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 flex flex-col lg:flex-row gap-8 sm:gap-12 md:gap-16">
       <div className="w-full lg:w-[60%] flex flex-col">
@@ -8,18 +23,7 @@ export default function HowWeCanSupport() {
           Areas They Can Support
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-          {[
-            "Website and application development",
-            "Software development",
-            "Platform maintenance",
-            "Technical troubleshooting",
-            "Quality assurance and testing",
-            "IT support",
-            "Data management and analysis",
-            "System implementation",
-            "AI-enabled workflows",
-            "Technical documentation"
-          ].map((item, idx) => (
+          {supports.map((item, idx) => (
             <div 
               key={idx} 
               className="bg-white border border-slate-200/80 rounded-xl p-3 sm:p-4 hover:shadow-md hover:border-blue-500 hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer flex items-center gap-3"

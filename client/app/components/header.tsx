@@ -147,21 +147,56 @@ export default function Header() {
             return (
               <div 
                 key={navItem.title} 
-                className="relative"
+                className="relative py-2"
                 onMouseEnter={() => handleMouseEnter(navItem.title)}
                 onMouseLeave={handleMouseLeave}
               >
-                <button
-                  type="button"
-                  onClick={() => toggleMenu(navItem.title)}
-                  className={`flex items-center gap-1.5 ${isActivePage ? 'text-[#2563eb]' : 'text-[#1e293b]'} hover:text-[#2563eb] transition-colors outline-none py-2`}
-                  aria-expanded={isMenuOpen}
-                >
-                  <Link href={navItem.href} className="hover:text-[#2563eb]">
+                <div className="flex items-center gap-1 cursor-pointer">
+                  <Link 
+                    href={navItem.href} 
+                    className={`${isActivePage ? 'text-[#2563eb]' : 'text-[#1e293b]'} hover:text-[#2563eb] transition-colors`}
+                  >
                     {navItem.title}
                   </Link>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isMenuOpen ? 'rotate-180' : ''}`} />
-                </button>
+                  <button
+                    type="button"
+                    onClick={() => toggleMenu(navItem.title)}
+                    className="p-1 text-gray-500 hover:text-[#2563eb] transition-colors focus:outline-none"
+                    aria-expanded={isMenuOpen}
+                    aria-label={`Toggle ${navItem.title} menu`}
+                  >
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isMenuOpen ? 'rotate-180 text-[#2563eb]' : ''}`} />
+                  </button>
+                </div>
+
+                {/* Simple sober dropdown menu */}
+                <div
+                  className={`absolute top-full left-0 pt-2 transition-all duration-200 ease-out origin-top z-50 ${
+                    isMenuOpen
+                      ? 'opacity-100 visible translate-y-0 pointer-events-auto'
+                      : 'opacity-0 invisible -translate-y-1 pointer-events-none'
+                  }`}
+                >
+                  <div className="w-max min-w-[240px] max-w-[320px] bg-white rounded-xl shadow-lg border border-gray-100 py-1.5 px-1.5 ring-1 ring-black/5">
+                    {navItem.items.map((item) => {
+                      const isItemActive = pathname === item.href;
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setActiveMenu(null)}
+                          className={`block px-3.5 py-2.5 rounded-lg text-[13.5px] font-medium leading-snug transition-colors ${
+                            isItemActive
+                              ? 'text-[#2563eb] bg-blue-50/80 font-semibold'
+                              : 'text-gray-700 hover:text-[#2563eb] hover:bg-gray-50'
+                          }`}
+                        >
+                          {item.title}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
             );
           })}
@@ -203,80 +238,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Desktop Mega Menu Dropdown */}
-      {navData.map((navItem) => (
-        <div
-          key={`mega-${navItem.title}`}
-          className={`hidden lg:flex absolute top-full left-0 w-full justify-center transition-all duration-300 ease-out origin-top pointer-events-none
-            ${activeMenu === navItem.title ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
-          `}
-          onMouseEnter={() => handleMouseEnter(navItem.title)}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div className="w-[95%] max-w-[980px] bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden mt-1 p-6 pointer-events-auto">
-            {/* Top Bar */}
-            <div className="flex justify-between items-center pb-3 border-b border-gray-100">
-              <div className="flex items-center gap-3">
-                <span className="bg-[#e6f0ff] text-[#2563eb] text-[11px] font-semibold px-2.5 py-1 rounded-full">Active Category</span>
-                <h2 className="text-base font-bold text-gray-900">{navItem.categoryTitle}</h2>
-              </div>
-              <div className="flex items-center gap-3 text-[11px] text-gray-500 font-medium">
-                <span>Also explore:</span>
-                {navItem.exploreLinks.map((link, idx) => (
-                  <div key={link.label} className="flex items-center gap-3">
-                    <Link href={link.href} className="hover:text-[#2563eb] active:text-blue-700 transition-colors">{link.label}</Link>
-                    {idx < navItem.exploreLinks.length - 1 && <span className="w-px h-3 bg-gray-300"></span>}
-                  </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Grid Content */}
-            <div className={`py-4 grid gap-3 ${navItem.items.length > 4 ? 'grid-cols-3' : 'grid-cols-2'}`}>
-              {navItem.items.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <Link 
-                    href={item.href} 
-                    key={item.title} 
-                    className="group p-3.5 rounded-xl border border-gray-100 hover:border-[#2563eb] hover:shadow-md active:bg-blue-50/60 active:scale-[0.99] transition-all flex flex-col h-full bg-white"
-                  >
-                    <div className="w-8 h-8 bg-[#f0f5ff] text-[#2563eb] rounded-lg flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                      <Icon className="w-4 h-4" />
-                    </div>
-                    <h3 className="text-[13px] font-bold text-gray-900 mb-0.5">{item.title}</h3>
-                    <p className="text-[#2563eb] text-[9.5px] font-bold tracking-wider uppercase mb-1">{item.subtitle}</p>
-                    <p className="text-gray-500 text-[11px] leading-snug mb-3 flex-grow">{item.description}</p>
-                    
-                    <div className="flex items-center justify-between text-[11px] mt-auto pt-1 gap-2">
-                      <span className="text-gray-400 font-medium truncate max-w-[170px]">{(item as any).shortTitle || item.title}</span>
-                      <span className="flex items-center text-[#2563eb] font-bold gap-1 group-hover:translate-x-1 transition-transform shrink-0">
-                        Explore <ArrowRight className="w-3 h-3" />
-                      </span>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* Bottom Bar */}
-            <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#2563eb]"></div>
-                <p className="text-gray-600 text-[11px] font-medium">{navItem.bottomBar.text}</p>
-              </div>
-              <div className="flex items-center gap-4">
-                <Link href={navItem.bottomBar.linkHref} className="text-gray-800 text-[11px] font-bold hover:text-[#2563eb] transition-colors flex items-center gap-1">
-                  {navItem.bottomBar.linkText} <ArrowRight className="w-3 h-3" />
-                </Link>
-                <Link href={navItem.bottomBar.buttonHref} className="bg-[#0f172a] text-white px-4 py-1.5 rounded-full text-[11px] font-bold hover:bg-[#2563eb] transition-colors">
-                  {navItem.bottomBar.buttonText}
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
 
       {/* Mobile / Tablet Drawer */}
       {mobileMenuOpen && (

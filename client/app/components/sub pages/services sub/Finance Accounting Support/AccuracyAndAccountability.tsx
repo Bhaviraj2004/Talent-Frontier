@@ -2,12 +2,12 @@ import Image from "next/image";
 
 export default function AccuracyAndAccountability() {
   const points = [
-    "Access permissions",
-    "Approval authorities",
-    "Documentation standards",
-    "Review procedures",
-    "Data-security requirements",
-    "Escalation processes"
+    "Audit-ready documentation standards",
+    "Strict multi-level review procedures",
+    "Approval authorities & access governance",
+    "Statutory deadline tracking & control",
+    "Data security & confidentiality requirements",
+    "Transparent query escalation processes"
   ];
 
   return (
@@ -15,14 +15,14 @@ export default function AccuracyAndAccountability() {
       <div className="w-full md:w-[55%] relative aspect-[645/405] md:aspect-auto md:h-[420px] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100">
         <Image
           src="/sub pages/Services/Finance & Accounting Support/Accuracy Image — Finance review.png"
-          alt="Accuracy and Accountability"
+          alt="Accuracy, Governance and Accountability"
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
       <div className="w-full md:w-[45%]">
         <h2 className="text-3xl md:text-[34px] font-bold mb-10 text-gray-900 leading-tight">
-          Accuracy and Accountability
+          Precision, Governance & Accountability
         </h2>
         <div className="flex flex-col gap-5 mb-10">
           {points.map((point, index) => (
@@ -33,8 +33,7 @@ export default function AccuracyAndAccountability() {
           ))}
         </div>
         <p className="text-gray-700 text-[15px] leading-relaxed max-w-md">
-          Final approvals and professional accounting decisions<br/>
-          remain with authorised personnel.
+          Final approvals, statutory lodgements, and professional accounting decisions remain with authorised personnel and registered agents.
         </p>
       </div>
     </section>

@@ -63,22 +63,14 @@ export const navData = [
       { label: "About Talent Frontier", href: "/about" },
     ],
     items: [
-      // Row 1: Accountants & Bookkeepers | Tax, Audit & Compliance | HR & People Professionals
+      // Row 1: Accountants, Bookkeepers, Tax & Compliance | HR & People Professionals
       {
-        title: "Accountants & Bookkeepers",
-        subtitle: "STRUCTURED SUPPORT",
-        description: "Structured support for finance processes and bookkeeping.",
+        title: "Accountants, Bookkeepers, Tax & Compliance",
+        subtitle: "FINANCE & COMPLIANCE",
+        description: "Structured support for accounting, bookkeeping, tax preparation and regulatory compliance.",
         icon: Briefcase,
-        href: "/our-services/accountants-bookkeepers",
-        shortTitle: "Accountants & Bookkeepers"
-      },
-      {
-        title: "Tax, Audit & Compliance",
-        subtitle: "REGULATORY COMPLIANCE",
-        description: "Specialized assistance for tax preparation, compliance reviews and audit processes.",
-        icon: Shield,
-        href: "/our-services/tax-audit-compliance",
-        shortTitle: "Tax, Audit & Compliance"
+        href: "/our-services/accounting-tax-compliance",
+        shortTitle: "Accounting, Tax & Compliance"
       },
       {
         title: "HR & People Professionals",
@@ -88,32 +80,24 @@ export const navData = [
         href: "/our-services/hr-people-professionals",
         shortTitle: "HR & People Professionals"
       },
-      // Row 2: Virtual Assistants & Administration | IT, Software & AI | Automation & Systems
+      // Row 2: Virtual Assistants & Fractional Executives | IT, Software, AI & Automation
       {
-        title: "Virtual Assistants & Administration",
-        subtitle: "RELIABLE SUPPORT",
-        description: "Practical administration tailored to keep operations smooth.",
+        title: "Virtual Assistants & Fractional Executives",
+        subtitle: "ADMIN & LEADERSHIP",
+        description: "Dedicated administrative support and high-impact fractional executive leadership.",
         icon: Building2,
-        href: "/our-services/virtual-assistants-administration",
-        shortTitle: "Virtual Assistants & Administration"
+        href: "/our-services/virtual-assistants-fractional-executives",
+        shortTitle: "Virtual Assistants & Executives"
       },
       {
-        title: "IT, Software & AI",
-        subtitle: "TECH FOR GROWTH",
-        description: "Reliable tech support for modern digital systems and AI.",
+        title: "IT, Software, AI & Automation",
+        subtitle: "TECH & AUTOMATION",
+        description: "Specialist software development, systems integration and automated workflows.",
         icon: Monitor,
-        href: "/our-services/technology-professionals",
-        shortTitle: "IT, Software & AI"
+        href: "/our-services/technology-automation-professionals",
+        shortTitle: "IT, Software, AI & Automation"
       },
-      {
-        title: "Automation & Systems",
-        subtitle: "SMARTER WORKFLOWS",
-        description: "Smarter processes and practical workflow optimization.",
-        icon: Zap,
-        href: "/our-services/automation-systems-professionals",
-        shortTitle: "Automation & Systems"
-      },
-      // Row 3: Marketing & Creative Professionals | Virtual & Fractional Executives
+      // Row 3: Marketing & Creative Professionals
       {
         title: "Marketing & Creative Professionals",
         subtitle: "STRENGTHENS BRAND",
@@ -121,14 +105,6 @@ export const navData = [
         icon: Megaphone,
         href: "/our-services/marketing-creative-professionals",
         shortTitle: "Marketing & Creative Professionals"
-      },
-      {
-        title: "Virtual & Fractional Executives",
-        subtitle: "STRATEGIC LEADERSHIP",
-        description: "Senior-level business guidance without a full-time executive.",
-        icon: Target,
-        href: "/our-services/virtual-fractional-executives",
-        shortTitle: "Virtual & Fractional Executives"
       }
     ],
     bottomBar: {

@@ -2,16 +2,18 @@ import Image from "next/image";
 
 export default function HowWeCanSupport() {
   const supports = [
-    "Bookkeeping",
-    "Transaction recording",
-    "Bank reconciliations",
-    "Accounts payable",
-    "Accounts receivable",
-    "Payroll administration",
-    "Month-end support",
-    "Financial data preparation",
-    "Management reporting support",
-    "Finance administration"
+    "Bookkeeping & transaction recording",
+    "Bank & ledger reconciliations",
+    "Accounts payable & receivable management",
+    "Payroll administration & month-end support",
+    "Financial statement compilations",
+    "Tax return workpaper preparation",
+    "BAS, IAS & GST reconciliation",
+    "Statutory audit file preparation",
+    "Regulatory & ASIC compliance support",
+    "Internal controls & process reviews",
+    "Year-end tax adjustments & schedules",
+    "Payroll tax & FBT calculation support"
   ];
 
   return (
@@ -21,7 +23,7 @@ export default function HowWeCanSupport() {
           What These Professionals Can Support
         </h2>
         <p className="text-gray-600 text-sm md:text-base">
-          Depending on qualifications, experience and the position, responsibilities may include:
+          Depending on qualifications, experience, and your operational workflows, responsibilities may include:
         </p>
       </div>
       

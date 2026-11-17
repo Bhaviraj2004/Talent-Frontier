@@ -7,18 +7,28 @@ export default function SupportingBetterOrganisation() {
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 leading-tight">
           Professionals We Can<br />Help You Find
         </h2>
-        <ul className="text-gray-800 mb-6 max-w-lg text-[15px] list-disc pl-5 space-y-2">
-          <li>Accountants</li>
-          <li>Bookkeepers</li>
-          <li>Assistant Accountants</li>
-          <li>Management Accountants</li>
-          <li>Finance Assistants</li>
-          <li>Accounts Payable Officers</li>
-          <li>Accounts Receivable Officers</li>
-          <li>Payroll Officers</li>
-          <li>Finance Administrators</li>
-          <li>Financial Reporting Professionals</li>
-        </ul>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-gray-800 mb-6 max-w-lg text-[14px] sm:text-[15px]">
+          <ul className="list-disc pl-5 space-y-2">
+            <li>Accountants</li>
+            <li>Bookkeepers</li>
+            <li>Assistant Accountants</li>
+            <li>Management Accountants</li>
+            <li>Finance Assistants</li>
+            <li>Accounts Payable Officers</li>
+            <li>Accounts Receivable Officers</li>
+            <li>Payroll Officers</li>
+          </ul>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>Tax Accountants & Preparers</li>
+            <li>Audit Assistants & Associates</li>
+            <li>BAS, IAS & GST Specialists</li>
+            <li>Regulatory & ASIC Officers</li>
+            <li>Internal Compliance Analysts</li>
+            <li>Financial Statement Compilers</li>
+            <li>Year-End Tax Coordinators</li>
+            <li>Financial Reporting Specialists</li>
+          </ul>
+        </div>
       </div>
       <div className="w-full md:w-1/2 relative aspect-[780/300] md:aspect-auto md:h-[340px] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100">
         <Image

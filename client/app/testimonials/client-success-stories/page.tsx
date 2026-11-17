@@ -4,22 +4,20 @@ import SupportShaped from "../../components/sub pages/Testimonials sub/Client Su
 import FeaturedStory from "../../components/sub pages/Testimonials sub/Client Success Stories/FeaturedStory";
 import MoreStoriesGrid from "../../components/sub pages/Testimonials sub/Client Success Stories/MoreStoriesGrid";
 import ClientPerspective from "../../components/sub pages/Testimonials sub/Client Success Stories/ClientPerspective";
-import HowWeSupport from "../../components/sub pages/Testimonials sub/Client Success Stories/HowWeSupport";
 import FacingChallenge from "../../components/sub pages/Testimonials sub/Client Success Stories/FacingChallenge";
 
 export default function ClientSuccessStoriesPage() {
   return (
     <>
-            <main className="min-h-screen bg-white font-sans text-[#1a2332]">
+      <main className="min-h-screen bg-white font-sans text-[#1a2332]">
         <HeroSection />
         <RealChallenges />
         <SupportShaped />
         <FeaturedStory />
         <MoreStoriesGrid />
         <ClientPerspective />
-        <HowWeSupport />
         <FacingChallenge />
       </main>
-          </>
+    </>
   );
 }

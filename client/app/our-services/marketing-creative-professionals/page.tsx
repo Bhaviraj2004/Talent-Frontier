@@ -14,8 +14,8 @@ export default function MarketingCreativeProfessionalsPage() {
   return (
     <main className="min-h-screen bg-white">
       <HeroSection />
-      <CreativeAndMarketing />
       <ConsistentCommunication />
+      <CreativeAndMarketing />
       <HowWeCanSupport />
       <CTASection />
     </main>

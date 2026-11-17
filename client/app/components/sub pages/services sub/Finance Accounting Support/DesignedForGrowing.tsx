@@ -1,10 +1,10 @@
 export default function DesignedForGrowing() {
   const items = [
     { title: "SMEs", subtitle: "Growing businesses" },
-    { title: "Accounting & Bookkeeping", subtitle: "Practices & firms" },
+    { title: "Accounting Practices", subtitle: "CA/CPA firms" },
     { title: "Growing Teams", subtitle: "Finance departments" },
     { title: "Transaction Volumes", subtitle: "Increasing records" },
-    { title: "Finance Workflows", subtitle: "Process improvement" },
+    { title: "Tax & Compliance", subtitle: "Statutory readiness" },
     { title: "Recurring Admin", subtitle: "Daily coordination" }
   ];
 
@@ -13,7 +13,7 @@ export default function DesignedForGrowing() {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
         <div className="w-full lg:w-1/4 text-center lg:text-left">
           <h2 className="text-2xl sm:text-3xl font-bold leading-tight tracking-tight">
-            Designed for Growing<br className="hidden sm:inline" /> Finance Requirements
+            Designed for Growing<br className="hidden sm:inline" /> Finance & Compliance
           </h2>
         </div>
         <div className="w-full lg:w-3/4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">

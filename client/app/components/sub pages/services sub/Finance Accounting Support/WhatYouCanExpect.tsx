@@ -1,9 +1,9 @@
 export default function WhatYouCanExpect() {
   const points = [
     { id: '01', title: 'Organised Information', desc: 'Clear, structured records and accessible documentation.' },
-    { id: '02', title: 'Consistent Workflows', desc: 'Repeatable, standardized processes across your business.' },
+    { id: '02', title: 'Consistent Workflows', desc: 'Repeatable, standardized accounting and compliance workflows.' },
     { id: '03', title: 'Clear Accountability', desc: 'Transparent approvals and defined team responsibilities.' },
-    { id: '04', title: 'Reliable Coordination', desc: 'Dependable day-to-day administrative support.' }
+    { id: '04', title: 'Reliable Coordination', desc: 'Dependable day-to-day administrative and tax readiness support.' }
   ];
 
   return (

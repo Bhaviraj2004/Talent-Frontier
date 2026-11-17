@@ -7,16 +7,16 @@ export default function CTASection() {
       <div className="w-full md:w-1/2 bg-[#08154a] text-white p-12 md:p-20 flex flex-col justify-center relative">
         <div className="max-w-lg relative z-10 lg:ml-auto">
           <h2 className="text-3xl md:text-[36px] lg:text-[42px] font-bold mb-4 leading-tight pr-4">
-            Tell Us the Skills You Need
+            Scale Your Tech Stack & Automate Workflows
           </h2>
           <p className="mb-10 text-blue-100 text-[15px] pr-4 leading-relaxed">
-            From a specific development stack to broader IT support requirements, tell us what capabilities your position requires.
+            From dedicated software developers and cloud engineers to CRM integration and workflow automation specialists, tell us what capabilities your team needs.
           </p>
           <Link 
             href="/contact"
             className="inline-block border border-white hover:bg-white/10 active:bg-white/20 active:scale-[0.98] active:brightness-110 text-white px-8 py-3 rounded-sm text-[15px] font-semibold transition-all w-fit text-center"
           >
-            Find Technology Talent
+            Find Tech & Automation Talent
           </Link>
         </div>
         {/* Right side triangle detail based on image */}

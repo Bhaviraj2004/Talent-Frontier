@@ -7,13 +7,13 @@ export default function StructuredSupport() {
       <div className="w-full md:w-1/2 bg-[#091535] text-white p-12 md:p-20 flex flex-col justify-center">
         <div className="max-w-xl">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-            Build Your Finance Team with the Right Professionals
+            Build Your Finance, Tax & Compliance Team
           </h2>
           <p className="text-gray-300 mb-4 max-w-sm text-sm leading-relaxed">
-            Accurate financial administration depends on having capable people behind the numbers.
+            Accurate financial administration, audit readiness, and statutory compliance depend on having capable, meticulous professionals behind the numbers.
           </p>
           <p className="text-gray-300 mb-10 max-w-sm text-sm leading-relaxed">
-            Talent Frontier helps Australian businesses identify accounting and finance professionals based on their role requirements and required experience.
+            Talent Frontier connects Australian businesses and accounting practices with dedicated accounting, bookkeeping, tax, and compliance specialists who streamline documentation, maintain audit-ready accuracy, and keep workflows moving.
           </p>
         </div>
       </div>

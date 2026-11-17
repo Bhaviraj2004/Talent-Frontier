@@ -5,7 +5,7 @@ export default function SupportingBetterOrganisation() {
     <section className="w-full max-w-7xl mx-auto px-4 py-20 flex flex-col md:flex-row items-center gap-16">
       <div className="w-full md:w-1/2">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 leading-tight">
-          Specialists We Can<br />Help You Find
+          Professionals We Can<br />Help You Find
         </h2>
         <ul className="text-gray-800 mb-6 max-w-lg text-[15px] list-disc pl-5 space-y-2">
           <li>Tax Accountants & Workpaper Preparers</li>

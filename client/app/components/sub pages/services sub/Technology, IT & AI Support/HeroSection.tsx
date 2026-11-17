@@ -6,7 +6,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/sub pages/Services/Technology, IT & AI Support/Hero Image.png"
-          alt="Technology, IT & AI Support"
+          alt="Technology, Software, AI & Automation Support"
           fill
           className="object-cover object-center"
           priority
@@ -20,7 +20,7 @@ export default function HeroSection() {
           TALENT FRONTIER
         </p>
         <h1 className="text-base sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight max-w-4xl mx-auto drop-shadow-md">
-          IT, Software & AI Professionals
+          IT, Software, AI & Automation
         </h1>
       </div>
     </section>

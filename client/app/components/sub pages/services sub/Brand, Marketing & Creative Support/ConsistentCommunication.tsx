@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function ConsistentCommunication() {
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 pb-20 flex flex-col md:flex-row items-center gap-16">
+    <section className="w-full max-w-7xl mx-auto px-4 py-16 md:py-20 flex flex-col md:flex-row items-center gap-16">
       <div className="w-full md:w-[45%]">
         <h2 className="text-3xl md:text-[34px] font-bold mb-6 text-[#091535] leading-tight pr-4">
           Professionals We Can Help You Find

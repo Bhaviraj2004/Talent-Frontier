@@ -6,7 +6,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/sub pages/Services/Finance & Accounting Support/Hero Image — Finance team.png"
-          alt="Finance & Accounting Support"
+          alt="Finance, Accounting, Tax & Compliance Support"
           fill
           className="object-cover object-center"
           priority
@@ -20,7 +20,7 @@ export default function HeroSection() {
           TALENT FRONTIER
         </p>
         <h1 className="text-base sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight max-w-4xl mx-auto drop-shadow-md">
-          Accountants & Bookkeepers
+          Accountants, Bookkeepers, Tax & Compliance
         </h1>
       </div>
     </section>

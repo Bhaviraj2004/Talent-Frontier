@@ -6,7 +6,7 @@ export default function ImportantServiceBoundaries() {
           Important Positioning
         </h2>
         <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-          Talent Frontier helps businesses find finance and accounting professionals. The professional's responsibilities should be determined according to their qualifications, experience, role and applicable Australian requirements.
+          Talent Frontier connects Australian businesses and accounting practices with skilled accounting, bookkeeping, tax, audit, and compliance professionals. All professional tasks are performed under the direction, supervision, and approval of your qualified leadership, CPA/CA practitioners, or registered tax agents in accordance with applicable Australian regulatory requirements.
         </p>
       </div>
     </section>

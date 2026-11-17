@@ -16,8 +16,8 @@ export default function HRPeopleProfessionalsPage() {
   return (
     <main className="flex flex-col w-full overflow-hidden bg-white">
       <HeroSection />
-      <PracticalSupport />
       <OrganisedWorkplace />
+      <PracticalSupport />
       <HowWeCanSupport />
       <SupportThatGrows />
       <WhatYouCanExpect />
