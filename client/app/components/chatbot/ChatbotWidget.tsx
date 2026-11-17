@@ -21,21 +21,29 @@ export default function ChatbotWidget() {
         }
       `}</style>
       <div className="relative">
-        {/* Side Message Bubble */}
+        {/* Side Message Bubble - Step 0 Hover Teaser */}
         {!isOpen && showMessage && (
           <div 
-            className="absolute right-full mr-4 bottom-1/2 transform translate-y-1/2 w-max bg-white text-[#0A2540] text-sm font-medium py-3 px-4 rounded-2xl shadow-[0_8px_25px_rgba(0,0,0,0.12)] border border-gray-100 flex items-center gap-2 cursor-pointer transition-all hover:shadow-[0_8px_30px_rgba(0,0,0,0.18)] z-50" 
+            className="absolute right-full mr-3 bottom-0 w-[270px] sm:w-[290px] bg-white text-[#0A2540] text-[13px] py-3 px-3.5 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.15)] border border-gray-100 cursor-pointer transition-all hover:shadow-[0_12px_35px_rgba(0,0,0,0.2)] hover:border-blue-100 z-50" 
             onClick={() => { setIsOpen(true); setShowMessage(false); }}
           >
-            <span>Hi, how can I help you?</span>
-            <button 
-              onClick={(e) => { e.stopPropagation(); setShowMessage(false); }}
-              className="text-gray-400 hover:text-gray-700 transition-colors ml-1 p-1 rounded-full hover:bg-gray-100"
-            >
-              <X size={14} />
-            </button>
+            <div className="flex items-start justify-between gap-1 mb-1">
+              <span className="font-bold text-[#005B82] text-[13px] leading-tight">
+                Need skilled Australian accounting staff?
+              </span>
+              <button 
+                onClick={(e) => { e.stopPropagation(); setShowMessage(false); }}
+                className="text-gray-400 hover:text-gray-700 transition-colors p-0.5 rounded-full hover:bg-gray-100 shrink-0"
+                aria-label="Dismiss teaser"
+              >
+                <X size={14} />
+              </button>
+            </div>
+            <p className="text-gray-600 text-[12px] leading-snug">
+              We help Aussie firms &amp; businesses hire vetted tax, bookkeeping, and finance talent. <span className="text-[#007ba8] font-semibold underline underline-offset-2">Click to chat!</span>
+            </p>
             {/* Arrow pointer */}
-            <div className="absolute top-1/2 -right-[6px] w-3 h-3 bg-white border-t border-r border-gray-100 transform -translate-y-1/2 rotate-45 rounded-tr-[2px]"></div>
+            <div className="absolute bottom-4 -right-[6px] w-3 h-3 bg-white border-t border-r border-gray-100 transform rotate-45 rounded-tr-[2px]"></div>
           </div>
         )}
 

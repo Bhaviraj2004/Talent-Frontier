@@ -8,6 +8,30 @@ interface ChatMessageListProps {
   onOptionClick: (label: string, action: string) => void;
 }
 
+const renderFormattedText = (text: string) => {
+  const lines = text.split('\n');
+  return lines.map((line, lIdx) => {
+    if (!line.trim()) {
+      return <span key={lIdx} className="block h-2" />;
+    }
+    const parts = line.split(/(\*\*[^*]+\*\*)/g);
+    return (
+      <span key={lIdx} className="block">
+        {parts.map((part, pIdx) => {
+          if (part.startsWith('**') && part.endsWith('**')) {
+            return (
+              <strong key={pIdx} className="font-bold text-[#0c2438]">
+                {part.slice(2, -2)}
+              </strong>
+            );
+          }
+          return part;
+        })}
+      </span>
+    );
+  });
+};
+
 export default function ChatMessageList({
   messages,
   messagesEndRef,
@@ -36,8 +60,8 @@ export default function ChatMessageList({
                 }`}
               >
                 {msg.isError && <AlertCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />}
-                <div className="flex-1">
-                  <p>{msg.text}</p>
+                <div className="flex-1 text-[13.5px] leading-relaxed">
+                  {renderFormattedText(msg.text)}
                   <div className={`text-[10px] mt-1.5 flex items-center justify-end ${msg.sender === 'user' ? 'text-[#667781]' : msg.isError ? 'text-red-400' : 'text-[#8696a0]'}`}>
                     Just now {msg.sender === 'user' && <CheckCircle2 className="w-[14px] h-[14px] ml-1 text-[#53bdeb]" />}
                   </div>

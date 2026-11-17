@@ -15,6 +15,7 @@ export type FormDataState = {
   name: string;
   email: string;
   phone: string;
+  notes: string;
   contactMethod: string;
   query: string;
 };
@@ -97,6 +98,14 @@ export const validatePhone = (phone: string): ValidationResult => {
   return { isValid: true };
 };
 
+export const validateNotes = (notes: string): ValidationResult => {
+  const trimmed = (notes || '').trim();
+  if (!trimmed) {
+    return { isValid: false, error: 'Please enter your message or hiring needs.' };
+  }
+  return { isValid: true };
+};
+
 export const validateQuery = (query: string): ValidationResult => {
   const trimmed = (query || '').trim();
   if (!trimmed) {
@@ -109,6 +118,7 @@ export const FIELD_VALIDATORS: Partial<Record<keyof FormDataState, FieldValidato
   name: validateName,
   email: validateEmail,
   phone: validatePhone,
+  notes: validateNotes,
   query: validateQuery
 };
 
@@ -127,142 +137,162 @@ export const validateField = (
 };
 
 // ==========================================
-// CHAT FLOW CONVERSATION TREE
+// TALENT FRONTIER STRICT 4 -> 4 -> 4 -> 2 CHAT FLOW
 // ==========================================
 
 export const FLOW: Record<string, FlowNode> = {
+  // ----------------------------------------------------
+  // Level 1: Welcome Greeting (On Icon Click – 4 Options)
+  // ----------------------------------------------------
   init: {
-    text: "Hi, welcome to Talent Frontier.\n\nHow can we help you today?",
+    text: "G’day! Welcome to **Talent Frontier Pty Ltd**. We specialise in sourcing vetted accounting and finance professionals for Australian businesses.\n\nHow can we help you today?",
     options: [
-      { label: "Grow my business", action: "grow_business" },
-      { label: "Improve my operations", action: "improve_ops" },
-      { label: "Explore how you can help", action: "explore_help" },
-      { label: "Find your business talent", action: "find_business_talent" },
-      { label: "Other", action: "other_help" }
-    ]
-  },
-  find_business_talent: {
-    text: "Finding the right talent is crucial for growth. We specialize in sourcing top-tier professionals across various domains.\n\nWhich area are you looking to hire for?",
-    options: [
-      { label: "Executive & Leadership", action: "talent_specific" },
-      { label: "IT & AI Experts", action: "talent_specific" },
-      { label: "Marketing & HR", action: "talent_specific" },
-      { label: "Other", action: "talent_specific" }
-    ]
-  },
-  talent_specific: {
-    text: "We have a strong network of professionals in this area. We can help you connect with candidates whose experience and aspirations align perfectly with your needs.\n\nWould you like to speak to our team?",
-    options: [
-      { label: "Yes, let's connect", action: "transition_to_contact" },
-      { label: "Go back", action: "init" }
+      { label: "Hire Accounting Staff", action: "hire_staff" },
+      { label: "Scale My Accounting Firm", action: "scale_firm" },
+      { label: "Explore Our Services", action: "explore_services" },
+      { label: "General Enquiry / Other", action: "general_enquiry" }
     ]
   },
 
-  grow_business: {
-    text: "Great. What are you mainly looking to achieve?",
+  // ----------------------------------------------------
+  // Level 2 Branches (4 Options under each)
+  // ----------------------------------------------------
+
+  // Path A: Hire Accounting Staff
+  hire_staff: {
+    text: "We connect Australian businesses with vetted professionals trained in local tax and accounting standards.\n\n**Which role are you looking to hire for?**",
     options: [
-      { label: "Scale the business", action: "focus_first" },
-      { label: "Improve performance", action: "focus_first" },
-      { label: "Build better processes", action: "focus_first" },
-      { label: "Other", action: "focus_first" }
+      { label: "Tax & Business Services Accountants", action: "timeline_setup" },
+      { label: "Bookkeepers & Payroll Officers", action: "timeline_setup" },
+      { label: "Audit & SMSF Specialists", action: "timeline_setup" },
+      { label: "CFO & Financial Controllers", action: "timeline_setup" }
     ]
   },
-  focus_first: {
-    text: "What would you like to focus on first?",
+
+  // Path B: Scale My Accounting Firm
+  scale_firm: {
+    text: "We help Australian practices grow profitably without local talent bottlenecks.\n\n**What is your main priority right now?**",
     options: [
-      { label: "People & Operations", action: "transition_to_contact" },
-      { label: "Technology & AI", action: "transition_to_contact" },
-      { label: "Finance", action: "transition_to_contact" },
-      { label: "Other", action: "transition_to_contact" }
+      { label: "Clear tax & BAS compliance backlogs", action: "timeline_setup" },
+      { label: "Build a dedicated offshore team", action: "timeline_setup" },
+      { label: "Reduce staffing & overhead costs", action: "timeline_setup" },
+      { label: "Free up partners for advisory work", action: "timeline_setup" }
     ]
   },
-  improve_ops: {
-    text: "Absolutely. Where are you seeing the biggest opportunity?",
+
+  // Path C: Explore Our Services
+  explore_services: {
+    text: "**Talent Frontier Pty Ltd** provides end-to-end accounting staffing solutions tailored for Australia.\n\n**What would you like to know more about?**",
     options: [
-      { label: "Processes & Automation", action: "transition_to_contact" },
-      { label: "People & Operations", action: "transition_to_contact" },
-      { label: "Technology", action: "transition_to_contact" },
-      { label: "Other", action: "transition_to_contact" }
+      { label: "How our staffing model works", action: "timeline_setup" },
+      { label: "Candidate vetting & Australian compliance", action: "timeline_setup" },
+      { label: "Supported software (Xero, MYOB, BGL)", action: "timeline_setup" },
+      { label: "Pricing & engagement models", action: "timeline_setup" }
     ]
   },
-  explore_help: {
-    text: "Of course. I can show you how Talent Frontier supports businesses across different areas.",
+
+  // Path D: General Enquiry / Other
+  general_enquiry: {
+    text: "No worries at all.\n\n**Which of these best describes your enquiry?**",
     options: [
-      { label: "What do you do?", action: "about_us" },
-      { label: "Our services", action: "services" },
-      { label: "How it works", action: "how_it_works" },
-      { label: "Other", action: "transition_to_contact" }
+      { label: "Compare offshore vs. local hiring", action: "timeline_setup" },
+      { label: "Speak directly with a Senior Partner", action: "timeline_setup" },
+      { label: "Looking for a job / career with us", action: "career_enquiry" },
+      { label: "Write a custom enquiry message", action: "custom_enquiry_start" }
     ]
   },
-  about_us: {
-    text: "We help businesses overcome growth hurdles through tailored talent and advisory solutions.",
+
+  // ----------------------------------------------------
+  // Level 3 Refinement (4 Options under every Level 2 choice)
+  // ----------------------------------------------------
+  timeline_setup: {
+    text: "Understood. To help us match the right solution for your business, **which engagement setup or timeline suits you best?**",
     options: [
-      { label: "See Services", action: "services" },
-      { label: "Speak to us", action: "transition_to_contact" }
+      { label: "Dedicated full-time staff (Immediate start)", action: "decision_gate" },
+      { label: "Dedicated full-time staff (Within 1–3 months)", action: "decision_gate" },
+      { label: "Part-time / seasonal compliance support", action: "decision_gate" },
+      { label: "Not sure yet — need expert guidance", action: "decision_gate" }
     ]
   },
-  services: {
-    text: "We offer Executive Search, Leadership Advisory, and Process Optimization.",
+
+  // Career branch for Path D option 3
+  career_enquiry: {
+    text: "Thank you for your interest in joining **Talent Frontier Pty Ltd**. Please send your CV directly to **admin@talentfrontier.com.au** and our recruitment team will review it.",
     options: [
-      { label: "Executive Search", action: "transition_to_contact" },
-      { label: "Leadership Advisory", action: "transition_to_contact" },
-      { label: "Other", action: "transition_to_contact" }
+      { label: "Return to Main Menu", action: "init" }
     ]
   },
-  how_it_works: {
-    text: "We partner closely to map your challenges, deploy expert resources, and measure success.",
-    options: [
-      { label: "Let's start", action: "transition_to_contact" },
-      { label: "I need more info", action: "transition_to_contact" }
-    ]
-  },
-  other_help: {
-    text: "I'd love to learn more. What is your primary challenge right now?",
-    options: [
-      { label: "Finding right talent", action: "transition_to_contact" },
-      { label: "Process inefficiency", action: "transition_to_contact" },
-      { label: "Just exploring", action: "transition_to_contact" }
-    ]
-  },
-  transition_to_contact: {
-    text: "I think I have a good understanding of what you're looking for. To help us connect you with the right person, may I have your full name?",
+
+  // Direct custom enquiry message route (Path D option 4)
+  custom_enquiry_start: {
+    text: "Wonderful. Before we connect you, **may I have your full name?**",
     expects: "name",
     nextAction: "ask_email",
     inputType: "text",
-    placeholder: "Enter your full name (e.g., Bhaviraj Singh)"
+    placeholder: "Enter your full name (e.g., John Smith)"
   },
+
+  // ----------------------------------------------------
+  // Level 4 Decision Gate (2 Options)
+  // ----------------------------------------------------
+  decision_gate: {
+    text: "Thank you! We have a strong network of pre-vetted accounting professionals ready to support Australian businesses like yours.\n\n**If you’re comfortable sharing a few quick details, would you like our Senior Partner to connect with you?**",
+    options: [
+      { label: "Yes, let’s connect", action: "ask_name" },
+      { label: "No thanks, maybe later", action: "end_chat" }
+    ]
+  },
+
+  // ----------------------------------------------------
+  // Level 5: Polite Lead Capture & Custom Enquiry Form
+  // ----------------------------------------------------
+  ask_name: {
+    text: "Wonderful. Before we connect you, **may I have your full name?**",
+    expects: "name",
+    nextAction: "ask_email",
+    inputType: "text",
+    placeholder: "Enter your full name (e.g., John Smith)"
+  },
+
   ask_email: {
-    text: "Thanks! What is your work email address?",
+    text: "Lovely to meet you, **[Name]**! What is the best **email address** for our Senior Partner to reach you on?",
     expects: "email",
     nextAction: "ask_phone",
     inputType: "email",
     placeholder: "Enter your work email (e.g., name@company.com)"
   },
+
   ask_phone: {
-    text: "Got it. And what is your contact number?",
+    text: "Got it. And what is the best **contact number** to reach you on?",
     expects: "phone",
-    nextAction: "contact_method",
+    nextAction: "enquiry_note_choice",
     inputType: "tel",
     placeholder: "Enter your contact number (e.g., +61 400 000 000)"
   },
-  contact_method: {
-    text: "Thank you. How would you like our Senior Partner to reach out to you?",
+
+  enquiry_note_choice: {
+    text: "Would you like to add a brief note or specific requirement for our team before we send this through?",
     options: [
-      { label: "Email", action: "continue_email" },
-      { label: "WhatsApp", action: "continue_whatsapp" },
-      { label: "Phone Call", action: "continue_call" }
+      { label: "Add my thoughts / enquiry details", action: "ask_custom_notes" },
+      { label: "Skip & send details as is", action: "finalize_lead_skip" }
     ]
   },
-  continue_email: {
-    text: "Perfect! We have securely received your details. Our Senior Partner will reach out via Email shortly.\n\nOpening your email client just in case you'd like to send us an additional message right away... (If it didn't open automatically, please email us directly at admin@talentfrontier.com.au)"
+
+  ask_custom_notes: {
+    text: "Please type your message or hiring needs below:",
+    expects: "notes",
+    nextAction: "finalize_lead_notes",
+    inputType: "text",
+    placeholder: "Type your message or hiring needs here..."
   },
-  continue_whatsapp: {
-    text: "Perfect! We have securely received your details. Our Senior Partner will reach out via WhatsApp shortly."
+
+  // Final confirmation
+  final_confirmation: {
+    text: "Thank you, **[Name]**. Your enquiry has been sent to our team at **Talent Frontier Pty Ltd**. A Senior Partner will review your notes and reach out shortly via phone or email.\n\nHave a great day!"
   },
-  continue_call: {
-    text: "Perfect! We have securely received your details. Our Senior Partner will call you shortly."
-  },
+
+  // Step 6: User opted out
   end_chat: {
-    text: "No problem! You can always browse our website or email us directly at admin@talentfrontier.com.au. Have a great day!"
+    text: "No problem at all! Feel free to browse our website anytime, or email us directly at **admin@talentfrontier.com.au** whenever you're ready.\n\nHave a wonderful day!"
   }
 };

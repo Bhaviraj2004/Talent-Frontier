@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { FLOW, Message, validateField } from './chatFlow';
+import { FLOW, Message, FormDataState, validateField } from './chatFlow';
 import ChatHeader from './ChatHeader';
 import ChatMessageList from './ChatMessageList';
 import ChatInputArea from './ChatInputArea';
@@ -22,7 +22,14 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
       placeholder: FLOW.init.placeholder
     }
   ]);
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', contactMethod: 'Email', query: '' });
+  const [formData, setFormData] = useState<FormDataState>({ 
+    name: '', 
+    email: '', 
+    phone: '', 
+    notes: '', 
+    contactMethod: 'Email', 
+    query: '' 
+  });
   const [inputValue, setInputValue] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -31,7 +38,7 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const submitLead = async (data: typeof formData) => {
+  const submitLead = async (data: FormDataState) => {
     try {
       await fetch('/api/chatbot/lead', {
         method: 'POST',
@@ -46,6 +53,36 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
     }
   };
 
+  const sendLeadEmail = (data: FormDataState) => {
+    submitLead(data);
+
+    const formattedQuery = data.query 
+      ? data.query.split(' -> ').map(item => `• ${item}`).join('\n') 
+      : '• General Enquiry';
+
+    const notesSection = data.notes && data.notes.trim()
+      ? `\nAdditional Notes / Requirements:\n"${data.notes.trim()}"\n`
+      : '';
+
+    const bodyRaw = `Dear Talent Frontier Team,\n\nI recently interacted with your website chatbot and would like to formally request further assistance. Below is a summary of my requirements and contact details:\n\n--------------------------------------------------\nContact Details:\n• Name: ${data.name || 'Not provided'}\n• Work Email: ${data.email || 'Not provided'}\n• Contact Number: ${data.phone || 'Not provided'}\n--------------------------------------------------\nSelected Hiring Requirements (Chatbot Selections):\n${formattedQuery}\n${notesSection}--------------------------------------------------\n\nPlease reach out to me at your earliest convenience.\n\nBest regards,\n${data.name || 'User'}`;
+
+    const subject = encodeURIComponent(`Inquiry via Talent Frontier Chatbot - ${data.name || 'Lead'}`);
+    const body = encodeURIComponent(bodyRaw);
+
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=admin@talentfrontier.com.au&su=${subject}&body=${body}`;
+    const mailtoLink = `mailto:admin@talentfrontier.com.au?subject=${subject}&body=${body}`;
+
+    const newWindow = window.open(gmailLink, '_blank', 'noopener,noreferrer');
+    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+      window.location.href = mailtoLink;
+    }
+  };
+
+  const formatBotText = (text: string, currentName?: string) => {
+    const displayName = (currentName || formData.name || '').trim() || 'there';
+    return text.replace(/\[Name\]/g, displayName);
+  };
+
   const handleOptionClick = (optionLabel: string, actionId: string) => {
     const newMessages = [...messages];
     const lastMessage = newMessages[newMessages.length - 1];
@@ -57,46 +94,46 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
     newMessages.push({ id: Date.now().toString(), sender: 'user', text: optionLabel });
     setMessages(newMessages);
 
-    // Save choice to query if it's not a final contact action
-    if (!actionId.startsWith('continue_') && !actionId.startsWith('ask_') && actionId !== 'end_chat') {
-      setFormData(prev => ({ ...prev, query: prev.query ? `${prev.query} -> ${optionLabel}` : optionLabel }));
+    // Save choice to query if it's not a control / contact action
+    const excludedFromQuery = [
+      'ask_name', 
+      'end_chat', 
+      'init', 
+      'decision_gate', 
+      'ask_custom_notes', 
+      'finalize_lead_skip'
+    ];
+    if (!excludedFromQuery.includes(actionId)) {
+      setFormData(prev => ({ 
+        ...prev, 
+        query: prev.query ? `${prev.query} -> ${optionLabel}` : optionLabel 
+      }));
     }
 
-    // Handle final contact methods
-    if (actionId.startsWith('continue_')) {
-      let method = 'Email';
-      if (actionId === 'continue_whatsapp') method = 'WhatsApp';
-      if (actionId === 'continue_call') method = 'Phone Call';
-      
-      setFormData(prev => {
-        const newData = { ...prev, contactMethod: method };
-        submitLead(newData);
-        return newData;
-      });
-      
-      if (actionId === 'continue_email') {
-        const formattedQuery = formData.query 
-          ? formData.query.split(' -> ').map(item => `• ${item}`).join('\n') 
-          : '• General Inquiry';
-
-        const bodyRaw = `Dear Talent Frontier Team,\n\nI recently interacted with your chatbot and would like to formally request further assistance. Below is a summary of my requirements and contact details:\n\n---\nPrimary Interest:\n${formattedQuery}\n\nContact Details:\nName: ${formData.name || 'Not provided'}\nEmail: ${formData.email || 'Not provided'}\nPhone: ${formData.phone || 'Not provided'}\n---\n\nPlease reach out to me at your earliest convenience.\n\nBest regards,\n${formData.name || 'User'}`;
-        
-        const subject = encodeURIComponent(`Inquiry via Talent Frontier Chatbot - ${formData.name || 'User'}`);
-        const body = encodeURIComponent(bodyRaw);
-        
-        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=admin@talentfrontier.com.au&su=${subject}&body=${body}`;
-        const mailtoLink = `mailto:admin@talentfrontier.com.au?subject=${subject}&body=${body}`;
-        
-        const newWindow = window.open(gmailLink, '_blank', 'noopener,noreferrer');
-        if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-          window.location.href = mailtoLink;
+    // If user clicked "Skip & send details as is"
+    if (actionId === 'finalize_lead_skip') {
+      sendLeadEmail(formData);
+      setTimeout(() => {
+        const nextNode = FLOW['final_confirmation'];
+        if (nextNode) {
+          setMessages(prev => [
+            ...prev,
+            {
+              id: Date.now().toString(),
+              sender: 'bot',
+              text: formatBotText(nextNode.text, formData.name),
+              options: nextNode.options
+            }
+          ]);
         }
-      }
+      }, 500);
+      return;
     }
 
-    setTimeout(() => {
-      const nextNode = FLOW[actionId];
-      if (nextNode) {
+    // If user clicked "Return to Main Menu"
+    if (actionId === 'init') {
+      setTimeout(() => {
+        const nextNode = FLOW.init;
         setMessages(prev => [
           ...prev, 
           { 
@@ -110,8 +147,28 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
             placeholder: nextNode.placeholder
           }
         ]);
+      }, 500);
+      return;
+    }
+
+    setTimeout(() => {
+      const nextNode = FLOW[actionId];
+      if (nextNode) {
+        setMessages(prev => [
+          ...prev, 
+          { 
+            id: Date.now().toString(), 
+            sender: 'bot', 
+            text: formatBotText(nextNode.text, formData.name), 
+            options: nextNode.options,
+            nextAction: nextNode.nextAction,
+            expects: nextNode.expects,
+            inputType: nextNode.inputType,
+            placeholder: nextNode.placeholder
+          }
+        ]);
       }
-    }, 600);
+    }, 500);
   };
 
   const handleSendMessage = () => {
@@ -158,20 +215,54 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
     setMessages(newMessages);
     setInputValue("");
     
-    let nextNodeId = 'transition_to_contact'; // default jump if randomly typing
+    let nextNodeId = 'ask_name';
+    let currentName = formData.name;
+    let updatedFormData = { ...formData };
     
     if (lastMessage && lastMessage.sender === 'bot') {
-       if (lastMessage.expects) {
-         setFormData(prev => ({ ...prev, [lastMessage.expects!]: trimmedInput }));
-       } else {
-         setFormData(prev => ({ ...prev, query: prev.query ? `${prev.query} -> ${trimmedInput}` : trimmedInput }));
-       }
-       
-       if (lastMessage.nextAction) {
-         nextNodeId = lastMessage.nextAction;
-       }
+      if (lastMessage.expects) {
+        updatedFormData = { ...formData, [lastMessage.expects]: trimmedInput };
+        setFormData(updatedFormData);
+        if (lastMessage.expects === 'name') {
+          currentName = trimmedInput;
+        }
+      } else {
+        updatedFormData = { 
+          ...formData, 
+          query: formData.query ? `${formData.query} -> ${trimmedInput}` : trimmedInput 
+        };
+        setFormData(updatedFormData);
+      }
+      
+      if (lastMessage.nextAction) {
+        nextNodeId = lastMessage.nextAction;
+      }
     } else {
-       setFormData(prev => ({ ...prev, query: prev.query ? `${prev.query} -> ${trimmedInput}` : trimmedInput }));
+      updatedFormData = { 
+        ...formData, 
+        query: formData.query ? `${formData.query} -> ${trimmedInput}` : trimmedInput 
+      };
+      setFormData(updatedFormData);
+    }
+
+    // If finalizing from notes input
+    if (nextNodeId === 'finalize_lead_notes') {
+      sendLeadEmail(updatedFormData);
+      setTimeout(() => {
+        const nextNode = FLOW['final_confirmation'];
+        if (nextNode) {
+          setMessages(prev => [
+            ...prev,
+            {
+              id: Date.now().toString(),
+              sender: 'bot',
+              text: formatBotText(nextNode.text, currentName),
+              options: nextNode.options
+            }
+          ]);
+        }
+      }, 500);
+      return;
     }
 
     setTimeout(() => {
@@ -182,7 +273,7 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
           { 
             id: Date.now().toString(), 
             sender: 'bot', 
-            text: nextNode.text, 
+            text: formatBotText(nextNode.text, currentName), 
             options: nextNode.options,
             nextAction: nextNode.nextAction,
             expects: nextNode.expects,
@@ -191,7 +282,7 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
           }
         ]);
       }
-    }, 600);
+    }, 500);
   };
 
   const resetChat = () => {
@@ -205,14 +296,21 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
       inputType: FLOW.init.inputType,
       placeholder: FLOW.init.placeholder
     }]);
-    setFormData({ name: '', email: '', phone: '', contactMethod: 'Email', query: '' });
+    setFormData({ 
+      name: '', 
+      email: '', 
+      phone: '', 
+      notes: '', 
+      contactMethod: 'Email', 
+      query: '' 
+    });
   };
 
   if (!isOpen) return null;
 
   const lastBotMessage = [...messages].reverse().find(m => m.sender === 'bot');
   const activeInputType = lastBotMessage?.inputType || 'text';
-  const activePlaceholder = lastBotMessage?.placeholder || "Ask about leadership search...";
+  const activePlaceholder = lastBotMessage?.placeholder || "Type your message here...";
 
   return (
     <div className="absolute bottom-16 right-0 w-[calc(100vw-48px)] sm:w-[400px] h-[calc(100vh-120px)] sm:h-[540px] max-h-[540px] bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.25)] border border-gray-200 overflow-hidden flex flex-col animate-in slide-in-from-bottom-5 fade-in duration-300 origin-bottom-right z-50 font-sans">

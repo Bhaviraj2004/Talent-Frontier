@@ -13,7 +13,7 @@ export default function ChatInputArea({
   setInputValue, 
   onSendMessage,
   inputType = 'text',
-  placeholder = "Ask about leadership search..."
+  placeholder = "Type your message here..."
 }: ChatInputAreaProps) {
   return (
     <div className="bg-white border-t border-gray-100 p-4 z-10">
