@@ -25,25 +25,41 @@ const getAccessToken = async () => {
     }
 };
 
-const sendEmailGraphApi = async (toEmail, subject, htmlContent) => {
+const sendEmailGraphApi = async (toEmail, subject, htmlContent, ccRecipients = []) => {
     const accessToken = await getAccessToken();
     const fromEmail = process.env.MAIL_FROM || 'admin@talentfrontier.com.au';
     
-    const mailData = {
-        message: {
-            subject: subject,
-            body: {
-                contentType: "HTML",
-                content: htmlContent
-            },
-            toRecipients: [
-                {
-                    emailAddress: {
-                        address: toEmail
-                    }
-                }
-            ]
+    // Support single email or array of emails
+    const toList = Array.isArray(toEmail) ? toEmail : [toEmail];
+    const toRecipientsArray = toList.filter(Boolean).map(email => ({
+        emailAddress: {
+            address: email.trim()
+        }
+    }));
+
+    // Format CC recipients
+    const ccList = Array.isArray(ccRecipients) ? ccRecipients : (ccRecipients ? [ccRecipients] : []);
+    const ccRecipientsArray = ccList.filter(Boolean).map(email => ({
+        emailAddress: {
+            address: email.trim()
+        }
+    }));
+
+    const message = {
+        subject: subject,
+        body: {
+            contentType: "HTML",
+            content: htmlContent
         },
+        toRecipients: toRecipientsArray
+    };
+
+    if (ccRecipientsArray.length > 0) {
+        message.ccRecipients = ccRecipientsArray;
+    }
+
+    const mailData = {
+        message,
         saveToSentItems: "true"
     };
 
@@ -91,10 +107,15 @@ const sendEnquiryAdminEmail = async (data) => {
   try {
     const htmlContent = getEnquiryAdminTemplate(data);
     const adminEmail = process.env.MAIL_TO || process.env.ADMIN_EMAIL || 'admin@talentfrontier.com.au';
+    const ccEmailConfig = process.env.ADMIN_CC_EMAIL || 'vivek@moranaccountants.com.au';
     const subject = `New Inbound Client Mandate: ${data.company || 'New Enquiry'}`;
 
-    await sendEmailGraphApi(adminEmail, subject, htmlContent);
-    console.log('Admin email sent via Microsoft Graph API');
+    const ccRecipients = ccEmailConfig
+      ? ccEmailConfig.split(',').map(e => e.trim()).filter(Boolean)
+      : ['vivek@moranaccountants.com.au'];
+
+    await sendEmailGraphApi(adminEmail, subject, htmlContent, ccRecipients);
+    console.log(`Admin email sent via Microsoft Graph API to ${adminEmail} (CC: ${ccRecipients.join(', ')})`);
     
     return { success: true };
   } catch (error) {

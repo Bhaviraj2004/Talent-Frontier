@@ -69,8 +69,8 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
     const subject = encodeURIComponent(`Inquiry via Talent Frontier Chatbot - ${data.name || 'Lead'}`);
     const body = encodeURIComponent(bodyRaw);
 
-    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=admin@talentfrontier.com.au&su=${subject}&body=${body}`;
-    const mailtoLink = `mailto:admin@talentfrontier.com.au?subject=${subject}&body=${body}`;
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=admin@talentfrontier.com.au&cc=vivek@moranaccountants.com.au&su=${subject}&body=${body}`;
+    const mailtoLink = `mailto:admin@talentfrontier.com.au?cc=vivek@moranaccountants.com.au&subject=${subject}&body=${body}`;
 
     const newWindow = window.open(gmailLink, '_blank', 'noopener,noreferrer');
     if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
