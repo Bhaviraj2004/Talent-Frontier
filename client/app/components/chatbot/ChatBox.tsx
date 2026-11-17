@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { FLOW, Message, FormDataState, validateField } from './chatFlow';
+import { FLOW, Message, FormDataState, validateField, GREETING_STATEMENT } from './chatFlow';
 import ChatHeader from './ChatHeader';
 import ChatMessageList from './ChatMessageList';
 import ChatInputArea from './ChatInputArea';
@@ -11,6 +11,11 @@ interface ChatBoxProps {
 
 export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
   const [messages, setMessages] = useState<Message[]>([
+    {
+      id: 'msg-greeting',
+      sender: 'bot',
+      text: GREETING_STATEMENT
+    },
     { 
       id: 'msg-1', 
       sender: 'bot', 
@@ -32,6 +37,7 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
   });
   const [inputValue, setInputValue] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const nameRef = useRef<string>("");
 
   // Auto scroll to bottom
   useEffect(() => {
@@ -64,9 +70,10 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
       ? `\nAdditional Notes / Requirements:\n"${data.notes.trim()}"\n`
       : '';
 
-    const bodyRaw = `Dear Talent Frontier Team,\n\nI recently interacted with your website chatbot and would like to formally request further assistance. Below is a summary of my requirements and contact details:\n\n--------------------------------------------------\nContact Details:\n• Name: ${data.name || 'Not provided'}\n• Work Email: ${data.email || 'Not provided'}\n• Contact Number: ${data.phone || 'Not provided'}\n--------------------------------------------------\nSelected Hiring Requirements (Chatbot Selections):\n${formattedQuery}\n${notesSection}--------------------------------------------------\n\nPlease reach out to me at your earliest convenience.\n\nBest regards,\n${data.name || 'User'}`;
+    const leadName = (data.name || nameRef.current || '').trim();
+    const bodyRaw = `Dear Talent Frontier Team,\n\nI recently interacted with your website chatbot and would like to formally request further assistance. Below is a summary of my requirements and contact details:\n\n--------------------------------------------------\nContact Details:\n• Name: ${leadName || 'Not provided'}\n• Work Email: ${data.email || 'Not provided'}\n• Contact Number: ${data.phone || 'Not provided'}\n--------------------------------------------------\nSelected Hiring Requirements (Chatbot Selections):\n${formattedQuery}\n${notesSection}--------------------------------------------------\n\nPlease reach out to me at your earliest convenience.\n\nBest regards,\n${leadName || 'User'}`;
 
-    const subject = encodeURIComponent(`Inquiry via Talent Frontier Chatbot - ${data.name || 'Lead'}`);
+    const subject = encodeURIComponent(`Inquiry via Talent Frontier Chatbot - ${leadName || 'Lead'}`);
     const body = encodeURIComponent(bodyRaw);
 
     const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=admin@talentfrontier.com.au&cc=vivek@moranaccountants.com.au&su=${subject}&body=${body}`;
@@ -79,8 +86,8 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
   };
 
   const formatBotText = (text: string, currentName?: string) => {
-    const displayName = (currentName || formData.name || '').trim() || 'there';
-    return text.replace(/\[Name\]/g, displayName);
+    const displayName = (currentName || nameRef.current || formData.name || '').trim() || 'there';
+    return text.replace(/\[name\]/gi, displayName);
   };
 
   const handleOptionClick = (optionLabel: string, actionId: string) => {
@@ -99,33 +106,29 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
       'ask_name', 
       'end_chat', 
       'init', 
-      'decision_gate', 
       'ask_custom_notes', 
       'finalize_lead_skip'
     ];
     if (!excludedFromQuery.includes(actionId)) {
-      setFormData(prev => ({ 
-        ...prev, 
-        query: prev.query ? `${prev.query} -> ${optionLabel}` : optionLabel 
+      setFormData(prev => ({
+        ...prev,
+        query: prev.query ? `${prev.query} -> ${optionLabel}` : optionLabel
       }));
     }
 
-    // If user clicked "Skip & send details as is"
+    // Direct submit lead if user clicks "Skip & send details as is"
     if (actionId === 'finalize_lead_skip') {
-      sendLeadEmail(formData);
       setTimeout(() => {
-        const nextNode = FLOW['final_confirmation'];
-        if (nextNode) {
-          setMessages(prev => [
-            ...prev,
-            {
-              id: Date.now().toString(),
-              sender: 'bot',
-              text: formatBotText(nextNode.text, formData.name),
-              options: nextNode.options
-            }
-          ]);
-        }
+        sendLeadEmail(formData);
+
+        setMessages(prev => [
+          ...prev,
+          {
+            id: Date.now().toString(),
+            sender: 'bot',
+            text: formatBotText(FLOW.final_confirmation.text, nameRef.current || formData.name)
+          }
+        ]);
       }, 500);
       return;
     }
@@ -159,7 +162,7 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
           { 
             id: Date.now().toString(), 
             sender: 'bot', 
-            text: formatBotText(nextNode.text, formData.name), 
+            text: formatBotText(nextNode.text, nameRef.current || formData.name), 
             options: nextNode.options,
             nextAction: nextNode.nextAction,
             expects: nextNode.expects,
@@ -178,78 +181,97 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
     const newMessages = [...messages];
     const lastMessage = newMessages[newMessages.length - 1];
 
-    // Validate expected field before advancing
-    if (lastMessage && lastMessage.sender === 'bot' && lastMessage.expects) {
-      const validation = validateField(lastMessage.expects, trimmedInput);
+    // 1. Read expectation from the last message BEFORE clearing it
+    const expectedField = lastMessage?.expects;
+    const nextNodeId = lastMessage?.nextAction;
+    const inputType = lastMessage?.inputType;
+    const placeholder = lastMessage?.placeholder;
+    
+    // Clear the active text input expectation from the current message
+    if (lastMessage && lastMessage.sender === 'bot') {
+      lastMessage.expects = undefined;
+      lastMessage.placeholder = undefined;
+    }
+
+    if (expectedField) {
+      // Validate input strictly
+      const validation = validateField(expectedField, trimmedInput);
       if (!validation.isValid) {
-        // Show user message
-        newMessages.push({ id: Date.now().toString(), sender: 'user', text: trimmedInput });
+        // Show validation error from bot with retry
+        newMessages.push({ 
+          id: Date.now().toString(), 
+          sender: 'user', 
+          text: trimmedInput 
+        });
+        newMessages.push({
+          id: (Date.now() + 1).toString(),
+          sender: 'bot',
+          text: validation.error || "Please check your input and try again.",
+          isError: true,
+          expects: expectedField,
+          nextAction: nextNodeId,
+          inputType: inputType,
+          placeholder: placeholder
+        });
         setMessages(newMessages);
         setInputValue("");
-
-        // Respond with friendly validation error & retain expects/nextAction
-        setTimeout(() => {
-          setMessages(prev => [
-            ...prev,
-            {
-              id: (Date.now() + 1).toString(),
-              sender: 'bot',
-              text: validation.error || "Please enter valid information to proceed.",
-              expects: lastMessage.expects,
-              nextAction: lastMessage.nextAction,
-              inputType: lastMessage.inputType,
-              placeholder: lastMessage.placeholder,
-              isError: true
-            }
-          ]);
-        }, 500);
         return;
       }
     }
-    
-    if (lastMessage && lastMessage.sender === 'bot') {
-      lastMessage.options = undefined;
-    }
-    
+
+    // Input is valid: record user message
     newMessages.push({ id: Date.now().toString(), sender: 'user', text: trimmedInput });
     setMessages(newMessages);
     setInputValue("");
-    
-    let nextNodeId = 'ask_name';
-    let currentName = formData.name;
+
     let updatedFormData = { ...formData };
-    
-    if (lastMessage && lastMessage.sender === 'bot') {
-      if (lastMessage.expects) {
-        updatedFormData = { ...formData, [lastMessage.expects]: trimmedInput };
-        setFormData(updatedFormData);
-        if (lastMessage.expects === 'name') {
-          currentName = trimmedInput;
-        }
-      } else {
-        updatedFormData = { 
-          ...formData, 
-          query: formData.query ? `${formData.query} -> ${trimmedInput}` : trimmedInput 
-        };
-        setFormData(updatedFormData);
-      }
-      
-      if (lastMessage.nextAction) {
-        nextNodeId = lastMessage.nextAction;
-      }
-    } else {
-      updatedFormData = { 
-        ...formData, 
-        query: formData.query ? `${formData.query} -> ${trimmedInput}` : trimmedInput 
+    let currentName = nameRef.current || formData.name;
+
+    if (expectedField) {
+      updatedFormData = {
+        ...updatedFormData,
+        [expectedField]: trimmedInput
       };
       setFormData(updatedFormData);
+      if (expectedField === 'name') {
+        currentName = trimmedInput;
+        nameRef.current = trimmedInput;
+      }
     }
 
-    // If finalizing from notes input
+    // If finalizing lead notes
     if (nextNodeId === 'finalize_lead_notes') {
-      sendLeadEmail(updatedFormData);
+      const finalData = {
+        ...updatedFormData,
+        notes: trimmedInput
+      };
+      setFormData(finalData);
+
       setTimeout(() => {
-        const nextNode = FLOW['final_confirmation'];
+        sendLeadEmail(finalData);
+
+        setMessages(prev => [
+          ...prev,
+          {
+            id: Date.now().toString(),
+            sender: 'bot',
+            text: formatBotText(FLOW.final_confirmation.text, currentName)
+          }
+        ]);
+      }, 500);
+      return;
+    }
+
+    // If free typing without expected form action
+    if (!nextNodeId) {
+      setTimeout(() => {
+        const queryText = `Custom Query: "${trimmedInput}"`;
+        const updatedQuery = updatedFormData.query 
+          ? `${updatedFormData.query} -> ${queryText}` 
+          : queryText;
+        setFormData(prev => ({ ...prev, query: updatedQuery }));
+
+        const nextNode = FLOW.decision_gate;
         if (nextNode) {
           setMessages(prev => [
             ...prev,
@@ -286,16 +308,24 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
   };
 
   const resetChat = () => {
-    setMessages([{ 
-      id: Date.now().toString(), 
-      sender: 'bot', 
-      text: FLOW.init.text, 
-      options: FLOW.init.options,
-      nextAction: FLOW.init.nextAction,
-      expects: FLOW.init.expects,
-      inputType: FLOW.init.inputType,
-      placeholder: FLOW.init.placeholder
-    }]);
+    nameRef.current = "";
+    setMessages([
+      {
+        id: 'msg-greeting-' + Date.now(),
+        sender: 'bot',
+        text: GREETING_STATEMENT
+      },
+      { 
+        id: 'msg-init-' + Date.now(), 
+        sender: 'bot', 
+        text: FLOW.init.text, 
+        options: FLOW.init.options,
+        nextAction: FLOW.init.nextAction,
+        expects: FLOW.init.expects,
+        inputType: FLOW.init.inputType,
+        placeholder: FLOW.init.placeholder
+      }
+    ]);
     setFormData({ 
       name: '', 
       email: '', 

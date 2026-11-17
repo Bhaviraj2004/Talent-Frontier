@@ -137,15 +137,17 @@ export const validateField = (
 };
 
 // ==========================================
-// TALENT FRONTIER STRICT 4 -> 4 -> 4 -> 2 CHAT FLOW
+// TALENT FRONTIER STRICT CHAT FLOW
 // ==========================================
+
+export const GREETING_STATEMENT = "G’day! Welcome to **Talent Frontier Pty Ltd**.\nWe specialise in sourcing vetted accounting and finance professionals for Australian businesses.";
 
 export const FLOW: Record<string, FlowNode> = {
   // ----------------------------------------------------
-  // Level 1: Welcome Greeting (On Icon Click – 4 Options)
+  // Level 1: Initial Question (Options attached)
   // ----------------------------------------------------
   init: {
-    text: "G’day! Welcome to **Talent Frontier Pty Ltd**. We specialise in sourcing vetted accounting and finance professionals for Australian businesses.\n\nHow can we help you today?",
+    text: "**How can we help you today?**",
     options: [
       { label: "Hire Accounting Staff", action: "hire_staff" },
       { label: "Scale My Accounting Firm", action: "scale_firm" },
@@ -155,12 +157,12 @@ export const FLOW: Record<string, FlowNode> = {
   },
 
   // ----------------------------------------------------
-  // Level 2 Branches (4 Options under each)
+  // Level 2 Branches (Question 2 – ONLY bold question)
   // ----------------------------------------------------
 
   // Path A: Hire Accounting Staff
   hire_staff: {
-    text: "We connect Australian businesses with vetted professionals trained in local tax and accounting standards.\n\n**Which role are you looking to hire for?**",
+    text: "**Which role are you looking to hire for?**",
     options: [
       { label: "Tax & Business Services Accountants", action: "timeline_setup" },
       { label: "Bookkeepers & Payroll Officers", action: "timeline_setup" },
@@ -171,7 +173,7 @@ export const FLOW: Record<string, FlowNode> = {
 
   // Path B: Scale My Accounting Firm
   scale_firm: {
-    text: "We help Australian practices grow profitably without local talent bottlenecks.\n\n**What is your main priority right now?**",
+    text: "**What is your main priority right now?**",
     options: [
       { label: "Clear tax & BAS compliance backlogs", action: "timeline_setup" },
       { label: "Build a dedicated offshore team", action: "timeline_setup" },
@@ -182,7 +184,7 @@ export const FLOW: Record<string, FlowNode> = {
 
   // Path C: Explore Our Services
   explore_services: {
-    text: "**Talent Frontier Pty Ltd** provides end-to-end accounting staffing solutions tailored for Australia.\n\n**What would you like to know more about?**",
+    text: "**What would you like to know more about?**",
     options: [
       { label: "How our staffing model works", action: "timeline_setup" },
       { label: "Candidate vetting & Australian compliance", action: "timeline_setup" },
@@ -193,7 +195,7 @@ export const FLOW: Record<string, FlowNode> = {
 
   // Path D: General Enquiry / Other
   general_enquiry: {
-    text: "No worries at all.\n\n**Which of these best describes your enquiry?**",
+    text: "**Which of these best describes your enquiry?**",
     options: [
       { label: "Compare offshore vs. local hiring", action: "timeline_setup" },
       { label: "Speak directly with a Senior Partner", action: "timeline_setup" },
@@ -203,10 +205,10 @@ export const FLOW: Record<string, FlowNode> = {
   },
 
   // ----------------------------------------------------
-  // Level 3 Refinement (4 Options under every Level 2 choice)
+  // Level 3 Refinement (Question 3 – ONLY bold question)
   // ----------------------------------------------------
   timeline_setup: {
-    text: "Understood. To help us match the right solution for your business, **which engagement setup or timeline suits you best?**",
+    text: "**Which engagement setup or timeline suits you best?**",
     options: [
       { label: "Dedicated full-time staff (Immediate start)", action: "decision_gate" },
       { label: "Dedicated full-time staff (Within 1–3 months)", action: "decision_gate" },
@@ -233,10 +235,10 @@ export const FLOW: Record<string, FlowNode> = {
   },
 
   // ----------------------------------------------------
-  // Level 4 Decision Gate (2 Options)
+  // Level 4 Decision Gate (Question 4 – ONLY bold question)
   // ----------------------------------------------------
   decision_gate: {
-    text: "Thank you! We have a strong network of pre-vetted accounting professionals ready to support Australian businesses like yours.\n\n**If you’re comfortable sharing a few quick details, would you like our Senior Partner to connect with you?**",
+    text: "**Would you like our Senior Partner to connect with you?**",
     options: [
       { label: "Yes, let’s connect", action: "ask_name" },
       { label: "No thanks, maybe later", action: "end_chat" }
@@ -244,7 +246,7 @@ export const FLOW: Record<string, FlowNode> = {
   },
 
   // ----------------------------------------------------
-  // Level 5: Polite Lead Capture & Custom Enquiry Form
+  // Level 5: Question 5 (With friendly greeting / unbold statement)
   // ----------------------------------------------------
   ask_name: {
     text: "Wonderful. Before we connect you, **may I have your full name?**",
@@ -254,6 +256,9 @@ export const FLOW: Record<string, FlowNode> = {
     placeholder: "Enter your full name (e.g., John Smith)"
   },
 
+  // ----------------------------------------------------
+  // Level 6: Question 6 (With unbold greeting statement)
+  // ----------------------------------------------------
   ask_email: {
     text: "Lovely to meet you, **[Name]**! What is the best **email address** for our Senior Partner to reach you on?",
     expects: "email",

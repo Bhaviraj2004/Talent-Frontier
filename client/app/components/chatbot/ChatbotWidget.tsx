@@ -40,7 +40,7 @@ export default function ChatbotWidget() {
               </button>
             </div>
             <p className="text-gray-600 text-[12px] leading-snug">
-              We help Aussie firms &amp; businesses hire vetted tax, bookkeeping, and finance talent. <span className="text-[#007ba8] font-semibold underline underline-offset-2">Click to chat!</span>
+              We help Australian firms &amp; businesses hire vetted tax, bookkeeping, and finance talent. <span className="text-[#007ba8] font-semibold underline underline-offset-2">Click to chat!</span>
             </p>
             {/* Arrow pointer */}
             <div className="absolute bottom-4 -right-[6px] w-3 h-3 bg-white border-t border-r border-gray-100 transform rotate-45 rounded-tr-[2px]"></div>

@@ -48,7 +48,7 @@ export default function ChatMessageList({
       {messages.map((msg) => (
         <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
 
-          <div className="flex flex-col max-w-[85%]">
+          <div className="flex flex-col max-w-[88%] sm:max-w-[85%]">
             {msg.text && (
               <div 
                 className={`relative p-3 shadow-sm text-[14px] leading-[1.45] ${

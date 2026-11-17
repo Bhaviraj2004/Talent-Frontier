@@ -2,20 +2,16 @@ import HeroSection from "../../components/sub pages/about sub/Our Approach/HeroS
 import BusinessSupportStarts from "../../components/sub pages/about sub/Our Approach/BusinessSupportStarts";
 import UnderstandingBusinessCards from "../../components/sub pages/about sub/Our Approach/UnderstandingBusinessCards";
 import SupportApproachTimeline from "../../components/sub pages/about sub/Our Approach/SupportApproachTimeline";
-import ApproachSteps from "../../components/sub pages/about sub/Our Approach/ApproachSteps";
 import TechnologyEnabled from "../../components/sub pages/about sub/Our Approach/TechnologyEnabled";
 
 export default function OurApproachPage() {
   return (
-    <>
-            <main className="min-h-screen bg-white font-sans text-[#1a2332]">
-        <HeroSection />
-        <BusinessSupportStarts />
-        <UnderstandingBusinessCards />
-        <SupportApproachTimeline />
-        <ApproachSteps />
-        <TechnologyEnabled />
-      </main>
-          </>
+    <main className="min-h-screen bg-white font-sans text-[#1a2332]">
+      <HeroSection />
+      <BusinessSupportStarts />
+      <UnderstandingBusinessCards />
+      <SupportApproachTimeline />
+      <TechnologyEnabled />
+    </main>
   );
 }
