@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import HeroSection from "@/app/components/sub pages/services sub/People & Operations Support/HeroSection";
+import OrganisedWorkplace from "@/app/components/sub pages/services sub/People & Operations Support/OrganisedWorkplace";
 import PracticalSupport from "@/app/components/sub pages/services sub/People & Operations Support/PracticalSupport";
 import HowWeCanSupport from "@/app/components/sub pages/services sub/People & Operations Support/HowWeCanSupport";
 import SupportThatGrows from "@/app/components/sub pages/services sub/People & Operations Support/SupportThatGrows";
@@ -14,6 +15,7 @@ export default function HRPeopleProfessionalsPage() {
   return (
     <main className="flex flex-col w-full overflow-hidden bg-white">
       <HeroSection />
+      <OrganisedWorkplace />
       <PracticalSupport />
       <HowWeCanSupport />
       <SupportThatGrows />

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import HeroSection from "../../components/sub pages/services sub/Technology, IT & AI Support/HeroSection";
+import SolveRealProblems from "../../components/sub pages/services sub/Technology, IT & AI Support/SolveRealProblems";
 import TechnologySupport from "../../components/sub pages/services sub/Technology, IT & AI Support/TechnologySupport";
 import HowWeCanSupport from "../../components/sub pages/services sub/Technology, IT & AI Support/HowWeCanSupport";
 import PracticalAI from "../../components/sub pages/services sub/Technology, IT & AI Support/PracticalAI";
@@ -16,6 +17,7 @@ export default function TechnologyAutomationProfessionalsPage() {
   return (
     <main className="min-h-screen bg-white">
       <HeroSection />
+      <SolveRealProblems />
       <TechnologySupport />
       <HowWeCanSupport />
       <PracticalAI />
