@@ -9,7 +9,7 @@ const submitEnquiry = async (req, res) => {
     // Reference ID logic
     const referenceId = Date.now().toString().slice(-6);
     const year = new Date().getFullYear();
-    const consultationUrl = 'https://talentfrontier.com.au/consultation';
+    const consultationUrl = 'https://www.talentfrontier.com.au/contact';
     const fullName = `${firstName} ${lastName}`;
     const timestamp = new Date().toLocaleString('en-AU', { timeZone: 'Australia/Sydney' });
 

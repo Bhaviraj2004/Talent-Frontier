@@ -279,7 +279,7 @@ export const FLOW: Record<string, FlowNode> = {
     text: "Would you like to add a brief note or specific requirement for our team before we send this through?",
     options: [
       { label: "Add my thoughts / enquiry details", action: "ask_custom_notes" },
-      { label: "Skip & send details as is", action: "finalize_lead_skip" }
+      { label: "Skip & send details", action: "finalize_lead_skip" }
     ]
   },
 

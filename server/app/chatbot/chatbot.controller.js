@@ -1,4 +1,5 @@
 const chatbotService = require('./chatbot.service');
+const { sendChatbotAdminEmail } = require('../services/email.service');
 
 const ask = async (req, res) => {
   try {
@@ -41,7 +42,12 @@ const captureLead = async (req, res) => {
     
     const lead = await chatbotService.saveLead(name, email, phone, query, contactMethod);
     
-    // TODO: Trigger email to admin here
+    // Send email to admin + vivek via Microsoft Graph API
+    try {
+      await sendChatbotAdminEmail({ name, email, phone, query, contactMethod, notes: req.body.notes });
+    } catch (mailErr) {
+      console.error("Chatbot lead email delivery error:", mailErr);
+    }
     
     res.status(201).json({ success: true, message: "Lead captured successfully", lead });
   } catch (error) {

@@ -4,6 +4,8 @@ import ChatHeader from './ChatHeader';
 import ChatMessageList from './ChatMessageList';
 import ChatInputArea from './ChatInputArea';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+
 interface ChatBoxProps {
   isOpen: boolean;
   onClose: () => void;
@@ -46,12 +48,17 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
 
   const submitLead = async (data: FormDataState) => {
     try {
-      await fetch('/api/chatbot/lead', {
+      const leadName = (data.name || nameRef.current || '').trim();
+      await fetch(`${API_URL}/api/chatbot/lead`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          ...data,
-          query: data.query || "General Chatbot Inquiry"
+          name: leadName || 'Website Visitor',
+          email: data.email || '',
+          phone: data.phone || '',
+          query: data.query || "General Chatbot Inquiry",
+          notes: data.notes || '',
+          contactMethod: data.contactMethod || 'Email'
         })
       });
     } catch (err) {
@@ -62,18 +69,18 @@ export default function ChatBox({ isOpen, onClose }: ChatBoxProps) {
   const sendLeadEmail = (data: FormDataState) => {
     submitLead(data);
 
-    const formattedQuery = data.query 
-      ? data.query.split(' -> ').map(item => `• ${item}`).join('\n') 
-      : '• General Enquiry';
+    const leadName = (data.name || nameRef.current || '').trim();
+    const formattedRequirements = data.query
+      ? data.query.split(' -> ').map(item => `  - ${item}`).join('\n')
+      : '  - General Inquiry';
 
-    const notesSection = data.notes && data.notes.trim()
-      ? `\nAdditional Notes / Requirements:\n"${data.notes.trim()}"\n`
+    const notesText = data.notes && data.notes.trim()
+      ? `\nAdditional Message / Requirements:\n"${data.notes.trim()}"\n`
       : '';
 
-    const leadName = (data.name || nameRef.current || '').trim();
-    const bodyRaw = `Dear Talent Frontier Team,\n\nI recently interacted with your website chatbot and would like to formally request further assistance. Below is a summary of my requirements and contact details:\n\n--------------------------------------------------\nContact Details:\n• Name: ${leadName || 'Not provided'}\n• Work Email: ${data.email || 'Not provided'}\n• Contact Number: ${data.phone || 'Not provided'}\n--------------------------------------------------\nSelected Hiring Requirements (Chatbot Selections):\n${formattedQuery}\n${notesSection}--------------------------------------------------\n\nPlease reach out to me at your earliest convenience.\n\nBest regards,\n${leadName || 'User'}`;
+    const bodyRaw = `Hi Talent Frontier Team,\n\nI am reaching out via your website chatbot regarding our accounting and business staffing requirements.\n\nMy Details:\n• Name: ${leadName || 'Website Visitor'}\n• Email: ${data.email || 'Not provided'}\n• Phone: ${data.phone || 'Not provided'}\n\nSelected Requirements:\n${formattedRequirements}\n${notesText}\nPlease feel free to contact me at your earliest convenience.\n\nKind regards,\n${leadName || 'Website Visitor'}`;
 
-    const subject = encodeURIComponent(`Inquiry via Talent Frontier Chatbot - ${leadName || 'Lead'}`);
+    const subject = encodeURIComponent(`Website Chatbot Enquiry from ${leadName || 'Visitor'} - Talent Frontier`);
     const body = encodeURIComponent(bodyRaw);
 
     const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=admin@talentfrontier.com.au&cc=vivek@moranaccountants.com.au&su=${subject}&body=${body}`;
